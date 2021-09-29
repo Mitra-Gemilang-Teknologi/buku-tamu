@@ -28,7 +28,15 @@
 
 @if ($posts->count())
    <div class="card mb-3">
+    @if ($posts[0]->image)
+
+    <div style="max-height:350px; overflow:hidden">
+      <img src="{{ asset('storage/'. $posts[0]->image) }}" alt="{{ $posts[0]->category->name }}"class="img-fluid ">
+    </div>
+    @else
     <img src="https://source.unsplash.com/1200x400?{{ $posts[0]->category->name }}" class="card-img-top" alt="{{ $posts[0]->category->name }}">
+    @endif
+    
     <div class="card-body text-center">
         <a href="/posts/{{ $posts[0]->slug }}" class="text-decoration-none text-dark"><h3 class="card-title">{{ $posts[0]->title }}</h3></a> 
       <p><small class="text-muted">By <a href="/posts?author={{ $posts[0]->author->username }}"class="text-decoration-none">{{ $posts[0]->author->name }}</a> in <a href="/posts?category={{ $posts[0]->category->slug }}" class="text-decoration-none">{{$posts[0]->category->name }} </a>{{ $posts[0]->created_at->diffForHumans() }}</small></p>
@@ -47,7 +55,17 @@
                 {{ $post->category->name }}</a>
               </div> 
               {{-- Posstion absolut untuk muncul ke paling atas --}}
-                <img src="https://source.unsplash.com/500x400?{{ $post->category->name }}" class="card-img-top" alt="{{ $post->category->name }}">
+
+              @if ($post->image)
+
+              <div style="max-height:350px; overflow:hidden">
+                <img src="{{ asset('storage/'. $post->image) }}" alt="{{ $post->category->name }}"class="img-fluid">
+              </div>
+              
+              @else
+              <img src="https://source.unsplash.com/500x400?{{ $post->category->name }}" class="card-img-top" alt="{{ $post->category->name }}">
+              @endif
+               
                 <div class="card-body">
                   <h5 class="card-title text-decoration-none"><a href="/posts/{{ $post->slug }}" class="text-decoration-none text-dark">{{ $post->title}} </a></h5>
                   <p><small class="text-muted">By <a href="/posts?author={{ $post->author->username }}"class="text-decoration-none">{{ $post->author->name }}</a> {{ $post->created_at->diffForHumans() }}</small></p>
