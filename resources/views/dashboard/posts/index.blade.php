@@ -19,6 +19,7 @@
         <tr>
           <th scope="col">#</th>
           <th scope="col">Title</th>
+            <th scope="col">Tag</th>
           <th scope="col">Category</th>
           <th scope="col">Action</th>
         
@@ -31,6 +32,7 @@
               {{-- Menggunakan loop baca di documentasi --}}
             <td>{{ $loop->iteration }}</td> 
             <td>{{ $post->title }}</td>
+             <td>{{ $post->tag }}</td>
             <td>{{ $post->Category->name }}</td>
             <td>
                 <a href="/dashboard/posts/{{ $post->slug }}" class="badge bg-info">  <span data-feather="eye"></span></a>

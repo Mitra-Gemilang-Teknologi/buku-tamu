@@ -58,6 +58,16 @@
         </div>
         @enderror
       </div>
+      
+       <div class="mb-3">
+      <label for="tag" class="form-label">Tag</label>
+      <input type="text" class="form-control  @error('tag') is-invalid @enderror" id="tag" name="tag" required autofocus value="{{old('title',$post->tag) }}">
+      @error('title')
+      <div class="invalid-feedback">
+            {{ $message }}
+          </div>
+      @enderror
+    </div>
     <div class="mb-3">
         <label for="  body" class="form-label">Body</label>
         @error('body')  

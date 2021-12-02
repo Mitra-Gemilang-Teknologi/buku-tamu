@@ -20,18 +20,21 @@ use App\Http\Controllers\RegisterController;
 |
 */
 
-Route::get('/', function () {
-    return view('home',[
-        "title" => "Home",
-         "active" => "Home"
-    ]);
-});
+Route::get('/',[PostController::class,'index']);
+
 Route::get('/about', function () {
     return view('about',[
         "title" => "About",
-        "active" => "About",
-        "name" => "Dani Hidayat",
-        "email" => "danihidayat015@gmail.com"
+        "active" => "About"
+    ]);
+});
+
+
+Route::get('/contact', function () {
+    return view('contact',[
+        "title" => "Contact",
+        "active" => "Contact",
+        
     ]);
 });
 
@@ -71,4 +74,8 @@ Route::GET('/dashboard/posts/checkSlug',[DashboardPostController::class,'checkSl
 
 Route::resource('/dashboard/posts', DashboardPostController::class)->middleware('auth');
 
-Route::resource('/dashboard/categories', DashboardCategory::class)->middleware('auth');
+Route::GET('/dashboard/categories/checkSlug',[DashboardCategory::class,'checkSlug'])->middleware('auth');
+Route::resource('/dashboard/categories', DashboardCategory::class)->middleware('admin');
+Route::get('/tes',function(){
+ 
+});

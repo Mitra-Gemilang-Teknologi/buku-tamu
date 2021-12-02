@@ -1,9 +1,10 @@
-@extends('layouts.main')
-
-
+@extends('layouts.detail')
+  
 @section('container')
 
+
 <div class="container">
+  
     <div class="row justify-content-center mb-3">
         <div class="col-md-8">
             <h1 class="mb-3">{{ $post->title }}</h1>
@@ -17,7 +18,7 @@
               </div>
               
               @else
-              <img src="https://source.unsplash.com/1200x400?{{ $post->category->name }}" alt="{{ $post->category->name }}"class="img-fluid ">
+              <img src="https://source.unsplash.com/1200x400?{{ $post->tag ? $post->tag : $post->category->name }}" alt="{{ $post->tag ? $post->tag : $post->category->name }}"class="img-fluid ">
               @endif
             <article class="my-3 fs-6">
             <p>{!! $post->body!!}</p>

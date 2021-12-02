@@ -50,6 +50,7 @@ class DashboardPostController extends Controller
             'title' => 'required|max:255|min:5',
             'slug' => 'required|unique:posts',
             'image' => 'image|file|max:1024',
+            'tag'  =>   'max:255|min:5',
             'category_id' => 'required',
             'body' =>   'required'
         ]);
@@ -105,6 +106,7 @@ class DashboardPostController extends Controller
         $rules =[
             'title' => 'required|max:255',
             'image' => 'image|file|max:1024',
+            'tag' =>   'max:255',
             'category_id' => 'required',
             'body' =>   'required'
         ];
