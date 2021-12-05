@@ -20,9 +20,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     {{-- my style --}}
     <link rel="stylesheet" href="/css/style.css">
-    <title>Urgent |{{$title}}</title>
+    <title>Kzn |{{$title}}</title>
   </head>
-  <body>
+  <body> 
 @include('partials.navbar')
 
     <div class="container mt-4">

@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\InboxController;
 
 
 /*
@@ -76,6 +77,5 @@ Route::resource('/dashboard/posts', DashboardPostController::class)->middleware(
 
 Route::GET('/dashboard/categories/checkSlug',[DashboardCategory::class,'checkSlug'])->middleware('auth');
 Route::resource('/dashboard/categories', DashboardCategory::class)->middleware('admin');
-Route::get('/tes',function(){
- 
-});
+Route::resource('/inbox', InboxController::class);
+

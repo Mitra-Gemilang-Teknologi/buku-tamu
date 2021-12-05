@@ -7,39 +7,55 @@
 
     <div class="row justify-content-md-center">
       <div class="col-md-7 col-lg-8">
+        @if (session()->has('success'))
+        <div class="alert alert-success col-lg-8" role="alert">
+          {{ session('success') }}
+        </div>
+            
+        @endif
         <h4 class="mb-3 text-center">Contac Us</h4>
-        <form class="needs-validation" novalidate>
+        <form method="POST" action="/inbox" class="mb-5" >
+          @csrf
           <div class="row g-3">
             <div class="col-sm-6">
               <label for="firstName" class="form-label">First name</label>
-              <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+              <input type="text" class="form-control @error('first') is-invalid @enderror"  id="firstName" placeholder="" name="first" value="{{ old('first') }}" required>
+              @error('first')
               <div class="invalid-feedback">
-                Valid first name is required.
-              </div>
+                    {{ $message }}
+                  </div>
+              @enderror
             </div>
 
             <div class="col-sm-6">
               <label for="lastName" class="form-label">Last name</label>
-              <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+              <input type="text"  class="form-control  @error('last') is-invalid @enderror" id="lastName" placeholder=""  name="last" value="{{old('last') }}" required>
+              @error('last')
               <div class="invalid-feedback">
-                Valid last name is required.
-              </div>
+                    {{ $message }}
+                  </div>
+              @enderror
             </div>
 
             <div class="col-12">
               <label for="email" class="form-label">Email <span class="text-muted">(Optional)</span></label>
-              <input type="email" class="form-control" id="email" placeholder="you@example.com">
+              <input type="email" class="form-control  @error('email') is-invalid @enderror" id="email" placeholder="you@example.com"  name="email" value="{{old('email') }}" >
+              @error('email')
               <div class="invalid-feedback">
-                Please enter a valid email address for shipping updates.
+                {{ $message }}
               </div>
+          @enderror
+        </div>
             </div>
 
             <div class="col-12">
-              <label for="address" class="form-label">Address</label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+              <label for="address" class="form-label">Pesan</label>
+              <textarea class="form-control  @error('pesan') is-invalid @enderror" id="exampleFormControlTextarea1"  name="pesan" value="{{old('pesan') }}" rows="3"></textarea>
+              @error('pesan')
               <div class="invalid-feedback">
-                Please enter your shipping address.
+                {{ $message }}
               </div>
+          @enderror
             </div>
 
             <div class="row justify-content-md-center mt-3">
