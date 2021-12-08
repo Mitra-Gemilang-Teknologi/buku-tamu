@@ -38,7 +38,7 @@ class InboxController extends Controller
         $validateData = $request->validate([
             'first' => 'required|max:255|min:2',
             'last' => 'required|max:255|min:2',
-            'email' => 'email:dns',
+            'email' => 'email',
             'pesan' => 'required',
            
         ]);
