@@ -38,7 +38,7 @@
             </div>
 
             <div class="col-12">
-              <label for="email" class="form-label">Email <span class="text-muted">(Optional)</span></label>
+              <label for="email" class="form-label">Email</label>
               <input type="email" class="form-control  @error('email') is-invalid @enderror" id="email" placeholder="you@example.com"  name="email" value="{{old('email') }}" >
               @error('email')
               <div class="invalid-feedback">
