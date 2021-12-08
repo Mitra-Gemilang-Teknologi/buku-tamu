@@ -2,7 +2,7 @@
 @extends('layouts.main')
 
 @section('container')
-<h1 class="mb-5">Posts Categories</h1>
+<h1 class="mb-5">Kategori</h1>
 
     <div class="container">
         <div class="row">
@@ -19,6 +19,7 @@
             </div>
             @endforeach
         </div>
+        @include('partials.footer')
     </div>
 @endsection
 

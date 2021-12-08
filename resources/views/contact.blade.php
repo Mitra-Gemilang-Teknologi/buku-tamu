@@ -13,12 +13,12 @@
         </div>
             
         @endif
-        <h4 class="mb-3 text-center">Contac Us</h4>
+        <h4 class="mb-3 text-center">Kontak Kami</h4>
         <form method="POST" action="/inbox" class="mb-5" >
           @csrf
           <div class="row g-3">
             <div class="col-sm-6">
-              <label for="firstName" class="form-label">First name</label>
+              <label for="firstName" class="form-label">Nama Depan</label>
               <input type="text" class="form-control @error('first') is-invalid @enderror"  id="firstName" placeholder="" name="first" value="{{ old('first') }}" required>
               @error('first')
               <div class="invalid-feedback">
@@ -28,7 +28,7 @@
             </div>
 
             <div class="col-sm-6">
-              <label for="lastName" class="form-label">Last name</label>
+              <label for="lastName" class="form-label">Nama Belakang </label>
               <input type="text"  class="form-control  @error('last') is-invalid @enderror" id="lastName" placeholder=""  name="last" value="{{old('last') }}" required>
               @error('last')
               <div class="invalid-feedback">
@@ -67,7 +67,7 @@
   </main>
 
   <footer class="my-5 pt-5 text-muted text-center text-small">
-    <p class="mb-1">&copy; 2017–2021 Company Name</p>
+    <p class="mb-1">&copy; {{ date('Y') }} Kelas Zaman Now</p>
     <ul class="list-inline">
       <li class="list-inline-item"><a href="#">Privacy</a></li>
       <li class="list-inline-item"><a href="#">Terms</a></li>

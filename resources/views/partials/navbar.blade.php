@@ -1,6 +1,6 @@
-<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: rgb(116, 47, 180)">
+<nav class="navbar navbar-expand-lg navbar-dark bg-warning " >
   <div class="container">
-    <a class="navbar-brand" href="/"><img src="{{ asset('assets/images/favicon.png') }}" style="width: 100px" height="50px" class="card-img-top rounded-3" alt="{{ asset('assets/images/favicon.png') }}"></a>
+    <a class="navbar-brand  fw-bold" href="/">Home</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -10,16 +10,16 @@
           <a class="nav-link {{ ($active === 'Home')? 'active' : '' }}"  href="/">Home</a>
         </li> --}}
         <li class="nav-item">
-          <a class="nav-link {{ ($active === 'About')? 'active' : '' }}" href="/about">About Us</a>
+          <a class="nav-link  fw-bold {{ ($active === 'About')? 'active' : '' }}" href="/about">About Us</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {{ ($active === 'Contact')? 'active' : '' }}" href="/contact">Contact</a>
+          <a class="nav-link  fw-bold {{ ($active === 'Contact')? 'active' : '' }}" href="/contact">Contact</a>
         </li>
+        {{-- <li class="nav-item">
+          <a class="nav-link fw-bold {{ ($active === 'posts')? 'active' : '' }}" href="/posts">Blog</a>
+        </li> --}}
         <li class="nav-item">
-          <a class="nav-link {{ ($active === 'posts')? 'active' : '' }}" href="/posts">Blog</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link {{ ($active === 'Categories')? 'active' : '' }}" href="/categories">Categories</a>
+          <a class="nav-link  fw-bold{{ ($active === 'Categories')? 'active' : '' }}" href="/categories">Categories</a>
         </li>
       </ul>
       {{-- <ul class="navbar-nav ms-auto">
