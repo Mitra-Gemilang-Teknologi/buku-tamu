@@ -1,6 +1,6 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-warning">
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: rgb(43, 0, 83)">
   <div class="container">
-    <a class="navbar-brand" href="/">Home</a>
+    <a class="navbar-brand" href="/"><img src="{{ asset('assets/images/favicon.png') }}" style="width: 100px" height="50px" class="card-img-top rounded-3" alt="{{ asset('assets/images/favicon.png') }}"></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>

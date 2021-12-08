@@ -4,7 +4,7 @@
 
 @section('container')
 
-<img src="{{ asset('assets/images/favicon.png') }}" style="width: 180px" height="150px" class="card-img-top rounded-3" alt="{{ asset('assets/images/favicon.png') }}">
+
 <div class="row justify-content-center mb-3">
   <div class="col-md-6">
     <form action="/posts">

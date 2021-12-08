@@ -13,6 +13,16 @@
         "axios": "^0.21",
         "laravel-mix": "^6.0.6",
         "lodash": "^4.17.19",
+        "node-sass": "^7.0.0",
         "postcss": "^8.1.14"
+    },
+    "name": "myblog",
+    "version": "1.0.0",
+    "main": "index.js",
+    "repository": "https://github.com/DaniHidayat/myblog.git",
+    "author": "Dani Hidayat <danihidayat015@gmail.com>",
+    "license": "MIT",
+    "dependencies": {
+        "bootstrap": "^5.1.3"
     }
 }
