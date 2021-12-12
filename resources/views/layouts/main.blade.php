@@ -12,6 +12,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     {{-- my style --}}
     <link rel="stylesheet" href="/css/style.css">
+
+    {{-- Ads --}}
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4316311840328158"
+     crossorigin="anonymous"></script>
+    
     <title>Kzn |{{$title}}</title>
   </head>
   <body>
