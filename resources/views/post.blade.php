@@ -23,7 +23,7 @@
             <article class="my-3 fs-6">
             <p>{!! $post->body!!}</p>
             </article>
-            <a href="/posts" class="d-block mt-3">Back</a>  
+            <a href="/posts" class="d-block mt-3">Kembali</a>  
         </div>
     </div>
 </div>

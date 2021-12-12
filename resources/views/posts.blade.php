@@ -19,8 +19,8 @@
           
       @endif
       <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="Seacrch.."name="search"value="{{ request('search') }}">
-        <button class="btn btn-warning"  type="submit" id="button-addon2">Seacrh</button>
+        <input type="text" class="form-control" placeholder="Cari.."name="search"value="{{ request('search') }}">
+        <button class="btn btn-warning"  type="submit" id="button-addon2">Cari</button>
       </div>
     </form>
   </div>
@@ -44,7 +44,7 @@
       <p><small class="text-muted">By <a href="/posts?author={{ $posts[0]->author->username }}"class="text-decoration-none">{{ $posts[0]->author->name }}</a> in <a href="/posts?category={{ $posts[0]->category->slug }}" class="text-decoration-none">{{$posts[0]->category->name }} </a>{{ $posts[0]->created_at->diffForHumans() }}</small></p>
       
       <p class="card-text">{{ $posts[0]->excerpt }}</p>
-      <a href="/posts/{{ $posts[0]->slug }}"class="text-decoration-none btn btn-warning">Read more..</a>
+      <a href="/posts/{{ $posts[0]->slug }}"class="text-decoration-none btn btn-warning">Lanjut Baca..</a>
     </div>
    </div>
 
@@ -72,7 +72,7 @@
                   <h5 class="card-title text-decoration-none"><a href="/posts/{{ $post->slug }}" class="text-decoration-none text-dark">{{ $post->title}} </a></h5>
                   <p><small class="text-muted">By <a href="/posts?author={{ $post->author->username }}"class="text-decoration-none">{{ $post->author->name }}</a> {{ $post->created_at->diffForHumans() }}</small></p>
                   <p class="card-text">{{ $post->excerpt }}</p>
-                  <a href="/posts/{{ $post->slug }}" class="btn btn-warning">Read more...</a>
+                  <a href="/posts/{{ $post->slug }}" class="btn btn-warning">Lanjut Baca..</a>
                 </div>
               </div>         
           </div>
@@ -80,7 +80,7 @@
       </div>
    </div>
   @else
-  <p class="text-center fs-4"> No Post found</p>
+  <p class="text-center fs-4">Halaman Tidak di Temukan</p>
   @endif
   <div class="d-flex justify-content-end">
     {{ $posts->links() }}
