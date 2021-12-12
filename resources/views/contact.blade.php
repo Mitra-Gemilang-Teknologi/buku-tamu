@@ -57,7 +57,7 @@
               </div>
           @enderror
             </div>
-            <div class="form-group{{ $errors->has('g-recaptcha-response') ? ' has-error' : '' }}">
+            {{-- <div class="form-group{{ $errors->has('g-recaptcha-response') ? ' has-error' : '' }}">
               <div class="col-md-6">
                   {!! RecaptchaV3::field('register') !!}
                   @if ($errors->has('g-recaptcha-response'))
@@ -66,7 +66,7 @@
                       </span>
                   @endif
               </div>
-          </div>
+          </div> --}}
 
             <div class="row justify-content-md-center mt-3">
               <button class=" btn btn-warning btn-md" type="submit" style="width: 40%">Submit</button>

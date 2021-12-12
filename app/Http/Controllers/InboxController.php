@@ -39,8 +39,8 @@ class InboxController extends Controller
             'first' => 'required|max:255|min:2',
             'last' => 'required|max:255|min:2',
             'email' => 'required|email:dns',
-            'pesan' => 'required',
-            'g-recaptcha-response' => 'required|recaptchav3:register,0.5'
+            'pesan' => 'required'
+            // 'g-recaptcha-response' => 'required|recaptchav3:register,0.5'
            
         ]);
 
