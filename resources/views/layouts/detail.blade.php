@@ -4,6 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google-site-verification" content="obHUBx-zrEj7Jd6xBrd6JszeLtZXEVd7oQV5G79JBxo" />
     <link rel="shortcut icon" href="{{ asset('assets/images/favicon.png') }}">
 
 {{-- SEO --}}
