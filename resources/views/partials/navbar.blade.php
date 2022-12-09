@@ -22,7 +22,7 @@
           <a class="nav-link  fw-bold{{ ($active === 'Categories')? 'active' : '' }}" href="/categories">Kategori</a>
         </li>
       </ul>
-      {{-- <ul class="navbar-nav ms-auto">
+      <ul class="navbar-nav ms-auto">
             @auth
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -46,7 +46,7 @@
               <a   class="nav-link {{ ($active === 'login')? 'active' : '' }}" href="/login"><i class="bi bi-box-arrow-in-right"></i> Login</a>
             </li>
             @endauth
-        </ul> --}}
+        </ul>
     
     </div>
   </div>
