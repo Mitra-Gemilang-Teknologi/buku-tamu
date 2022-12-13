@@ -44,7 +44,7 @@ class DashboardPostController extends Controller
      */
     public function store(Request $request)
     {
-
+            
 
         $validateData = $request->validate([
             'title' => 'required|max:255|min:5',
@@ -102,6 +102,8 @@ class DashboardPostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
+
+
         //
         $rules =[
             'title' => 'required|max:255',

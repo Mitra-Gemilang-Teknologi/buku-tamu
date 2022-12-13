@@ -5,7 +5,8 @@
     <h1 class="h2">Create New Post</h1>
   </div>
   <div class="col-lg-8">
-  <form method="POST" action="/dashboard/posts" class="mb-5" enctype="multipart/form-data">
+  <form method="POST" action="/dashboard/posts" class="mb-5"  enctype="multipart/form-data">
+   
     @csrf
     <div class="mb-3">
       <label for="title" class="form-label">Title</label>
@@ -43,7 +44,7 @@
       <div class="mb-3">
         <label for="image" class="form-label">Post Image</label>
         <img  class="image-preview img-fluid mb-3 col-sm-5">
-        <input class="form-control @error('image') is-invalid  @enderror" type="file" id="image" name="image" onchange="previewImage()">
+           <input class="form-control @error('image') is-invalid  @enderror" type="file" id="image" name="image" onchange="previewImage()">
         @error('image')
         <div class="invalid-feedback">
           {{ $message }}
