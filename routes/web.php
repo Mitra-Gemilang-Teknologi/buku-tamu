@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DashboardCategory;
 use App\Http\Controllers\DashboardPostController;
+use App\Http\Controllers\DashboardStatistikController;
 use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
@@ -78,4 +79,3 @@ Route::resource('/dashboard/posts', DashboardPostController::class)->middleware(
 Route::GET('/dashboard/categories/checkSlug',[DashboardCategory::class,'checkSlug'])->middleware('auth');
 Route::resource('/dashboard/categories', DashboardCategory::class)->middleware('admin');
 Route::resource('/inbox', InboxController::class);
-

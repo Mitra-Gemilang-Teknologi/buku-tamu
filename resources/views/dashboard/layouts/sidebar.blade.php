@@ -1,32 +1,36 @@
-<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-    <div class="position-sticky pt-3">
-      <ul class="nav flex-column">
-        <li class="nav-item">
-          <a class="nav-link {{ Request:: is('dashboard') ? 'active' : '' }}" aria-current="page" href="/dashboard">
-            <span data-feather="home"></span>
-            Dashboard
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link {{ Request:: is('dashboard/posts*') ? 'active' : '' }}" href="/dashboard/posts">
-            <span data-feather="file-text"></span>
-            My Post
-          </a>
-        </li>
-      </ul>
+<!-- Main Sidebar Container -->
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="index3.html" class="brand-link">
+        <img src="{{asset("assets/adminlte/dist/img/AdminLTELogo.png")}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+            style="opacity: .8">
+        <span class="brand-text font-weight-light">AdminLTE 3</span>
+    </a>
 
-      @can('admin')
-      <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted ">
-        <span>Administrator</span>
-      </h6>
-      <ul class="nav flex-column">
-        <li class="nav-item">
-          <a class="nav-link {{ Request:: is('dashboard/category*') ? 'active' : '' }}" href="/dashboard/categories">
-            <span data-feather="grid"></span>
-            Category
-          </a>
-        </li>
-      </ul>
-      @endcan()
+    <!-- Sidebar -->
+    <div class="sidebar">
+
+
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <li class="nav-item">
+                    <a href="/" class="nav-link">
+                        <i class="nav-icon fas fa-home"></i>
+                        <p>
+                            Beranda
+                        </p>
+                    </a>
+                </li>
+                 <li class="nav-item">
+                    <form action="/logout" method="POST">
+          @csrf
+          <button type="submit"class="nav-link px-3 bg-dark border-0">Logout      <span data-feather="log-out"></span></button>
+        </form>
+                </li>
+            </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
     </div>
-  </nav>
+    <!-- /.sidebar -->
+</aside>
