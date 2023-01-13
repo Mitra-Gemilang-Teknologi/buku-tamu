@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class SkmController extends Controller
+class BukuTamuController extends Controller
 {
 	/**
 	 * Display a listing of the resource.
@@ -13,9 +13,9 @@ class SkmController extends Controller
 	 */
 	public function index()
 	{
-		return view('skm.index', [
-			"title" => "SKM",
-			"active" => "SKM"
+		return view('bukuTamu.index', [
+			"title" => "Buku Tamu",
+			"active" => "Buku Tamu"
 		]);
 	}
 
