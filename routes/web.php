@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\DashboardCategory;
 use App\Http\Controllers\DashboardPostController;
-use App\Http\Controllers\DashboardStatistikController;
+use App\Http\Controllers\SkmController;
 use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
@@ -43,6 +43,8 @@ Route::get('/contact', function () {
 
 
 Route::get('/posts',[PostController::class,'index']);
+
+Route::get('/skm', [SkmController::class, 'index']);
 //Halaman single post
 
 //dengan model binding
