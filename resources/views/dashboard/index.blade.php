@@ -12,7 +12,7 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">Dashboard v1</li>
+                            <li class="breadcrumb-item active">Statistik</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -139,7 +139,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <h3 class="card-title">
-                                    <i class="fas fa-chart-pie mr-1"></i>
+                                    <i class="fas fa-chart-bar mr-1"></i>
                                     JUMLAH RESPONDEN SKM BERDASARKAN TIGKAT PENDIDIKAN
                                 </h3>
 
@@ -209,7 +209,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <h3 class="card-title">
-                                    <i class="fas fa-chart-pie mr-1"></i>
+                                    <i class="fas fa-chart-bar mr-1"></i>
                                     JUMLAH RESPONDEN SKM BERDASARKAN JENIS PELAYANAN
                                 </h3>
 
@@ -228,7 +228,7 @@
 												<div class="card">
                             <div class="card-header">
                                 <h3 class="card-title">
-                                    <i class="fas fa-chart-pie mr-1"></i>
+                                    <i class="fas fa-table mr-1"></i>
                                    KETERANGAN REPONDEN
 
                                 </h3>
@@ -247,18 +247,17 @@
 
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">DataTable with default features</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
                 <table id="example2" class="table table-bordered table-striped">
                   <thead>
                   <tr>
-                    <th>Rendering engine</th>
-                    <th>Browser</th>
-                    <th>Platform(s)</th>
-                    <th>Engine version</th>
-                    <th>CSS grade</th>
+                    <th>No Urut</th>
+                    <th>Unsur Pelayanan</th>
+                    <th>Rata-Rata</th>
+                    <th>Keterangan</th>
+                    <th>Interpretasi</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -266,9 +265,9 @@
                   <tr>
                     <td>Other browsers</td>
                     <td>All others</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>U</td>
+                    <td>Dani</td>
+                    <td>Ok</td>
+                    <td>USa</td>
                   </tr>
                   </tbody>
 

@@ -18,7 +18,8 @@
 <script src="{{asset("assets/adminlte/plugins/jqvmap/jquery.vmap.min.js")}}"></script>
 <script src="{{asset("assets/adminlte/plugins/jqvmap/maps/jquery.vmap.usa.js")}}"></script>
 <!-- jQuery Knob Chart -->
-<script src="{{asset("assets/adminlte/plugins/jquery-knob/jquery.knob.min.js")}}"></script></script>
+<script src="{{asset("assets/adminlte/plugins/jquery-knob/jquery.knob.min.js")}}"></script>
+
 <!-- daterangepicker -->
 <script src="{{asset("assets/adminlte/plugins/moment/moment.min.js")}}"></script>
 <script src="{{asset("assets/adminlte/plugins/daterangepicker/daterangepicker.js")}}"></script>

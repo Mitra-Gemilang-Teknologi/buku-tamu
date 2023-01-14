@@ -26,7 +26,8 @@
             <div class="col-lg-6 content-left d-none d-md-block">
                 <div class="content-left-wrapper">
                     <a href="/" id="logo"
-                        style="color: white !important;"><img
+                        style="color: white !important;">
+												<img
                             src="{{ asset('/assets/templateskm/assets/form/img/logoKab.png') }}" alt=""
                             width="70" height="50"> Pemerintah Kabupaten Ciamis</a>
                     <!-- <div id="social">
@@ -44,10 +45,11 @@
 														 <a href="/skm" class="btn_1 rounded">SKM</a>
 
 												 <a href="/statistik" class="btn_1 rounded">STATISTIK</a>
+												 	 <a href="/login" class="btn_1 rounded">Login</a>
                         <figure><img src="{{ asset('assets/templateskm/assets/form/img/banner.png') }}" alt=""
                                 width="250" height="250" class="img-fluid"></figure>
                         <h3 style="color: white !important;">Survey Kepuasan Masyarakat</h3>
-                        <h2 style="margin: 0 0 20px 0;">Dinas penanaman modal dan pelayanan terpadu satu pintu</h2>
+                        <h2 style="margin: 0 0 20px 0;">Dinas Penanaman Modal dan Pelayanan Terpadu Satu Pintu</h2>
                         <p>Partisipasi masyarakat sebagai pengguna layanan dalam
                             menilai kinerja penyelenggaraan pelayanan publik di pemerintah kabupaten ciamis.</p>
 

@@ -181,7 +181,7 @@ $(function () {
     ],
     datasets: [
       {
-        data: [30, 12],
+        data: [30, 10],
         backgroundColor: [ '#00a65a', '#f39c12']
       }
     ]
@@ -271,7 +271,7 @@ var ctx = document.getElementById("myChart").getContext('2d');
 var myChart = new Chart(ctx, {
   type: 'bar',
   data: {
-    labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+    labels: ["SD", "SMP", "SMA", "DI/DII/DIII", "SI/SIV", "S2/S3"],
     datasets: [{
       label: '# of Votes',
       data: [12, 19, 3, 5, 2, 3],
@@ -310,17 +310,20 @@ var ctx = document.getElementById("myChartPelayanan").getContext('2d');
 var myChart = new Chart(ctx, {
   type: 'bar',
   data: {
-    labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+    labels: ["Persyaratan", "Prosedur", "Waktu Pelayanan", "Biaya/Tarif", "Produk Pelayanan", "Kompetensi Layanan","Prilaku Plaksana","Pungutan Tidak Resmi","Penanganan Pengaduan"],
     datasets: [{
       label: '# of Votes',
-      data: [12, 19, 3, 5, 2, 3],
+      data: [12, 19, 13, 15, 2, 3,12,3,21],
       backgroundColor: [
         'rgba(255, 99, 132)',
         'rgba(54, 162, 235)',
         'rgba(255, 206, 86)',
         'rgba(75, 192, 192)',
         'rgba(153, 102, 255)',
-        'rgba(255, 159, 64)'
+        'rgba(255, 159, 64)',
+        'rgba(255, 19, 64)',
+        'rgba(25, 119, 64)',
+        'rgba(255, 219, 64)'
       ],
       borderColor: [
         'rgba(255,99,132,1)',
@@ -328,7 +331,10 @@ var myChart = new Chart(ctx, {
         'rgba(255, 206, 86, 1)',
         'rgba(75, 192, 192, 1)',
         'rgba(153, 102, 255, 1)',
-        'rgba(255, 159, 64, 1)'
+        'rgba(255, 159, 64, 1)',
+        'rgba(255, 19, 64)',
+        'rgba(25, 119, 64)',
+        'rgba(255, 219, 64)'
       ],
       borderWidth: 1
     }]

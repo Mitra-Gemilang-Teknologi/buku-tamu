@@ -3,6 +3,8 @@
 use App\Http\Controllers\BukuTamuController;
 use App\Http\Controllers\DashboardCategory;
 use App\Http\Controllers\DashboardPostController;
+use App\Http\Controllers\DashboardSurveyController;
+use App\Http\Controllers\DashboardTamuController;
 use App\Http\Controllers\SkmController;
 use App\Models\Category;
 use Illuminate\Support\Facades\Route;
@@ -10,7 +12,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\InboxController;
-
+use App\Http\Controllers\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,7 +46,6 @@ Route::get('/contact', function () {
 
 
 Route::get('/posts', [PostController::class, 'index']);
-
 Route::get('/skm', [SkmController::class, 'index']);
 Route::get('/buku-tamu', [BukuTamuController::class, 'index']);
 //Halaman single post
@@ -82,4 +83,7 @@ Route::resource('/dashboard/posts', DashboardPostController::class)->middleware(
 
 Route::GET('/dashboard/categories/checkSlug', [DashboardCategory::class, 'checkSlug'])->middleware('auth');
 Route::resource('/dashboard/categories', DashboardCategory::class)->middleware('admin');
+Route::resource('/dashboard/profile', User::class)->middleware('admin');
+Route::resource('/dashboard/bukutamu', DashboardTamuController::class)->middleware('admin');
+Route::resource('/dashboard/surveytamu', DashboardSurveyController::class)->middleware('admin');
 Route::resource('/inbox', InboxController::class);

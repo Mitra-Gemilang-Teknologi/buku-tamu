@@ -44,6 +44,7 @@
 														 <a href="/skm" class="btn_1 rounded">SKM</a>
 
 												 <a href="/statistik" class="btn_1 rounded">STATISTIK</a>
+												  <a href="/login" class="btn_1 rounded">LOGIN</a>
 
                         <h3 style="color: white !important;">Selamat Datang di Buku Tamu </h3>
                         <figure><img src="{{ asset('assets/templateskm/assets/form/img/banner.png') }}" alt=""
