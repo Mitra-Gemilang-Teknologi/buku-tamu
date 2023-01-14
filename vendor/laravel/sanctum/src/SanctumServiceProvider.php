@@ -7,6 +7,7 @@ use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
+use Laravel\Sanctum\Console\Commands\PruneExpired;
 use Laravel\Sanctum\Http\Controllers\CsrfCookieController;
 use Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful;
 
@@ -48,6 +49,10 @@ class SanctumServiceProvider extends ServiceProvider
             $this->publishes([
                 __DIR__.'/../config/sanctum.php' => config_path('sanctum.php'),
             ], 'sanctum-config');
+
+            $this->commands([
+                PruneExpired::class,
+            ]);
         }
 
         $this->defineRoutes();
@@ -105,8 +110,8 @@ class SanctumServiceProvider extends ServiceProvider
     /**
      * Register the guard.
      *
-     * @param \Illuminate\Contracts\Auth\Factory  $auth
-     * @param array $config
+     * @param  \Illuminate\Contracts\Auth\Factory  $auth
+     * @param  array  $config
      * @return RequestGuard
      */
     protected function createGuard($auth, $config)

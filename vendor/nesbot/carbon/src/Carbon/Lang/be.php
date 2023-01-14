@@ -8,9 +8,13 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+
+use Carbon\CarbonInterface;
+use Symfony\Component\Translation\PluralizationRules;
+
 // @codeCoverageIgnoreStart
-if (class_exists('Symfony\\Component\\Translation\\PluralizationRules')) {
-    \Symfony\Component\Translation\PluralizationRules::set(function ($number) {
+if (class_exists(PluralizationRules::class)) {
+    PluralizationRules::set(static function ($number) {
         return (($number % 10 == 1) && ($number % 100 != 11)) ? 0 : ((($number % 10 >= 2) && ($number % 10 <= 4) && (($number % 100 < 10) || ($number % 100 >= 20))) ? 1 : 2);
     }, 'be');
 }
@@ -113,7 +117,7 @@ return [
         'nextDay' => '[Заўтра ў] LT',
         'nextWeek' => '[У] dddd [ў] LT',
         'lastDay' => '[Учора ў] LT',
-        'lastWeek' => function (\Carbon\CarbonInterface $current) {
+        'lastWeek' => function (CarbonInterface $current) {
             switch ($current->dayOfWeek) {
                 case 1:
                 case 2:
