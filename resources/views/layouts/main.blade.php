@@ -39,7 +39,7 @@
       <link rel="stylesheet" href="{{asset("assets/adminlte/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css")}}">
 
 
-    <title>Kzn |{{$title}}</title>
+    <title>Ciamis |{{$title}}</title>
   </head>
   <body>
 @include('partials.navbar')

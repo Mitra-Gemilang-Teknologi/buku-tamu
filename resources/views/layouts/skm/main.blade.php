@@ -49,7 +49,7 @@
 			#beranda {
 			background: linear-gradient(-45deg, #51006C, #FF6600);
 			background-size: 400% 400%;
-			animation: gradient 15s ease infinite;
+			animation: gradient 10s ease infinite;
 			height: 100vh;
 }
 

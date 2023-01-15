@@ -75,7 +75,7 @@
 
                         <a href="#start" class="btn_1 rounded mobile_btn">Mulai!</a>
                     </div>
-                    <div class="copy">© 2022 pemerintah Kabupaten Ciamis</div>
+                    <div class="copy">© {{date('Y')}} Pemerintah Kabupaten Ciamis</div>
                 </div>
                 <!-- /content-left-wrapper -->
             </div>
@@ -173,7 +173,7 @@
                             <div class="step">
                                 <div class="row mb-3" style="align-items: end !important;">
                                     <div class="col-md-6">
-                                        <h3>Form kunjungan permohonan perizinan A</h3>
+                                        <h3>Form kunjungan</h3>
                                     </div>
                                     <div class="col-md-6 text-right">
 
