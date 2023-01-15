@@ -1,6 +1,24 @@
 @extends('layouts.skm.main')
 
 @section('container')
+
+<div id="beranda" class="d-flex flex-column justify-content-center w-100 h-100">
+
+	<div class="d-flex flex-column justify-content-center align-items-center mylinks">
+<h1 class="fw-light text-white m-0">Selamat Datang,Di<br>
+			Dinas Penanaman Modal dan Pelayanan Terpadu Satu Pintu
+		</h1>
+<br>
+<a href="#tamu">
+	<button type="button" class="btn btn-outline-light btn-lg">Mulai</button>
+</a>
+		<a href="#" class="text-decoration-none">
+			<h5 class="fw-light text-white m-0">— Pemerintah Kabupaten Ciamis —</h5>
+		</a>
+	</div>
+</div>
+</div>
+<div id="tamu" class="mycooldiv">
     <div id="preloader">
         <div data-loader="circle-side"></div>
     </div><!-- /Preload -->
@@ -26,7 +44,8 @@
             <div class="col-lg-6 content-left d-none d-md-block">
                 <div class="content-left-wrapper">
                     <a href="/" id="logo"
-                        style="color: white !important;"><img
+                        style="color: white !important;">
+												<img
                             src="{{ asset('/assets/templateskm/assets/form/img/logoKab.png') }}" alt=""
                             width="70" height="50"> Pemerintah Kabupaten Ciamis</a>
                     <!-- <div id="social">
@@ -39,8 +58,8 @@
                             </div> -->
                     <!-- /social -->
                     <div>
-											 <a href="/" class="btn_1 rounded">
-                             BUKU TAMU</a>
+											 <a href="#beranda" class="btn_1 rounded">
+                             Beranda</a>
 														 <a href="/skm" class="btn_1 rounded">SKM</a>
 
 												 <a href="/statistik" class="btn_1 rounded">STATISTIK</a>
@@ -381,4 +400,5 @@
         <!-- /.modal-dialog -->
     </div>
     <!-- /.modal -->
+</div>
 @endsection

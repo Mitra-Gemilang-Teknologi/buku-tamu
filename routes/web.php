@@ -61,6 +61,12 @@ Route::get('/categories', function () {
 		'categories' => Category::all()
 	]);
 });
+Route::get('/statistik', function () {
+	return view('statistik.index', [
+		'title' => 'Data Statistik',
+		"active" => "statistik",
+	]);
+});
 
 //Login
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');

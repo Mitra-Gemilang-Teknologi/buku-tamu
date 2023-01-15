@@ -1,30 +1,17 @@
-@extends('dashboard.layouts.main')
+@extends('layouts.main')
 
+<style>
+	.nav-link{
+		color:blueviolet !important;
+	}
+	.submit{
+		background-color: blueviolet !important;
+		color: #ffffff !important;
+	}
+</style>
 @section('container')
-    <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-        <div class="content-header">
-            <div class="container-fluid">
-                <div class="row mb-2">
-                    <div class="col-sm-6">
-                        <h1 class="m-0">SUMMARY DASHBOARD BUKU TAMU</h1>
-                    </div><!-- /.col -->
-                    <div class="col-sm-6">
-                        <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">Statistik</li>
-                        </ol>
-                    </div><!-- /.col -->
-                </div><!-- /.row -->
-            </div><!-- /.container-fluid -->
-        </div>
-        <!-- /.content-header -->
 
-        <!-- Main content -->
-        <section class="content">
-            <div class="container-fluid">
-                <!-- Small boxes (Stat box) -->
-                <div class="row">
+  <div class="row">
                     <div class="col-lg-3 col-6">
                         <!-- small box -->
                         <div class="small-box bg-info">
@@ -32,8 +19,8 @@
                                 <h3>150</h3>
 
                                 <p>Rata Rata<br>
-                                    Kunjungan Perhari
-                                </p>
+																	Kunjungan Perhari
+																</p>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-bag"></i>
@@ -50,8 +37,8 @@
 
 
                                 <p>Rata Rata<br>
-                                    Kunjungan Perminggu
-                                </p>
+																	Kunjungan Perminggu
+																</p>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-stats-bars"></i>
@@ -68,8 +55,8 @@
 
 
                                 <p>Rata Rata<br>
-                                    Kunjungan Perbulan
-                                </p>
+																	Kunjungan Perbulan
+																</p>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-person-add"></i>
@@ -86,8 +73,8 @@
 
 
                                 <p>Rata Rata<br>
-                                    Kunjungan Pertahun
-                                </p>
+																	Kunjungan Pertahun
+																</p>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-pie-graph"></i>
@@ -98,10 +85,8 @@
                     <!-- ./col -->
                 </div>
                 <!-- /.row -->
-                <!-- Main row -->
-                <div class="row">
-                    <!-- Left col -->
-                    <section class="col-lg-6 connectedSortable">
+  <div class="row">
+		 <section class="col-lg-6 connectedSortable">
                         <!-- Custom tabs (Charts with tabs)-->
                         <div class="card">
                             <div class="card-header">
@@ -153,9 +138,7 @@
                         <!-- /.card -->
 
                     </section>
-                    <!-- /.Left col -->
-                    <!-- right col (We are only adding the ID to make the widgets sortable)-->
-                    <section class="col-lg-6 connectedSortable">
+										 <section class="col-lg-6 connectedSortable">
 
                         <div class="card">
                             <div class="card-header">
@@ -239,11 +222,9 @@
                         </div>
 
                     </section>
-                    <!-- right col -->
-                </div>
-                <!-- /.row (main row) -->
-            </div><!-- /.container-fluid -->
-        </section>
-        <!-- /.content -->
-    </div>
+	</div>
+
+</div>
+
+
 @endsection

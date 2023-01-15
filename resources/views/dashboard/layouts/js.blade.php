@@ -29,6 +29,7 @@
 <script src="{{asset("assets/adminlte/plugins/summernote/summernote-bs4.min.js")}}"></script>
 <!-- overlayScrollbars -->
 <script src="{{asset("assets/adminlte/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js")}}"></script>
+
 <!-- AdminLTE App -->
 <script src="{{asset("assets/adminlte/dist/js/adminlte.js")}}"></script>
 <!-- AdminLTE for demo purposes -->
