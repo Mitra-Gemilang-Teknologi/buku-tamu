@@ -90,7 +90,7 @@ final class UrlAutolinkParser implements InlineParserInterface
         $url = $matches[0];
 
         // Does the URL end with punctuation that should be stripped?
-        if (\preg_match('/(.+)([?!.,:*_~]+)$/', $url, $matches)) {
+        if (\preg_match('/(.+?)([?!.,:*_~]+)$/', $url, $matches)) {
             // Add the punctuation later
             $url = $matches[1];
         }
@@ -105,7 +105,7 @@ final class UrlAutolinkParser implements InlineParserInterface
             $url = \substr($url, 0, -$diff);
         }
 
-        $cursor->advanceBy(\mb_strlen($url));
+        $cursor->advanceBy(\mb_strlen($url, 'UTF-8'));
 
         // Auto-prefix 'http://' onto 'www' URLs
         if (\substr($url, 0, 4) === 'www.') {

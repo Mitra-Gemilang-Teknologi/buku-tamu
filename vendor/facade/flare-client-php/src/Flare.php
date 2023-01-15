@@ -59,6 +59,9 @@ class Flare
     /** @var callable|null */
     protected $filterExceptionsCallable;
 
+    /** @var callable|null */
+    protected $filterReportsCallable;
+
     public static function register(string $apiKey, string $apiSecret = null, ContextDetectorInterface $contextDetector = null, Container $container = null)
     {
         $client = new Client($apiKey, $apiSecret);
@@ -79,6 +82,11 @@ class Flare
     public function filterExceptionsUsing(callable $filterExceptionsCallable)
     {
         $this->filterExceptionsCallable = $filterExceptionsCallable;
+    }
+
+    public function filterReportsUsing(callable $filterReportsCallable)
+    {
+        $this->filterReportsCallable = $filterReportsCallable;
     }
 
     /**
@@ -190,10 +198,10 @@ class Flare
         return $this;
     }
 
-    public function report(Throwable $throwable, callable $callback = null)
+    public function report(Throwable $throwable, callable $callback = null): ?Report
     {
         if (! $this->shouldSendReport($throwable)) {
-            return;
+            return null;
         }
 
         $report = $this->createReport($throwable);
@@ -203,6 +211,8 @@ class Flare
         }
 
         $this->sendReportToApi($report);
+
+        return $report;
     }
 
     protected function shouldSendReport(Throwable $throwable): bool
@@ -240,6 +250,12 @@ class Flare
 
     private function sendReportToApi(Report $report)
     {
+        if ($this->filterReportsCallable) {
+            if (! call_user_func($this->filterReportsCallable, $report)) {
+                return;
+            }
+        }
+
         try {
             $this->api->report($report);
         } catch (Exception $exception) {

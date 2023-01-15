@@ -44,7 +44,7 @@ abstract class Helper implements HelperInterface
      *
      * @deprecated since Symfony 5.3
      *
-     * @return int The length of the string
+     * @return int
      */
     public static function strlen(?string $string)
     {
@@ -94,7 +94,7 @@ abstract class Helper implements HelperInterface
     /**
      * Returns the subset of a string, using mb_substr if it is available.
      *
-     * @return string The string subset
+     * @return string
      */
     public static function substr(?string $string, int $from, int $length = null)
     {
@@ -171,6 +171,8 @@ abstract class Helper implements HelperInterface
         $string = $formatter->format($string ?? '');
         // remove already formatted characters
         $string = preg_replace("/\033\[[^m]*m/", '', $string ?? '');
+        // remove terminal hyperlinks
+        $string = preg_replace('/\\033]8;[^;]*;[^\\033]*\\033\\\\/', '', $string ?? '');
         $formatter->setDecorated($isDecorated);
 
         return $string;

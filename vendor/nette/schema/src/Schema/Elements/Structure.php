@@ -105,10 +105,12 @@ final class Structure implements Schema
 					array_pop($context->path);
 				}
 			}
+
 			if ($prevent) {
 				$value[Helpers::PREVENT_MERGING] = true;
 			}
 		}
+
 		return $value;
 	}
 
@@ -135,6 +137,7 @@ final class Structure implements Schema
 					$base[$key] = $val;
 				}
 			}
+
 			return $base;
 		}
 
@@ -164,7 +167,7 @@ final class Structure implements Schema
 			} else {
 				$keys = array_map('strval', array_keys($items));
 				foreach ($extraKeys as $key) {
-					$hint = Nette\Utils\Helpers::getSuggestion($keys, (string) $key);
+					$hint = Nette\Utils\ObjectHelpers::getSuggestion($keys, (string) $key);
 					$context->addError(
 						'Unexpected item %path%' . ($hint ? ", did you mean '%hint%'?" : '.'),
 						Nette\Schema\Message::UNEXPECTED_ITEM,
@@ -184,6 +187,7 @@ final class Structure implements Schema
 					$value[$itemKey] = $default;
 				}
 			}
+
 			array_pop($context->path);
 		}
 

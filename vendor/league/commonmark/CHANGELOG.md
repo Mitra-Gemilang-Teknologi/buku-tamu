@@ -6,6 +6,168 @@ Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com/) princi
 
 ## [Unreleased][unreleased]
 
+## [2.3.8] - 2022-12-10
+
+### Fixed
+
+- Fixed parsing issues when `mb_internal_encoding()` is set to something other than `UTF-8` (#951)
+
+## [2.3.7] - 2022-11-03
+
+### Fixed
+
+- Fixed `TaskListItemMarkerRenderer` not including HTML attributes set on the node by other extensions (#947)
+
+## [2.3.6] - 2022-10-30
+
+### Fixed
+
+- Fixed unquoted attribute parsing when closing curly brace is followed by certain characters (like a `.`) (#943)
+
+## [2.3.5] - 2022-07-29
+
+### Fixed
+
+- Fixed error using `InlineParserEngine` when no inline parsers are registered in the `Environment` (#908)
+
+## [2.3.4] - 2022-07-17
+
+### Changed
+
+- Made a number of small tweaks to the embed extension's parsing behavior to fix #898:
+    - Changed `EmbedStartParser` to always capture embed-like lines in container blocks, regardless of parent block type
+    - Changed `EmbedProcessor` to also remove `Embed` blocks that aren't direct children of the `Document`
+    - Increased the priority of `EmbedProcessor` to `1010`
+
+### Fixed
+
+- Fixed `EmbedExtension` not parsing embeds following a list block (#898)
+
+## [2.3.3] - 2022-06-07
+
+### Fixed
+
+- Fixed `DomainFilteringAdapter` not reindexing the embed list (#884, #885)
+
+## [2.3.2] - 2022-06-03
+
+### Fixed
+
+- Fixed FootnoteExtension stripping extra characters from tab-indented footnotes (#881)
+
+## [2.2.5] - 2022-06-03
+
+### Fixed
+
+- Fixed FootnoteExtension stripping extra characters from tab-indented footnotes (#881)
+
+## [2.3.1] - 2022-05-14
+
+### Fixed
+
+- Fixed AutolinkExtension not ignoring trailing strikethrough syntax (#867)
+
+## [2.2.4] - 2022-05-14
+
+### Fixed
+
+- Fixed AutolinkExtension not ignoring trailing strikethrough syntax (#867)
+
+## [2.3.0] - 2022-04-07
+
+### Added
+
+- Added new `EmbedExtension` (#805)
+- Added `DocumentRendererInterface` as a replacement for the now-deprecated `MarkdownRendererInterface`
+
+### Deprecated
+
+- Deprecated `MarkdownRendererInterface`; use `DocumentRendererInterface` instead
+
+## [2.2.3] - 2022-02-26
+
+### Fixed
+
+- Fixed front matter parsing with Windows line endings (#821)
+
+## [2.1.3] - 2022-02-26
+
+### Fixed
+
+- Fixed front matter parsing with Windows line endings (#821)
+
+## [2.0.4] - 2022-02-26
+
+### Fixed
+
+- Fixed front matter parsing with Windows line endings (#821)
+
+## [2.2.2] - 2022-02-13
+
+### Fixed
+
+- Fixed double-escaping of image alt text (#806, #810)
+- Fixed Psalm typehints for event class names
+
+## [2.2.1] - 2022-01-25
+
+### Fixed
+
+ - Fixed `symfony/deprecation-contracts` constraint
+
+### Removed
+
+ - Removed deprecation trigger from `MarkdownConverterInterface` to reduce noise
+
+## [2.2.0] - 2022-01-22
+
+### Added
+
+ - Added new `ConverterInterface`
+ - Added new `MarkdownToXmlConverter` class
+ - Added new `HtmlDecorator` class which can wrap existing renderers with additional HTML tags
+ - Added new `table/wrap` config to apply an optional wrapping/container element around a table (#780)
+
+### Changed
+
+ - `HtmlElement` contents can now consist of any `Stringable`, not just `HtmlElement` and `string`
+
+### Deprecated
+
+ - Deprecated `MarkdownConverterInterface` and its `convertToHtml()` method; use `ConverterInterface` and `convert()` instead
+
+## [2.1.2] - 2022-02-13
+
+### Fixed
+
+- Fixed double-escaping of image alt text (#806, #810)
+- Fixed Psalm typehints for event class names
+
+## [2.1.1] - 2022-01-02
+
+### Added
+
+ - Added missing return type to `Environment::dispatch()` to fix deprecation warning (#778)
+
+## [2.1.0] - 2021-12-05
+
+### Added
+
+- Added support for ext-yaml in FrontMatterExtension (#715)
+- Added support for symfony/yaml v6.0 in FrontMatterExtension (#739)
+- Added new `heading_permalink/aria_hidden` config option (#741)
+
+### Fixed
+
+ - Fixed PHP 8.1 deprecation warning (#759, #762)
+
+## [2.0.3] - 2022-02-13
+
+### Fixed
+
+- Fixed double-escaping of image alt text (#806, #810)
+- Fixed Psalm typehints for event class names
+
 ## [2.0.2] - 2021-08-14
 
 ### Changed
@@ -350,7 +512,28 @@ No changes were introduced since the previous release.
     - Alternative 1: Use `CommonMarkConverter` or `GithubFlavoredMarkdownConverter` if you don't need to customize the environment
     - Alternative 2: Instantiate a new `Environment` and add the necessary extensions yourself
 
-[unreleased]: https://github.com/thephpleague/commonmark/compare/2.0.2...main
+[unreleased]: https://github.com/thephpleague/commonmark/compare/2.3.8...main
+[2.3.8]: https://github.com/thephpleague/commonmark/compare/2.3.7...2.3.8
+[2.3.7]: https://github.com/thephpleague/commonmark/compare/2.3.6...2.3.7
+[2.3.6]: https://github.com/thephpleague/commonmark/compare/2.3.5...2.3.6
+[2.3.5]: https://github.com/thephpleague/commonmark/compare/2.3.4...2.3.5
+[2.3.4]: https://github.com/thephpleague/commonmark/compare/2.3.3...2.3.4
+[2.3.3]: https://github.com/thephpleague/commonmark/compare/2.3.2...2.3.3
+[2.3.2]: https://github.com/thephpleague/commonmark/compare/2.3.2...main
+[2.3.1]: https://github.com/thephpleague/commonmark/compare/2.3.0...2.3.1
+[2.3.0]: https://github.com/thephpleague/commonmark/compare/2.2.3...2.3.0
+[2.2.5]: https://github.com/thephpleague/commonmark/compare/2.2.4...2.2.5
+[2.2.4]: https://github.com/thephpleague/commonmark/compare/2.2.3...2.2.4
+[2.2.3]: https://github.com/thephpleague/commonmark/compare/2.2.2...2.2.3
+[2.2.2]: https://github.com/thephpleague/commonmark/compare/2.2.1...2.2.2
+[2.2.1]: https://github.com/thephpleague/commonmark/compare/2.2.0...2.2.1
+[2.2.0]: https://github.com/thephpleague/commonmark/compare/2.1.1...2.2.0
+[2.1.3]: https://github.com/thephpleague/commonmark/compare/2.1.2...2.1.3
+[2.1.2]: https://github.com/thephpleague/commonmark/compare/2.1.1...2.1.2
+[2.1.1]: https://github.com/thephpleague/commonmark/compare/2.0.2...2.1.1
+[2.1.0]: https://github.com/thephpleague/commonmark/compare/2.0.2...2.1.0
+[2.0.4]: https://github.com/thephpleague/commonmark/compare/2.0.3...2.0.4
+[2.0.3]: https://github.com/thephpleague/commonmark/compare/2.0.2...2.0.3
 [2.0.2]: https://github.com/thephpleague/commonmark/compare/2.0.1...2.0.2
 [2.0.1]: https://github.com/thephpleague/commonmark/compare/2.0.0...2.0.1
 [2.0.0]: https://github.com/thephpleague/commonmark/compare/2.0.0-rc2...2.0.0

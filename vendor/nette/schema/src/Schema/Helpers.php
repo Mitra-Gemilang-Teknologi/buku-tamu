@@ -44,6 +44,7 @@ final class Helpers
 					$base[$key] = static::merge($val, $base[$key] ?? null);
 				}
 			}
+
 			return $base;
 
 		} elseif ($value === null && is_array($base)) {
@@ -57,14 +58,17 @@ final class Helpers
 
 	public static function getPropertyType(\ReflectionProperty $prop): ?string
 	{
-		if ($types = Reflection::getPropertyTypes($prop)) {
-			return implode('|', $types);
+		if (!class_exists(Nette\Utils\Type::class)) {
+			throw new Nette\NotSupportedException('Expect::from() requires nette/utils 3.x');
+		} elseif ($type = Nette\Utils\Type::fromReflection($prop)) {
+			return (string) $type;
 		} elseif ($type = preg_replace('#\s.*#', '', (string) self::parseAnnotation($prop, 'var'))) {
 			$class = Reflection::getPropertyDeclaringClass($prop);
 			return preg_replace_callback('#[\w\\\\]+#', function ($m) use ($class) {
 				return Reflection::expandClassName($m[0], $class);
 			}, $type);
 		}
+
 		return null;
 	}
 
@@ -78,10 +82,12 @@ final class Helpers
 		if (!Reflection::areCommentsAvailable()) {
 			throw new Nette\InvalidStateException('You have to enable phpDoc comments in opcode cache.');
 		}
+
 		$re = '#[\s*]@' . preg_quote($name, '#') . '(?=\s|$)(?:[ \t]+([^@\s]\S*))?#';
 		if ($ref->getDocComment() && preg_match($re, trim($ref->getDocComment(), '/*'), $m)) {
 			return $m[1] ?? '';
 		}
+
 		return null;
 	}
 
