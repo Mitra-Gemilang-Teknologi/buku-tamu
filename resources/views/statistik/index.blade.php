@@ -1,13 +1,13 @@
 @extends('layouts.main')
 
 <style>
-	.nav-link{
-		color:blueviolet !important;
-	}
-	.submit{
-		background-color: blueviolet !important;
-		color: #ffffff !important;
-	}
+    .nav-link{
+        color:blueviolet !important;
+    }
+    .submit{
+        background-color: blueviolet !important;
+        color: #ffffff !important;
+    }
 </style>
 @section('container')
 
@@ -19,8 +19,8 @@
                                 <h3>150</h3>
 
                                 <p>Rata Rata<br>
-																	Kunjungan Perhari
-																</p>
+                                                                    Kunjungan Perhari
+                                                                </p>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-bag"></i>
@@ -37,8 +37,8 @@
 
 
                                 <p>Rata Rata<br>
-																	Kunjungan Perminggu
-																</p>
+                                                                    Kunjungan Perminggu
+                                                                </p>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-stats-bars"></i>
@@ -55,8 +55,8 @@
 
 
                                 <p>Rata Rata<br>
-																	Kunjungan Perbulan
-																</p>
+                                                                    Kunjungan Perbulan
+                                                                </p>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-person-add"></i>
@@ -73,8 +73,8 @@
 
 
                                 <p>Rata Rata<br>
-																	Kunjungan Pertahun
-																</p>
+                                                                    Kunjungan Pertahun
+                                                                </p>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-pie-graph"></i>
@@ -86,7 +86,7 @@
                 </div>
                 <!-- /.row -->
   <div class="row">
-		 <section class="col-lg-6 connectedSortable">
+         <section class="col-lg-6 connectedSortable">
                         <!-- Custom tabs (Charts with tabs)-->
                         <div class="card">
                             <div class="card-header">
@@ -138,7 +138,7 @@
                         <!-- /.card -->
 
                     </section>
-										 <section class="col-lg-6 connectedSortable">
+                                         <section class="col-lg-6 connectedSortable">
 
                         <div class="card">
                             <div class="card-header">
@@ -222,7 +222,7 @@
                         </div>
 
                     </section>
-	</div>
+    </div>
 
 </div>
 
