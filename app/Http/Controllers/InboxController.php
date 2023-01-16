@@ -40,15 +40,12 @@ class InboxController extends Controller
             'last' => 'required|max:255|min:2',
             'email' => 'required|email:dns',
             'pesan' => 'required'
-            // 'g-recaptcha-response' => 'required|recaptchav3:register,0.5'
-           
+            // 'g-recaptcha-response' => 'required|recaptchav3:register,0.5'  
         ]);
 
      
         $validateData['name'] = $request->first." ".$request->last ; 
-
         Inbox::create($validateData);
-
         return redirect('/contact')->with('success','Terimakasih atas masukannya');
     }
 

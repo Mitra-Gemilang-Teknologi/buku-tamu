@@ -17,6 +17,12 @@ class DatabaseSeeder extends Seeder
 	public function run()
 	{
 
+		$this->call([
+			jenis_layananSeeder::class,
+			OpsiJawabanSeeder::class,
+			PertanyaanSeeder::class,
+		]);
+
 
 		// User::create([
 		//     'name' => 'Dani Hidayat',
@@ -29,10 +35,20 @@ class DatabaseSeeder extends Seeder
 		//     'email'=> 'jajang@gmail.com',
 		//     'password'=> bcrypt('12345')
 		// ]);
+
 		User::factory(1)->create();
+
 		// Category::create([
 		//     'name' => 'Programing',
 		//     'slug' => 'programing'
+
+		// ]);
+		// Category::create([
+		//     'name' => 'Personal',
+		//     'slug' => 'personal'
+
+		// ]);
+		// Post::factory(10)->create();
 
 		// ]);
 		// Category::create([

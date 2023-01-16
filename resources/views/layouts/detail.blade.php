@@ -1,50 +1,53 @@
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="google-site-verification" content="obHUBx-zrEj7Jd6xBrd6JszeLtZXEVd7oQV5G79JBxo" />
     <link rel="shortcut icon" href="{{ asset('assets/images/favicon.png') }}">
 
-{{-- SEO --}}
-<meta property="og:locale" content="id_ID" />
-<meta property="og:type" content="article" />
-<meta property="og:title" content="{{ $post->title ?  $post->title : '' }}" />
-<meta property="og:description" content="{{ $post->excerpt ? $post->excerpt : '' }}" />
-<meta property="og:url" content="{{ $post->category->name  ? $post->category->name : ''}}" />
-<meta property="article:section" content="{{ $post->category->name ? $post->category->name : ''  }}" />
-{{-- end --}}
+    {{-- SEO --}}
+    <meta property="og:locale" content="id_ID" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="{{ $post->title ?  $post->title : '' }}" />
+    <meta property="og:description" content="{{ $post->excerpt ? $post->excerpt : '' }}" />
+    <meta property="og:url" content="{{ $post->category->name  ? $post->category->name : ''}}" />
+    <meta property="article:section" content="{{ $post->category->name ? $post->category->name : ''  }}" />
+
+    {{-- end --}}
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    
     {{-- Bootstrap icon --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-    {{-- my style --}}
     
+    {{-- my style --}}
     <link rel="stylesheet" href="/css/style.css">
-      {{-- Ads --}}
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4316311840328158"
-      crossorigin="anonymous"></script>
+    
+    {{-- Ads --}}
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4316311840328158" crossorigin="anonymous"></script>
     <title>Kzn |{{$title}}</title>
-  </head>
-  <body> 
-@include('partials.navbar')
+</head>
+
+<body> 
+    @include('partials.navbar')
 
     <div class="container mt-4">
-    @yield('container')
+        @yield('container')
     </div>
 
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    
+
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-    -->
-  </body>
+<!--
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+-->
+</body>
 
 </html>
