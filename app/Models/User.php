@@ -19,14 +19,15 @@ class User extends Authenticatable
      */
 
 
-     //apa aja yang boleh di isi
+    //apa aja yang boleh di isi
     // protected $fillable = [
     //     'name',
     //     'username',
     //     'email',
     //     'password',
     // ];
-      //apa aja yang ga boleh di isi
+    //apa aja yang ga boleh di isi
+   
     protected $guarded = ['id'];
 
     /**
@@ -47,6 +48,7 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
     public function post(){
         return $this->hasMany(Post::class);
     }
