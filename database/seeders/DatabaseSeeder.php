@@ -33,7 +33,9 @@ class DatabaseSeeder extends Seeder
         //     'email'=> 'jajang@gmail.com',
         //     'password'=> bcrypt('12345')
         // ]);
+        
         User::factory(1)->create();
+        
         // Category::create([
         //     'name' => 'Programing',
         //     'slug' => 'programing'
