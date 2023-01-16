@@ -14,7 +14,7 @@ class BukuTamuController extends Controller
 	public function index()
 	{
 		return view('bukuTamu.index', [
-			"title" => "Buku Tamu",
+			"title"  => "Buku Tamu",
 			"active" => "Buku Tamu"
 		]);
 	}
