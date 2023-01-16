@@ -30,25 +30,32 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <table id="example2" class="table table-bordered table-hover">
+                  <table id="example2" class="table table-bordered table-hover">
                   <thead>
                   <tr>
-                    <th>Rendering engine</th>
-                    <th>Browser</th>
-                    <th>Platform(s)</th>
-                    <th>Engine version</th>
-                    <th>CSS grade</th>
+                    <th>Tanggal</th>
+                    <th>Nama</th>
+                    <th>Umur</th>
+										<th>Nomor Telepon</th>
+                    <th>Jenis Kelamin</th>
+										<th>Jenis Pelayanan</th>
+											<th>Alamat</th>
+											<th>Keterangan</th>
                   </tr>
                   </thead>
                   <tbody>
                   <tr>
-                    <td>Trident</td>
-                    <td>Internet
-                      Explorer 4.0
+                    <td>19-01-2023</td>
+										 <td>Dani</td>
+                    <td>32 Tahun
                     </td>
-                    <td>Win 95+</td>
-                    <td> 4</td>
-                    <td>X</td>
+										<td>03242321</td>
+                       <td>Laki-Laki</td>
+                    <td>Kesehtan</td>
+
+										<td>Kujang-Cikoneng</td>
+										 <td>Laki</td>
+
                   </tr>
 
                   </tbody>

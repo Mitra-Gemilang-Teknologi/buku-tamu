@@ -161,7 +161,7 @@
                             <div class="card-header">
                                 <h3 class="card-title">
                                     <i class="fas fa-chart-bar mr-1"></i>
-                                    JUMLAH RESPONDEN SKM BERDASARKAN JENIS PELAYANAN
+                                 -
                                 </h3>
 
                             </div><!-- /.card-header -->

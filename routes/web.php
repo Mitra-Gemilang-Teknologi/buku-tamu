@@ -13,6 +13,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\InboxController;
 use App\Http\Controllers\User;
+use App\Http\Controllers\DependentDropdownController;
 
 /*
 |--------------------------------------------------------------------------
@@ -94,6 +95,13 @@ Route::resource('/dashboard/posts', DashboardPostController::class)->middleware(
 Route::GET('/dashboard/categories/checkSlug', [DashboardCategory::class, 'checkSlug'])->middleware('auth');
 Route::resource('/dashboard/categories', DashboardCategory::class)->middleware('admin');
 Route::resource('/dashboard/profile', User::class)->middleware('admin');
-Route::resource('/dashboard/bukutamu', DashboardTamuController::class)->middleware('admin');
-Route::resource('/dashboard/surveytamu', DashboardSurveyController::class)->middleware('admin');
+Route::resource('/dashboard/bukutamu', DashboardTamuController::class);
+Route::resource('/dashboard/surveytamu', DashboardSurveyController::class);
 Route::resource('/inbox', InboxController::class);
+
+Route::get('provinces', 'DependentDropdownController@provinces')->name('provinces');
+Route::get('cities', [DependentDropdownController::class, 'cities'])->name('cities');
+
+// Route::get('cities', 'DependentDropdownController@cities')->name('cities');
+Route::get('districts', 'DependentDropdownController@districts')->name('districts');
+Route::get('villages', 'DependentDropdownController@villages')->name('villages');

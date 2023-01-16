@@ -14,7 +14,7 @@
   <!-- Tempusdominus Bootstrap 4 -->
   <link rel="stylesheet" href="{{asset("assets/adminlte/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css")}}">
   <!-- iCheck -->
-  <link rel="stylesheet" href="{{asset("assets/adminlte/plugins/icheck-bootstrap/icheck-bootstrap.min.css")}}>
+  <link rel="stylesheet" href="{{asset("assets/adminlte/plugins/icheck-bootstrap/icheck-bootstrap.min.css")}}">
   <!-- JQVMap -->
 
   <link rel="stylesheet href="{{asset("assets/adminlte/plugins/jqvmap/jqvmap.min.css")}}">

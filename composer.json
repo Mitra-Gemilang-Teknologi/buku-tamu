@@ -13,7 +13,8 @@
         "josiasmontag/laravel-recaptchav3": "^0.6.0",
         "laravel/framework": "^8.54",
         "laravel/sanctum": "^2.11",
-        "laravel/tinker": "^2.5"
+        "laravel/tinker": "^2.5",
+        "laravolt/indonesia": "^0.33.0"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

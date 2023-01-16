@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Laravolt\Indonesia\Models\Province;
 use Illuminate\Http\Request;
 
 class BukuTamuController extends Controller
@@ -13,9 +14,11 @@ class BukuTamuController extends Controller
 	 */
 	public function index()
 	{
+		$provinces = Province::pluck('name', 'id');
 		return view('bukuTamu.index', [
 			"title" => "Buku Tamu",
-			"active" => "Buku Tamu"
+			"active" => "Buku Tamu",
+			'provinces' => $provinces
 		]);
 	}
 

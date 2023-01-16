@@ -5,10 +5,16 @@
 <div id="beranda" class="d-flex flex-column justify-content-center w-100 h-100">
 
 	<div class="d-flex flex-column justify-content-center align-items-center mylinks">
-<h1 class="fw-light text-white m-0">Selamat Datang,Di<br>
+	<div class=" justify-content-center">
+<figure><img src="{{ asset('assets/templateskm/assets/form/img/banner2.png') }}" alt=""
+                                width="350" height="350" class="img-fluid"></figure>
+																<h1 class="fw-light text-white m-0">Selamat Datang,Di<br>
 			Dinas Penanaman Modal dan Pelayanan Terpadu Satu Pintu
 		</h1>
 <br>
+		</div>
+
+
 <a href="#tamu">
 	<button type="button" class="btn btn-outline-light btn-lg">Mulai</button>
 </a>
@@ -94,7 +100,7 @@
 
                         <div id="middle-wizard" style="margin-top: 300px;">
 
-                            <div class="step">
+                            {{-- <div class="step">
                                 <div class="row mb-3" style="align-items: end !important;">
                                     <div class="col-md-6">
                                         <h3 class="main_question">Pilih Jenis Layanan</h3>
@@ -169,8 +175,8 @@
                                         <span class="checkmark"></span>
                                     </label>
                                 </div>
-                            </div>
-                            <div class="step">
+                            </div> --}}
+                            {{-- <div class="step">
                                 <div class="row mb-3" style="align-items: end !important;">
                                     <div class="col-md-6">
                                         <h3>Form kunjungan</h3>
@@ -230,7 +236,7 @@
                                         <span class="checkmark"></span>
                                     </label>
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="step">
                                 <div class="row" style="align-items: end !important;">
                                     <div class="col-md-12 mb-3">
@@ -239,30 +245,19 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <div class="styled-select clearfix">
-                                                <select class="wide required" id="input_pendidikan" name="pendidikan">
-                                                    <option value="">Pilih Kecamatan</option>
-                                                    <option value="SD">SD</option>
-                                                    <option value="SMP">SMP</option>
-                                                    <option value="SMA">SMA</option>
-                                                    <option value="DIII">DIII</option>
-                                                    <option value="S1">S1</option>
-                                                    <option value="S2">S2</option>
-                                                    <option value="S3">S3</option>
+                                                <select class="wide required"name="provinsi" id="provinsi">
+                                                     <option value="">== Select Province ==</option>
+                @foreach ($provinces as $id => $name)
+                    <option value="{{ $id }}">{{ $name }}</option>
+                @endforeach
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="styled-select clearfix">
-                                                <select class="wide required" id="input_pendidikan" name="pendidikan">
-                                                    <option value="">Pilih Desa</option>
-                                                    <option value="SD">SD</option>
-                                                    <option value="SMP">SMP</option>
-                                                    <option value="SMA">SMA</option>
-                                                    <option value="DIII">DIII</option>
-                                                    <option value="S1">S1</option>
-                                                    <option value="S2">S2</option>
-                                                    <option value="S3">S3</option>
-                                                </select>
+                                                 <select class="form-control" name="kota" id="kota" required>
+                    <option>==Pilih Salah Satu==</option>
+                </select>
                                             </div>
                                         </div>
                                         <div class="row" style="align-items: end !important;">
@@ -402,3 +397,41 @@
     <!-- /.modal -->
 </div>
 @endsection
+    @push('scripts')
+		<script>
+      function onChangeSelect(url, id, name) {
+            // send ajax request to get the cities of the selected province and append to the select tag
+            $.ajax({
+                url: url,
+                type: 'GET',
+                data: {
+                    id: id
+                },
+                success: function (data) {
+                    $('#' + name).empty();
+                    $('#' + name).append(`<option>==Pilih Salah Satu==</option>`);
+										var o = new Option("option text", "value");
+                    $.each(data, function (key, value) {
+											console.log(value);
+											var o = new Option("option text", "value");
+											$(o).html("option text");
+											$("#kota").append(o);
+                        // $('#' + name).append(`<option value="' + ${key} + '">' + ${value} + '</option>`);
+                    });
+                }
+            });
+        }
+        $(function () {
+            $('#provinsi').on('change', function () {
+							alert('oke')
+                onChangeSelect('{{ route("cities") }}', $(this).val(), 'kota');
+            });
+            $('#kota').on('change', function () {
+                onChangeSelect('{{ route("districts") }}', $(this).val(), 'kecamatan');
+            })
+            $('#kecamatan').on('change', function () {
+                onChangeSelect('{{ route("villages") }}', $(this).val(), 'desa');
+            })
+        });
+    </script>
+   @endpush

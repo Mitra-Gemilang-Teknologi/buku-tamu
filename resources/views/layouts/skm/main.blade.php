@@ -97,7 +97,7 @@
 
     <!-- Wizard script -->
     <script src="{{asset("/assets/templateskm/assets/form/js/review_func.js")}}"></script>
-
+@stack('scripts')
   </body>
 
 </html>

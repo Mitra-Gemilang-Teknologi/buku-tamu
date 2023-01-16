@@ -1,7 +1,8 @@
 (function ($) {
 
-	"use strict";
-	
+	// "use strict";
+
+
 	// Preload
 	$(window).on('load', function () { // makes sure the whole site is loaded
 		$('[data-loader="circle-side"]').fadeOut(); // will first fade out the loading animation
@@ -10,8 +11,8 @@
 			'overflow': 'visible'
 		});
 	})
-	
-	// Submit loader mask 
+
+	// Submit loader mask
 	$('form#wrapped').on('submit', function () {
 		var form = $("form#wrapped");
 		form.validate();
@@ -22,14 +23,14 @@
 
 	// Jquery select
 	$('.styled-select select').niceSelect();
-	
+
 	// Show Password
 	$('#password1, #password2').hidePassword('focus', {
 		toggle: {
 			className: 'my-toggle'
 		}
 	});
-	
+
 	// Range slider
 	$('input[type="range"]').rangeslider({
 		polyfill: false,
@@ -41,7 +42,7 @@
 			this.output.html(value);
 		}
 	});
-	
+
 	// Button start scroll to section
     $('a[href^="#"].mobile_btn').on('click', function (e) {
 			e.preventDefault();
@@ -53,7 +54,7 @@
 				window.location.hash = target;
 			});
 		});
-	
+
 	// Menu
 	var overlayNav = $('.cd-overlay-nav'),
 		overlayContent = $('.cd-overlay-content'),
@@ -71,7 +72,7 @@
 		if(!toggleNav.hasClass('close-nav')) {
 			//it means navigation is not visible yet - open it and animate navigation layer
 			toggleNav.addClass('close-nav');
-			
+
 			overlayNav.children('span').velocity({
 				translateZ: 0,
 				scaleX: 1,
@@ -82,20 +83,20 @@
 		} else {
 			//navigation is open - close it and remove navigation layer
 			toggleNav.removeClass('close-nav');
-			
+
 			overlayContent.children('span').velocity({
 				translateZ: 0,
 				scaleX: 1,
 				scaleY: 1,
 			}, 500, 'easeInCubic', function(){
 				navigation.removeClass('fade-in');
-				
+
 				overlayNav.children('span').velocity({
 					translateZ: 0,
 					scaleX: 0,
 					scaleY: 0,
 				}, 0);
-				
+
 				overlayContent.addClass('is-hidden').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(){
 					overlayContent.children('span').velocity({
 						translateZ: 0,
@@ -138,5 +139,5 @@
 			left : -(diameterValue/2)+'px',
 		}, 0);
 	}
-	
-})(window.jQuery); 
+
+})(window.jQuery);
