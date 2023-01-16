@@ -83,9 +83,9 @@ Route::get('/dashboard', function () {
 })->middleware('auth');
 
 
-Route::get('/statistik', function () {
-	return view('statistik.index');
-})->middleware('guest');
+// Route::get('/statistik', function () {
+// 	return view('statistik.index');
+// })->middleware('guest');
 
 Route::GET('/dashboard/posts/checkSlug', [DashboardPostController::class, 'checkSlug'])->middleware('auth');
 
