@@ -15,59 +15,51 @@ class jenis_layananSeeder extends Seeder
     public function run()
     {
         JenisLayanan::create([
-            'nama_jenis_layanan' => 'REKOMENDASI SURAT PERSYARATAN PEGAWAI / TNI / POLRI'
+            'nama_jenis_layanan' => 'Kelautan & Perikanan'
         ]);
 
         JenisLayanan::create([
-            'nama_jenis_layanan' => 'REKOMENDASI PENGANTAR PERUBAHAN SURAT PEMBERITAHUAN PAJAK TERHUTANG (SPPT)'
+            'nama_jenis_layanan' => 'Lingkungan Hidup'
         ]);
 
         JenisLayanan::create([
-            'nama_jenis_layanan' => 'PEMBAYARAN PBB (PAJAK BUMI & BANGUNAN)'
+            'nama_jenis_layanan' => 'Energi dan Sumber Daya Mineral'
         ]);
 
         JenisLayanan::create([
-            'nama_jenis_layanan' => 'REKOMENDASI SURAT KETERANGAN TIDAK MAMPU (SKTM)'
+            'nama_jenis_layanan' => 'Tenaga Kerja'
         ]);
 
         JenisLayanan::create([
-            'nama_jenis_layanan' => 'PERMOHONAN SURAT DISPENSASI NIKAH'
+            'nama_jenis_layanan' => 'Pendidikan'
         ]);
 
         JenisLayanan::create([
-            'nama_jenis_layanan' => 'REKOMENDASI PERMOHONAN IJIN KERAMAIAN / HIBURAN'
+            'nama_jenis_layanan' => 'Kesehatan'
         ]);
 
         JenisLayanan::create([
-            'nama_jenis_layanan' => 'SURAT KETERANGAN WARIS'
+            'nama_jenis_layanan' => 'Perhubungan'
         ]);
 
         JenisLayanan::create([
-            'nama_jenis_layanan' => 'REKOMENDASI SURAT JALAN / BEPERGIAN'
+            'nama_jenis_layanan' => 'Perdagangan'
         ]);
 
         JenisLayanan::create([
-            'nama_jenis_layanan' => 'REKOMENDASI PROPOSAL BANTUAN SOSIAL/AGAMA'
+            'nama_jenis_layanan' => 'Kehutanan'
         ]);
 
         JenisLayanan::create([
-            'nama_jenis_layanan' => 'LAYANAN DATA DAN INFORMASI'
+            'nama_jenis_layanan' => 'Sosial'
         ]);
 
         JenisLayanan::create([
-            'nama_jenis_layanan' => 'LAYANAN SOSIALISASI'
+            'nama_jenis_layanan' => 'Pertanian'
         ]);
 
         JenisLayanan::create([
-            'nama_jenis_layanan' => 'LAYANAN KONSULTASI'
-        ]);
-
-        JenisLayanan::create([
-            'nama_jenis_layanan' => 'LAYANAN PENGADUAN PELAYANAN PUBLIK'
-        ]);
-
-        JenisLayanan::create([
-            'nama_jenis_layanan' => 'REKOMENDASI PENCAIRAN DANA DESA (DD)'
+            'nama_jenis_layanan' => 'Pekerjaan Umum dan Penataan Ruang'
         ]);
     }
 }
