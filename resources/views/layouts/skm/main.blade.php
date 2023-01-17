@@ -92,13 +92,14 @@
 
     <!-- COMMON SCRIPTS -->
     <script src="{{asset('/assets/templateskm/assets/form/js/jquery-3.2.1.min.js')}}"></script>
-    <script src="{{asset('/assets/templateskm/assets/form/js/common_scripts.min.js')}}"></script>
+
+
     <script src="{{asset('/assets/templateskm/assets/form/js/velocity.min.js')}}"></script>
     <script src="{{asset('/assets/templateskm/assets/form/js/functions.js')}}"></script>
-
+  <script src="{{asset('/assets/templateskm/assets/form/js/common_scripts.min.js')}}"></script>
     <!-- Wizard script -->
     <script src="{{asset("/assets/templateskm/assets/form/js/review_func.js")}}"></script>
-@stack('scripts')
+		@stack('scripts')
   </body>
 
 </html>

@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Laravolt\Indonesia\Models\Province;
+use Laravolt\Indonesia\Models\District;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use App\Models\JenisLayanan;
+use App\Models\Kunjungan;
 
 class BukuTamuController extends Controller
 {
@@ -14,11 +17,12 @@ class BukuTamuController extends Controller
 	 */
 	public function index()
 	{
-		$provinces = Province::pluck('name', 'id');
+		$kecamatan = \Indonesia::findCity(167, ['districts'])->districts->pluck('name', 'id');
 		return view('bukuTamu.index', [
 			"title" => "Buku Tamu",
 			"active" => "Buku Tamu",
-			'provinces' => $provinces
+			'jenisLayanan' => JenisLayanan::all(),
+			'kecamatan' => $kecamatan
 		]);
 	}
 
@@ -40,7 +44,30 @@ class BukuTamuController extends Controller
 	 */
 	public function store(Request $request)
 	{
-		//
+
+
+
+
+		$validateData = $request->validate([
+			'nama' => '',
+			'waktu_kunjungan' => '',
+			'desa' => '',
+			'kecamatan'  =>   '',
+			'rt' => '',
+			'rw' =>   '',
+			'usia' => '',
+			'jenis_kelamin' => '',
+			'jml_pengunjung' => '',
+			'tujuan' => '',
+			'keterangan' => '',
+		]);
+
+
+
+
+		Kunjungan::create($validateData);
+
+		return redirect('/')->with('success', 'New Post has been added!');
 	}
 
 	/**

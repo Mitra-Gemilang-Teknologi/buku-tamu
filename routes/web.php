@@ -28,46 +28,33 @@ use App\Http\Controllers\DependentDropdownController;
 
 Route::get('/', [BukuTamuController::class, 'index']);
 
-Route::get('/about', function () {
-	return view('about', [
-		"title" => "About",
-		"active" => "About"
-	]);
-});
-
-
-Route::get('/contact', function () {
-	return view('contact', [
-		"title" => "Contact",
-		"active" => "Contact",
-
-	]);
-});
 
 
 
 Route::get('/posts', [PostController::class, 'index']);
 Route::get('/skm', [SkmController::class, 'index']);
 Route::get('/buku-tamu', [BukuTamuController::class, 'index']);
+Route::resource('/kunjungan', BukuTamuController::class);
 //Halaman single post
 
 //dengan model binding
 Route::get('/posts/{post:slug}', [PostController::class, 'show']); //slug untuk identifkasi id kalau defaultnya id
 
 //daftar category
-Route::get('/categories', function () {
-	return view('categories', [
-		'title' => 'Post Categories',
-		"active" => "Categories",
-		'categories' => Category::all()
-	]);
-});
+// Route::get('/categories', function () {
+// 	return view('categories', [
+// 		'title' => 'Post Categories',
+// 		"active" => "Categories",
+// 		'categories' => Category::all()
+// 	]);
+// });
 Route::get('/statistik', function () {
 	return view('statistik.index', [
 		'title' => 'Data Statistik',
 		"active" => "statistik",
 	]);
 });
+
 
 //Login
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
@@ -101,7 +88,5 @@ Route::resource('/inbox', InboxController::class);
 
 Route::get('provinces', 'DependentDropdownController@provinces')->name('provinces');
 Route::get('cities', [DependentDropdownController::class, 'cities'])->name('cities');
-
-// Route::get('cities', 'DependentDropdownController@cities')->name('cities');
-Route::get('districts', 'DependentDropdownController@districts')->name('districts');
-Route::get('villages', 'DependentDropdownController@villages')->name('villages');
+Route::get('districts', [DependentDropdownController::class, 'districts'])->name('districts');
+Route::get('villages', [DependentDropdownController::class, 'villages'])->name('villages');

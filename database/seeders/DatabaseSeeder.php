@@ -6,6 +6,10 @@ use App\Models\Category;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Database\Seeder;
+use Laravolt\Indonesia\Seeds\CitiesSeeder;
+use Laravolt\Indonesia\Seeds\VillagesSeeder;
+use Laravolt\Indonesia\Seeds\DistrictsSeeder;
+use Laravolt\Indonesia\Seeds\ProvincesSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -21,6 +25,11 @@ class DatabaseSeeder extends Seeder
 			jenis_layananSeeder::class,
 			OpsiJawabanSeeder::class,
 			PertanyaanSeeder::class,
+			//
+			ProvincesSeeder::class,
+			CitiesSeeder::class,
+			DistrictsSeeder::class,
+			VillagesSeeder::class,
 		]);
 
 
@@ -56,7 +65,7 @@ class DatabaseSeeder extends Seeder
 		//     'slug' => 'personal'
 
 		// ]);
-		Post::factory(10)->create();
+		// Post::factory(10)->create();
 
 		// Post::create([
 		//     'title' => 'Judul Pertama',
