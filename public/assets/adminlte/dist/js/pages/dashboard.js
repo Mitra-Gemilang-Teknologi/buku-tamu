@@ -350,3 +350,251 @@ var myChart = new Chart(ctx, {
   }
 });
 
+
+// HArian
+
+//bar chat 2
+var ctxHarian = document.getElementById("myChartHarian").getContext('2d');
+var myChartHarian = new Chart(ctxHarian, {
+  type: "bar",
+  data: {
+    labels: [
+      "Persyaratan",
+      "Prosedur",
+      "Waktu Pelayanan",
+      "Biaya/Tarif",
+      "Produk Pelayanan",
+      "Kompetensi Layanan",
+      "Prilaku Plaksana",
+      "Pungutan Tidak Resmi",
+      "Penanganan Pengaduan",
+    ],
+    datasets: [
+      {
+        label: "# of Votes",
+        data: [12, 19, 13, 15, 2, 3, 12, 3, 21],
+        backgroundColor: [
+          "rgba(255, 99, 132)",
+          "rgba(54, 162, 235)",
+          "rgba(255, 206, 86)",
+          "rgba(75, 192, 192)",
+          "rgba(153, 102, 255)",
+          "rgba(255, 159, 64)",
+          "rgba(255, 19, 64)",
+          "rgba(25, 119, 64)",
+          "rgba(255, 219, 64)",
+        ],
+        borderColor: [
+          "rgba(255,99,132,1)",
+          "rgba(54, 162, 235, 1)",
+          "rgba(255, 206, 86, 1)",
+          "rgba(75, 192, 192, 1)",
+          "rgba(153, 102, 255, 1)",
+          "rgba(255, 159, 64, 1)",
+          "rgba(255, 19, 64)",
+          "rgba(25, 119, 64)",
+          "rgba(255, 219, 64)",
+        ],
+        borderWidth: 1,
+      },
+    ],
+  },
+  options: {
+    scales: {
+      yAxes: [
+        {
+          ticks: {
+            beginAtZero: true,
+          },
+        },
+      ],
+    },
+  },
+});
+
+
+
+// Mingguan
+
+//bar chat 2
+var ctxMingguan = document.getElementById("myChartMingguan").getContext('2d');
+var myChartMingguan = new Chart(ctxMingguan, {
+  type: "bar",
+  data: {
+    labels: [
+      "Persyaratan",
+      "Prosedur",
+      "Waktu Pelayanan",
+      "Biaya/Tarif",
+      "Produk Pelayanan",
+      "Kompetensi Layanan",
+      "Prilaku Plaksana",
+      "Pungutan Tidak Resmi",
+      "Penanganan Pengaduan",
+    ],
+    datasets: [
+      {
+        label: "# of Votes",
+        data: [12, 19, 13, 15, 2, 3, 12, 3, 21],
+        backgroundColor: [
+          "rgba(255, 99, 132)",
+          "rgba(54, 162, 235)",
+          "rgba(255, 206, 86)",
+          "rgba(75, 192, 192)",
+          "rgba(153, 102, 255)",
+          "rgba(255, 159, 64)",
+          "rgba(255, 19, 64)",
+          "rgba(25, 119, 64)",
+          "rgba(255, 219, 64)",
+        ],
+        borderColor: [
+          "rgba(255,99,132,1)",
+          "rgba(54, 162, 235, 1)",
+          "rgba(255, 206, 86, 1)",
+          "rgba(75, 192, 192, 1)",
+          "rgba(153, 102, 255, 1)",
+          "rgba(255, 159, 64, 1)",
+          "rgba(255, 19, 64)",
+          "rgba(25, 119, 64)",
+          "rgba(255, 219, 64)",
+        ],
+        borderWidth: 1,
+      },
+    ],
+  },
+  options: {
+    scales: {
+      yAxes: [
+        {
+          ticks: {
+            beginAtZero: true,
+          },
+        },
+      ],
+    },
+  },
+});
+
+
+
+// Mingguan
+
+//bar chat 2
+var ctxBulanan = document.getElementById("myChartBulanan").getContext('2d');
+var myChartBulanan = new Chart(ctxBulanan, {
+  type: "bar",
+  data: {
+    labels: [
+      "Persyaratan",
+      "Prosedur",
+      "Waktu Pelayanan",
+      "Biaya/Tarif",
+      "Produk Pelayanan",
+      "Kompetensi Layanan",
+      "Prilaku Plaksana",
+      "Pungutan Tidak Resmi",
+      "Penanganan Pengaduan",
+    ],
+    datasets: [
+      {
+        label: "# of Votes",
+        data: [12, 19, 13, 15, 2, 3, 12, 3, 21],
+        backgroundColor: [
+          "rgba(255, 99, 132)",
+          "rgba(54, 162, 235)",
+          "rgba(255, 206, 86)",
+          "rgba(75, 192, 192)",
+          "rgba(153, 102, 255)",
+          "rgba(255, 159, 64)",
+          "rgba(255, 19, 64)",
+          "rgba(25, 119, 64)",
+          "rgba(255, 219, 64)",
+        ],
+        borderColor: [
+          "rgba(255,99,132,1)",
+          "rgba(54, 162, 235, 1)",
+          "rgba(255, 206, 86, 1)",
+          "rgba(75, 192, 192, 1)",
+          "rgba(153, 102, 255, 1)",
+          "rgba(255, 159, 64, 1)",
+          "rgba(255, 19, 64)",
+          "rgba(25, 119, 64)",
+          "rgba(255, 219, 64)",
+        ],
+        borderWidth: 1,
+      },
+    ],
+  },
+  options: {
+    scales: {
+      yAxes: [
+        {
+          ticks: {
+            beginAtZero: true,
+          },
+        },
+      ],
+    },
+  },
+});
+
+// Layananan
+
+//bar chat 2
+var ctxLayanan = document.getElementById("myChartBulanan").getContext('2d');
+var myChartLayanan = new Chart(ctxLayanan, {
+  type: "bar",
+  data: {
+    labels: [
+      "Persyaratan",
+      "Prosedur",
+      "Waktu Pelayanan",
+      "Biaya/Tarif",
+      "Produk Pelayanan",
+      "Kompetensi Layanan",
+      "Prilaku Plaksana",
+      "Pungutan Tidak Resmi",
+      "Penanganan Pengaduan",
+    ],
+    datasets: [
+      {
+        label: "# of Votes",
+        data: [12, 19, 13, 15, 2, 3, 12, 3, 21],
+        backgroundColor: [
+          "rgba(255, 99, 132)",
+          "rgba(54, 162, 235)",
+          "rgba(255, 206, 86)",
+          "rgba(75, 192, 192)",
+          "rgba(153, 102, 255)",
+          "rgba(255, 159, 64)",
+          "rgba(255, 19, 64)",
+          "rgba(25, 119, 64)",
+          "rgba(255, 219, 64)",
+        ],
+        borderColor: [
+          "rgba(255,99,132,1)",
+          "rgba(54, 162, 235, 1)",
+          "rgba(255, 206, 86, 1)",
+          "rgba(75, 192, 192, 1)",
+          "rgba(153, 102, 255, 1)",
+          "rgba(255, 159, 64, 1)",
+          "rgba(255, 19, 64)",
+          "rgba(25, 119, 64)",
+          "rgba(255, 219, 64)",
+        ],
+        borderWidth: 1,
+      },
+    ],
+  },
+  options: {
+    scales: {
+      yAxes: [
+        {
+          ticks: {
+            beginAtZero: true,
+          },
+        },
+      ],
+    },
+  },
+});

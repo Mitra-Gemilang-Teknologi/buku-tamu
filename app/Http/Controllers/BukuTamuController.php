@@ -7,7 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Models\JenisLayanan;
 use App\Models\Kunjungan;
-
+use RealRashid\SweetAlert\Facades\Alert;
+use App\Http\Controllers\Session;
 class BukuTamuController extends Controller
 {
 	/**
@@ -15,6 +16,24 @@ class BukuTamuController extends Controller
 	 *
 	 * @return \Illuminate\Http\Response
 	 */
+
+	public function __construct()
+	{
+		$this->middleware(function ($request, $next) {
+			if (session('QuestionAlert')) {
+				// Alert::success(session('success'));
+				Alert::question('QuestionAlert', 'Lorem ipsum dolor sit amet');
+				
+			}
+			
+
+			if (session('error')) {
+				Alert::error(session('error'));
+			}
+
+			return $next($request);
+		});
+	}
 	public function index()
 	{
 		$kecamatan = \Indonesia::findCity(167, ['districts'])->districts->pluck('name', 'id');
@@ -49,25 +68,40 @@ class BukuTamuController extends Controller
 
 
 		$validateData = $request->validate([
-			'nama' => '',
-			'waktu_kunjungan' => '',
-			'desa' => '',
-			'kecamatan'  =>   '',
+			'nama' => 'required',
+			'waktu_kunjungan' => 'required',
+			'desa' => 'required',
+			'kecamatan'  =>   'required',
 			'rt' => '',
 			'rw' =>   '',
-			'usia' => '',
-			'jenis_kelamin' => '',
-			'jml_pengunjung' => '',
-			'tujuan' => '',
+			'usia' => 'required',
+			'jenis_kelamin' => 'required',
+			'jml_pengunjung' => 'required',
+			'tujuan' => 'required',
 			'keterangan' => '',
 		]);
 
 
+		try {
+			Kunjungan::create($validateData);
+			session($validateData);
+			return redirect('/')->with('QuestionAlert', 'Created successfully!');
+		} catch (\Throwable $th) {
+			return redirect('/')
+				->with('error', 'Error during the creation!');
+		}
+		
 
+		
 
-		Kunjungan::create($validateData);
+		
+	}
+	public function remove()
+	{
 
-		return redirect('/')->with('success', 'New Post has been added!');
+		session()->invalidate();
+		session()->regenerateToken();
+		return redirect('/');
 	}
 
 	/**

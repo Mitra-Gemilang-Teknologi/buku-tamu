@@ -34,6 +34,7 @@ Route::get('/', [BukuTamuController::class, 'index']);
 Route::get('/posts', [PostController::class, 'index']);
 Route::get('/skm', [SkmController::class, 'index']);
 Route::get('/buku-tamu', [BukuTamuController::class, 'index']);
+Route::get('/remove', [BukuTamuController::class, 'remove']);
 Route::resource('/kunjungan', BukuTamuController::class);
 //Halaman single post
 
@@ -58,6 +59,7 @@ Route::get('/statistik', function () {
 
 //Login
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
+
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
 
@@ -81,9 +83,9 @@ Route::resource('/dashboard/posts', DashboardPostController::class)->middleware(
 
 Route::GET('/dashboard/categories/checkSlug', [DashboardCategory::class, 'checkSlug'])->middleware('auth');
 Route::resource('/dashboard/categories', DashboardCategory::class)->middleware('admin');
-Route::resource('/dashboard/profile', User::class)->middleware('admin');
-Route::resource('/dashboard/bukutamu', DashboardTamuController::class);
-Route::resource('/dashboard/surveytamu', DashboardSurveyController::class);
+Route::resource('/dashboard/profile', User::class)->middleware('auth');
+Route::resource('/dashboard/bukutamu', DashboardTamuController::class)->middleware('auth');
+Route::resource('/dashboard/surveytamu', DashboardSurveyController::class)->middleware('auth');
 Route::resource('/inbox', InboxController::class);
 
 Route::get('provinces', 'DependentDropdownController@provinces')->name('provinces');

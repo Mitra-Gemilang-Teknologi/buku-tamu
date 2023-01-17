@@ -30,6 +30,9 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
+                
+                    <a href="" class="btn btn-primary"><i class="fa fa-excel">Export</i></a>
+             
                 <table id="example2" class="table table-bordered table-hover">
                   <thead>
                   <tr>

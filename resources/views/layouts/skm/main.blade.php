@@ -86,7 +86,7 @@
 
 </head>
     <body>
-
+    @include('sweetalert::alert')
     @yield('container')
 
 

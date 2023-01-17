@@ -8,8 +8,8 @@
 	<div class=" justify-content-center">
 <figure><img src="{{ asset('assets/templateskm/assets/form/img/banner2.png') }}" alt=""
                                 width="350" height="350" class="img-fluid"></figure>
-																<h1 class="fw-light text-white m-0">Selamat Datang,Di<br>
-			Dinas Penanaman Modal dan Pelayanan Terpadu Satu Pintu
+																<h1 class="fw-light text-white m-0">Selamat Okelah Datang,Di<br>
+			Dinas Penanaman Modal dan Pelayanan Terpadu Satu Pintu {{Session::get('nama');}}
 		</h1>
 <br>
 		</div>
@@ -53,7 +53,7 @@
                         style="color: white !important;">
 												<img
                             src="{{ asset('/assets/templateskm/assets/form/img/logoKab.png') }}" alt=""
-                            width="70" height="50"> Pemerintah Kabupaten Ciamis</a>
+                            width="70" height="50">Pemerintah Kabupaten Ciamis</a>
                     <!-- <div id="social">
                                 <ul>
                                     <li><a href="#0"><i class="icon-facebook"></i></a></li>
@@ -100,7 +100,7 @@
 
                         <div id="middle-wizard" >
 
-                            <div class="step"style="margin-top: 1000px;">
+                            <div class="step"style="margin-top: 300px;">
                                 <div class="row mb-3" style="align-items: end !important;">
                                     <div class="col-md-6">
                                         <h3 class="main_question">Pilih Jenis Layanan</h3>
@@ -365,6 +365,13 @@
 @endsection
     @push('scripts')
 		<script>
+
+            $('.swal2-confirm').on('click',function(){
+               window.location.href = "/skm";
+            })
+             $('.swal2-cancel').on('click',function(){
+               window.location.href = "/remove";
+            })
       function onChangeSelect(url, id, name) {
             // send ajax request to get the cities of the selected province and append to the select tag
             $.ajax({
