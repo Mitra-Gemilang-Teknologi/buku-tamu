@@ -34,8 +34,8 @@ final class TranslationPushCommand extends Command
 {
     use TranslationTrait;
 
-    private $providers;
-    private $reader;
+    private TranslationProviderCollection $providers;
+    private TranslationReaderInterface $reader;
     private array $transPaths;
     private array $enabledLocales;
 
@@ -73,9 +73,6 @@ final class TranslationPushCommand extends Command
         }
     }
 
-    /**
-     * {@inheritdoc}
-     */
     protected function configure()
     {
         $keys = $this->providers->keys();
@@ -113,9 +110,6 @@ EOF
         ;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $provider = $this->providers->get($input->getArgument('provider'));

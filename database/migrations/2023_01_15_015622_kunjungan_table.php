@@ -14,20 +14,24 @@ class KunjunganTable extends Migration
 	public function up()
 	{
 		Schema::create('kunjungan', function (Blueprint $table) {
-			$table->id('id_kunjungan');
-			$table->string('nama');
-			$table->string('waktu_kunjungan');
-			$table->string('desa');
-			$table->string('kecamatan');
-			$table->string('rt');
-			$table->string('rw');
-			$table->string('jenis_kelamin');
-			$table->string('usia');
-			$table->string('tujuan');
-			$table->integer('jml_pengunjung');
-			$table->longText('keterangan');
+			$table->id('id_visit');
+			$table->unsignedBigInteger('id_service_type');
+			$table->string('visitor_name');
+			$table->integer('visitor_age');
+			$table->string('visitor_education');
+			$table->string('visitor_gender');
+			$table->string('visitor_disctrict');
+			$table->string('visitor_village');
+			$table->string('visitor_citizen_association');
+			$table->string('visitor_neighborhood_association');
+			$table->longText('visitor_description');
+			$table->date('visit_time');
+			$table->string('visit_purpose');
+			$table->integer('number_of_visitor');
 			$table->softDeletes();
 			$table->timestamps();
+
+			$table->foreign('id_service_type')->references('id_service_type')->on('jenis_layanan');
 		});
 	}
 

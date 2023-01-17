@@ -11,6 +11,6 @@ class Kunjungan extends Model
 {
 	use HasFactory, SoftDeletes;
 
-	protected $guarded  = ['id_kunjungan']; //yang tidak  boleh di isi
 	public $table = 'kunjungan'; // dilakukan seperti ini agar tidak menjadi plural
+	protected $guarded  = ['id_kunjungan']; //yang tidak  boleh di isi
 }

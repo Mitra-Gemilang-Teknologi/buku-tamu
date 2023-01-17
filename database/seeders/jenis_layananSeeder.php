@@ -15,51 +15,51 @@ class jenis_layananSeeder extends Seeder
     public function run()
     {
         JenisLayanan::create([
-            'nama_jenis_layanan' => 'Kelautan & Perikanan'
+            'service_name' => 'Kelautan & Perikanan'
         ]);
 
         JenisLayanan::create([
-            'nama_jenis_layanan' => 'Lingkungan Hidup'
+            'service_name' => 'Lingkungan Hidup'
         ]);
 
         JenisLayanan::create([
-            'nama_jenis_layanan' => 'Energi dan Sumber Daya Mineral'
+            'service_name' => 'Energi dan Sumber Daya Mineral'
         ]);
 
         JenisLayanan::create([
-            'nama_jenis_layanan' => 'Tenaga Kerja'
+            'service_name' => 'Tenaga Kerja'
         ]);
 
         JenisLayanan::create([
-            'nama_jenis_layanan' => 'Pendidikan'
+            'service_name' => 'Pendidikan'
         ]);
 
         JenisLayanan::create([
-            'nama_jenis_layanan' => 'Kesehatan'
+            'service_name' => 'Kesehatan'
         ]);
 
         JenisLayanan::create([
-            'nama_jenis_layanan' => 'Perhubungan'
+            'service_name' => 'Perhubungan'
         ]);
 
         JenisLayanan::create([
-            'nama_jenis_layanan' => 'Perdagangan'
+            'service_name' => 'Perdagangan'
         ]);
 
         JenisLayanan::create([
-            'nama_jenis_layanan' => 'Kehutanan'
+            'service_name' => 'Kehutanan'
         ]);
 
         JenisLayanan::create([
-            'nama_jenis_layanan' => 'Sosial'
+            'service_name' => 'Sosial'
         ]);
 
         JenisLayanan::create([
-            'nama_jenis_layanan' => 'Pertanian'
+            'service_name' => 'Pertanian'
         ]);
 
         JenisLayanan::create([
-            'nama_jenis_layanan' => 'Pekerjaan Umum dan Penataan Ruang'
+            'service_name' => 'Pekerjaan Umum dan Penataan Ruang'
         ]);
     }
 }

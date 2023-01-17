@@ -14,10 +14,10 @@ class CreateOpsiJawabanTable extends Migration
     public function up()
     {
         Schema::create('opsi_jawaban', function (Blueprint $table) {
-            $table->id('id_opsi_jawaban');
-            $table->integer('nilai_jawaban');
-            $table->string('deskripsi_jawaban');
-            $table->string('icon')->nullable();
+            $table->id('id_answer_option');
+            $table->integer('answer_value');
+            $table->string('answer_description');
+            $table->string('answer_icon')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

@@ -14,9 +14,9 @@ class CreatePertanyaanTable extends Migration
     public function up()
     {
         Schema::create('pertanyaan', function (Blueprint $table) {
-            $table->id('id_pertanyaan');
-            $table->string('deskripsi_pertanyaan');
-            $table->string('gambar')->nullable();
+            $table->id('id_question');
+            $table->string('question_description');
+            $table->string('question_image')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

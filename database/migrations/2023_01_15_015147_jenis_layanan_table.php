@@ -14,8 +14,8 @@ class JenisLayananTable extends Migration
     public function up()
     {
         Schema::create('jenis_layanan', function (Blueprint $table) {
-            $table->id('id_jenis_layanan');
-            $table->string('nama_jenis_layanan');
+            $table->id('id_service_type');
+            $table->string('service_name');
             $table->softDeletes();
             $table->timestamps();
         });

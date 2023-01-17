@@ -23,7 +23,6 @@ class BukuTamuController extends Controller
 			if (session('QuestionAlert')) {
 				// Alert::success(session('success'));
 				Alert::question('QuestionAlert', 'Lorem ipsum dolor sit amet');
-				
 			}
 			
 
@@ -34,6 +33,7 @@ class BukuTamuController extends Controller
 			return $next($request);
 		});
 	}
+	
 	public function index()
 	{
 		$kecamatan = \Indonesia::findCity(167, ['districts'])->districts->pluck('name', 'id');
@@ -63,22 +63,18 @@ class BukuTamuController extends Controller
 	 */
 	public function store(Request $request)
 	{
-
-
-
-
 		$validateData = $request->validate([
-			'nama' => 'required',
-			'waktu_kunjungan' => 'required',
-			'desa' => 'required',
-			'kecamatan'  =>   'required',
-			'rt' => '',
-			'rw' =>   '',
-			'usia' => 'required',
-			'jenis_kelamin' => 'required',
-			'jml_pengunjung' => 'required',
-			'tujuan' => 'required',
-			'keterangan' => '',
+			'visitor_name' => 'required',
+			'visit_time' => 'required',
+			'visitor_village' => 'required',
+			'visitor_disctrict'  =>   'required',
+			'visitor_neighborhood_association' => '',
+			'visitor_citizen_association' =>   '',
+			'visitor_age' => 'required',
+			'visitor_gender' => 'required',
+			'number_of_visitor' => 'required',
+			'visit_purpose' => 'required',
+			'visitor_description' => '',
 		]);
 
 
@@ -87,15 +83,10 @@ class BukuTamuController extends Controller
 			session($validateData);
 			return redirect('/')->with('QuestionAlert', 'Created successfully!');
 		} catch (\Throwable $th) {
-			return redirect('/')
-				->with('error', 'Error during the creation!');
-		}
-		
-
-		
-
-		
+			return redirect('/')->with('error', 'Error during the creation!');
+		}	
 	}
+
 	public function remove()
 	{
 

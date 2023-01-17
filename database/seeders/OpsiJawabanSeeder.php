@@ -15,27 +15,27 @@ class OpsiJawabanSeeder extends Seeder
     public function run()
     {
         OpsiJawaban::create([
-            'nilai_jawaban' => 1,
-            'deskripsi_jawaban' => 'Tidak Mudah',
-            'icon' => 'd.png',
+            'answer_value' => 1,
+            'answer_description' => 'Tidak Mudah',
+            'answer_icon' => 'd.png',
         ]);
 
         OpsiJawaban::create([
-            'nilai_jawaban' => 2,
-            'deskripsi_jawaban' => 'Kurang Mudah',
-            'icon' => 'c.png',
+            'answer_value' => 2,
+            'answer_description' => 'Kurang Mudah',
+            'answer_icon' => 'c.png',
         ]);
 
         OpsiJawaban::create([
-            'nilai_jawaban' => 3,
-            'deskripsi_jawaban' => 'Mudah',
-            'icon' => 'b.png',
+            'answer_value' => 3,
+            'answer_description' => 'Mudah',
+            'answer_icon' => 'b.png',
         ]);
 
         OpsiJawaban::create([
-            'nilai_jawaban' => 4,
-            'deskripsi_jawaban' => 'Sangat Mudah',
-            'icon' => 'a.png',
+            'answer_value' => 4,
+            'answer_description' => 'Sangat Mudah',
+            'answer_icon' => 'a.png',
         ]);
     }
 }

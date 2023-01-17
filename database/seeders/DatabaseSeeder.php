@@ -30,8 +30,11 @@ class DatabaseSeeder extends Seeder
 			CitiesSeeder::class,
 			DistrictsSeeder::class,
 			VillagesSeeder::class,
+
+			IndoRegionSeeder::class,
 		]);
 
+		User::factory(1)->create();
 
 		// User::create([
 		//     'name' => 'Dani Hidayat',
@@ -45,7 +48,6 @@ class DatabaseSeeder extends Seeder
 		//     'password'=> bcrypt('12345')
 		// ]);
 
-		User::factory(1)->create();
 
 		// Category::create([
 		//     'name' => 'Programing',
