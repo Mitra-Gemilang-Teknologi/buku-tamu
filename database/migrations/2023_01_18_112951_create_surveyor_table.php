@@ -22,6 +22,8 @@ class CreateSurveyorTable extends Migration
             $table->string('surveyor_gender');
             $table->softDeletes();
             $table->timestamps();
+
+            $table->foreign('id_service_type')->references('id_service_type')->on('jenis_layanan');
         });
     }
 

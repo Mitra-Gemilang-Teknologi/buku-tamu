@@ -107,20 +107,20 @@
 
                                 <div class="form-group">
                                     @foreach ($jenisLayanan as $jenisLayanan)
-                                    @if (old('id_service_type') == $jenisLayanan->id_service_type){
-                                    <label class="container_radio version_2">{{$jenisLayanan->service_name}}
-                                        <input type="radio" name="id_service_type"
-																				value="{{$jenisLayanan->id_service_type}}">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                    }
-                                    @else
-                                    <label class="container_radio version_2">{{$jenisLayanan->service_name}}
-                                        <input type="radio" name="id_service_type"
-																				 value="{{$jenisLayanan->id_service_type}}">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                    @endif
+                                        @if (old('id_service_type') == $jenisLayanan->id_service_type){
+                                        <label class="container_radio version_2">{{$jenisLayanan->service_name}}
+                                            <input type="radio" name="id_service_type"
+    											value="{{$jenisLayanan->id_service_type}}">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        }
+                                        @else
+                                        <label class="container_radio version_2">{{$jenisLayanan->service_name}}
+                                            <input type="radio" name="id_service_type"
+    											value="{{$jenisLayanan->id_service_type}}">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        @endif
                                     @endforeach
                                 </div>
                             </div>
