@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kunjungan;
 use Illuminate\Http\Request;
 
 
@@ -17,7 +18,9 @@ class DashboardTamuController extends Controller
 		if (auth()->guest()) {
 			abort(403);
 		}
-		return view('dashboard.bukutamu.index');
+		return view('dashboard.bukutamu.index', [
+			'kunjungan' => Kunjungan::all()
+		]);
 	}
 
 	/**

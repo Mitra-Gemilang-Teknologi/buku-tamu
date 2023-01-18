@@ -5,8 +5,10 @@
 <div id="beranda" class="d-flex flex-column justify-content-center w-100 h-100">
     <div class="d-flex flex-column justify-content-center align-items-center mylinks">
         <div class=" justify-content-center">
-            <figure><img src="{{ asset('assets/templateskm/assets/form/img/banner2.png') }}" alt="" width="350" height="350" class="img-fluid"></figure>
-            <h1 class="fw-light text-white m-0">Selamat Okelah Datang, Di <br> Dinas Penanaman Modal dan Pelayanan Terpadu Satu Pintu {{Session::get('nama');}}</h1>
+            <figure><img src="{{ asset('assets/templateskm/assets/form/img/banner2.png') }}" alt="" width="350"
+                    height="350" class="img-fluid"></figure>
+            <h1 class="fw-light text-white m-0">Selamat Okelah Datang, Di <br> Dinas Penanaman Modal dan Pelayanan
+                Terpadu Satu Pintu</h1>
             <br>
         </div>
 
@@ -47,8 +49,9 @@
             <div class="col-lg-6 content-left d-none d-md-block">
                 <div class="content-left-wrapper">
                     <a href="/" id="logo" style="color: white !important;">
-                    <img src="{{ asset('/assets/templateskm/assets/form/img/logoKab.png') }}" alt="" width="70" height="50">Pemerintah Kabupaten Ciamis</a>
-                    
+                        <img src="{{ asset('/assets/templateskm/assets/form/img/logoKab.png') }}" alt="" width="70"
+                            height="50">Pemerintah Kabupaten Ciamis</a>
+
                     <!-- <div id="social">
                     <ul>
                     <li><a href="#0"><i class="icon-facebook"></i></a></li>
@@ -58,7 +61,7 @@
                     </ul>
                     </div> -->
                     <!-- /social -->
-                    
+
                     <div>
                         <a href="#beranda" class="btn_1 rounded"> Beranda</a>
                         <a href="/skm" class="btn_1 rounded">SKM</a>
@@ -66,9 +69,11 @@
                         <a href="/login" class="btn_1 rounded">LOGIN</a>
 
                         <h3 style="color: white !important;">Selamat Datang di Buku Tamu </h3>
-                        <figure><img src="{{ asset('assets/templateskm/assets/form/img/banner.png') }}" alt="" width="250" height="250" class="img-fluid"></figure>
+                        <figure><img src="{{ asset('assets/templateskm/assets/form/img/banner.png') }}" alt=""
+                                width="250" height="250" class="img-fluid"></figure>
                         <h2 style="margin: 0 0 20px 0;">Dinas Penanaman Modal Dan Pelayanan Terpadu Satu Pintu</h2>
-                        <p>Partisipasi masyarakat sebagai pengguna layanan dalam menilai kinerja penyelenggaraan pelayanan publik di pemerintah kabupaten ciamis.</p>
+                        <p>Partisipasi masyarakat sebagai pengguna layanan dalam menilai kinerja penyelenggaraan
+                            pelayanan publik di pemerintah kabupaten ciamis.</p>
                         <a href="#start" class="btn_1 rounded mobile_btn">Mulai!</a>
                     </div>
 
@@ -80,40 +85,42 @@
 
             <div class="col-lg-6 content-right" id="start" style="background: #F7F7F7 !important;">
                 <div id="wizard_container">
-                <!-- /top-wizard -->
+                    <!-- /top-wizard -->
                     <form class="" method="post" action="/kunjungan">
                         @csrf
-                        <input type="hidden" name="id_instansi" value="628">
-                        <input id="website" name="website" type="text" value="">
+
                         <!-- Leave for security protection, read docs for details -->
                         <!-- //hitung jumlah $pertanyaan -->
+<input id="website" name="website" type="text" value="">
+                        <div id="middle-wizard">
 
-                        <div id="middle-wizard" >
-
-                            <div class="step"style="margin-top: 300px;">
+                            <div class="step" style="margin-top: 300px;">
                                 <div class="row mb-3" style="align-items: end !important;">
                                     <div class="col-md-6">
                                         <h3 class="main_question">Pilih Jenis Layanan</h3>
                                     </div>
                                     <div class="col-md-6 text-right">
-                                        <img src="{{ asset('assets/templateskm/survey/img_pertanyaan/0.jpg') }}" alt="" width="50%">
+                                        <img src="{{ asset('assets/templateskm/survey/img_pertanyaan/0.jpg') }}" alt=""
+                                            width="50%">
                                     </div>
                                 </div>
-                                
+
                                 <div class="form-group">
                                     @foreach ($jenisLayanan as $jenisLayanan)
-                                        @if (old('id_service_type') == $jenisLayanan->id_service_type){
-                                            <label class="container_radio version_2">{{$jenisLayanan->service_name}}
-                                                <input type="radio" name="layanan" value="593" >
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        }
-                                        @else
-                                        <label class="container_radio version_2">{{$jenisLayanan->service_name}}
-                                            <input type="radio" name="layanan" value="593" >
-                                            <span class="checkmark"></span>
-                                        </label>
-                                        @endif
+                                    @if (old('id_service_type') == $jenisLayanan->id_service_type){
+                                    <label class="container_radio version_2">{{$jenisLayanan->service_name}}
+                                        <input type="radio" name="id_service_type"
+																				value="{{$jenisLayanan->id_service_type}}">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    }
+                                    @else
+                                    <label class="container_radio version_2">{{$jenisLayanan->service_name}}
+                                        <input type="radio" name="id_service_type"
+																				 value="{{$jenisLayanan->id_service_type}}">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    @endif
                                     @endforeach
                                 </div>
                             </div>
@@ -124,13 +131,16 @@
                                         <h3>Form kunjungan</h3>
                                     </div>
                                     <div class="col-md-6 text-right">
-                                        <img src="{{ asset('assets/templateskm/survey/img_pertanyaan/1.jpg') }}" alt="" width="50%">
+                                        <img src="{{ asset('assets/templateskm/survey/img_pertanyaan/1.jpg') }}" alt=""
+                                            width="50%">
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <input type="date" class="form-control  @error('waktu_kunjungan') is-invalid @enderror" id="waktu_kunjungan" name="waktu_kunjungan" required autofocus value="{{ old('waktu_kunjungan') }}">
-                                    @error('waktu_kunjungan')
+                                    <input type="date" readonly value="{{now()->format('Y-m-d')}}" class="form-control  @error('visit_time') is-invalid @enderror"
+                                        id="visit_time" name="visit_time" required autofocus
+                                        value="{{ old('visit_time') }}">
+                                    @error('visit_time')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>
@@ -138,8 +148,10 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <input type="text" class="form-control  @error('nama') is-invalid @enderror" id="nama" name="nama" required autofocus value="{{ old('nama') }}" placeholder="Nama Lengkap">
-                                    @error('nama')
+                                    <input type="text" class="form-control  @error('visitor_name') is-invalid @enderror"
+                                        id="visitor_name" name="visitor_name" required autofocus
+                                        value="{{ old('visitor_name') }}" placeholder="Nama Lengkap">
+                                    @error('visitor_name')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>
@@ -147,8 +159,10 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <input type="text" class="form-control  @error('usia') is-invalid @enderror" id="usia" name="usia" required autofocus value="{{ old('usia') }}"placeholder="Usia">
-                                    @error('usia')
+                                    <input type="text" class="form-control  @error('visitor_age') is-invalid @enderror"
+                                        id="visitor_age" name="visitor_age" required autofocus
+                                        value="{{ old('visitor_age') }}" placeholder="Usia">
+                                    @error('visitor_age')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>
@@ -156,26 +170,22 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <input type="text" class="form-control  @error('tujuan') is-invalid @enderror" id="tujuan" name="tujuan" required autofocus value="{{ old('tujuan') }}"placeholder="Tujuan">
-                                    @error('tujuan')
+                                    <input type="text"
+                                        class="form-control  @error('visit_purpose') is-invalid @enderror"
+                                        id="visit_purpose" name="visit_purpose" required autofocus
+                                        value="{{ old('visit_purpose') }}" placeholder="Tujuan">
+                                    @error('visit_purpose')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>
                                     @enderror
                                 </div>
 
-                                <div class="form-group">
-                                    <input type="text" class="form-control  @error('jml_pengunjung') is-invalid @enderror" id="jml_pengunjung" name="jml_pengunjung" required autofocus value="{{ old('jml_pengunjung') }}" placeholder="Jumlah Pengunjung">
-                                    @error('jml_pengunjung')
-                                    <div class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
-                                    @enderror
-                                </div>
+
 
                                 <div class="form-group">
                                     <div class="styled-select clearfix">
-                                        <select class="form-control required" id="input_pendidikan" name="pendidikan">
+                                        <select class="form-control required" id="input_pendidikan" name="visitor_education">
                                             <option value="">Pilih Pendidikan</option>
                                             <option value="SD">SD</option>
                                             <option value="SMP">SMP</option>
@@ -190,11 +200,13 @@
 
                                 <div class="form-group radio_input">
                                     <label class="container_radio">Laki-laki
-                                        <input type="radio" id="input_kelamin" name="jenis_kelamin" value="Laki-laki" class="required">
+                                        <input type="radio" id="visitor_gender" name="visitor_gender" value="Laki-laki"
+                                            class="required">
                                         <span class="checkmark"></span>
                                     </label>
                                     <label class="container_radio">Perempuan
-                                        <input type="radio" id="input_kelamin" name="jenis_kelamin" value="Perempuan" class="required">
+                                        <input type="radio" id="visitor_gender" name="visitor_gender" value="Perempuan"
+                                            class="required">
                                         <span class="checkmark"></span>
                                     </label>
                                 </div>
@@ -205,15 +217,16 @@
                                     <div class="col-md-12 mb-3">
 
                                     </div>
-                                    
+
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <div class="styled-select clearfix">
-                                                <select class="wide form-control required"name="kecamatan" id="kecamatan">
+                                                <select class="wide form-control required" name="visitor_disctrict"
+                                                    id="kecamatan">
                                                     <option value="">== Select Kecamatan ==</option>
                                                     @foreach ($kecamatan as $id => $name)
-                                                        <option value="{{ $id }}">{{ $name }}
-                                                        </option>
+                                                    <option value="{{ $id }}">{{ $name }}
+                                                    </option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -221,7 +234,7 @@
 
                                         <div class="form-group">
                                             <div class="styled-select clearfix">
-                                                <select class="form-control" name="desa" id="desa" required>
+                                                <select class="form-control" name="visitor_village" id="desa" required>
                                                     <option>==Pilih Salah Satu==</option>
                                                 </select>
                                             </div>
@@ -230,12 +243,14 @@
                                         <div class="row" style="align-items: end !important;">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <input type="text" class="form-control"placeholder="RT" name="rt" id="">
+                                                    <input type="text" class="form-control" placeholder="RT"
+                                                        name="visitor_neighborhood_association" id="">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <input type="text" placeholder="Rw"class="form-control" name="rw" id="">
+                                                    <input type="text" placeholder="Rw" class="form-control"
+                                                        name="visitor_citizen_association" id="">
                                                 </div>
                                             </div>
                                         </div>
@@ -246,13 +261,14 @@
                             <div class="submit step">
                                 <h3 class="main_question">Keterangan</h3>
                                 <div class="form-group add_top_30">
-                                    <textarea id="saran" name="keterangan" aria-describedby="saran_text" class="form-control review_message" placeholder="Tulis disini..."></textarea>
+                                    <textarea id="saran" name="visitor_description" aria-describedby="saran_text"
+                                        class="form-control review_message" placeholder="Tulis disini..."></textarea>
                                 </div>
                             </div>
 
                         </div>
                         <!-- /middle-wizard -->
-    
+
                         <div id="top-wizard">
                             <div id="progressbar"></div>
                         </div>
@@ -300,10 +316,17 @@
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 </div>
                 <div class="modal-body">
-                    <p>Lorem ipsum dolor sit amet, in porro albucius qui, in <strong>nec quod novum accumsan</strong>, mei ludus tamquam dolores id. No sit debitis meliore postulant, per ex prompta alterum sanctus, pro ne quod dicunt sensibus.</p>
-                    <p>Lorem ipsum dolor sit amet, in porro albucius qui, in nec quod novum accumsan, mei ludus tamquam dolores id. No sit debitis meliore postulant, per ex prompta alterum sanctus, pro ne quod dicunt sensibus. Lorem ipsum dolor sit amet, <strong>in porro albucius qui</strong>, in nec quod novum accumsan, mei ludus tamquam dolores id. No sit debitis meliore postulant, per ex prompta alterum
-                    sanctus, pro ne quod dicunt sensibus.</p>
-                    <p>Lorem ipsum dolor sit amet, in porro albucius qui, in nec quod novum accumsan, mei ludus tamquam dolores id. No sit debitis meliore postulant, per ex prompta alterum sanctus, pro ne quod dicunt sensibus.</p>
+                    <p>Lorem ipsum dolor sit amet, in porro albucius qui, in <strong>nec quod novum accumsan</strong>,
+                        mei ludus tamquam dolores id. No sit debitis meliore postulant, per ex prompta alterum sanctus,
+                        pro ne quod dicunt sensibus.</p>
+                    <p>Lorem ipsum dolor sit amet, in porro albucius qui, in nec quod novum accumsan, mei ludus tamquam
+                        dolores id. No sit debitis meliore postulant, per ex prompta alterum sanctus, pro ne quod dicunt
+                        sensibus. Lorem ipsum dolor sit amet, <strong>in porro albucius qui</strong>, in nec quod novum
+                        accumsan, mei ludus tamquam dolores id. No sit debitis meliore postulant, per ex prompta alterum
+                        sanctus, pro ne quod dicunt sensibus.</p>
+                    <p>Lorem ipsum dolor sit amet, in porro albucius qui, in nec quod novum accumsan, mei ludus tamquam
+                        dolores id. No sit debitis meliore postulant, per ex prompta alterum sanctus, pro ne quod dicunt
+                        sensibus.</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn_1" data-dismiss="modal">Close</button>
@@ -320,11 +343,11 @@
 @push('scripts')
 <script>
 
-    $('.swal2-confirm').on('click',function(){
+    $('.swal2-confirm').on('click', function () {
         window.location.href = "/skm";
     })
 
-    $('.swal2-cancel').on('click',function(){
+    $('.swal2-cancel').on('click', function () {
         window.location.href = "/remove";
     })
 
@@ -336,11 +359,11 @@
             data: {
                 id: id
             },
-            success: function(data) {
+            success: function (data) {
                 $('#' + name).empty();
                 $('#' + name).append(`<option>==Pilih Salah Satu==</option>`);
 
-                $.each(data, function(key, value) {
+                $.each(data, function (key, value) {
 
                     $('#' + name).append(`<option value="${key}">${value} </option>`);
                 });
@@ -348,15 +371,15 @@
         });
     }
 
-    $(function() {
-        $('#provinsi').on('change', function() {
+    $(function () {
+        $('#provinsi').on('change', function () {
             alert('oke')
             onChangeSelect('{{ route('cities') }}', $(this).val(), 'kota');
         });
-        $('#kota').on('change', function() {
+        $('#kota').on('change', function () {
             onChangeSelect('{{ route('districts') }}', $(this).val(), 'kecamatan');
         })
-        $('#kecamatan').on('change', function() {
+        $('#kecamatan').on('change', function () {
             onChangeSelect('{{ route('villages') }}', $(this).val(), 'desa');
         })
     });

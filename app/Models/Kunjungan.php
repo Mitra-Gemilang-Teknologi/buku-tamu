@@ -11,12 +11,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Kunjungan extends Model
 {
 	use HasFactory, SoftDeletes;
-
+	protected $guarded  = ['id_visit']; //yang tidak  boleh di isi
 	public $table = 'kunjungan'; // dilakukan seperti ini agar tidak menjadi plural
-	protected $guarded  = ['id_kunjungan']; //yang tidak  boleh di isi
-
-	public function jenislayanan()
-    {
-        return $this->hasMany(JenisLayanan::class);
-    }
+	public function layanan()
+	{
+		return $this->belongsTo(JenisLayanan::class, 'id_service_type', 'id_service_type');
+	}
 }

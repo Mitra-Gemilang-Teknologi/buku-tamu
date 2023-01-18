@@ -9,16 +9,16 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class JenisLayanan extends Model
 {
-    use HasFactory, SoftDeletes;
+	use HasFactory, SoftDeletes;
 
-    public $table = 'jenis_layanan'; // dilakukan seperti ini agar tidak menjadi plural
+	public $table = 'jenis_layanan'; // dilakukan seperti ini agar tidak menjadi plural
 
-    protected $fillable = [
-        'nama_jenis_layanan'
-    ];
+	protected $fillable = [
+		'nama_jenis_layanan'
+	];
 
-    public function kunjungan()
-    {
-        return $this->belongsTo(Kunjungan::class, 'id_service_type');
-    }
+	public function kunjungan()
+	{
+		return $this->belongsTo(Kunjungan::class, 'id_service_type');
+	}
 }
