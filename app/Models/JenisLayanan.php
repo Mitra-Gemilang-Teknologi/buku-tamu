@@ -2,9 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Kunjungan;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class JenisLayanan extends Model
 {
@@ -15,4 +16,9 @@ class JenisLayanan extends Model
     protected $fillable = [
         'nama_jenis_layanan'
     ];
+
+    public function kunjungan()
+    {
+        return $this->belongsTo(Kunjungan::class, 'id_service_type');
+    }
 }
