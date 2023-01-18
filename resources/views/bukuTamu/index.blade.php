@@ -220,6 +220,7 @@
 
                                     <div class="col-md-6">
                                         <div class="form-group">
+																				<label>Kecamatan</label>
                                             <div class="styled-select clearfix">
                                                 <select class="wide form-control required" name="visitor_disctrict"
                                                     id="kecamatan">
@@ -233,6 +234,7 @@
                                         </div>
 
                                         <div class="form-group">
+																							<label>Desa</label>
                                             <div class="styled-select clearfix">
                                                 <select class="form-control" name="visitor_village" id="desa" required>
                                                     <option>==Pilih Salah Satu==</option>
@@ -242,12 +244,14 @@
 
                                         <div class="row" style="align-items: end !important;">
                                             <div class="col-md-6">
+																									<label>RT</label>
                                                 <div class="form-group">
                                                     <input type="text" class="form-control" placeholder="RT"
                                                         name="visitor_neighborhood_association" id="">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
+																								<label>RT</label>
                                                 <div class="form-group">
                                                     <input type="text" placeholder="Rw" class="form-control"
                                                         name="visitor_citizen_association" id="">
@@ -342,6 +346,9 @@
 @endsection
 @push('scripts')
 <script>
+	$(document).ready(function(){
+	$("html,body").animate({scrollTop:0},"slow");
+});
 
     $('.swal2-confirm').on('click', function () {
         window.location.href = "/skm";

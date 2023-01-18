@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Kunjungan;
 use Illuminate\Http\Request;
-
+use App\Exports\KunjunganExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class DashboardTamuController extends Controller
 {
@@ -22,6 +23,14 @@ class DashboardTamuController extends Controller
 			'kunjungan' => Kunjungan::all()
 		]);
 	}
+	public function export_excel()
+	{
+
+
+
+		return Excel::download(new KunjunganExport, 'kunjungan.xlsx');
+	}
+
 
 	/**
 	 * Show the form for creating a new resource.
