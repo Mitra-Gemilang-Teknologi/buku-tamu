@@ -6,6 +6,7 @@ use App\Models\Surveyor;
 use App\Models\Pertanyaan;
 use App\Models\OpsiJawaban;
 use App\Models\JenisLayanan;
+use App\Models\survey_result;
 use Illuminate\Http\Request;
 
 class SkmController extends Controller
@@ -44,6 +45,8 @@ class SkmController extends Controller
 	 */
 	public function store(Request $request)
 	{
+		$Pertanyaan = Pertanyaan::all();
+
 		try {
 			$validateData = $request->validate([
 				'id_service_type' => 'required',
@@ -54,10 +57,17 @@ class SkmController extends Controller
 				'surveyor_description'  =>   'required',
 			]);
 
+			$validateData2 = $request->validate([
+				'id_answer_option' => 'required'
+			]);
+
+			
+
 
 			try {
-				Surveyor::create($validateData);
-				return redirect('/');
+				$last = Surveyor::create($validateData);
+
+				return redirect('/')->with('SurveyAlert', 'Created successfully!');
 			} catch (\Throwable $th) {
 				return redirect('/')->with('error', 'Error during the creation!');
 			}

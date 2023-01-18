@@ -26,6 +26,11 @@ class BukuTamuController extends Controller
 				Alert::info('Terimakasih', 'Data anda berhasil disimpan!');
 			}
 
+			if (session('SurveyAlert')) {
+				// Alert::success(session('success'));
+				Alert::info('Terimakasih', 'Data survey anda berhasil disimpan!');
+			}
+
 
 			if (session('error')) {
 				Alert::error(session('error'));
