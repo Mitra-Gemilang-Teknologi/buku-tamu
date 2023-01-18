@@ -94,3 +94,8 @@ Route::get('provinces', 'DependentDropdownController@provinces')->name('province
 Route::get('cities', [DependentDropdownController::class, 'cities'])->name('cities');
 Route::get('districts', [DependentDropdownController::class, 'districts'])->name('districts');
 Route::get('villages', [DependentDropdownController::class, 'villages'])->name('villages');
+
+
+//Chart
+
+Route::get('google-chart', [DashboardController::class, 'donutChart']);

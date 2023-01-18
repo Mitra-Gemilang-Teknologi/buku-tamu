@@ -161,7 +161,7 @@
                             <div class="card-header">
                                 <h3 class="card-title">
                                     <i class="fas fa-chart-bar mr-1"></i>
-                                 -
+                                    -
                                 </h3>
 
                             </div><!-- /.card-header -->
@@ -216,11 +216,11 @@
                                                             <tbody>
 
                                                                 <tr>
-                                                                    <td>Other browsers</td>
-                                                                    <td>All others</td>
-                                                                    <td>Dani</td>
-                                                                    <td>Ok</td>
-                                                                    <td>USa</td>
+                                                                    <td>1</td>
+                                                                    <td>Pelayanan</td>
+                                                                    <td>3.95</td>
+                                                                    <td>SANGAT BAIK</td>
+                                                                    <td>Persyaratan Sangat Sesuai dengan Jenis Pelayanan yang Diberikan</td>
                                                                 </tr>
                                                             </tbody>
 
@@ -243,60 +243,63 @@
                 </div>
                 <!-- /.row (main row) -->
 
-                 <section class="content">
+                <section class="content">
                     <div class="row">
-                         <section class="col-lg-12 connectedSortable">
-            <!-- Custom tabs (Charts with tabs)-->
-            <div class="card">
-              <div class="card-header">
-                <h3 class="card-title">
-                  <i class="fas fa-chart-bar mr-1"></i>
-                  Data Kunjungan
-                </h3>
-                <div class="card-tools">
-                  <ul class="nav nav-pills ml-auto">
-                    <li class="nav-item">
-                      <a class="nav-link active" href="#Harian" data-toggle="tab">Harian</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#Mingguan" data-toggle="tab">Mingguan</a>
-                    </li>
-                     <li class="nav-item">
-                      <a class="nav-link" href="#Bulanan" data-toggle="tab">Bulanan</a>
-                    </li>
-                     <li class="nav-item">
-                      <a class="nav-link" href="#Layanan" data-toggle="tab">Layanan</a>
-                    </li>
-                  </ul>
-                </div>
-              </div><!-- /.card-header -->
-              <div class="card-body">
-                <div class="tab-content p-0">
-                  <!-- Morris chart - Sales -->
-                  <div class="col-md-12 chart tab-pane active"id="Harian">
-                     <canvas id="myChartHarian" width="200" height="100"></canvas>
+                        <section class="col-lg-12 connectedSortable">
+                            <!-- Custom tabs (Charts with tabs)-->
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title">
+                                        <i class="fas fa-chart-bar mr-1"></i>
+                                        Data Kunjungan
+                                    </h3>
+                                    <div class="card-tools">
+                                        <ul class="nav nav-pills ml-auto">
+                                            <li class="nav-item">
+                                                <a class="nav-link active" href="#Harian" data-toggle="tab">Harian</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#Mingguan" data-toggle="tab">Mingguan</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#Bulanan" data-toggle="tab">Bulanan</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#Layanan" data-toggle="tab">Layanan</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div><!-- /.card-header -->
+                                <div class="card-body">
+                                    <div class="tab-content p-0">
+                                        <!-- Morris chart - Sales -->
+                                        <div class="col-md-12 chart tab-pane active"id="Harian">
+                                            <canvas id="myChartHarian" width="200" height="100"></canvas>
 
-                 </div>
-                 <div class="col-md-12 chart tab-pane "id="Mingguan">
-                     <canvas id="myChartMingguan" width="200" height="100"></canvas>
-                 </div>
-                 <div class="col-md-12 chart tab-pane "id="Bulanan">
-                     <canvas id="myChartBulanan" width="200" height="100"></canvas>
-                 </div>
-                 <div class="col-md-12 chart tab-pane "id="Layanan">
-                     <canvas id="myChartLayanan" width="200" height="100"></canvas>
-                 </div>
-                  
-                </div>
-              </div><!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-           
-          </section>
+                                        </div>
+                                        <div class="col-md-12 chart tab-pane "id="Mingguan">
+                                            <canvas id="myChartMingguan" width="200" height="100"></canvas>
+                                        </div>
+                                        <div class="col-md-12 chart tab-pane "id="Bulanan">
+                                            <canvas id="myChartBulanan" width="200" height="100"></canvas>
+                                        </div>
+                                        <div class="col-md-12 chart tab-pane "id="Layanan">
+                                            <canvas id="myChartLayanan" width="200" height="100"></canvas>
+                                        </div>
+
+                                    </div>
+                                </div><!-- /.card-body -->
+                            </div>
+                            <!-- /.card -->
+
+                        </section>
                     </div>
-            <div class="container-fluid">
-            </div><!-- /.container-fluid -->
-        </section>
-        <!-- /.content -->
-    </div>
-@endsection
+                    <div class="container-fluid">
+                    </div><!-- /.container-fluid -->
+                </section>
+                <!-- /.content -->
+            </div>
+        @endsection
+				@push('scripts')
+
+				@endpush

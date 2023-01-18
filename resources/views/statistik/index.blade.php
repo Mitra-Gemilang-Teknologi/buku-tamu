@@ -27,7 +27,7 @@
         </div>
     </div>
     <!-- ./col -->
-    
+
     <div class="col-lg-3 col-6">
         <!-- small box -->
         <div class="small-box bg-success">
@@ -42,7 +42,7 @@
             </div>
         </div>
     </div><!-- ./col -->
-    
+
     <div class="col-lg-3 col-6">
         <!-- small box -->
         <div class="small-box bg-warning">
@@ -57,7 +57,7 @@
             </div>
         </div>
     </div><!-- ./col -->
-    
+
     <div class="col-lg-3 col-6">
         <!-- small box -->
         <div class="small-box bg-danger">
@@ -191,6 +191,61 @@
             </div><!-- /.card-body -->
         </div>
     </section>
+		 <section class="content">
+                    <div class="row">
+                        <section class="col-lg-12 connectedSortable">
+                            <!-- Custom tabs (Charts with tabs)-->
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title">
+                                        <i class="fas fa-chart-bar mr-1"></i>
+                                        Data Kunjungan
+                                    </h3>
+                                    <div class="card-tools" >
+                                        <ul class="nav nav-pills ml-auto">
+                                            <li class="nav-item">
+                                                <a class="nav-link active" href="#Harian" data-toggle="tab"style="color: black !important">Harian</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#Mingguan" data-toggle="tab"style="color: black !important">Mingguan</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#Bulanan" data-toggle="tab"style="color: black !important">Bulanan</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#Layanan" data-toggle="tab"style="color: black !important">Layanan</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div><!-- /.card-header -->
+                                <div class="card-body">
+                                    <div class="tab-content p-0">
+                                        <!-- Morris chart - Sales -->
+                                        <div class="col-md-12 chart tab-pane active"id="Harian">
+                                            <canvas id="myChartHarian" width="200" height="100"></canvas>
+
+                                        </div>
+                                        <div class="col-md-12 chart tab-pane "id="Mingguan">
+                                            <canvas id="myChartMingguan" width="200" height="100"></canvas>
+                                        </div>
+                                        <div class="col-md-12 chart tab-pane "id="Bulanan">
+                                            <canvas id="myChartBulanan" width="200" height="100"></canvas>
+                                        </div>
+                                        <div class="col-md-12 chart tab-pane "id="Layanan">
+                                            <canvas id="myChartLayanan" width="200" height="100"></canvas>
+                                        </div>
+
+                                    </div>
+                                </div><!-- /.card-body -->
+                            </div>
+                            <!-- /.card -->
+
+                        </section>
+                    </div>
+                    <div class="container-fluid">
+                    </div><!-- /.container-fluid -->
+                </section>
+                <!-- /.content -->
 </div>
 
 
