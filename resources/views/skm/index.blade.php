@@ -77,75 +77,22 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="container_radio version_2">REKOMENDASI SURAT PERSYARATAN PEGAWAI / TNI / POLRI
-                                    <input type="radio" name="layanan" value="593" checked>
-                                    <span class="checkmark"></span>
-                                </label>
-
-                                <label class="container_radio version_2">REKOMENDASI PENGANTAR PERUBAHAN SURAT PEMBERITAHUAN PAJAK TERHUTANG (SPPT)
-                                    <input type="radio" name="layanan" value="594" checked>
-                                    <span class="checkmark"></span>
-                                </label>
-                                
-                                <label class="container_radio version_2">PEMBAYARAN PBB (PAJAK BUMI &amp; BANGUNAN)
-                                    <input type="radio" name="layanan" value="595" checked>
-                                    <span class="checkmark"></span>
-                                </label>
-                                
-                                <label class="container_radio version_2">REKOMENDASI SURAT KETERANGAN TIDAK MAMPU (SKTM)
-                                    <input type="radio" name="layanan" value="596" checked>
-                                    <span class="checkmark"></span>
-                                </label>
-                                
-                                <label class="container_radio version_2">PERMOHONAN SURAT DISPENSASI NIKAH
-                                    <input type="radio" name="layanan" value="597" checked>
-                                    <span class="checkmark"></span>
-                                </label>
-                                
-                                <label class="container_radio version_2">REKOMENDASI PERMOHONAN IJIN KERAMAIAN / HIBURAN
-                                    <input type="radio" name="layanan" value="598" checked>
-                                    <span class="checkmark"></span>
-                                </label>
-
-                                <label class="container_radio version_2">SURAT KETERANGAN WARIS
-                                    <input type="radio" name="layanan" value="599" checked>
-                                    <span class="checkmark"></span>
-                                </label>
-
-                                <label class="container_radio version_2">REKOMENDASI SURAT JALAN / BEPERGIAN
-                                    <input type="radio" name="layanan" value="600" checked>
-                                    <span class="checkmark"></span>
-                                </label>
-
-                                <label class="container_radio version_2">REKOMENDASI PROPOSAL BANTUAN SOSIAL/AGAMA
-                                    <input type="radio" name="layanan" value="601" checked>
-                                    <span class="checkmark"></span>
-                                </label>
-
-                                <label class="container_radio version_2">LAYANAN DATA DAN INFORMASI
-                                    <input type="radio" name="layanan" value="602" checked>
-                                    <span class="checkmark"></span>
-                                </label>
-
-                                <label class="container_radio version_2">LAYANAN SOSIALISASI
-                                    <input type="radio" name="layanan" value="605" checked>
-                                    <span class="checkmark"></span>
-                                </label>
-
-                                <label class="container_radio version_2">LAYANAN KONSULTASI
-                                    <input type="radio" name="layanan" value="609" checked>
-                                    <span class="checkmark"></span>
-                                </label>
-
-                                <label class="container_radio version_2">LAYANAN PENGADUAN PELAYANAN PUBLIK
-                                    <input type="radio" name="layanan" value="614" checked>
-                                    <span class="checkmark"></span>
-                                </label>
-
-                                <label class="container_radio version_2">REKOMENDASI PENCAIRAN DANA DESA (DD)
-                                    <input type="radio" name="layanan" value="2028" checked>
-                                    <span class="checkmark"></span>
-                                </label>
+                                @foreach ($jenisLayanan as $jenisLayanan)
+                                    @if (old('id_service_type') == $jenisLayanan->id_service_type){
+                                    <label class="container_radio version_2">{{$jenisLayanan->service_name}}
+                                        <input type="radio" name="id_service_type"
+                                            value="{{$jenisLayanan->id_service_type}}">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    }
+                                    @else
+                                    <label class="container_radio version_2">{{$jenisLayanan->service_name}}
+                                        <input type="radio" name="id_service_type"
+                                            value="{{$jenisLayanan->id_service_type}}">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    @endif
+                                @endforeach
                             </div>
                         </div>
 
@@ -172,7 +119,7 @@
 
                             <div class="form-group">
                                 <div class="styled-select clearfix">
-                                    <select class="wide required" id="input_pendidikan" name="pendidikan">
+                                    <select class="form-control wide required" id="input_pendidikan" name="pendidikan">
                                         <option value="">Pilih Pendidikan</option>
                                         <option value="SD">SD</option>
                                         <option value="SMP">SMP</option>
@@ -198,7 +145,45 @@
                             </div>
                         </div>
 
+<!-- ///////////////////////////////////////////////////// -->
+                        @foreach ($Pertanyaan as $Pertanyaan)
                         <div class="step">
+                            <div class="row" style="align-items: end !important;">
+                                <div class="col-md-12 mb-3">
+                                    <h3>{{$Pertanyaan->question_description}}</h3>
+                                </div>
+
+                                <div class="col-md-6">
+
+                                    <label class="container_radio version_2"><img src="{{asset('assets/templateskm/survey/smiley/c.png')}}" alt="" width="10%"> Kurang Sesuai
+                                        <input type="radio" id="opsi_3_16" name="respon[3]" value="16" class="required">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <label class="container_radio version_2"><img src="{{asset('assets/templateskm/survey/smiley/b.png')}}" alt="" width="10%"> Sesuai
+                                        <input type="radio" id="opsi_3_17" name="respon[3]" value="17" class="required">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <label class="container_radio version_2"><img src="{{asset('assets/templateskm/survey/smiley/a.png')}}" alt="" width="10%"> Sangat Sesuai
+                                        <input type="radio" id="opsi_3_18" name="respon[3]" value="18" class="required">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+
+                                <div class="col-md-6 text-right">
+                                    <img src="{{ asset('templateskm/survey/img_pertanyaan/' . $Pertanyaan->question_image, true) }}" alt="" width="65%">
+                                </div>
+                            </div>
+                        </div>
+                        @endforeach
+                        @foreach ($OpsiJawaban as $OpsiJawaban)
+                            <label class="container_radio version_2"><img src="{{asset('assets/templateskm/survey/smiley/') .'/'.  $OpsiJawaban->answer_icon }}" alt="" width="10%"> {{ $OpsiJawaban->answer_description }}
+                                <input type="radio" id="opsi_3_16" name="respon[3]" value="{{ $OpsiJawaban->answer_value }}" class="required">
+                                <span class="checkmark"></span>
+                            </label>
+                        @endforeach
+<!-- ///////////////////////////////////////////////////// -->
+
+                        <!-- <div class="step">
                             <div class="row" style="align-items: end !important;">
                                 <div class="col-md-12 mb-3">
                                     <h3>Bagaimana pendapat Saudara tentang kesesuaian persyaratan pelayanan dengan jenis pelayanannya?</h3>
@@ -468,7 +453,7 @@
                                     <img src="{{ asset('assets/templateskm/survey/img_pertanyaan/11.jpg') }}" alt="" width="65%">
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
                         <div class="submit step">
                             <h3 class="main_question">Kritik dan Saran</h3>
