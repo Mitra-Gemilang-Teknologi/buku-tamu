@@ -23,7 +23,7 @@ class BukuTamuController extends Controller
 		$this->middleware(function ($request, $next) {
 			if (session('QuestionAlert')) {
 				// Alert::success(session('success'));
-				Alert::question('QuestionAlert', 'Lorem ipsum dolor sit amet');
+				Alert::info('Terimakasih', 'Data anda berhasil disimpan!');
 			}
 
 

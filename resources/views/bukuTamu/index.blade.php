@@ -91,7 +91,8 @@
 
                         <!-- Leave for security protection, read docs for details -->
                         <!-- //hitung jumlah $pertanyaan -->
-<input id="website" name="website" type="text" value="">
+                        <input id="website" name="website" type="text" value="">
+                        
                         <div id="middle-wizard">
 
                             <div class="step" style="margin-top: 300px;">
@@ -213,6 +214,12 @@
                             </div>
 
                             <div class="step">
+                                <div class="row mb-3" style="align-items: end !important;">
+                                    <div class="col-md-6">
+                                        <h3>Alamat</h3>
+                                    </div>
+                                </div>
+
                                 <div class="row" style="align-items: end !important;">
                                     <div class="col-md-12 mb-3">
 
@@ -220,7 +227,7 @@
 
                                     <div class="col-md-6">
                                         <div class="form-group">
-																				<label>Kecamatan</label>
+											<label>Kecamatan</label>
                                             <div class="styled-select clearfix">
                                                 <select class="wide form-control required" name="visitor_disctrict"
                                                     id="kecamatan">
@@ -234,7 +241,7 @@
                                         </div>
 
                                         <div class="form-group">
-																							<label>Desa</label>
+												<label>Desa</label>
                                             <div class="styled-select clearfix">
                                                 <select class="form-control" name="visitor_village" id="desa" required>
                                                     <option>==Pilih Salah Satu==</option>
@@ -244,14 +251,14 @@
 
                                         <div class="row" style="align-items: end !important;">
                                             <div class="col-md-6">
-																									<label>RT</label>
+												<label>RT</label>
                                                 <div class="form-group">
                                                     <input type="text" class="form-control" placeholder="RT"
                                                         name="visitor_neighborhood_association" id="">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
-																								<label>RT</label>
+												<label>RT</label>
                                                 <div class="form-group">
                                                     <input type="text" placeholder="Rw" class="form-control"
                                                         name="visitor_citizen_association" id="">

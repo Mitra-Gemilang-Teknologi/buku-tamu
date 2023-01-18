@@ -78,17 +78,19 @@
 
                             <div class="form-group">
                                 @foreach ($jenisLayanan as $jenisLayanan)
-                                    @if (old('id_service_type') == $jenisLayanan->id_service_type){
+                                    @if (old('id_service_type') == $jenisLayanan->id_service_type)  
                                     <label class="container_radio version_2">{{$jenisLayanan->service_name}}
-                                        <input type="radio" name="id_service_type"
-                                            value="{{$jenisLayanan->id_service_type}}">
+                                        <input type="radio" name="id_service_type" value="{{$jenisLayanan->id_service_type}}" checked>
                                         <span class="checkmark"></span>
                                     </label>
-                                    }
+                                    @elseif (Session::get('id_service_type') == $jenisLayanan->id_service_type)
+                                    <label class="container_radio version_2">{{$jenisLayanan->service_name}}
+                                        <input type="radio" name="id_service_type" value="{{$jenisLayanan->id_service_type}}" checked>
+                                        <span class="checkmark"></span>
+                                    </label>
                                     @else
                                     <label class="container_radio version_2">{{$jenisLayanan->service_name}}
-                                        <input type="radio" name="id_service_type"
-                                            value="{{$jenisLayanan->id_service_type}}">
+                                        <input type="radio" name="id_service_type" value="{{$jenisLayanan->id_service_type}}">
                                         <span class="checkmark"></span>
                                     </label>
                                     @endif
@@ -109,39 +111,88 @@
                             <input type="hidden" name="id_buku_tamu" value="">
                             
                             <div class="form-group">
-                                <input type="text" id="input_nama" name="nama" class="form-control required" placeholder="Nama Lengkap" required value="">
+                                <input type="text" id="input_nama" name="surveyor_name" class="form-control required" placeholder="Nama Lengkap" required value="{{Session::get('visitor_name')}}">
                                 <small id="input_nama_text" class="form-text text-muted">*Nama anda tidak akan ditampilkan secara publik.</small>
                             </div>
 
                             <div class="form-group">
-                                <input type="number" id="input_telp" name="telp" aria-describedby="input_telp_text" class="form-control required" placeholder="No Telepon">
+                                <input type="number" id="input_telp" name="surveyor_phone" aria-describedby="input_telp_text" class="form-control required" placeholder="No Telepon" value="{{Session::get('visitor_phone')}}">
                             </div>
 
                             <div class="form-group">
                                 <div class="styled-select clearfix">
-                                    <select class="form-control wide required" id="input_pendidikan" name="pendidikan">
+                                    <select class="form-control wide required" id="input_pendidikan" name="surveyor_education">
                                         <option value="">Pilih Pendidikan</option>
-                                        <option value="SD">SD</option>
-                                        <option value="SMP">SMP</option>
-                                        <option value="SMA">SMA</option>
-                                        <option value="DIII">DIII</option>
-                                        <option value="DIV">DIV</option>
-                                        <option value="S1">S1</option>
-                                        <option value="S2">S2</option>
-                                        <option value="S3">S3</option>
+                                        @if (Session::get('visitor_education') == 'SD') 
+                                            <option value="SD" selected>SD</option>
+                                        @else
+                                            <option value="SD">SD</option>
+                                        @endif
+
+                                        @if (Session::get('visitor_education') == 'SMP') 
+                                            <option value="SMP" selected>SMP</option>
+                                        @else
+                                            <option value="SMP">SMP</option>
+                                        @endif
+
+                                        @if (Session::get('visitor_education') == 'SMA') 
+                                            <option value="SMA" selected>SMA</option>
+                                        @else
+                                            <option value="SMA">SMA</option>
+                                        @endif
+
+                                        @if (Session::get('visitor_education') == 'DIII') 
+                                            <option value="DIII" selected>DIII</option>
+                                        @else
+                                            <option value="DIII">DIII</option>
+                                        @endif
+
+                                        @if (Session::get('visitor_education') == 'S1') 
+                                            <option value="S1" selected>S1</option>
+                                        @else
+                                            <option value="S1">S1</option>
+                                        @endif
+
+                                        @if (Session::get('visitor_education') == 'S2') 
+                                            <option value="S2" selected>S2</option>
+                                        @else
+                                            <option value="S2">S2</option>
+                                        @endif
+
+                                        @if (Session::get('visitor_education') == 'S3') 
+                                            <option value="S3" selected>S3</option>
+                                        @else
+                                            <option value="S3">S3</option>
+                                        @endif
                                     </select>
                                 </div>
                             </div>
 
                             <div class="form-group radio_input">
-                                <label class="container_radio">Laki-laki
-                                    <input type="radio" id="input_kelamin" name="kelamin" value="Laki-laki" class="required">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label class="container_radio">Perempuan
-                                    <input type="radio" id="input_kelamin" name="kelamin" value="Perempuan" class="required">
-                                    <span class="checkmark"></span>
-                                </label>
+                                @if (Session::get('visitor_gender') == 'Laki-laki') 
+                                    <label class="container_radio">Laki-laki
+                                        <input type="radio" id="input_kelamin" name="surveyor_gender" value="Laki-laki" class="required" checked>
+                                        <span class="checkmark"></span>
+                                    </label>
+                                @else
+                                    <label class="container_radio">Laki-laki
+                                        <input type="radio" id="input_kelamin" name="surveyor_gender" value="Laki-laki" class="required">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                @endif
+
+                                @if (Session::get('visitor_gender') == 'Perempuan') 
+                                    <label class="container_radio">Perempuan
+                                        <input type="radio" id="input_kelamin" name="surveyor_gender" value="Perempuan" class="required" checked>
+                                        <span class="checkmark"></span>
+                                    </label>
+                                @else
+                                    <label class="container_radio">Perempuan
+                                        <input type="radio" id="input_kelamin" name="surveyor_gender" value="Perempuan" class="required">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                @endif
+
                             </div>
                         </div>
 
@@ -154,17 +205,20 @@
                                 </div>
 
                                 <div class="col-md-6">
-
+                                    <label class="container_radio version_2"><img src="{{asset('assets/templateskm/survey/smiley/d.png')}}" alt="" width="10%"> Tidak Sesuai
+                                       <input type="radio" id="opsi_3_15" name="id_answer_option[{{ $Pertanyaan->id_question }}]" value="1" class="required">
+                                       <span class="checkmark"></span>
+                                    </label>
                                     <label class="container_radio version_2"><img src="{{asset('assets/templateskm/survey/smiley/c.png')}}" alt="" width="10%"> Kurang Sesuai
-                                        <input type="radio" id="opsi_3_16" name="respon[3]" value="16" class="required">
+                                        <input type="radio" id="opsi_3_16" name="id_answer_option[{{ $Pertanyaan->id_question }}]" value="2" class="required">
                                         <span class="checkmark"></span>
                                     </label>
                                     <label class="container_radio version_2"><img src="{{asset('assets/templateskm/survey/smiley/b.png')}}" alt="" width="10%"> Sesuai
-                                        <input type="radio" id="opsi_3_17" name="respon[3]" value="17" class="required">
+                                        <input type="radio" id="opsi_3_17" name="id_answer_option[{{ $Pertanyaan->id_question }}]" value="3" class="required">
                                         <span class="checkmark"></span>
                                     </label>
                                     <label class="container_radio version_2"><img src="{{asset('assets/templateskm/survey/smiley/a.png')}}" alt="" width="10%"> Sangat Sesuai
-                                        <input type="radio" id="opsi_3_18" name="respon[3]" value="18" class="required">
+                                        <input type="radio" id="opsi_3_18" name="id_answer_option[{{ $Pertanyaan->id_question }}]" value="4" class="required">
                                         <span class="checkmark"></span>
                                     </label>
                                 </div>
@@ -175,12 +229,12 @@
                             </div>
                         </div>
                         @endforeach
-                        @foreach ($OpsiJawaban as $OpsiJawaban)
+                        <!-- @foreach ($OpsiJawaban as $OpsiJawaban)
                             <label class="container_radio version_2"><img src="{{asset('assets/templateskm/survey/smiley/') .'/'.  $OpsiJawaban->answer_icon }}" alt="" width="10%"> {{ $OpsiJawaban->answer_description }}
                                 <input type="radio" id="opsi_3_16" name="respon[3]" value="{{ $OpsiJawaban->answer_value }}" class="required">
                                 <span class="checkmark"></span>
                             </label>
-                        @endforeach
+                        @endforeach -->
 <!-- ///////////////////////////////////////////////////// -->
 
                         <!-- <div class="step">
