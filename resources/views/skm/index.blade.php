@@ -145,7 +145,38 @@
                             </div>
                         </div>
 
+<!-- ///////////////////////////////////////////////////// -->
+                        @foreach ($Pertanyaan as $Pertanyaan)
                         <div class="step">
+                            <div class="row" style="align-items: end !important;">
+                                <div class="col-md-12 mb-3">
+                                    <h3>{{$Pertanyaan->question_description}}</h3>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="container_radio version_2"><img src="{{asset('assets/templateskm/survey/smiley/c.png')}}" alt="" width="10%"> Kurang Sesuai
+                                        <input type="radio" id="opsi_3_16" name="respon[3]" value="16" class="required">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <label class="container_radio version_2"><img src="{{asset('assets/templateskm/survey/smiley/b.png')}}" alt="" width="10%"> Sesuai
+                                        <input type="radio" id="opsi_3_17" name="respon[3]" value="17" class="required">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <label class="container_radio version_2"><img src="{{asset('assets/templateskm/survey/smiley/a.png')}}" alt="" width="10%"> Sangat Sesuai
+                                        <input type="radio" id="opsi_3_18" name="respon[3]" value="18" class="required">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+
+                                <div class="col-md-6 text-right">
+                                    <img src="{{ asset('templateskm/survey/img_pertanyaan/' . $Pertanyaan->question_image, true) }}" alt="" width="65%">
+                                </div>
+                            </div>
+                        </div>
+                        @endforeach
+<!-- ///////////////////////////////////////////////////// -->
+
+                        <!-- <div class="step">
                             <div class="row" style="align-items: end !important;">
                                 <div class="col-md-12 mb-3">
                                     <h3>Bagaimana pendapat Saudara tentang kesesuaian persyaratan pelayanan dengan jenis pelayanannya?</h3>
@@ -415,7 +446,7 @@
                                     <img src="{{ asset('assets/templateskm/survey/img_pertanyaan/11.jpg') }}" alt="" width="65%">
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
                         <div class="submit step">
                             <h3 class="main_question">Kritik dan Saran</h3>

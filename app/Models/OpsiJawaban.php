@@ -13,8 +13,8 @@ class OpsiJawaban extends Model
     public $table = 'opsi_jawaban'; // dilakukan seperti ini agar tidak menjadi plural
 
     protected $fillable = [
-        'nilai_jawaban',
-        'deskripsi_jawaban',
-        'icon',
+        'answer_value',
+        'answer_description',
+        'answer_icon',
     ];
 }

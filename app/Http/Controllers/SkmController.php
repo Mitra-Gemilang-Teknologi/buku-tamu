@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\JenisLayanan;
 use App\Models\Pertanyaan;
+use App\Models\OpsiJawaban;
 
 class SkmController extends Controller
 {
@@ -20,6 +21,7 @@ class SkmController extends Controller
 			"active" => "SKM",
 			'jenisLayanan' => JenisLayanan::all(),
 			'Pertanyaan' => Pertanyaan::all(),
+			'OpsiJawaban' => OpsiJawaban::all(),
 		]);
 	}
 
