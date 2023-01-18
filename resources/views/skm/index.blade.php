@@ -154,6 +154,7 @@
                                 </div>
 
                                 <div class="col-md-6">
+
                                     <label class="container_radio version_2"><img src="{{asset('assets/templateskm/survey/smiley/c.png')}}" alt="" width="10%"> Kurang Sesuai
                                         <input type="radio" id="opsi_3_16" name="respon[3]" value="16" class="required">
                                         <span class="checkmark"></span>
@@ -173,6 +174,12 @@
                                 </div>
                             </div>
                         </div>
+                        @endforeach
+                        @foreach ($OpsiJawaban as $OpsiJawaban)
+                            <label class="container_radio version_2"><img src="{{asset('assets/templateskm/survey/smiley/') .'/'.  $OpsiJawaban->answer_icon }}" alt="" width="10%"> {{ $OpsiJawaban->answer_description }}
+                                <input type="radio" id="opsi_3_16" name="respon[3]" value="{{ $OpsiJawaban->answer_value }}" class="required">
+                                <span class="checkmark"></span>
+                            </label>
                         @endforeach
 <!-- ///////////////////////////////////////////////////// -->
 

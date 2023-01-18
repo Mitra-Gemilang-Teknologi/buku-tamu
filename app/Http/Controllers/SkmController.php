@@ -21,7 +21,7 @@ class SkmController extends Controller
 			"active" => "SKM",
 			'jenisLayanan' => JenisLayanan::all(),
 			'Pertanyaan' => Pertanyaan::all(),
-			'OpsiJawaban' => OpsiJawaban::all(),
+			'OpsiJawaban' => OpsiJawaban::all()
 		]);
 	}
 
