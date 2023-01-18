@@ -57,7 +57,8 @@
         <div class="col-lg-6 content-right" id="start" style="background: #F7F7F7 !important;">
             <div id="wizard_container">
                 <!-- /top-wizard -->
-                <form class="" method="post" action="../../external.html?link=https://bukutamu.ciamiskab.go.id/simpan_survey">
+                <form class="" method="post" action="{{ route('simpan_survey.store') }}">
+                    @csrf
                     <input type="hidden" name="_token" value="Lrw2bgy8E1N4CpByfF2DYDm56fEwgMeYgSIXZn1X">
                     <input type="hidden" name="id_instansi" value="628">
                     <input id="website" name="website" type="text" value="">
@@ -512,7 +513,7 @@
                         <div class="submit step">
                             <h3 class="main_question">Kritik dan Saran</h3>
                             <div class="form-group add_top_30">
-                                <textarea id="saran" name="saran" aria-describedby="saran_text" class="form-control review_message"
+                                <textarea id="saran" name="surveyor_description" aria-describedby="saran_text" class="form-control review_message"
                                 placeholder="Tulis disini..."></textarea>
                             </div>
                         </div>

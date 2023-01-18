@@ -20,6 +20,7 @@ class CreateSurveyorTable extends Migration
             $table->string('surveyor_phone');
             $table->string('surveyor_education');
             $table->string('surveyor_gender');
+            $table->longText('surveyor_description');
             $table->softDeletes();
             $table->timestamps();
 

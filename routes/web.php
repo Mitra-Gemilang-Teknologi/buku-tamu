@@ -36,6 +36,7 @@ Route::get('/skm', [SkmController::class, 'index']);
 Route::get('/buku-tamu', [BukuTamuController::class, 'index']);
 Route::get('/remove', [BukuTamuController::class, 'remove']);
 Route::resource('/kunjungan', BukuTamuController::class);
+Route::resource('/simpan_survey', SkmController::class);
 
 
 //dengan model binding

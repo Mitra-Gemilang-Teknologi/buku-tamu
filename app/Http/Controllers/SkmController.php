@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\JenisLayanan;
+use App\Models\Surveyor;
 use App\Models\Pertanyaan;
 use App\Models\OpsiJawaban;
+use App\Models\JenisLayanan;
+use Illuminate\Http\Request;
 
 class SkmController extends Controller
 {
@@ -43,7 +44,28 @@ class SkmController extends Controller
 	 */
 	public function store(Request $request)
 	{
-		//
+		try {
+			$validateData = $request->validate([
+				'id_service_type' => 'required',
+				'surveyor_name' => 'required',
+				'surveyor_phone' => 'required',
+				'surveyor_education' => 'required',
+				'surveyor_gender' => 'required',
+				'surveyor_description'  =>   'required',
+			]);
+
+
+			try {
+				Surveyor::create($validateData);
+				return redirect('/');
+			} catch (\Throwable $th) {
+				return redirect('/')->with('error', 'Error during the creation!');
+			}
+			//code...
+		} catch (\Throwable $th) {
+			//throw $th;
+			return redirect('/')->with('error', 'Error during the creation!');
+		}
 	}
 
 	/**
