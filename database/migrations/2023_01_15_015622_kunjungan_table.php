@@ -27,7 +27,6 @@ class KunjunganTable extends Migration
 			$table->longText('visitor_description');
 			$table->date('visit_time');
 			$table->string('visit_purpose');
-			$table->integer('number_of_visitor');
 			$table->softDeletes();
 			$table->timestamps();
 

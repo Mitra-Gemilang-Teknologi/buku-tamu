@@ -8,11 +8,11 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class JenisLayanan extends Model
 {
-    use HasFactory, SoftDeletes;
+	use HasFactory, SoftDeletes;
 
-    public $table = 'jenis_layanan'; // dilakukan seperti ini agar tidak menjadi plural
+	public $table = 'jenis_layanan'; // dilakukan seperti ini agar tidak menjadi plural
 
-    protected $fillable = [
-        'nama_jenis_layanan'
-    ];
+	protected $fillable = [
+		'service_name'
+	];
 }

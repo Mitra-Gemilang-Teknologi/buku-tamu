@@ -9,6 +9,7 @@ use App\Models\JenisLayanan;
 use App\Models\Kunjungan;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Controllers\Session;
+
 class BukuTamuController extends Controller
 {
 	/**
@@ -24,7 +25,7 @@ class BukuTamuController extends Controller
 				// Alert::success(session('success'));
 				Alert::question('QuestionAlert', 'Lorem ipsum dolor sit amet');
 			}
-			
+
 
 			if (session('error')) {
 				Alert::error(session('error'));
@@ -33,7 +34,7 @@ class BukuTamuController extends Controller
 			return $next($request);
 		});
 	}
-	
+
 	public function index()
 	{
 		$kecamatan = \Indonesia::findCity(167, ['districts'])->districts->pluck('name', 'id');
@@ -63,28 +64,38 @@ class BukuTamuController extends Controller
 	 */
 	public function store(Request $request)
 	{
-		$validateData = $request->validate([
-			'visitor_name' => 'required',
-			'visit_time' => 'required',
-			'visitor_village' => 'required',
-			'visitor_disctrict'  =>   'required',
-			'visitor_neighborhood_association' => '',
-			'visitor_citizen_association' =>   '',
-			'visitor_age' => 'required',
-			'visitor_gender' => 'required',
-			'number_of_visitor' => 'required',
-			'visit_purpose' => 'required',
-			'visitor_description' => '',
-		]);
+
 
 
 		try {
-			Kunjungan::create($validateData);
-			session($validateData);
-			return redirect('/')->with('QuestionAlert', 'Created successfully!');
+			$validateData = $request->validate([
+				'id_service_type' => 'required',
+				'visitor_name' => 'required',
+				'visitor_education' => 'required',
+				'visit_time' => 'required',
+				'visitor_village' => 'required',
+				'visitor_disctrict'  =>   'required',
+				'visitor_neighborhood_association' => '',
+				'visitor_citizen_association' =>   '',
+				'visitor_age' => 'required',
+				'visitor_gender' => 'required',
+				'visit_purpose' => 'required',
+				'visitor_description' => '',
+			]);
+
+
+			try {
+				Kunjungan::create($validateData);
+				session($validateData);
+				return redirect('/')->with('QuestionAlert', 'Created successfully!');
+			} catch (\Throwable $th) {
+				return redirect('/')->with('error', 'Error during the creation!');
+			}
+			//code...
 		} catch (\Throwable $th) {
+			//throw $th;
 			return redirect('/')->with('error', 'Error during the creation!');
-		}	
+		}
 	}
 
 	public function remove()
