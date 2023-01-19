@@ -62,9 +62,19 @@ class SkmController extends Controller
 
 			$validateData['id_answer_option'] = implode(",", $request->id_answer_option);
 
-
 			try {
 				$last = Surveyor::create($validateData);
+
+				foreach ($Pertanyaan as $Pertanyaan) {
+					survey_result::create([
+						'id_surveyor' => $last->id,
+						'id_question' => $Pertanyaan->id_question,
+						'id_answer_option' => $request->id_answer_option[$Pertanyaan->id_question]			
+					]);
+				}
+
+				session()->invalidate();
+				session()->regenerateToken();
 
 				return redirect('/')->with('success', 'Created successfully!');
 			} catch (\Throwable $th) {
