@@ -2,6 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Surveyor;
+use App\Models\Pertanyaan;
+use App\Models\OpsiJawaban;
+use App\Models\JenisLayanan;
+use App\Models\survey_result;
 use Illuminate\Http\Request;
 
 class SkmController extends Controller
@@ -15,7 +20,10 @@ class SkmController extends Controller
 	{
 		return view('skm.index', [
 			"title" => "SKM",
-			"active" => "SKM"
+			"active" => "SKM",
+			'jenisLayanan' => JenisLayanan::all(),
+			'Pertanyaan' => Pertanyaan::all(),
+			'OpsiJawaban' => OpsiJawaban::all()
 		]);
 	}
 
@@ -37,7 +45,37 @@ class SkmController extends Controller
 	 */
 	public function store(Request $request)
 	{
-		//
+		$Pertanyaan = Pertanyaan::all();
+
+		try {
+			$validateData = $request->validate([
+				'id_service_type' => 'required',
+				'surveyor_name' => 'required',
+				'surveyor_phone' => 'required',
+				'surveyor_education' => 'required',
+				'surveyor_gender' => 'required',
+				'surveyor_description'  =>   'required',
+			]);
+
+			$validateData2 = $request->validate([
+				'id_answer_option' => 'required'
+			]);
+
+			
+
+
+			try {
+				$last = Surveyor::create($validateData);
+
+				return redirect('/')->with('SurveyAlert', 'Created successfully!');
+			} catch (\Throwable $th) {
+				return redirect('/')->with('error', 'Error during the creation!');
+			}
+			//code...
+		} catch (\Throwable $th) {
+			//throw $th;
+			return redirect('/')->with('error', 'Error during the creation!');
+		}
 	}
 
 	/**

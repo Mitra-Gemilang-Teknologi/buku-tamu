@@ -8,8 +8,8 @@
   <!-- Content Wrapper. Contains page content -->
     @yield('container')
   <!-- /.content-wrapper -->
- @include('dashboard.layouts.footer')
+ {{-- @include('dashboard.layouts.footer') --}}
 
-</div>
 <!-- ./wrapper -->
  @include('dashboard.layouts.js')
+		@stack('scripts')

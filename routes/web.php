@@ -36,7 +36,8 @@ Route::get('/skm', [SkmController::class, 'index']);
 Route::get('/buku-tamu', [BukuTamuController::class, 'index']);
 Route::get('/remove', [BukuTamuController::class, 'remove']);
 Route::resource('/kunjungan', BukuTamuController::class);
-//Halaman single post
+Route::resource('/simpan_survey', SkmController::class);
+
 
 //dengan model binding
 Route::get('/posts/{post:slug}', [PostController::class, 'show']); //slug untuk identifkasi id kalau defaultnya id
@@ -87,8 +88,15 @@ Route::resource('/dashboard/profile', User::class)->middleware('auth');
 Route::resource('/dashboard/bukutamu', DashboardTamuController::class)->middleware('auth');
 Route::resource('/dashboard/surveytamu', DashboardSurveyController::class)->middleware('auth');
 Route::resource('/inbox', InboxController::class);
+//Laporan
+Route::get('/dashboard/kunjungan/export_excel', [DashboardTamuController::class, 'export_excel']);
 
 Route::get('provinces', 'DependentDropdownController@provinces')->name('provinces');
 Route::get('cities', [DependentDropdownController::class, 'cities'])->name('cities');
 Route::get('districts', [DependentDropdownController::class, 'districts'])->name('districts');
 Route::get('villages', [DependentDropdownController::class, 'villages'])->name('villages');
+
+
+//Chart
+
+Route::get('google-chart', [DashboardController::class, 'donutChart']);

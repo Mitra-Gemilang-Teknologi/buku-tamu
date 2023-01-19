@@ -31,7 +31,7 @@
                             <!-- /.card-header -->
                             <div class="card-body">
 
-                                <a href="" class="btn btn-primary"><i class="fa fa-excel">Export</i></a>
+                                <a href="/dashboard/kunjungan/export_excel" class="btn btn-primary"><i class="fa fa-excel">Export</i></a>
 
                                 <table id="example2" class="table table-bordered table-hover">
                                     <thead>
@@ -47,30 +47,31 @@
                                             <th>Desa</th>
                                             <th>RT</th>
                                             <th>RW</th>
+																						<th>Tujuan</th>
                                             <th>Keterangan</th>
                                         </tr>
                                     </thead>
                                     <tbody>
 
-																			 @foreach ($kunjungan as $kunjungan)
-                                        <tr>
-                                            <td>{{$kunjungan->visit_time}}</td>
-                                            <td>{{$kunjungan->layanan->service_name}}</td>
-                                            <td>{{$kunjungan->visit_time}}
-                                            </td>
-                                            <td>{{$kunjungan->visit_time}}</td>
-                                            <td>{{$kunjungan->visit_time}}-Laki</td>
-                                            <td>{{$kunjungan->visit_time}}</td>
+                                        @foreach ($kunjungan as $kunjungan)
+                                            <tr>
+                                                <td>{{ $kunjungan->visit_time }}</td>
+                                                <td>{{ $kunjungan->layanan->service_name }}</td>
+                                                <td>{{ $kunjungan->visitor_name }}</td>
+																								<td>{{ $kunjungan->visitor_age }}</td>
+                                                <td>{{ $kunjungan->visitor_education }}</td>
+                                                <td>{{ $kunjungan->visitor_gender }}</td>
+                                                <td>{{ $kunjungan->visitor_disctrict }}</td>
 
-                                            <td>{{$kunjungan->visit_time}}</td>
-                                            <td>{{$kunjungan->visit_time}}</td>
-																						 <td>{{$kunjungan->visit_time}}</td>
-                                            <td>{{$kunjungan->visit_time}}</td>
-																						 <td>{{$kunjungan->visit_time}}</td>
+                                                <td>{{ $kunjungan->visitor_village }}</td>
+                                                <td>{{ $kunjungan->visitor_neighborhood_association }}</td>
+                                                <td>{{ $kunjungan->visit_purpose }}</td>
+																								 <td>{{ $kunjungan->visi }}</td>
+                                                <td>{{ $kunjungan->visitor_description }}</td>
 
 
-                                        </tr>
-   																					@endforeach
+                                            </tr>
+                                        @endforeach
                                     </tbody>
 
                                 </table>
