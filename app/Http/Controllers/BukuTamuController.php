@@ -23,7 +23,12 @@ class BukuTamuController extends Controller
 		$this->middleware(function ($request, $next) {
 			if (session('QuestionAlert')) {
 				// Alert::success(session('success'));
-				Alert::info('Terimakasih', 'Data anda berhasil disimpan!');
+				Alert::question('Terimakasih', 'Apakah Ingin Mengisi Survey?');
+				// Alert::info('Terimakasih', 'Data anda berhasil disimpan!');
+			}
+
+			if (session('success')) {
+				toast('Terimakasih Telah Mengisi Survey', 'success');
 			}
 
 			if (session('SurveyAlert')) {
@@ -33,7 +38,7 @@ class BukuTamuController extends Controller
 
 
 			if (session('error')) {
-				Alert::error(session('error'));
+				toast('Terjadi kesalahan', 'error');
 			}
 
 			return $next($request);
