@@ -47,7 +47,7 @@
                                             <th>Desa</th>
                                             <th>RT</th>
                                             <th>RW</th>
-																						<th>Tujuan</th>
+											<th>Tujuan</th>
                                             <th>Keterangan</th>
                                         </tr>
                                     </thead>
@@ -58,15 +58,14 @@
                                                 <td>{{ $kunjungan->visit_time }}</td>
                                                 <td>{{ $kunjungan->layanan->service_name }}</td>
                                                 <td>{{ $kunjungan->visitor_name }}</td>
-																								<td>{{ $kunjungan->visitor_age }}</td>
+												<td>{{ $kunjungan->visitor_age }}</td>
                                                 <td>{{ $kunjungan->visitor_education }}</td>
                                                 <td>{{ $kunjungan->visitor_gender }}</td>
                                                 <td>{{ $kunjungan->visitor_disctrict }}</td>
-
                                                 <td>{{ $kunjungan->visitor_village }}</td>
                                                 <td>{{ $kunjungan->visitor_neighborhood_association }}</td>
+                                                <td>{{ $kunjungan->visitor_citizen_association }}</td>
                                                 <td>{{ $kunjungan->visit_purpose }}</td>
-																								 <td>{{ $kunjungan->visi }}</td>
                                                 <td>{{ $kunjungan->visitor_description }}</td>
 
 
