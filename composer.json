@@ -16,6 +16,7 @@
         "laravel/tinker": "^2.5",
         "laravolt/indonesia": "^0.33.0",
         "maatwebsite/excel": "^3.1",
+        "nesbot/carbon": "^2.65",
         "realrashid/sweet-alert": "^5.1"
     },
     "require-dev": {
