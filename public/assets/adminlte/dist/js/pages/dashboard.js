@@ -174,18 +174,30 @@ $(function () {
 
   // Donut Chart
   var pieChartCanvas = $('#sales-chart-canvas').get(0).getContext('2d')
-  var pieData = {
-    labels: [
-      'Laki-Laki',
-      'Perempuan'
-    ],
-    datasets: [
-      {
-        data: [30, 10],
-        backgroundColor: [ '#00a65a', '#f39c12']
-      }
-    ]
-  }
+  $.ajax({
+    url: '/data/jenis-kelamin',
+    dataType: 'json',
+    method: 'get'
+  }).done(function (response) {
+    var lakiLaki = response.laki_laki[0].total;
+    var perempuan = response.perempuan[0].total;
+    var pieChart = new Chart(pieChartCanvas, { // lgtm[js/unused-local-variable]
+      type: 'doughnut',
+      data: {
+        labels: [
+          'Laki-Laki',
+          'Perempuan'
+        ],
+        datasets: [
+          {
+            data: [lakiLaki, perempuan],
+            backgroundColor: ['#00a65a', '#f39c12']
+          }
+        ]
+      },
+      options: pieOptions
+    })
+  })
   var pieOptions = {
     legend: {
       display: false
@@ -196,11 +208,7 @@ $(function () {
   // Create pie or douhnut chart
   // You can switch between pie and douhnut using the method below.
   // eslint-disable-next-line no-unused-vars
-  var pieChart = new Chart(pieChartCanvas, { // lgtm[js/unused-local-variable]
-    type: 'doughnut',
-    data: pieData,
-    options: pieOptions
-  })
+
 
   // Sales graph chart
   var salesGraphChartCanvas = $('#line-chart').get(0).getContext('2d')
@@ -267,53 +275,58 @@ $(function () {
 
 //Bar chart 1
 
-var ctx = document.getElementById("myChart").getContext('2d');
-var myChart = new Chart(ctx, {
-  type: 'bar',
-  data: {
-    labels: ["SD", "SMP", "SMA", "DI/DII/DIII", "SI/SIV", "S2/S3"],
-    datasets: [{
-      label: '# of Votes',
-      data: [12, 19, 3, 5, 2, 3],
-      backgroundColor: [
-        'rgba(255, 99, 132)',
-        'rgba(54, 162, 235)',
-        'rgba(255, 206, 86)',
-        'rgba(75, 192, 192)',
-        'rgba(153, 102, 255)',
-        'rgba(255, 159, 64)'
-      ],
-      borderColor: [
-        'rgba(255,99,132,1)',
-        'rgba(54, 162, 235, 1)',
-        'rgba(255, 206, 86, 1)',
-        'rgba(75, 192, 192, 1)',
-        'rgba(153, 102, 255, 1)',
-        'rgba(255, 159, 64, 1)'
-      ],
-      borderWidth: 1
-    }]
-  },
-  options: {
-    scales: {
-      yAxes: [{
-        ticks: {
-          beginAtZero: true
-        }
+$.ajax({
+  url: '/data/pendidikan',
+  dataType: 'json',
+  method: 'get'
+}).done(function (response) {
+  var ctx = document.getElementById("myChart").getContext('2d');
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ["SD", "SMP", "SMA", "DI/DII/DIII", "SI/DIV", "S2"],
+      datasets: [{
+        label: 'Jumlah Responden',
+        data: [response.sd[0].total, response.smp[0].total, response.sma[0].total, response.d123[0].total, response.s1d4[0].total, response.s2[0].total],
+        backgroundColor: [
+          'rgba(255, 99, 132)',
+          'rgba(54, 162, 235)',
+          'rgba(255, 206, 86)',
+          'rgba(75, 192, 192)',
+          'rgba(153, 102, 255)',
+          'rgba(255, 159, 64)'
+        ],
+        borderColor: [
+          'rgba(255,99,132,1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)'
+        ],
+        borderWidth: 1
       }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
     }
-  }
-});
-
+  });
+})
 //bar chat 2
 var ctx = document.getElementById("myChartPelayanan").getContext('2d');
 var myChart = new Chart(ctx, {
   type: 'bar',
   data: {
-    labels: ["Persyaratan", "Prosedur", "Waktu Pelayanan", "Biaya/Tarif", "Produk Pelayanan", "Kompetensi Layanan","Prilaku Plaksana","Pungutan Tidak Resmi","Penanganan Pengaduan"],
+    labels: ["Persyaratan", "Prosedur", "Waktu Pelayanan", "Biaya/Tarif", "Produk Pelayanan", "Kompetensi Layanan", "Prilaku Plaksana", "Pungutan Tidak Resmi", "Penanganan Pengaduan"],
     datasets: [{
       label: '# of Votes',
-      data: [12, 19, 13, 15, 2, 3,12,3,21],
+      data: [12, 19, 13, 15, 2, 3, 12, 3, 21],
       backgroundColor: [
         'rgba(255, 99, 132)',
         'rgba(54, 162, 235)',
@@ -354,64 +367,66 @@ var myChart = new Chart(ctx, {
 // HArian
 
 //bar chat 2
-var ctxHarian = document.getElementById("myChartHarian").getContext('2d');
-var myChartHarian = new Chart(ctxHarian, {
-  type: "bar",
-  data: {
-    labels: [
-      "01 Januari 2023",
-      "02 Januari 2023",
-      "03 Januari 2023",
-      "04 Januari 2023",
-      "05 Januari 2023",
-      "06 Januari 2023",
-      "07 Januari 2023",
-      "08 Januari 2023",
-      "09 Januari 2023",
-    ],
-    datasets: [
-      {
-        label: "# of Votes",
-        data: [12, 19, 13, 15, 2, 3, 12, 3, 21],
-        backgroundColor: [
-          "rgba(54, 162, 235)",
-          "rgba(54, 162, 235)",
-          "rgba(54, 162, 235)",
-          "rgba(54, 162, 235)",
-          "rgba(54, 162, 235)",
-          "rgba(54, 162, 235)",
-          "rgba(54, 162, 235)",
-          "rgba(54, 162, 235)",
-          "rgba(54, 162, 235)",
-        ],
-        borderColor: [
-          "rgba(54, 162, 235)",
-          "rgba(54, 162, 235, 1)",
-          "rgba(54, 162, 235)",
-          "rgba(54, 162, 235)",
-          "rgba(54, 162, 235)",
-          "rgba(54, 162, 235)",
-          "rgba(54, 162, 235)",
-          "rgba(54, 162, 235)",
-          "rgba(54, 162, 235)",
-        ],
-        borderWidth: 1,
-      },
-    ],
-  },
-  options: {
-    scales: {
-      yAxes: [
+$.ajax({
+  url: '/data/kunjungan',
+  dataType: 'json',
+  method: 'get'
+}).done(function (response) {
+  var tanggalKunjungan = []
+  var totalKunjungan = []
+  $.each(response.data, function(index, value){
+      tanggalKunjungan.push(value.tanggal_kunjungan)
+      totalKunjungan.push(value.total_kunjungan)
+  })
+  console.log(tanggalKunjungan)
+  var ctxHarian = document.getElementById("myChartHarian").getContext('2d');
+  var myChartHarian = new Chart(ctxHarian, {
+    type: "bar",
+    data: {
+      labels: tanggalKunjungan,
+      datasets: [
         {
-          ticks: {
-            beginAtZero: true,
-          },
+          label: "Total Kunjungan",
+          data: totalKunjungan,
+          backgroundColor: [
+            "rgba(54, 162, 235)",
+            "rgba(54, 162, 235)",
+            "rgba(54, 162, 235)",
+            "rgba(54, 162, 235)",
+            "rgba(54, 162, 235)",
+            "rgba(54, 162, 235)",
+            "rgba(54, 162, 235)",
+            "rgba(54, 162, 235)",
+            "rgba(54, 162, 235)",
+          ],
+          borderColor: [
+            "rgba(54, 162, 235)",
+            "rgba(54, 162, 235, 1)",
+            "rgba(54, 162, 235)",
+            "rgba(54, 162, 235)",
+            "rgba(54, 162, 235)",
+            "rgba(54, 162, 235)",
+            "rgba(54, 162, 235)",
+            "rgba(54, 162, 235)",
+            "rgba(54, 162, 235)",
+          ],
+          borderWidth: 1,
         },
       ],
     },
-  },
-});
-
+    options: {
+      scales: {
+        yAxes: [
+          {
+            ticks: {
+              beginAtZero: true,
+            },
+          },
+        ],
+      },
+    },
+  });
+})
 
 
 // Mingguan
@@ -535,7 +550,7 @@ var myChartLayanan = new Chart(ctxLayanan, {
     datasets: [
       {
         label: "# of Votes",
-        data: [12, 19, 13, 15, 2, 3, 12, 3, 21,12,12,12],
+        data: [12, 19, 13, 15, 2, 3, 12, 3, 21, 12, 12, 12],
         backgroundColor: [
           "rgba(54, 162, 235)",
           "rgba(54, 162, 235)",

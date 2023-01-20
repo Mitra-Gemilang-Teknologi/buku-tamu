@@ -71,6 +71,9 @@ Route::post('/register', [RegisterController::class, 'store']);
 
 //Dashboard
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
+Route::get('/data/jenis-kelamin', [DashboardController::class, 'get_jenis_kelamin'])->name('data.jk');
+Route::get('/data/pendidikan', [DashboardController::class, 'get_data_pendidikan'])->name('data.pendidikan');
+Route::get('/data/kunjungan', [DashboardController::class, 'get_data_kunjungan'])->name('data.kunjungan');
 Route::get('/home', function () {
 	return redirect('/dashboard');
 });
