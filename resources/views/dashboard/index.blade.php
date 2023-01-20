@@ -29,7 +29,7 @@
                     <!-- small box -->
                     <div class="small-box bg-info">
                         <div class="inner">
-                            <h3>{{$countDay->countDay}}</h3>
+                            <h3>{{$countDay}}</h3>
 
                             Kunjungan Hari ini
                             </p>

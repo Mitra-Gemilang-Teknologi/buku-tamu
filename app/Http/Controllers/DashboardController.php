@@ -12,10 +12,10 @@ class DashboardController extends Controller
 	function index()
 	{
 		$countDay = DB::table('kunjungan')
-			->selectRaw('count(id_visit) as countDay')
-			->first();
+			->where('visit_time', date('Y-m-d'))
+			->count();
 		$countMonth = Kunjungan::select('*')
-			->whereMonth('created_at', Carbon::now()->month)
+			->whereMonth('visit_time', Carbon::now()->month)
 			->get()->count();
 		return view('dashboard.index', [
 			'countDay' => $countDay,
