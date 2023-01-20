@@ -46,11 +46,11 @@
                     <p>Partisipasi masyarakat sebagai pengguna layanan dalam menilai kinerja penyelenggaraan pelayanan publik di pemerintah kabupaten ciamis.</p>
                     <a href="#start" class="btn_1 rounded mobile_btn">Mulai!</a>
                 </div>
-                
+
                 <div class="copy">© 2022 pemerintah Kabupaten Ciamis</div>
             </div>
             <!-- /content-left-wrapper -->
-                
+
         </div>
         <!-- /content-left -->
 
@@ -67,7 +67,7 @@
 
                     <div id="middle-wizard" style="margin-top: 300px;">
                         <div class="step">
-                            
+
                             <div class="row mb-3" style="align-items: end !important;">
                                 <div class="col-md-6">
                                     <h3 class="main_question">Pilih Layanan</h3>
@@ -79,7 +79,7 @@
 
                             <div class="form-group">
                                 @foreach ($jenisLayanan as $jenisLayanan)
-                                    @if (old('id_service_type') == $jenisLayanan->id_service_type)  
+                                    @if (old('id_service_type') == $jenisLayanan->id_service_type)
                                     <label class="container_radio version_2">{{$jenisLayanan->service_name}}
                                         <input type="radio" name="id_service_type" value="{{$jenisLayanan->id_service_type}}" checked>
                                         <span class="checkmark"></span>
@@ -110,7 +110,7 @@
                             </div>
 
                             <input type="hidden" name="id_buku_tamu" value="">
-                            
+
                             <div class="form-group">
                                 <input type="text" id="input_nama" name="surveyor_name" class="form-control required" placeholder="Nama Lengkap" required value="{{Session::get('visitor_name')}}">
                                 <small id="input_nama_text" class="form-text text-muted">*Nama anda tidak akan ditampilkan secara publik.</small>
@@ -124,43 +124,43 @@
                                 <div class="styled-select clearfix">
                                     <select class="form-control wide required" id="input_pendidikan" name="surveyor_education">
                                         <option value="">Pilih Pendidikan</option>
-                                        @if (Session::get('visitor_education') == 'SD') 
+                                        @if (Session::get('visitor_education') == 'SD')
                                             <option value="SD" selected>SD</option>
                                         @else
                                             <option value="SD">SD</option>
                                         @endif
 
-                                        @if (Session::get('visitor_education') == 'SMP') 
+                                        @if (Session::get('visitor_education') == 'SMP')
                                             <option value="SMP" selected>SMP</option>
                                         @else
                                             <option value="SMP">SMP</option>
                                         @endif
 
-                                        @if (Session::get('visitor_education') == 'SMA') 
+                                        @if (Session::get('visitor_education') == 'SMA')
                                             <option value="SMA" selected>SMA</option>
                                         @else
                                             <option value="SMA">SMA</option>
                                         @endif
 
-                                        @if (Session::get('visitor_education') == 'DIII') 
+                                        @if (Session::get('visitor_education') == 'DIII')
                                             <option value="DIII" selected>DIII</option>
                                         @else
                                             <option value="DIII">DIII</option>
                                         @endif
 
-                                        @if (Session::get('visitor_education') == 'S1') 
+                                        @if (Session::get('visitor_education') == 'S1')
                                             <option value="S1" selected>S1</option>
                                         @else
                                             <option value="S1">S1</option>
                                         @endif
 
-                                        @if (Session::get('visitor_education') == 'S2') 
+                                        @if (Session::get('visitor_education') == 'S2')
                                             <option value="S2" selected>S2</option>
                                         @else
                                             <option value="S2">S2</option>
                                         @endif
 
-                                        @if (Session::get('visitor_education') == 'S3') 
+                                        @if (Session::get('visitor_education') == 'S3')
                                             <option value="S3" selected>S3</option>
                                         @else
                                             <option value="S3">S3</option>
@@ -170,7 +170,7 @@
                             </div>
 
                             <div class="form-group radio_input">
-                                @if (Session::get('visitor_gender') == 'Laki-laki') 
+                                @if (Session::get('visitor_gender') == 'Laki-laki')
                                     <label class="container_radio">Laki-laki
                                         <input type="radio" id="input_kelamin" name="surveyor_gender" value="Laki-laki" class="required" checked>
                                         <span class="checkmark"></span>
@@ -182,7 +182,7 @@
                                     </label>
                                 @endif
 
-                                @if (Session::get('visitor_gender') == 'Perempuan') 
+                                @if (Session::get('visitor_gender') == 'Perempuan')
                                     <label class="container_radio">Perempuan
                                         <input type="radio" id="input_kelamin" name="surveyor_gender" value="Perempuan" class="required" checked>
                                         <span class="checkmark"></span>
@@ -523,7 +523,7 @@
                     <div id="top-wizard">
                         <div id="progressbar"></div>
                     </div>
-                
+
                     <div id="bottom-wizard">
                         <div class="row">
                             <div class="col-4" style="text-align: left !important;">9 Steps</div>
@@ -581,3 +581,4 @@
 </div>
 <!-- /.modal -->
 @endsection
+

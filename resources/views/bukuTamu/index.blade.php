@@ -64,7 +64,10 @@
 
                     <div>
                         <a href="#beranda" class="btn_1 rounded"> Beranda</a>
-                        <a href="/skm" class="btn_1 rounded">SKM</a>
+											@if (Session::has('visitor_name'))
+												<a href="/skm" class="btn_1 rounded">SKM</a>
+											@endif
+
                         <a href="/statistik" class="btn_1 rounded">STATISTIK</a>
                         <a href="/login" class="btn_1 rounded">LOGIN</a>
 
@@ -92,7 +95,7 @@
                         <!-- Leave for security protection, read docs for details -->
                         <!-- //hitung jumlah $pertanyaan -->
                         <input id="website" name="website" type="text" value="">
-                        
+
                         <div id="middle-wizard">
 
                             <div class="step" style="margin-top: 300px;">

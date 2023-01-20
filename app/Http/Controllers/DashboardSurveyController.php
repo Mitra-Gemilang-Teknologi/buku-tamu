@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Surveyor;
 
 class DashboardSurveyController extends Controller
 {
@@ -16,7 +17,9 @@ class DashboardSurveyController extends Controller
 		if (auth()->guest()) {
 			abort(403);
 		}
-		return view('dashboard.surveytamu.index');
+		return view('dashboard.surveytamu.index',[
+			'Surveyor' => Surveyor::all()
+		]);
 	}
 
 	/**

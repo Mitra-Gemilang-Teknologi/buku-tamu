@@ -45,6 +45,8 @@ class SkmController extends Controller
 	 */
 	public function store(Request $request)
 	{
+
+
 		$Pertanyaan = Pertanyaan::all();
 
 		try {
@@ -54,20 +56,27 @@ class SkmController extends Controller
 				'surveyor_phone' => 'required',
 				'surveyor_education' => 'required',
 				'surveyor_gender' => 'required',
-				'surveyor_description'  =>   'required',
+				'surveyor_description'  => 'required',
 			]);
 
-			$validateData2 = $request->validate([
-				'id_answer_option' => 'required'
-			]);
 
-			
-
+			$validateData['id_answer_option'] = implode(",", $request->id_answer_option);
 
 			try {
 				$last = Surveyor::create($validateData);
 
-				return redirect('/')->with('SurveyAlert', 'Created successfully!');
+				foreach ($Pertanyaan as $Pertanyaan) {
+					survey_result::create([
+						'id_surveyor' => $last->id,
+						'id_question' => $Pertanyaan->id_question,
+						'id_answer_option' => $request->id_answer_option[$Pertanyaan->id_question]			
+					]);
+				}
+
+				session()->invalidate();
+				session()->regenerateToken();
+
+				return redirect('/')->with('success', 'Created successfully!');
 			} catch (\Throwable $th) {
 				return redirect('/')->with('error', 'Error during the creation!');
 			}

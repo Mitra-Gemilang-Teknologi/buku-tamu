@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BukuTamuController;
 use App\Http\Controllers\DashboardCategory;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DashboardPostController;
 use App\Http\Controllers\DashboardSurveyController;
 use App\Http\Controllers\DashboardTamuController;
@@ -62,17 +63,17 @@ Route::get('/statistik', function () {
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 
 Route::post('/login', [LoginController::class, 'authenticate']);
-Route::post('/logout', [LoginController::class, 'logout']);
+Route::post('/dashboard/logout', [LoginController::class, 'logout']);
 
 //Register
 Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store']);
 
 //Dashboard
-Route::get('/dashboard', function () {
-	return view('dashboard.index');
-})->middleware('auth');
-
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
+Route::get('/home', function () {
+	return redirect('/dashboard');
+});
 
 // Route::get('/statistik', function () {
 // 	return view('statistik.index');
@@ -95,8 +96,3 @@ Route::get('provinces', 'DependentDropdownController@provinces')->name('province
 Route::get('cities', [DependentDropdownController::class, 'cities'])->name('cities');
 Route::get('districts', [DependentDropdownController::class, 'districts'])->name('districts');
 Route::get('villages', [DependentDropdownController::class, 'villages'])->name('villages');
-
-
-//Chart
-
-Route::get('google-chart', [DashboardController::class, 'donutChart']);
