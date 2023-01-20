@@ -14,13 +14,25 @@ class DashboardController extends Controller
 		$countDay = DB::table('kunjungan')
 			->where('visit_time', date('Y-m-d'))
 			->count();
+		$countWeek = DB::select('SELECT COUNT(*) as total
+		FROM kunjungan
+		WHERE visit_time  BETWEEN 
+			visit_time 
+		AND 
+			visit_time + interval 7 day
+		');
+		$countYear = DB::table('kunjungan')
+			->where(DB::raw('YEAR(visit_time)'), '=', date('Y'))
+			->count();
 		$countMonth = Kunjungan::select('*')
 			->whereMonth('visit_time', Carbon::now()->month)
-			->get()->count();
+			->get()
+			->count();
 		return view('dashboard.index', [
 			'countDay' => $countDay,
-			'countWeek' => '12',
-			'countMonth' => $countMonth
+			'countWeek' => $countWeek[0]->total,
+			'countMonth' => $countMonth,
+			'countYear' => $countYear,
 		]);
 	}
 

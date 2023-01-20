@@ -81,12 +81,8 @@
                     <!-- small box -->
                     <div class="small-box bg-danger">
                         <div class="inner">
-                            <h3>65</h3>
-
-
-                            <p>Rata Rata<br>
-                                Kunjungan Pertahun
-                            </p>
+                            <h3>{{ $countYear }}</h3>
+                            <p>Kunjungan Pertahun</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-pie-graph"></i>
