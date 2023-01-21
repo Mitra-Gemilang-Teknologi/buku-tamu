@@ -29,9 +29,6 @@ use App\Http\Controllers\DependentDropdownController;
 
 Route::get('/', [BukuTamuController::class, 'index']);
 
-
-
-
 Route::get('/posts', [PostController::class, 'index']);
 Route::get('/skm', [SkmController::class, 'index']);
 Route::get('/buku-tamu', [BukuTamuController::class, 'index']);
@@ -51,6 +48,7 @@ Route::get('/posts/{post:slug}', [PostController::class, 'show']); //slug untuk 
 // 		'categories' => Category::all()
 // 	]);
 // });
+
 Route::get('/statistik', function () {
 	return view('statistik.index', [
 		'title' => 'Data Statistik',
@@ -59,17 +57,17 @@ Route::get('/statistik', function () {
 });
 
 
-//Login
+// Login
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/dashboard/logout', [LoginController::class, 'logout']);
 
-//Register
+// Register
 Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store']);
 
-//Dashboard
+// Dashboard
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
 Route::get('/data/jenis-kelamin', [DashboardController::class, 'get_jenis_kelamin'])->name('data.jk');
 Route::get('/data/pendidikan', [DashboardController::class, 'get_data_pendidikan'])->name('data.pendidikan');
@@ -92,9 +90,11 @@ Route::resource('/dashboard/profile', User::class)->middleware('auth');
 Route::resource('/dashboard/bukutamu', DashboardTamuController::class)->middleware('auth');
 Route::resource('/dashboard/surveytamu', DashboardSurveyController::class)->middleware('auth');
 Route::resource('/inbox', InboxController::class);
-//Laporan
+
+// Laporan
 Route::get('/dashboard/kunjungan/export_excel', [DashboardTamuController::class, 'export_excel']);
 
+// Kebutuhan untuk Alamat
 Route::get('provinces', 'DependentDropdownController@provinces')->name('provinces');
 Route::get('cities', [DependentDropdownController::class, 'cities'])->name('cities');
 Route::get('districts', [DependentDropdownController::class, 'districts'])->name('districts');
