@@ -16,9 +16,9 @@ class DashboardController extends Controller
 			->count();
 		$countWeek = DB::select('SELECT COUNT(*) as total
 		FROM kunjungan
-		WHERE visit_time  BETWEEN 
-			visit_time 
-		AND 
+		WHERE visit_time  BETWEEN
+			visit_time
+		AND
 			visit_time + interval 7 day
 		');
 		$countYear = DB::table('kunjungan')
