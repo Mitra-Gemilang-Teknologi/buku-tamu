@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\OpsiJawaban;
+use App\Models\AnswerOption;
 use Illuminate\Database\Seeder;
 
-class OpsiJawabanSeeder extends Seeder
+class AnswerOptionSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,25 +14,25 @@ class OpsiJawabanSeeder extends Seeder
      */
     public function run()
     {
-        OpsiJawaban::create([
+        AnswerOption::create([
             'answer_value' => 1,
             'answer_description' => 'Tidak Mudah',
             'answer_icon' => 'd.png',
         ]);
 
-        OpsiJawaban::create([
+        AnswerOption::create([
             'answer_value' => 2,
             'answer_description' => 'Kurang Mudah',
             'answer_icon' => 'c.png',
         ]);
 
-        OpsiJawaban::create([
+        AnswerOption::create([
             'answer_value' => 3,
             'answer_description' => 'Mudah',
             'answer_icon' => 'b.png',
         ]);
 
-        OpsiJawaban::create([
+        AnswerOption::create([
             'answer_value' => 4,
             'answer_description' => 'Sangat Mudah',
             'answer_icon' => 'a.png',

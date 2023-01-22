@@ -78,20 +78,20 @@
                             </div>
 
                             <div class="form-group">
-                                @foreach ($jenisLayanan as $jenisLayanan)
-                                    @if (old('id_service_type') == $jenisLayanan->id_service_type)
-                                    <label class="container_radio version_2">{{$jenisLayanan->service_name}}
-                                        <input type="radio" name="id_service_type" value="{{$jenisLayanan->id_service_type}}" checked>
+                                @foreach ($serviceType as $serviceType)
+                                    @if (old('id_service_type') == $serviceType->id_service_type)
+                                    <label class="container_radio version_2">{{$serviceType->service_name}}
+                                        <input type="radio" name="id_service_type" value="{{$serviceType->id_service_type}}" checked>
                                         <span class="checkmark"></span>
                                     </label>
-                                    @elseif (Session::get('id_service_type') == $jenisLayanan->id_service_type)
-                                    <label class="container_radio version_2">{{$jenisLayanan->service_name}}
-                                        <input type="radio" name="id_service_type" value="{{$jenisLayanan->id_service_type}}" checked>
+                                    @elseif (Session::get('id_service_type') == $serviceType->id_service_type)
+                                    <label class="container_radio version_2">{{$serviceType->service_name}}
+                                        <input type="radio" name="id_service_type" value="{{$serviceType->id_service_type}}" checked>
                                         <span class="checkmark"></span>
                                     </label>
                                     @else
-                                    <label class="container_radio version_2">{{$jenisLayanan->service_name}}
-                                        <input type="radio" name="id_service_type" value="{{$jenisLayanan->id_service_type}}">
+                                    <label class="container_radio version_2">{{$serviceType->service_name}}
+                                        <input type="radio" name="id_service_type" value="{{$serviceType->id_service_type}}">
                                         <span class="checkmark"></span>
                                     </label>
                                     @endif
@@ -198,41 +198,41 @@
                         </div>
 
 <!-- ///////////////////////////////////////////////////// -->
-                        @foreach ($Pertanyaan as $Pertanyaan)
+                        @foreach ($Question as $Question)
                         <div class="step">
                             <div class="row" style="align-items: end !important;">
                                 <div class="col-md-12 mb-3">
-                                    <h3>{{$Pertanyaan->question_description}}</h3>
+                                    <h3>{{$Question->question_description}}</h3>
                                 </div>
 
                                 <div class="col-md-6">
                                     <label class="container_radio version_2"><img src="{{asset('assets/templateskm/survey/smiley/d.png')}}" alt="" width="10%"> Tidak Sesuai
-                                       <input type="radio" id="opsi_3_15" name="id_answer_option[{{ $Pertanyaan->id_question }}]" value="1" class="required">
+                                       <input type="radio" id="opsi_3_15" name="id_answer_option[{{ $Question->id_question }}]" value="1" class="required">
                                        <span class="checkmark"></span>
                                     </label>
                                     <label class="container_radio version_2"><img src="{{asset('assets/templateskm/survey/smiley/c.png')}}" alt="" width="10%"> Kurang Sesuai
-                                        <input type="radio" id="opsi_3_16" name="id_answer_option[{{ $Pertanyaan->id_question }}]" value="2" class="required">
+                                        <input type="radio" id="opsi_3_16" name="id_answer_option[{{ $Question->id_question }}]" value="2" class="required">
                                         <span class="checkmark"></span>
                                     </label>
                                     <label class="container_radio version_2"><img src="{{asset('assets/templateskm/survey/smiley/b.png')}}" alt="" width="10%"> Sesuai
-                                        <input type="radio" id="opsi_3_17" name="id_answer_option[{{ $Pertanyaan->id_question }}]" value="3" class="required">
+                                        <input type="radio" id="opsi_3_17" name="id_answer_option[{{ $Question->id_question }}]" value="3" class="required">
                                         <span class="checkmark"></span>
                                     </label>
                                     <label class="container_radio version_2"><img src="{{asset('assets/templateskm/survey/smiley/a.png')}}" alt="" width="10%"> Sangat Sesuai
-                                        <input type="radio" id="opsi_3_18" name="id_answer_option[{{ $Pertanyaan->id_question }}]" value="4" class="required">
+                                        <input type="radio" id="opsi_3_18" name="id_answer_option[{{ $Question->id_question }}]" value="4" class="required">
                                         <span class="checkmark"></span>
                                     </label>
                                 </div>
 
                                 <div class="col-md-6 text-right">
-                                    <img src="{{ asset('templateskm/survey/img_pertanyaan/' . $Pertanyaan->question_image, true) }}" alt="" width="65%">
+                                    <img src="{{ asset('templateskm/survey/img_pertanyaan/' . $Question->question_image, true) }}" alt="" width="65%">
                                 </div>
                             </div>
                         </div>
                         @endforeach
-                        <!-- @foreach ($OpsiJawaban as $OpsiJawaban)
-                            <label class="container_radio version_2"><img src="{{asset('assets/templateskm/survey/smiley/') .'/'.  $OpsiJawaban->answer_icon }}" alt="" width="10%"> {{ $OpsiJawaban->answer_description }}
-                                <input type="radio" id="opsi_3_16" name="respon[3]" value="{{ $OpsiJawaban->answer_value }}" class="required">
+                        <!-- @foreach ($AnswerOption as $AnswerOption)
+                            <label class="container_radio version_2"><img src="{{asset('assets/templateskm/survey/smiley/') .'/'.  $AnswerOption->answer_icon }}" alt="" width="10%"> {{ $AnswerOption->answer_description }}
+                                <input type="radio" id="opsi_3_16" name="respon[3]" value="{{ $AnswerOption->answer_value }}" class="required">
                                 <span class="checkmark"></span>
                             </label>
                         @endforeach -->

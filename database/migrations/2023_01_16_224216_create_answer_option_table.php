@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class JenisLayananTable extends Migration
+class CreateAnswerOptionTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class JenisLayananTable extends Migration
      */
     public function up()
     {
-        Schema::create('jenis_layanan', function (Blueprint $table) {
-            $table->id('id_service_type');
-            $table->string('service_name');
+        Schema::create('answer_option', function (Blueprint $table) {
+            $table->id('id_answer_option');
+            $table->integer('answer_value');
+            $table->string('answer_description');
+            $table->string('answer_icon')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
@@ -28,6 +30,6 @@ class JenisLayananTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('jenis_layanan');
+        Schema::dropIfExists('answer_option');
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class KunjunganTable extends Migration
+class CreateVisitTable extends Migration
 {
 	/**
 	 * Run the migrations.
@@ -13,7 +13,7 @@ class KunjunganTable extends Migration
 	 */
 	public function up()
 	{
-		Schema::create('kunjungan', function (Blueprint $table) {
+		Schema::create('visit', function (Blueprint $table) {
 			$table->id('id_visit');
 			$table->unsignedBigInteger('id_service_type');
 			$table->string('visitor_name');
@@ -30,7 +30,7 @@ class KunjunganTable extends Migration
 			$table->softDeletes();
 			$table->timestamps();
 
-			$table->foreign('id_service_type')->references('id_service_type')->on('jenis_layanan');
+			$table->foreign('id_service_type')->references('id_service_type')->on('service_type');
 		});
 	}
 
@@ -41,6 +41,6 @@ class KunjunganTable extends Migration
 	 */
 	public function down()
 	{
-		Schema::dropIfExists('kunjungan');
+		Schema::dropIfExists('visit');
 	}
 }

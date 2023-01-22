@@ -109,18 +109,18 @@
                                 </div>
 
                                 <div class="form-group">
-                                    @foreach ($jenisLayanan as $jenisLayanan)
-                                        @if (old('id_service_type') == $jenisLayanan->id_service_type){
-                                        <label class="container_radio version_2">{{$jenisLayanan->service_name}}
+                                    @foreach ($serviceType as $serviceType)
+                                        @if (old('id_service_type') == $serviceType->id_service_type){
+                                        <label class="container_radio version_2">{{$serviceType->service_name}}
                                             <input type="radio" name="id_service_type"
-    											value="{{$jenisLayanan->id_service_type}}">
+    											value="{{$serviceType->id_service_type}}">
                                             <span class="checkmark"></span>
                                         </label>
                                         }
                                         @else
-                                        <label class="container_radio version_2">{{$jenisLayanan->service_name}}
+                                        <label class="container_radio version_2">{{$serviceType->service_name}}
                                             <input type="radio" name="id_service_type"
-    											value="{{$jenisLayanan->id_service_type}}">
+    											value="{{$serviceType->id_service_type}}">
                                             <span class="checkmark"></span>
                                         </label>
                                         @endif

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Kunjungan;
+use App\Models\Visit;
 use Illuminate\Http\Request;
 use App\Exports\KunjunganExport;
 use Maatwebsite\Excel\Facades\Excel;
@@ -20,7 +20,7 @@ class DashboardTamuController extends Controller
 			abort(403);
 		}
 		return view('dashboard.bukutamu.index', [
-			'kunjungan' => Kunjungan::all()
+			'Visit' => Visit::all()
 		]);
 	}
 	public function export_excel()

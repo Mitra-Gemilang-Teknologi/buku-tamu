@@ -25,7 +25,7 @@ class CreateSurveyorTable extends Migration
 			$table->softDeletes();
 			$table->timestamps();
 
-			$table->foreign('id_service_type')->references('id_service_type')->on('jenis_layanan');
+			$table->foreign('id_service_type')->references('id_service_type')->on('service_type');
 		});
 	}
 

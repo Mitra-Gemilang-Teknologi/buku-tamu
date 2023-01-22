@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateOpsiJawabanTable extends Migration
+class CreateQuestionTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreateOpsiJawabanTable extends Migration
      */
     public function up()
     {
-        Schema::create('opsi_jawaban', function (Blueprint $table) {
-            $table->id('id_answer_option');
-            $table->integer('answer_value');
-            $table->string('answer_description');
-            $table->string('answer_icon')->nullable();
+        Schema::create('question', function (Blueprint $table) {
+            $table->id('id_question');
+            $table->string('question_description');
+            $table->string('question_image')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
@@ -30,6 +29,6 @@ class CreateOpsiJawabanTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('opsi_jawaban');
+        Schema::dropIfExists('question');
     }
 }

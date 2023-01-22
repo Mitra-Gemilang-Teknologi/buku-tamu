@@ -22,10 +22,9 @@ class DatabaseSeeder extends Seeder
 	{
 
 		$this->call([
-			jenis_layananSeeder::class,
-			OpsiJawabanSeeder::class,
-			PertanyaanSeeder::class,
-			//
+			ServiceTypeSeeder::class,
+			AnswerOptionSeeder::class,
+			QuestionSeeder::class,
 			ProvincesSeeder::class,
 			CitiesSeeder::class,
 			DistrictsSeeder::class,

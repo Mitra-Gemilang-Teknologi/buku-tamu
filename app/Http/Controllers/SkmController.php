@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Surveyor;
-use App\Models\Pertanyaan;
-use App\Models\OpsiJawaban;
-use App\Models\JenisLayanan;
-use App\Models\survey_result;
+use App\Models\Question;
+use App\Models\AnswerOption;
+use App\Models\ServiceType;
+use App\Models\SurveyResult;
 use Illuminate\Http\Request;
 
 class SkmController extends Controller
@@ -21,9 +21,9 @@ class SkmController extends Controller
 		return view('skm.index', [
 			"title" => "SKM",
 			"active" => "SKM",
-			'jenisLayanan' => JenisLayanan::all(),
-			'Pertanyaan' => Pertanyaan::all(),
-			'OpsiJawaban' => OpsiJawaban::all()
+			'serviceType' => ServiceType::all(),
+			'Question' => Question::all(),
+			'AnswerOption' => AnswerOption::all()
 		]);
 	}
 
@@ -47,7 +47,7 @@ class SkmController extends Controller
 	{
 
 
-		$Pertanyaan = Pertanyaan::all();
+		$Question = Question::all();
 
 		try {
 			$validateData = $request->validate([
@@ -65,11 +65,11 @@ class SkmController extends Controller
 			try {
 				$last = Surveyor::create($validateData);
 
-				foreach ($Pertanyaan as $Pertanyaan) {
-					survey_result::create([
+				foreach ($Question as $Question) {
+					SurveyResult::create([
 						'id_surveyor' => $last->id,
-						'id_question' => $Pertanyaan->id_question,
-						'id_answer_option' => $request->id_answer_option[$Pertanyaan->id_question]			
+						'id_question' => $Question->id_question,
+						'id_answer_option' => $request->id_answer_option[$Question->id_question]			
 					]);
 				}
 

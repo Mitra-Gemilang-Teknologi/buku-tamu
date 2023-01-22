@@ -22,8 +22,8 @@ class CreateSurveyResultTable extends Migration
             $table->timestamps();
 
             $table->foreign('id_surveyor')->references('id_surveyor')->on('surveyor');
-            $table->foreign('id_question')->references('id_question')->on('pertanyaan');
-            $table->foreign('id_answer_option')->references('id_answer_option')->on('opsi_jawaban');
+            $table->foreign('id_question')->references('id_question')->on('question');
+            $table->foreign('id_answer_option')->references('id_answer_option')->on('answer_option');
         });
     }
 

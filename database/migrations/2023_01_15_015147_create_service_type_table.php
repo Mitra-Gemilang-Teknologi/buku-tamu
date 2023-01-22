@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePertanyaanTable extends Migration
+class CreateServiceTypeTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreatePertanyaanTable extends Migration
      */
     public function up()
     {
-        Schema::create('pertanyaan', function (Blueprint $table) {
-            $table->id('id_question');
-            $table->string('question_description');
-            $table->string('question_image')->nullable();
+        Schema::create('service_type', function (Blueprint $table) {
+            $table->id('id_service_type');
+            $table->string('service_name');
             $table->softDeletes();
             $table->timestamps();
         });
@@ -29,6 +28,6 @@ class CreatePertanyaanTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pertanyaan');
+        Schema::dropIfExists('service_type');
     }
 }

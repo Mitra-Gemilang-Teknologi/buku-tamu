@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\JenisLayanan;
+use App\Models\ServiceType;
 use Illuminate\Database\Seeder;
 
-class jenis_layananSeeder extends Seeder
+class ServiceTypeSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,51 +14,51 @@ class jenis_layananSeeder extends Seeder
      */
     public function run()
     {
-        JenisLayanan::create([
+        ServiceType::create([
             'service_name' => 'Kelautan & Perikanan'
         ]);
 
-        JenisLayanan::create([
+        ServiceType::create([
             'service_name' => 'Lingkungan Hidup'
         ]);
 
-        JenisLayanan::create([
+        ServiceType::create([
             'service_name' => 'Energi dan Sumber Daya Mineral'
         ]);
 
-        JenisLayanan::create([
+        ServiceType::create([
             'service_name' => 'Tenaga Kerja'
         ]);
 
-        JenisLayanan::create([
+        ServiceType::create([
             'service_name' => 'Pendidikan'
         ]);
 
-        JenisLayanan::create([
+        ServiceType::create([
             'service_name' => 'Kesehatan'
         ]);
 
-        JenisLayanan::create([
+        ServiceType::create([
             'service_name' => 'Perhubungan'
         ]);
 
-        JenisLayanan::create([
+        ServiceType::create([
             'service_name' => 'Perdagangan'
         ]);
 
-        JenisLayanan::create([
+        ServiceType::create([
             'service_name' => 'Kehutanan'
         ]);
 
-        JenisLayanan::create([
+        ServiceType::create([
             'service_name' => 'Sosial'
         ]);
 
-        JenisLayanan::create([
+        ServiceType::create([
             'service_name' => 'Pertanian'
         ]);
 
-        JenisLayanan::create([
+        ServiceType::create([
             'service_name' => 'Pekerjaan Umum dan Penataan Ruang'
         ]);
     }

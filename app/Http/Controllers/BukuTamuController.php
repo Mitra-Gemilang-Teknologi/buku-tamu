@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use Laravolt\Indonesia\Models\District;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-use App\Models\JenisLayanan;
-use App\Models\Kunjungan;
+use App\Models\ServiceType;
+use App\Models\Visit;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Controllers\Session;
 
@@ -51,7 +51,7 @@ class BukuTamuController extends Controller
 		return view('bukuTamu.index', [
 			"title" => "Buku Tamu",
 			"active" => "Buku Tamu",
-			'jenisLayanan' => JenisLayanan::all(),
+			'serviceType' => ServiceType::all(),
 			'kecamatan' => $kecamatan
 		]);
 	}
@@ -95,7 +95,7 @@ class BukuTamuController extends Controller
 
 
 			try {
-				Kunjungan::create($validateData);
+				Visit::create($validateData);
 				session($validateData);
 				return redirect('/')->with('QuestionAlert', 'Created successfully!');
 			} catch (\Throwable $th) {
