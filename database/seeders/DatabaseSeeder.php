@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
 			ServiceTypeSeeder::class,
 			AnswerOptionSeeder::class,
 			QuestionSeeder::class,
+			SubServiceTypeSeeder::class,
 			ProvincesSeeder::class,
 			CitiesSeeder::class,
 			DistrictsSeeder::class,
