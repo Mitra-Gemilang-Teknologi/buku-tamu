@@ -15,7 +15,6 @@ class CreateVisitTable extends Migration
 	{
 		Schema::create('visit', function (Blueprint $table) {
 			$table->id('id_visit');
-			$table->unsignedBigInteger('id_service_type');
 			$table->string('visitor_name');
 			$table->integer('visitor_age');
 			$table->string('visitor_education');
@@ -29,8 +28,6 @@ class CreateVisitTable extends Migration
 			$table->string('visit_purpose');
 			$table->softDeletes();
 			$table->timestamps();
-
-			$table->foreign('id_service_type')->references('id_service_type')->on('service_type');
 		});
 	}
 
