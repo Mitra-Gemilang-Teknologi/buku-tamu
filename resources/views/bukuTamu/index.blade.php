@@ -378,14 +378,15 @@
          $('#daerahCiamis').hide();
          $('#JuduldaerahCiamis').hide();
          $('#luarCiamis').show();
-         // $('#rt').value("");
-         // $('#rw').value("");
+         document.getElementById('#rt').reset();
+         document.getElementById('#rw').reset();
      })
        $('#thisCiamis').on('click', function() {
         $('#daerahCiamis').show();
         $('#JuduldaerahCiamis').show();
         $('#luarCiamis').hide();
-        // $('#alamat').value("");
+        document.getElementById('#alamat').reset();
+        alert("hello");
     })
    });
 
