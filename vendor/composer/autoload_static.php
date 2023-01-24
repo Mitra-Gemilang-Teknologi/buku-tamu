@@ -621,6 +621,7 @@ class ComposerStaticInitc0f7bc53ef53bc92f395baadc3c091fe
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Models\\Village' => __DIR__ . '/../..' . '/app/Models/Village.php',
         'App\\Models\\Visit' => __DIR__ . '/../..' . '/app/Models/Visit.php',
+        'App\\Models\\VisitorHasService' => __DIR__ . '/../..' . '/app/Models/VisitorHasService.php',
         'App\\Models\\VisitorSubServiceType' => __DIR__ . '/../..' . '/app/Models/VisitorSubServiceType.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',

@@ -43,6 +43,7 @@ return array(
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
     'App\\Models\\Village' => $baseDir . '/app/Models/Village.php',
     'App\\Models\\Visit' => $baseDir . '/app/Models/Visit.php',
+    'App\\Models\\VisitorHasService' => $baseDir . '/app/Models/VisitorHasService.php',
     'App\\Models\\VisitorSubServiceType' => $baseDir . '/app/Models/VisitorSubServiceType.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'App\\Providers\\AuthServiceProvider' => $baseDir . '/app/Providers/AuthServiceProvider.php',

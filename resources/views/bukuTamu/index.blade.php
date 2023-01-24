@@ -85,8 +85,8 @@
                 </div>
                 <!-- /content-left -->
 
-                <div class="col-lg-6 content-right" id="start" style="background: #F7F7F7 !important;">
-                    <div id="wizard_container">
+                <div class="col-lg-6 content-right  d-md-block" id="start" style="background: #F7F7F7 !important;">
+                    <div id="wizard_container" style="margin-left: -30px; !important;">
                         <!-- /top-wizard -->
                         <form class="" method="post" action="/kunjungan">
                             @csrf
@@ -97,7 +97,7 @@
 
                             <div id="middle-wizard">
 
-                                <div class="step" style="margin-top: 300px;">
+                                <div class="step">
                                 <div class="row mb-3" style="align-items: end !important;">
                                     <div class="col-md-6">
                                         <h3 class="main_question">Pilih Jenis Layanan</h3>
@@ -110,21 +110,22 @@
 
                                 <div class="form-group">
                                     @foreach ($serviceType as $serviceType)
-                                       
+
                                         <label class="container_radio version_2">{{$serviceType->service_name}}
-                                           
+
                                             <input class="pilihJenis" type="checkbox" required autofocus name="id_service_type[]"
     											value="{{$serviceType->id_service_type}}">
-                                             
+
                                             <span class="checkmark"></span>
                                         </label>
-                                      
+
                                     @endforeach
                                 </div>
                             </div>
 
-                            <div class="step" style="margin-top: 300px;">
-                                <div class="row mb-3" style="align-items: end !important;">
+                            <div class="step">
+
+                                <div class="row mb-3">
                                     <div class="col-md-6">
                                         <h3 class="main_question">Pilih Jenis Layanan</h3>
                                     </div>
@@ -132,21 +133,13 @@
                                         <img src="{{ asset('assets/templateskm/survey/img_pertanyaan/0.jpg') }}" alt=""
                                             width="50%">
                                     </div>
+																		<div class="form-group" id="subLayanan">
+                                </div>
                                 </div>
 
-                                <div class="form-group">
-                                  
-                                       
-                                        <label class="container_radio version_2">l
-                                            <input type="checkbox" name="id_servsice_type"
-    											value="{{$serviceType->id_service_type}}">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                        
-                                      
-                                 
-                                </div>
-                            </div>
+
+
+                           		 </div>
 
                                 <div class="step">
                                 <div class="row mb-3" style="align-items: end !important;">
@@ -253,10 +246,11 @@
                                             <div class="form-group">
                                                 <label>Kecamatan</label>
                                                 <div class="styled-select clearfix">
-                                                    <select class="wide form-control required" name="visitor_disctrict"
+                                                    <select class="wide form-control " name="visitor_disctrict"
                                                         id="kecamatan">
                                                         <option value="">== Select Kecamatan ==</option>
                                                         @foreach ($kecamatan as $id => $name)
+
                                                             <option value="{{ $id }}">{{ $name }}
                                                             </option>
                                                         @endforeach
@@ -268,8 +262,8 @@
                                                 <label>Desa</label>
                                                 <div class="styled-select clearfix">
                                                     <select class="form-control" name="visitor_village" id="desa"
-                                                        required>
-                                                        <option>==Pilih Salah Satu==</option>
+                                                        >
+
                                                     </select>
                                                 </div>
                                             </div>
@@ -299,7 +293,7 @@
 										<h5>Berasal Dari Kabupaten Ciamis ?</h5>
                                         <p id="thisCiamis" style="cursor:pointer;"><u>Klik disini!</u></p>
                                         <div class="form-group add_top_30">
-                                            <textarea id="alamat" name="visitor_address" aria-describedby="saran_text"
+                                            <textarea id="alamat" name="visitor_address" aria-describedby="visitor_address"
                                                 class="form-control review_message" placeholder="Alamat Lengkap"></textarea>
                                         </div>
 								    </div>
@@ -419,7 +413,7 @@
     window.location.href = "/remove";
 })
 
-        //Buat Get Wilayah 
+        //Buat Get Wilayah
         function onChangeSelect(url, id, name) {
             // send ajax request to get the cities of the selected province and append to the select tag
     $.ajax({
@@ -434,11 +428,13 @@
 
             $.each(data, function(key, value) {
 
-                $('#' + name).append(`<option value="${key}">${value} </option>`);
+                $('#' + name).append(`<option value="${key}">${value} ${key}</option>`);
             });
         }
     });
 }
+
+
 
         $(function() {
             $('#provinsi').on('change', function() {
@@ -457,12 +453,12 @@
 
         $('.pilihJenis').on('click',function(){
 
-        
+
         var inps = $('input[name="id_service_type[]"]:checked');
         var data = [];
         for (var i = 0; i <inps.length; i++) {
         var inp=inps[i];
-        
+
             data.push(parseInt(inp.value))
         }
         $.ajax({
@@ -470,12 +466,41 @@
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
                type:'POST',
-                 url:"{{ route('subJenisLayanan.post') }}", 
+                 url:"{{ route('subJenisLayanan.post') }}",
                 data: {
                     id: data
                 },
                 success: function(data) {
-                    console.log('ini kun',data);
+
+									 $('#subLayanan').empty();
+
+
+									  $.each(data.data, function(key, value) {
+
+											let subLayanan = ``
+											$.each(value.sub_services,function(subKey,subValue){
+
+												subLayanan += `<label class="container_radio version_2">
+										${subValue.sub_service_name}
+													  <input class="pilihJenis" type="checkbox" required autofocus name="id_sub_service_type[]"
+    											value="${ value.id_service_type + '|' + subValue.id_sub_service_type}">
+												<span class="checkmark"></span>
+            				</label>
+										`
+										});
+
+              		  $('#subLayanan').append(`
+										 <label class="container_radio version_2">
+											<b>
+										${value.service_name}</b>
+            				</label>
+										${subLayanan}
+
+										`);
+
+            		});
+
+
                 }
             });
         })

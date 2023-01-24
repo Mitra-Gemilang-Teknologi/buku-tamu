@@ -9,6 +9,9 @@ use App\Models\ServiceType;
 use App\Models\Visit;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Controllers\Session;
+use App\Models\SubServiceType;
+use App\Models\VisitorHasService;
+use Illuminate\Support\Facades\DB;
 
 class BukuTamuController extends Controller
 {
@@ -48,6 +51,7 @@ class BukuTamuController extends Controller
 	public function index()
 	{
 		$kecamatan = \Indonesia::findCity(167, ['districts'])->districts->pluck('name', 'id');
+
 		return view('bukuTamu.index', [
 			"title" => "Buku Tamu",
 			"active" => "Buku Tamu",
@@ -76,6 +80,12 @@ class BukuTamuController extends Controller
 	{
 
 
+		// dd($request->all());
+		// $datac = substr($request->id_sub_service_type, 2);
+
+
+
+
 
 		try {
 			$validateData = $request->validate([
@@ -83,8 +93,9 @@ class BukuTamuController extends Controller
 				'visitor_name' => 'required',
 				'visitor_education' => 'required',
 				'visit_time' => 'required',
-				'visitor_village' => 'required',
-				'visitor_disctrict'  =>   'required',
+				'visitor_village' => '',
+				'visitor_disctrict'  =>   '',
+				'visitor_address' => '',
 				'visitor_neighborhood_association' => '',
 				'visitor_citizen_association' =>   '',
 				'visitor_age' => 'required',
@@ -94,11 +105,28 @@ class BukuTamuController extends Controller
 			]);
 
 
+
 			try {
-				Visit::create($validateData);
+				$last = Visit::create($validateData);
+				$arr = [];
+				foreach ($request->id_sub_service_type as $value) {
+					$temp = explode('|', $value);
+
+					$arr[] =  [
+						'visitor_id' => $last->id,
+						'service_id' => 	$temp[0],
+						'sub_service_id' => 	$temp[1]
+					];
+				}
+
+
+
+
+				DB::table('visitor_has_services')->insert($arr);
 				session($validateData);
 				return redirect('/')->with('QuestionAlert', 'Created successfully!');
 			} catch (\Throwable $th) {
+				dd($th);
 				return redirect('/')->with('error', 'Error during the creation!');
 			}
 			//code...
@@ -162,10 +190,15 @@ class BukuTamuController extends Controller
 	}
 	public function subJenisLayanan(Request $request)
 	{
-		$input =  $request->all();
-		
+
+		$input = $request->all();
+
+
+		$data =  ServiceType::with('subServices')->whereIn('id_service_type', $input['id'])->get();
+
+
 		return response()->json([
-			"data" =>$input 
+			"data" => $data
 		]);
 	}
 }

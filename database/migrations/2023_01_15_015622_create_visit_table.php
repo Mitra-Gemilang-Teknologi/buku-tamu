@@ -23,8 +23,8 @@ class CreateVisitTable extends Migration
 			$table->string('visitor_village')->nullable();
 			$table->string('visitor_citizen_association')->nullable();
 			$table->string('visitor_neighborhood_association')->nullable();
-			$table->longText('visitor_address');
-			$table->longText('visitor_description');
+			$table->longText('visitor_address')->nullable();
+			$table->longText('visitor_description')->nullable();
 			$table->date('visit_time');
 			$table->string('visit_purpose');
 			$table->softDeletes();

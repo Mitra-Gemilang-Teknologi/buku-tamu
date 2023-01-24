@@ -19,8 +19,11 @@ class DashboardTamuController extends Controller
 		if (auth()->guest()) {
 			abort(403);
 		}
+
+
 		return view('dashboard.bukutamu.index', [
-			'Visit' => Visit::all()
+			'Visit' => Visit::with('village')->with('district')->get(),
+
 		]);
 	}
 	public function export_excel()
@@ -97,5 +100,4 @@ class DashboardTamuController extends Controller
 	{
 		//
 	}
-
 }

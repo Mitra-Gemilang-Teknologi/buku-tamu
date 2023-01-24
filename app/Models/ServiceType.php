@@ -18,6 +18,11 @@ class ServiceType extends Model
 		'service_name'
 	];
 
+
+	public function subServices()
+	{
+		return $this->hasMany(SubServiceType::class, 'id_service_type', 'id_service_type');
+	}
 	public function visit()
 	{
 		return $this->belongsTo(Visit::class, 'id_service_type');
