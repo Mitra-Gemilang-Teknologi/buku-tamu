@@ -160,4 +160,12 @@ class BukuTamuController extends Controller
 	{
 		//
 	}
+	public function subJenisLayanan(Request $request)
+	{
+		$input =  $request->all();
+		
+		return response()->json([
+			"data" =>$input 
+		]);
+	}
 }

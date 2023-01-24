@@ -36,7 +36,8 @@ Route::get('/remove', [BukuTamuController::class, 'remove']);
 Route::resource('/kunjungan', BukuTamuController::class);
 Route::resource('/simpan_survey', SkmController::class);
 
-
+//get SUb Jenis Layanan
+Route::post('/data/subJenisLayanan', [BukuTamuController::class, 'subJenisLayanan'])->name('subJenisLayanan.post');
 //dengan model binding
 Route::get('/posts/{post:slug}', [PostController::class, 'show']); //slug untuk identifkasi id kalau defaultnya id
 

@@ -97,7 +97,7 @@
 
                             <div id="middle-wizard">
 
-                                {{-- <div class="step" style="margin-top: 300px;">
+                                <div class="step" style="margin-top: 300px;">
                                 <div class="row mb-3" style="align-items: end !important;">
                                     <div class="col-md-6">
                                         <h3 class="main_question">Pilih Jenis Layanan</h3>
@@ -110,25 +110,45 @@
 
                                 <div class="form-group">
                                     @foreach ($serviceType as $serviceType)
-                                        @if (old('id_service_type') == $serviceType->id_service_type){
+                                       
                                         <label class="container_radio version_2">{{$serviceType->service_name}}
-                                            <input type="radio" name="id_service_type"
+                                           
+                                            <input class="pilihJenis" type="checkbox" required autofocus name="id_service_type[]"
     											value="{{$serviceType->id_service_type}}">
+                                             
                                             <span class="checkmark"></span>
                                         </label>
-                                        }
-                                        @else
-                                        <label class="container_radio version_2">{{$serviceType->service_name}}
-                                            <input type="radio" name="id_service_type"
-    											value="{{$serviceType->id_service_type}}">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                        @endif
+                                      
                                     @endforeach
                                 </div>
-                            </div> --}}
+                            </div>
 
-                                {{-- <div class="step">
+                            <div class="step" style="margin-top: 300px;">
+                                <div class="row mb-3" style="align-items: end !important;">
+                                    <div class="col-md-6">
+                                        <h3 class="main_question">Pilih Jenis Layanan</h3>
+                                    </div>
+                                    <div class="col-md-6 text-right">
+                                        <img src="{{ asset('assets/templateskm/survey/img_pertanyaan/0.jpg') }}" alt=""
+                                            width="50%">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                  
+                                       
+                                        <label class="container_radio version_2">l
+                                            <input type="checkbox" name="id_servsice_type"
+    											value="{{$serviceType->id_service_type}}">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        
+                                      
+                                 
+                                </div>
+                            </div>
+
+                                <div class="step">
                                 <div class="row mb-3" style="align-items: end !important;">
                                     <div class="col-md-6">
                                         <h3>Form kunjungan</h3>
@@ -213,7 +233,7 @@
                                         <span class="checkmark"></span>
                                     </label>
                                 </div>
-                            </div> --}}
+                            </div>
 
                                 <div class="step">
 
@@ -370,6 +390,7 @@
 @endsection
 @push('scripts')
     <script>
+        //Buat Animasi
         	$(document).ready(function(){
         	$("html,body").animate({scrollTop:0},"slow");
 				$('#luarCiamis').hide();
@@ -378,13 +399,15 @@
            $('#daerahCiamis').hide();
 					 $('#JuduldaerahCiamis').hide();
 					 $('#luarCiamis').show();
-        })
+        });
 				 $('#thisCiamis').on('click', function() {
            $('#daerahCiamis').show();
 					 $('#JuduldaerahCiamis').show();
 					 $('#luarCiamis').hide();
-        })
         });
+        });
+
+        //Buat Redirect
 
         $('.swal2-confirm').on('click', function() {
             window.location.href = "/skm";
@@ -394,6 +417,7 @@
             window.location.href = "/remove";
         })
 
+        //Buat Get Wilayah 
         function onChangeSelect(url, id, name) {
             // send ajax request to get the cities of the selected province and append to the select tag
             $.ajax({
@@ -426,5 +450,32 @@
                 onChangeSelect('{{ route('villages') }}', $(this).val(), 'desa');
             })
         });
+
+        //Buat Get SUb Jenis Layanann
+
+        $('.pilihJenis').on('click',function(){
+
+        
+        var inps = $('input[name="id_service_type[]"]:checked');
+        var data = [];
+        for (var i = 0; i <inps.length; i++) {
+        var inp=inps[i];
+        
+            data.push(parseInt(inp.value))
+        }
+        $.ajax({
+             headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+               type:'POST',
+                 url:"{{ route('subJenisLayanan.post') }}", 
+                data: {
+                    id: data
+                },
+                success: function(data) {
+                    console.log('ini kun',data);
+                }
+            });
+        })
     </script>
 @endpush
