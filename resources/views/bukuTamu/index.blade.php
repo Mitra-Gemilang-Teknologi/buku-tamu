@@ -258,14 +258,14 @@
                                                 <div class="col-md-6">
                                                     <label>RT</label>
                                                     <div class="form-group">
-                                                        <input type="text" class="form-control" placeholder="RT"
+                                                        <input id="rt" type="text" class="form-control" placeholder="RT"
                                                             name="visitor_neighborhood_association" id="">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <label>RT</label>
+                                                    <label>RW</label>
                                                     <div class="form-group">
-                                                        <input type="text" placeholder="Rw" class="form-control"
+                                                        <input id="rw" type="text" placeholder="Rw" class="form-control"
                                                             name="visitor_citizen_association" id="">
                                                     </div>
                                                 </div>
@@ -274,15 +274,15 @@
 
                                         </div>
                                     </div>
-																		<div id="luarCiamis">
-																			<h3 class="main_question">Alamat Lengkap</h3>
-																			  <h5>Berasal Dari Kabupaten Ciamis ?</h5>
-                                            <p id="thisCiamis" style="cursor:pointer;"><u>Klik disini!</u></p>
-                                    <div class="form-group add_top_30">
-                                        <textarea id="alamat" name="visitor_description" aria-describedby="saran_text"
-                                            class="form-control review_message" placeholder="Alamat Lengkap"></textarea>
-                                    </div>
-																		</div>
+									<div id="luarCiamis">
+										<h3 class="main_question">Alamat Lengkap</h3>
+										<h5>Berasal Dari Kabupaten Ciamis ?</h5>
+                                        <p id="thisCiamis" style="cursor:pointer;"><u>Klik disini!</u></p>
+                                        <div class="form-group add_top_30">
+                                            <textarea id="alamat" name="visitor_address" aria-describedby="saran_text"
+                                                class="form-control review_message" placeholder="Alamat Lengkap"></textarea>
+                                        </div>
+								    </div>
 
                                 </div>
 
@@ -369,62 +369,65 @@
     </div>
 @endsection
 @push('scripts')
-    <script>
-        	$(document).ready(function(){
-        	$("html,body").animate({scrollTop:0},"slow");
-				$('#luarCiamis').hide();
+<script>
+   $(document).ready(function(){
+       $("html,body").animate({scrollTop:0},"slow");
+       $('#luarCiamis').hide();
 
-        $('#nonCiamis').on('click', function() {
-           $('#daerahCiamis').hide();
-					 $('#JuduldaerahCiamis').hide();
-					 $('#luarCiamis').show();
-        })
-				 $('#thisCiamis').on('click', function() {
-           $('#daerahCiamis').show();
-					 $('#JuduldaerahCiamis').show();
-					 $('#luarCiamis').hide();
-        })
-        });
+       $('#nonCiamis').on('click', function() {
+         $('#daerahCiamis').hide();
+         $('#JuduldaerahCiamis').hide();
+         $('#luarCiamis').show();
+         // $('#rt').value("");
+         // $('#rw').value("");
+     })
+       $('#thisCiamis').on('click', function() {
+        $('#daerahCiamis').show();
+        $('#JuduldaerahCiamis').show();
+        $('#luarCiamis').hide();
+        // $('#alamat').value("");
+    })
+   });
 
-        $('.swal2-confirm').on('click', function() {
-            window.location.href = "/skm";
-        })
+   $('.swal2-confirm').on('click', function() {
+    window.location.href = "/skm";
+})
 
-        $('.swal2-cancel').on('click', function() {
-            window.location.href = "/remove";
-        })
+   $('.swal2-cancel').on('click', function() {
+    window.location.href = "/remove";
+})
 
-        function onChangeSelect(url, id, name) {
+   function onChangeSelect(url, id, name) {
             // send ajax request to get the cities of the selected province and append to the select tag
-            $.ajax({
-                url: url,
-                type: 'GET',
-                data: {
-                    id: id
-                },
-                success: function(data) {
-                    $('#' + name).empty();
-                    $('#' + name).append(`<option>==Pilih Salah Satu==</option>`);
+    $.ajax({
+        url: url,
+        type: 'GET',
+        data: {
+            id: id
+        },
+        success: function(data) {
+            $('#' + name).empty();
+            $('#' + name).append(`<option>==Pilih Salah Satu==</option>`);
 
-                    $.each(data, function(key, value) {
+            $.each(data, function(key, value) {
 
-                        $('#' + name).append(`<option value="${key}">${value} </option>`);
-                    });
-                }
+                $('#' + name).append(`<option value="${key}">${value} </option>`);
             });
         }
+    });
+}
 
-        $(function() {
-            $('#provinsi').on('change', function() {
-                alert('oke')
-                onChangeSelect('{{ route('cities') }}', $(this).val(), 'kota');
-            });
-            $('#kota').on('change', function() {
-                onChangeSelect('{{ route('districts') }}', $(this).val(), 'kecamatan');
-            })
-            $('#kecamatan').on('change', function() {
-                onChangeSelect('{{ route('villages') }}', $(this).val(), 'desa');
-            })
-        });
-    </script>
+$(function() {
+    $('#provinsi').on('change', function() {
+        alert('oke')
+        onChangeSelect('{{ route('cities') }}', $(this).val(), 'kota');
+    });
+    $('#kota').on('change', function() {
+        onChangeSelect('{{ route('districts') }}', $(this).val(), 'kecamatan');
+    })
+    $('#kecamatan').on('change', function() {
+        onChangeSelect('{{ route('villages') }}', $(this).val(), 'desa');
+    })
+});
+</script>
 @endpush
