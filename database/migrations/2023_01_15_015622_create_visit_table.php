@@ -19,10 +19,11 @@ class CreateVisitTable extends Migration
 			$table->integer('visitor_age');
 			$table->string('visitor_education');
 			$table->string('visitor_gender');
-			$table->string('visitor_disctrict');
-			$table->string('visitor_village');
-			$table->string('visitor_citizen_association');
-			$table->string('visitor_neighborhood_association');
+			$table->string('visitor_disctrict')->nullable();
+			$table->string('visitor_village')->nullable();
+			$table->string('visitor_citizen_association')->nullable();
+			$table->string('visitor_neighborhood_association')->nullable();
+			$table->longText('visitor_address');
 			$table->longText('visitor_description');
 			$table->date('visit_time');
 			$table->string('visit_purpose');

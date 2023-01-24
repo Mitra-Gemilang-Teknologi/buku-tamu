@@ -221,7 +221,7 @@
                                         <div class="col-md-6">
 																					 <h3>Alamat</h3>
                                             <h5>Berada Di luar Kabupaten Ciamis ?</h5>
-                                            <p id="nonCiamis"><u>Klik disini!</u></p>
+                                            <p id="nonCiamis" style="cursor:pointer;"><u>Klik disini!</u></p>
 
                                         </div>
                                     </div>
@@ -277,7 +277,7 @@
 																		<div id="luarCiamis">
 																			<h3 class="main_question">Alamat Lengkap</h3>
 																			  <h5>Berasal Dari Kabupaten Ciamis ?</h5>
-                                            <p id="thisCiamis"><u>Klik disini!</u></p>
+                                            <p id="thisCiamis" style="cursor:pointer;"><u>Klik disini!</u></p>
                                     <div class="form-group add_top_30">
                                         <textarea id="alamat" name="visitor_description" aria-describedby="saran_text"
                                             class="form-control review_message" placeholder="Alamat Lengkap"></textarea>
