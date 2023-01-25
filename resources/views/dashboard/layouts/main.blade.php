@@ -10,6 +10,9 @@
   <!-- /.content-wrapper -->
  {{-- @include('dashboard.layouts.footer') --}}
 
+ {{-- Modal --}}
+
+ @stack('modal')
 <!-- ./wrapper -->
  @include('dashboard.layouts.js')
 		@stack('scripts')

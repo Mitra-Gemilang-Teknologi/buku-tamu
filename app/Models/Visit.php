@@ -15,9 +15,9 @@ class Visit extends Model
 {
 	use HasFactory, SoftDeletes;
 
-	public $table = 'visit'; // dilakukan seperti ini agar tidak menjadi plural
+	public $table = 'visits'; // dilakukan seperti ini agar tidak menjadi plural
 
-	protected $guarded  = ['id_visit']; //yang tidak  boleh di isi
+	protected $guarded  = ['id']; //yang tidak  boleh di isi
 
 	function village()
 	{
@@ -29,6 +29,6 @@ class Visit extends Model
 	}
 	public function subServices()
 	{
-		return $this->hasMany(VisitorHasService::class, 'visitor_id', 'id_visit')->with('subLayanan');
+		return $this->hasMany(VisitorHasService::class, 'visitor_id', 'id')->with('subLayanan');
 	}
 }

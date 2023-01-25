@@ -13,8 +13,8 @@ class CreateVisitTable extends Migration
 	 */
 	public function up()
 	{
-		Schema::create('visit', function (Blueprint $table) {
-			$table->id('id_visit');
+		Schema::create('visits', function (Blueprint $table) {
+			$table->id('id');
 			$table->string('visitor_name');
 			$table->integer('visitor_age');
 			$table->string('visitor_education');

@@ -31,7 +31,8 @@
                             <!-- /.card-header -->
                             <div class="card-body">
 
-                                <a href="/dashboard/kunjungan/export_excel" class="btn btn-primary"><i class="fa fa-excel">Export</i></a>
+                                <a href="#" data-toggle="modal" data-target="#exampleModal" class="btn btn-primary"><i
+                                        class="fa fa-excel">Export</i></a>
 
                                 <table id="example2" class="table table-bordered table-hover">
                                     <thead>
@@ -47,8 +48,8 @@
                                             <th>Desa</th>
                                             <th>RT</th>
                                             <th>RW</th>
-																						<th>Tujuan</th>
-																						<th>Alamat(Luar Ciamis)</th>
+                                            <th>Tujuan</th>
+                                            <th>Alamat(Luar Ciamis)</th>
                                             <th>Keterangan</th>
                                         </tr>
                                     </thead>
@@ -58,23 +59,24 @@
                                             <tr>
                                                 <td>{{ $kunjungan->visit_time }}</td>
 
-																								<td>
-																									@foreach ($kunjungan->subServices as $subServices )
-																									<li>	{{$subServices->subLayanan->sub_service_name}}</li>
+                                                <td>
+                                                    @foreach ($kunjungan->subServices as $subServices)
+                                                        <li> {{ $subServices->subLayanan->sub_service_name }}</li>
+                                                    @endforeach
 
-																									@endforeach
-
-																								</td>
+                                                </td>
                                                 <td>{{ $kunjungan->visitor_name }}</td>
-																								<td>{{ $kunjungan->visitor_age }}</td>
+                                                <td>{{ $kunjungan->visitor_age }}</td>
                                                 <td>{{ $kunjungan->visitor_education }}</td>
                                                 <td>{{ $kunjungan->visitor_gender }}</td>
-																								<td>{{ $kunjungan->visitor_disctrict  !== null? $kunjungan->district->name : '' }}</td>
-                                                <td>{{ $kunjungan->visitor_village  !== null? $kunjungan->village->name : '' }}</td>
+                                                <td>{{ $kunjungan->visitor_disctrict !== null ? $kunjungan->district->name : '' }}
+                                                </td>
+                                                <td>{{ $kunjungan->visitor_village !== null ? $kunjungan->village->name : '' }}
+                                                </td>
                                                 <td>{{ $kunjungan->visitor_neighborhood_association }}</td>
                                                 <td>{{ $kunjungan->visitor_citizen_association }}</td>
                                                 <td>{{ $kunjungan->visit_purpose }}</td>
-																								 <td>{{ $kunjungan->visitor_address }}</td>
+                                                <td>{{ $kunjungan->visitor_address }}</td>
                                                 <td>{{ $kunjungan->visitor_description }}</td>
 
 
@@ -99,3 +101,43 @@
     </div>
     <!-- /.content-wrapper -->
 @endsection
+
+@push('modal')
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form  method="POST" action="/dashboard/kunjungan/export_excel">
+											@csrf
+                        <div class="form-group row d-flex justify-content-center">
+
+                            <div class="col-xs-3 mr-5">
+                                <label for="">Dari</label>
+                                <input type="date" name="awal" class="form-control">
+                            </div>
+
+
+                            <div class="col-xs-8">
+                                <label for="">sampai</label>
+                                <input type="date" name="akhir" class="form-control">
+                            </div>
+                        </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+							</form>
+
+            </div>
+        </div>
+    </div>
+@endpush

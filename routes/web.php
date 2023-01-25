@@ -93,7 +93,7 @@ Route::resource('/dashboard/surveytamu', DashboardSurveyController::class)->midd
 Route::resource('/inbox', InboxController::class);
 
 // Laporan
-Route::get('/dashboard/kunjungan/export_excel', [DashboardTamuController::class, 'export_excel']);
+Route::post('/dashboard/kunjungan/export_excel', [DashboardTamuController::class, 'export_excel']);
 
 // Kebutuhan untuk Alamat
 Route::get('provinces', 'DependentDropdownController@provinces')->name('provinces');

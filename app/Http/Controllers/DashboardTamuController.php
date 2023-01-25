@@ -26,12 +26,14 @@ class DashboardTamuController extends Controller
 
 		]);
 	}
-	public function export_excel()
+	public function export_excel(Request $request)
 	{
 
+		$start = $request->awal;
+		$end = $request->akhir;
 
-
-		return Excel::download(new KunjunganExport, 'kunjungan.xlsx');
+		return (new KunjunganExport)->forDate($start, $end)->download('Laporan Kunjungan Dari ' . $start . ' Sampai ' . $end . '.xlsx');
+		// return Excel::download((new KunjunganExport)->forYear($start), 'kunjungan.xlsx');
 	}
 
 
