@@ -611,6 +611,8 @@ class ComposerStaticInitc0f7bc53ef53bc92f395baadc3c091fe
         'App\\Models\\AnswerOption' => __DIR__ . '/../..' . '/app/Models/AnswerOption.php',
         'App\\Models\\District' => __DIR__ . '/../..' . '/app/Models/District.php',
         'App\\Models\\Inbox' => __DIR__ . '/../..' . '/app/Models/Inbox.php',
+        'App\\Models\\IndonesiaDistrict' => __DIR__ . '/../..' . '/app/Models/IndonesiaDistrict.php',
+        'App\\Models\\IndonesiaVillage' => __DIR__ . '/../..' . '/app/Models/IndonesiaVillage.php',
         'App\\Models\\Province' => __DIR__ . '/../..' . '/app/Models/Province.php',
         'App\\Models\\Question' => __DIR__ . '/../..' . '/app/Models/Question.php',
         'App\\Models\\Regency' => __DIR__ . '/../..' . '/app/Models/Regency.php',

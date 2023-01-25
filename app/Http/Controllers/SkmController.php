@@ -131,4 +131,15 @@ class SkmController extends Controller
 	{
 		//
 	}
+
+	public function subJenisLayananskm(Request $request)
+
+		$input = $request->all();
+
+		$data =  ServiceType::with('subServices')->whereIn('id_service_type', $input['id'])->get();
+
+		return response()->json([
+			"data" => $data
+		]);
+	}
 }

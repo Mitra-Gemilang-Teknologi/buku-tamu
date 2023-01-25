@@ -396,6 +396,7 @@
     <script>
         //Buat Animasi
         $(document).ready(function() {
+
             $("html,body").animate({
                 scrollTop: 0
             }, "slow");
@@ -466,7 +467,7 @@
 
         $('.pilihJenis').on('click', function() {
 
-
+						alert('k')
             var inps = $('input[name="id_service_type[]"]:checked');
             var data = [];
             for (var i = 0; i < inps.length; i++) {

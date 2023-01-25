@@ -67,35 +67,37 @@
 
                     <div id="middle-wizard" style="margin-top: 300px;">
                         <div class="step">
-
                             <div class="row mb-3" style="align-items: end !important;">
                                 <div class="col-md-6">
-                                    <h3 class="main_question">Pilih Layanan</h3>
+                                    <h3 class="main_question">Pilih Jenis Layanan</h3>
                                 </div>
                                 <div class="col-md-6 text-right">
-                                    <img src="{{ asset('assets/templateskm/survey/img_pertanyaan/0.jpg') }}" alt="" width="50%">
+                                    <img src="{{ asset('assets/templateskm/survey/img_pertanyaan/0.jpg') }}" alt=""
+                                    width="50%">
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 @foreach ($serviceType as $serviceType)
-                                    @if (old('id_service_type') == $serviceType->id_service_type)
-                                    <label class="container_radio version_2">{{$serviceType->service_name}}
-                                        <input type="radio" name="id_service_type" value="{{$serviceType->id_service_type}}" checked>
-                                        <span class="checkmark"></span>
-                                    </label>
-                                    @elseif (Session::get('id_service_type') == $serviceType->id_service_type)
-                                    <label class="container_radio version_2">{{$serviceType->service_name}}
-                                        <input type="radio" name="id_service_type" value="{{$serviceType->id_service_type}}" checked>
-                                        <span class="checkmark"></span>
-                                    </label>
-                                    @else
-                                    <label class="container_radio version_2">{{$serviceType->service_name}}
-                                        <input type="radio" name="id_service_type" value="{{$serviceType->id_service_type}}">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                    @endif
+                                <label class="container_radio version_2">{{$serviceType->service_name}}
+                                    <input class="pilihJenisskm" type="checkbox" required autofocus name="id_service_type[]"
+                                    value="{{$serviceType->id_service_type}}">
+
+                                    <span class="checkmark"></span>
+                                </label>
                                 @endforeach
+                            </div>
+                        </div>
+
+                        <div class="step">
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <h3 class="main_question">Pilih Sub Jenis Layanan</h3>
+                                </div>
+                                <div class="col-md-6 text-right">
+                                    <img src="{{ asset('assets/templateskm/survey/img_pertanyaan/0.jpg') }}" alt="" width="50%">
+                                </div>
+                                <div class="form-group" id="subLayananskm"> </div>
                             </div>
                         </div>
 
@@ -112,8 +114,8 @@
                             <input type="hidden" name="id_buku_tamu" value="">
 
                             <div class="form-group">
-                                <input type="text" id="input_nama" name="surveyor_name" class="form-control required" placeholder="Nama Lengkap" required value="{{Session::get('visitor_name')}}">
-                                <small id="input_nama_text" class="form-text text-muted">*Nama anda tidak akan ditampilkan secara publik.</small>
+                                <input type="hidden" id="input_nama" name="surveyor_name" class="form-control required" placeholder="Nama Lengkap" required value="{{Session::get('visitor_name')}}">
+                                <!-- <small id="input_nama_text" class="form-text text-muted">*Nama anda tidak akan ditampilkan secara publik.</small> -->
                             </div>
 
                             <div class="form-group">
@@ -121,8 +123,9 @@
                             </div>
 
                             <div class="form-group">
-                                <div class="styled-select clearfix">
-                                    <select class="form-control wide required" id="input_pendidikan" name="surveyor_education">
+                                <input type="hidden" name="surveyor_name" value="{{Session::get('visitor_education')}}">
+                                <!-- <div class="styled-select clearfix">
+                                    <select class="form-control wide required hidden" id="input_pendidikan" name="surveyor_education">
                                         <option value="">Pilih Pendidikan</option>
                                         @if (Session::get('visitor_education') == 'SD')
                                             <option value="SD" selected>SD</option>
@@ -166,11 +169,12 @@
                                             <option value="S3">S3</option>
                                         @endif
                                     </select>
-                                </div>
+                                </div> -->
                             </div>
 
                             <div class="form-group radio_input">
-                                @if (Session::get('visitor_gender') == 'Laki-laki')
+                                <input type="hidden" name="surveyor_name" value="{{Session::get('visitor_gender')}}">
+                                <!-- @if (Session::get('visitor_gender') == 'Laki-laki')
                                     <label class="container_radio">Laki-laki
                                         <input type="radio" id="input_kelamin" name="surveyor_gender" value="Laki-laki" class="required" checked>
                                         <span class="checkmark"></span>
@@ -192,7 +196,7 @@
                                         <input type="radio" id="input_kelamin" name="surveyor_gender" value="Perempuan" class="required">
                                         <span class="checkmark"></span>
                                     </label>
-                                @endif
+                                @endif -->
 
                             </div>
                         </div>
@@ -582,3 +586,52 @@
 <!-- /.modal -->
 @endsection
 
+@push('scripts')
+<script>
+    //Buat Get Sub Jenis Layanann
+    $('.pilihJenisskm').on('click',function(){
+        console.log("Hello World!");
+        alert("Hello World!");
+        var inps = $('input[name="id_service_type[]"]:checked');
+        var data = [];
+        for (var i = 0; i <inps.length; i++) {
+            var inp=inps[i];
+            data.push(parseInt(inp.value))
+        }
+
+        $.ajax({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            type:'POST',
+            url:"{{ route('subJenisLayananskm.post') }}",
+            data: {
+                id: data
+            },
+            success: function(data) {
+
+                $('#subLayananskm').empty();
+
+                $.each(data.data, function(key, value) {
+
+                    let subLayananskm = ``
+                    $.each(value.sub_services,function(subKey,subValue){
+
+                        subLayananskm += `<label class="container_radio version_2">
+                        ${subValue.sub_service_name}
+                        <input class="pilihJenisskm" type="checkbox" required autofocus name="id_sub_service_type[]"
+                        value="${ value.id_service_type + '|' + subValue.id_sub_service_type}">
+                        <span class="checkmark"></span>
+                        </label>
+                        `
+                    });
+
+                    $('#subLayananskm').append(`<label class="container_radio version_2"> <b>${value.service_name}</b> </label>
+                        ${subLayananskm} `);
+                });
+            }
+        });
+    })
+
+</script>
+@endpush
