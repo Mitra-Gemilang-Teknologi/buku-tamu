@@ -11,69 +11,74 @@
 </style>
 @section('container')
 
-<div class="row">
-    <div class="col-lg-3 col-6">
-        <!-- small box -->
-        <div class="small-box bg-info">
-            <div class="inner">
-                <h3>150</h3>
-                <p>Rata Rata<br>
-                    Kunjungan Perhari
-                </p>
-            </div>
-            <div class="icon">
-                <i class="ion ion-bag"></i>
-            </div>
-        </div>
-    </div>
-    <!-- ./col -->
+ <div class="row">
+                <div class="col-lg-3 col-6">
+                    <!-- small box -->
+                    <div class="small-box bg-info">
+                        <div class="inner">
+                            <h3>{{$countDay}}</h3>
 
-    <div class="col-lg-3 col-6">
-        <!-- small box -->
-        <div class="small-box bg-success">
-            <div class="inner">
-                <h3>53<sup style="font-size: 20px">%</sup></h3>
-                <p>Rata Rata<br>
-                    Kunjungan Perminggu
-                </p>
-            </div>
-            <div class="icon">
-                <i class="ion ion-stats-bars"></i>
-            </div>
-        </div>
-    </div><!-- ./col -->
+                            Kunjungan Hari ini
+                            </p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-bag"></i>
+                        </div>
 
-    <div class="col-lg-3 col-6">
-        <!-- small box -->
-        <div class="small-box bg-warning">
-            <div class="inner">
-                <h3>44</h3>
-                <p>Rata Rata<br>
-                    Kunjungan Perbulan
-                </p>
-            </div>
-            <div class="icon">
-                <i class="ion ion-person-add"></i>
-            </div>
-        </div>
-    </div><!-- ./col -->
+                    </div>
+                </div>
+                <!-- ./col -->
+                <div class="col-lg-3 col-6">
+                    <!-- small box -->
+                    <div class="small-box bg-success">
+                        <div class="inner">
+                            <h3>{{$countWeek}}</h3>
 
-    <div class="col-lg-3 col-6">
-        <!-- small box -->
-        <div class="small-box bg-danger">
-            <div class="inner">
-                <h3>65</h3>
-                <p>Rata Rata<br>
-                    Kunjungan Pertahun
-                </p>
-            </div>
-            <div class="icon">
-                <i class="ion ion-pie-graph"></i>
-            </div>
-        </div>
-    </div><!-- ./col -->
 
-</div><!-- /.row -->
+
+                            Kunjungan Perminggu
+                            </p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-stats-bars"></i>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- ./col -->
+                <div class="col-lg-3 col-6">
+                    <!-- small box -->
+                    <div class="small-box bg-warning">
+                        <div class="inner">
+                            <h3>{{$countMonth}}</h3>
+
+
+
+                            Kunjungan bulan ini
+                            </p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-person-add"></i>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- ./col -->
+                <div class="col-lg-3 col-6">
+                    <!-- small box -->
+                    <div class="small-box bg-danger">
+                        <div class="inner">
+                            <h3>{{ $countYear }}</h3>
+                            <p>Kunjungan Pertahun</p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-pie-graph"></i>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- ./col -->
+            </div>
 
 <div class="row">
     <section class="col-lg-6 connectedSortable">
@@ -123,73 +128,70 @@
     </section>
 
     <section class="col-lg-6 connectedSortable">
-        <div class="card">
-            <div class="card-header">
-                <h3 class="card-title">
-                    <i class="fas fa-chart-bar mr-1"></i>
-                    JUMLAH RESPONDEN SKM BERDASARKAN JENIS PELAYANAN
-                </h3>
-            </div><!-- /.card-header -->
 
-            <div class="card-body">
-                <div class="tab-content p-0">
-                    <!-- Morris chart - Sales -->
-                    <div class="col-md-12">
-                        <canvas id="myChartPelayanan" width="200" height="100"></canvas>
+
+         <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                <i class="fas fa-table mr-1"></i>
+                                KETERANGAN REPONDEN
+
+                            </h3>
+                            <div class="card-tools">
+                                <ul class="nav nav-pills ml-auto">
+
+                                </ul>
+                            </div>
+                        </div><!-- /.card-header -->
+                        <div class="card-body">
+                            <div class="tab-content p-0">
+                                <div class="container-fluid">
+
+
+                                    <div div class="row">
+                                        <div class="col-12">
+
+
+                                            <div class="card">
+                                                <div class="card-header">
+                                                </div>
+                                                <!-- /.card-header -->
+                                                <div class="card-body">
+                                                    <table id="example2" class="table table-bordered table-striped">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>No Urut</th>
+                                                                <th>Unsur Pelayanan</th>
+                                                                <th>Rata-Rata</th>
+                                                                <th>Keterangan</th>
+                                                                <th>Interpretasi</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+
+                                                            <tr>
+                                                                <td>1</td>
+                                                                <td>Pelayanan</td>
+                                                                <td>3.95</td>
+                                                                <td>SANGAT BAIK</td>
+                                                                <td>Persyaratan Sangat Sesuai dengan Jenis Pelayanan yang Diberikan</td>
+                                                            </tr>
+                                                        </tbody>
+
+                                                    </table>
+                                                </div>
+                                                <!-- /.card-body -->
+                                            </div>
+                                            <!-- /.card -->
+                                        </div>
+                                        <!-- /.col -->
+                                    </div>
+                                    <!-- /.row -->
+                                </div>
+                            </div>
+                        </div><!-- /.card-body -->
                     </div>
-                </div>
-            </div><!-- /.card-body -->
-        </div><!-- /.card -->
 
-        <div class="card">
-            <div class="card-header">
-                <h3 class="card-title">
-                    <i class="fas fa-table mr-1"></i>
-                    KETERANGAN REPONDEN
-                </h3>
-                <div class="card-tools">
-                    <ul class="nav nav-pills ml-auto"></ul>
-                </div>
-            </div><!-- /.card-header -->
-
-            <div class="card-body">
-                <div class="tab-content p-0">
-                    <div class="container-fluid">
-                        <div div class="row">
-                            <div class="col-12">
-                                <div class="card">
-                                    <div class="card-header">
-                                    </div><!-- /.card-header -->
-
-                                    <div class="card-body">
-                                        <table id="example2" class="table table-bordered table-striped">
-                                            <thead>
-                                                <tr>
-                                                    <th>No Urut</th>
-                                                    <th>Unsur Pelayanan</th>
-                                                    <th>Rata-Rata</th>
-                                                    <th>Keterangan</th>
-                                                    <th>Interpretasi</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>Other browsers</td>
-                                                    <td>All others</td>
-                                                    <td>Dani</td>
-                                                    <td>Ok</td>
-                                                    <td>USa</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div><!-- /.card-body -->
-                                </div><!-- /.card -->
-                            </div><!-- /.col -->
-                        </div><!-- /.row -->
-                    </div>
-                </div>
-            </div><!-- /.card-body -->
-        </div>
     </section>
 		 <section class="content">
                     <div class="row">

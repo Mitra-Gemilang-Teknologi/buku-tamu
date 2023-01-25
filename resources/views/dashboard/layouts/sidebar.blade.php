@@ -26,7 +26,7 @@
                     <a href="/dashboard" class="nav-link">
                         <i class="nav-icon fas fa-home"></i>
                         <p>
-                            Statistik
+                            Statistik Buku Tamu
                         </p>
                     </a>
                 </li>

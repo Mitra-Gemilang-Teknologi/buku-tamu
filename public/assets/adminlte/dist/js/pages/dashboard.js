@@ -318,50 +318,7 @@ $.ajax({
     }
   });
 })
-//bar chat 2
-var ctx = document.getElementById("myChartPelayanan").getContext('2d');
-var myChart = new Chart(ctx, {
-  type: 'bar',
-  data: {
-    labels: ["Persyaratan", "Prosedur", "Waktu Pelayanan", "Biaya/Tarif", "Produk Pelayanan", "Kompetensi Layanan", "Prilaku Plaksana", "Pungutan Tidak Resmi", "Penanganan Pengaduan"],
-    datasets: [{
-      label: '# of Votes',
-      data: [12, 19, 13, 15, 2, 3, 12, 3, 21],
-      backgroundColor: [
-        'rgba(255, 99, 132)',
-        'rgba(54, 162, 235)',
-        'rgba(255, 206, 86)',
-        'rgba(75, 192, 192)',
-        'rgba(153, 102, 255)',
-        'rgba(255, 159, 64)',
-        'rgba(255, 19, 64)',
-        'rgba(25, 119, 64)',
-        'rgba(255, 219, 64)'
-      ],
-      borderColor: [
-        'rgba(255,99,132,1)',
-        'rgba(54, 162, 235, 1)',
-        'rgba(255, 206, 86, 1)',
-        'rgba(75, 192, 192, 1)',
-        'rgba(153, 102, 255, 1)',
-        'rgba(255, 159, 64, 1)',
-        'rgba(255, 19, 64)',
-        'rgba(25, 119, 64)',
-        'rgba(255, 219, 64)'
-      ],
-      borderWidth: 1
-    }]
-  },
-  options: {
-    scales: {
-      yAxes: [{
-        ticks: {
-          beginAtZero: true
-        }
-      }]
-    }
-  }
-});
+
 
 
 // HArian

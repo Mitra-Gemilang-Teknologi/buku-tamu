@@ -7,6 +7,7 @@ use App\Http\Controllers\DashboardPostController;
 use App\Http\Controllers\DashboardSurveyController;
 use App\Http\Controllers\DashboardTamuController;
 use App\Http\Controllers\SkmController;
+use App\Http\Controllers\StatistikTamuController;
 use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
@@ -15,6 +16,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\InboxController;
 use App\Http\Controllers\User;
 use App\Http\Controllers\DependentDropdownController;
+use Illuminate\Support\Facades\DB;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,12 +52,7 @@ Route::get('/posts/{post:slug}', [PostController::class, 'show']); //slug untuk 
 // 	]);
 // });
 
-Route::get('/statistik', function () {
-	return view('statistik.index', [
-		'title' => 'Data Statistik',
-		"active" => "statistik",
-	]);
-});
+Route::get('/statistik/buku-tamu', [StatistikTamuController::class, 'index']);
 
 
 // Login

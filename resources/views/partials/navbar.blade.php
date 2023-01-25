@@ -2,7 +2,7 @@
     <div class="container">
         <a class="navbar-brand  fw-bold" href="/">
             <img src="{{ asset('/assets/templateskm/assets/form/img/logoKab.png') }}" alt="" width="70" height="50"></a>
-            
+
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -13,16 +13,16 @@
                         <a class="nav-link {{ ($active === 'Home')? 'active' : '' }}"  href="/">Home</a>
                     </li> -->
                     <li class="nav-item ">
-                        <a class="nav-link fw-bold {{ ($active === 'About')? 'active' : '' }}" href="/">BUKU TAMU</a>
+                        <a class="nav-link fw-bold {{ ($active === 'Buku Tamu')? 'active' : '' }}" href="/">BUKU TAMU</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link  fw-bold {{ ($active === 'Contact')? 'active' : '' }}" href="/skm">SKM</a>
+                        <a class="nav-link  fw-bold {{ ($active === 'SKM')? 'active' : '' }}" href="/skm">SKM</a>
                     </li>
                     <!-- <li class="nav-item">
                         <a class="nav-link fw-bold {{ ($active === 'posts')? 'active' : '' }}" href="/posts">Blog</a>
                     </li> -->
                     <li class="nav-item">
-                        <a class="nav-link  fw-bold{{ ($active === 'Categories')? 'active' : '' }}" href="/statistik">STATISTIK</a>
+                        <a class="nav-link  fw-bold{{ ($active === 'STSATISTIKTAMU')? 'active' : '' }}" href="/statistik/buku-tamu">STATISTIK BUKU TAMU</a>
                     </li>
                 </ul>
                 <!-- <ul class="navbar-nav ms-auto">

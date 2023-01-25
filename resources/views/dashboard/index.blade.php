@@ -150,24 +150,6 @@
                 <!-- right col (We are only adding the ID to make the widgets sortable)-->
                 <section class="col-lg-6 connectedSortable">
 
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">
-                                <i class="fas fa-chart-bar mr-1"></i>
-                                -
-                            </h3>
-
-                        </div><!-- /.card-header -->
-                        <div class="card-body">
-                            <div class="tab-content p-0">
-                                <!-- Morris chart - Sales -->
-                                <div class="col-md-12">
-                                    <canvas id="myChartPelayanan" width="200" height="100"></canvas>
-
-                                </div>
-                            </div>
-                        </div><!-- /.card-body -->
-                    </div>
                     <!-- /.card -->
                     <div class="card">
                         <div class="card-header">
