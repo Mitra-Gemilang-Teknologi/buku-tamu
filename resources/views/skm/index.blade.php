@@ -80,7 +80,7 @@
                             <div class="form-group">
                                 @foreach ($serviceType as $serviceType)
                                 <label class="container_radio version_2">{{$serviceType->service_name}}
-                                    <input class="pilihJenis" type="checkbox" required autofocus name="id_service_type[]"
+                                    <input class="pilihJenisskm" type="checkbox" required autofocus name="id_service_type[]"
                                     value="{{$serviceType->id_service_type}}">
 
                                     <span class="checkmark"></span>
@@ -97,7 +97,7 @@
                                 <div class="col-md-6 text-right">
                                     <img src="{{ asset('assets/templateskm/survey/img_pertanyaan/0.jpg') }}" alt="" width="50%">
                                 </div>
-                                <div class="form-group" id="subLayanan"> </div>
+                                <div class="form-group" id="subLayananskm"> </div>
                             </div>
                         </div>
 
@@ -589,7 +589,7 @@
 
 <script>
     //Buat Get Sub Jenis Layanann
-    $('.pilihJenis').on('click',function(){
+    $('.pilihJenisskm').on('click',function(){
         var inps = $('input[name="id_service_type[]"]:checked');
         var data = [];
         for (var i = 0; i <inps.length; i++) {
@@ -608,24 +608,24 @@
             },
             success: function(data) {
 
-                // $('#subLayanan').empty();
+                $('#subLayananskm').empty();
 
                 $.each(data.data, function(key, value) {
 
-                    let subLayanan = ``
+                    let subLayananskm = ``
                     $.each(value.sub_services,function(subKey,subValue){
 
-                        subLayanan += `<label class="container_radio version_2">
+                        subLayananskm += `<label class="container_radio version_2">
                         ${subValue.sub_service_name}
-                        <input class="pilihJenis" type="checkbox" required autofocus name="id_sub_service_type[]"
+                        <input class="pilihJenisskm" type="checkbox" required autofocus name="id_sub_service_type[]"
                         value="${ value.id_service_type + '|' + subValue.id_sub_service_type}">
                         <span class="checkmark"></span>
                         </label>
                         `
                     });
 
-                    $('#subLayanan').append(`<label class="container_radio version_2"> <b>${value.service_name}</b> </label>
-                        ${subLayanan} `);
+                    $('#subLayananskm').append(`<label class="container_radio version_2"> <b>${value.service_name}</b> </label>
+                        ${subLayananskm} `);
                 });
             }
         });
