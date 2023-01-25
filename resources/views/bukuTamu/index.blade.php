@@ -229,19 +229,11 @@
                             </div>
 
                                 <div class="step">
-																<label class="container_radio">Ciamis
-                                        <input type="radio" id="thisCiamis" 	value=""
-                                            class="required">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                    <label class="container_radio">Luar Ciamis
-                                        <input type="radio"id="nonCiamis"    value=""
-                                            class="required">
-                                        <span class="checkmark"></span>
-                                    </label>
-
+																	<a href="#tamu" id="thisCiamis" class="btn btn-success">Ciamis</a>
+																	<a href="#tamu" class="btn btn-info"id="nonCiamis">Luar Ciamis</a>
                                     <div id="JuduldaerahCiamis" class="row mb-3" style="align-items: end !important;">
                                         <div class="col-md-6">
+
                                         </div>
                                     </div>
 
@@ -309,6 +301,7 @@
                                     </div>
 
                                 </div>
+
 
                                 <div class="submit step">
                                     <h3 class="main_question">Keterangan</h3>
@@ -401,7 +394,7 @@
                 scrollTop: 0
             }, "slow");
             $('#luarCiamis').hide();
-
+							$('#thisCiamis').prop('checked',true)
             $('#nonCiamis').on('click', function() {
                 $('#daerahCiamis').hide();
 								$('#thisCiamis').prop('checked',false)
@@ -442,7 +435,7 @@
 
                     $.each(data, function(key, value) {
 
-                        $('#' + name).append(`<option value="${key}">${value} ${key}</option>`);
+                        $('#' + name).append(`<option value="${key}">${value}</option>`);
                     });
                 }
             });
@@ -452,7 +445,7 @@
 
         $(function() {
             $('#provinsi').on('change', function() {
-                alert('oke')
+
                 onChangeSelect('{{ route('cities') }}', $(this).val(), 'kota');
             });
             $('#kota').on('change', function() {
@@ -467,7 +460,7 @@
 
         $('.pilihJenis').on('click', function() {
 
-						alert('k')
+
             var inps = $('input[name="id_service_type[]"]:checked');
             var data = [];
             for (var i = 0; i < inps.length; i++) {
