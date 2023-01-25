@@ -133,6 +133,7 @@ class SkmController extends Controller
 	}
 
 	public function subJenisLayananskm(Request $request)
+	{
 
 		$input = $request->all();
 
