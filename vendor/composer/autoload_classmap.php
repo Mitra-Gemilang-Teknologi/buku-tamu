@@ -33,6 +33,8 @@ return array(
     'App\\Models\\AnswerOption' => $baseDir . '/app/Models/AnswerOption.php',
     'App\\Models\\District' => $baseDir . '/app/Models/District.php',
     'App\\Models\\Inbox' => $baseDir . '/app/Models/Inbox.php',
+    'App\\Models\\IndonesiaDistrict' => $baseDir . '/app/Models/IndonesiaDistrict.php',
+    'App\\Models\\IndonesiaVillage' => $baseDir . '/app/Models/IndonesiaVillage.php',
     'App\\Models\\Province' => $baseDir . '/app/Models/Province.php',
     'App\\Models\\Question' => $baseDir . '/app/Models/Question.php',
     'App\\Models\\Regency' => $baseDir . '/app/Models/Regency.php',

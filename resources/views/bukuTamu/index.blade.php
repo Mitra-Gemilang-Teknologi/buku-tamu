@@ -48,8 +48,7 @@
                 <div class="col-lg-6 content-left d-none d-md-block">
                     <div class="content-left-wrapper">
                         <a href="/" id="logo" style="color: white !important;">
-                            <img src="{{ asset('/assets/templateskm/assets/form/img/logoKab.png') }}" alt=""
-                                width="70" height="50">Pemerintah Kabupaten Ciamis</a>
+                        <img src="{{ asset('/assets/templateskm/assets/form/img/logoKab.png') }}" alt="" width="70" height="50">Pemerintah Kabupaten Ciamis</a>
 
                         <!-- <div id="social">
                         <ul>
@@ -96,52 +95,42 @@
                             <input id="website" name="website" type="text" value="">
 
                             <div id="middle-wizard">
-
                                 <div class="step">
-                                <div class="row mb-3" style="align-items: end !important;">
-                                    <div class="col-md-6">
-                                        <h3 class="main_question">Pilih Jenis Layanan</h3>
+                                    <div class="row mb-3" style="align-items: end !important;">
+                                        <div class="col-md-6">
+                                            <h3 class="main_question">Pilih Jenis Layanan</h3>
+                                        </div>
+                                        <div class="col-md-6 text-right">
+                                            <img src="{{ asset('assets/templateskm/survey/img_pertanyaan/0.jpg') }}" alt=""
+                                                width="50%">
+                                        </div>
                                     </div>
-                                    <div class="col-md-6 text-right">
-                                        <img src="{{ asset('assets/templateskm/survey/img_pertanyaan/0.jpg') }}" alt=""
-                                            width="50%">
+
+                                    <div class="form-group">
+                                        @foreach ($serviceType as $serviceType)
+                                            <label class="container_radio version_2">{{$serviceType->service_name}}
+                                                <input class="pilihJenis" type="checkbox" required autofocus name="id_service_type[]"
+        											value="{{$serviceType->id_service_type}}">
+
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        @endforeach
                                     </div>
                                 </div>
-
-                                <div class="form-group">
-                                    @foreach ($serviceType as $serviceType)
-
-                                        <label class="container_radio version_2">{{$serviceType->service_name}}
-
-                                            <input class="pilihJenis" type="checkbox" required autofocus name="id_service_type[]"
-    											value="{{$serviceType->id_service_type}}">
-
-                                            <span class="checkmark"></span>
-                                        </label>
-
-                                    @endforeach
-                                </div>
-                            </div>
 
                             <div class="step">
-
                                 <div class="row mb-3">
                                     <div class="col-md-6">
-                                        <h3 class="main_question">Pilih Jenis Layanan</h3>
+                                        <h3 class="main_question">Pilih Sub Jenis Layanan</h3>
                                     </div>
                                     <div class="col-md-6 text-right">
-                                        <img src="{{ asset('assets/templateskm/survey/img_pertanyaan/0.jpg') }}" alt=""
-                                            width="50%">
+                                        <img src="{{ asset('assets/templateskm/survey/img_pertanyaan/0.jpg') }}" alt="" width="50%">
                                     </div>
-																		<div class="form-group" id="subLayanan">
+									<div class="form-group" id="subLayanan"> </div>
                                 </div>
-                                </div>
+                           	</div>
 
-
-
-                           		 </div>
-
-                                <div class="step">
+                            <div class="step">
                                 <div class="row mb-3" style="align-items: end !important;">
                                     <div class="col-md-6">
                                         <h3>Form kunjungan</h3>
@@ -197,8 +186,6 @@
                                     @enderror
                                 </div>
 
-
-
                                 <div class="form-group">
                                     <div class="styled-select clearfix">
                                         <select class="form-control required" id="input_pendidikan" name="visitor_education">
@@ -240,8 +227,6 @@
                                     </div>
 
                                     <div class="row" id="daerahCiamis" style="align-items: end !important;">
-
-
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Kecamatan</label>
@@ -284,8 +269,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-
-
                                         </div>
                                     </div>
 									<div id="luarCiamis">
@@ -384,125 +367,108 @@
 @endsection
 @push('scripts')
 
-    <script>
-        //Buat Animasi
-        	$(document).ready(function(){
-        	$("html,body").animate({scrollTop:0},"slow");
-				$('#luarCiamis').hide();
+<script>
+    //Buat Animasi
+    $(document).ready(function(){
+        $("html,body").animate({scrollTop:0},"slow");
+        $('#luarCiamis').hide();
 
         $('#nonCiamis').on('click', function() {
-           $('#daerahCiamis').hide();
-					 $('#JuduldaerahCiamis').hide();
-					 $('#luarCiamis').show();
+            $('#daerahCiamis').hide();
+            $('#JuduldaerahCiamis').hide();
+            $('#luarCiamis').show();
         });
-				 $('#thisCiamis').on('click', function() {
-           $('#daerahCiamis').show();
-					 $('#JuduldaerahCiamis').show();
-					 $('#luarCiamis').hide();
+        $('#thisCiamis').on('click', function() {
+            $('#daerahCiamis').show();
+            $('#JuduldaerahCiamis').show();
+            $('#luarCiamis').hide();
         });
-        });
-
-        //Buat Redirect
-
-
-   $('.swal2-confirm').on('click', function() {
-    window.location.href = "/skm";
-})
-
-   $('.swal2-cancel').on('click', function() {
-    window.location.href = "/remove";
-})
-
-        //Buat Get Wilayah
-        function onChangeSelect(url, id, name) {
-            // send ajax request to get the cities of the selected province and append to the select tag
-    $.ajax({
-        url: url,
-        type: 'GET',
-        data: {
-            id: id
-        },
-        success: function(data) {
-            $('#' + name).empty();
-            $('#' + name).append(`<option>==Pilih Salah Satu==</option>`);
-
-            $.each(data, function(key, value) {
-
-                $('#' + name).append(`<option value="${key}">${value} ${key}</option>`);
-            });
-        }
     });
-}
 
+    //Buat Redirect
+    $('.swal2-confirm').on('click', function() {
+        window.location.href = "/skm";
+    })
 
+    $('.swal2-cancel').on('click', function() {
+        window.location.href = "/remove";
+    })
 
-        $(function() {
-            $('#provinsi').on('change', function() {
-                alert('oke')
-                onChangeSelect('{{ route('cities') }}', $(this).val(), 'kota');
-            });
-            $('#kota').on('change', function() {
-                onChangeSelect('{{ route('districts') }}', $(this).val(), 'kecamatan');
-            })
-            $('#kecamatan').on('change', function() {
-                onChangeSelect('{{ route('villages') }}', $(this).val(), 'desa');
-            })
+    //Buat Get Wilayah
+    function onChangeSelect(url, id, name) {
+        // send ajax request to get the cities of the selected province and append to the select tag
+        $.ajax({
+            url: url,
+            type: 'GET',
+            data: {
+                id: id
+            },
+            success: function(data) {
+                $('#' + name).empty();
+                $('#' + name).append(`<option>==Pilih Salah Satu==</option>`);
+
+                $.each(data, function(key, value) {
+                    $('#' + name).append(`<option value="${key}">${value} ${key}</option>`);
+                });
+            }
         });
-
-        //Buat Get SUb Jenis Layanann
-
-        $('.pilihJenis').on('click',function(){
+    }
 
 
+    $(function() {
+        $('#provinsi').on('change', function() {
+            alert('oke')
+            onChangeSelect('{{ route('cities') }}', $(this).val(), 'kota');
+        });
+        $('#kota').on('change', function() {
+            onChangeSelect('{{ route('districts') }}', $(this).val(), 'kecamatan');
+        })
+        $('#kecamatan').on('change', function() {
+            onChangeSelect('{{ route('villages') }}', $(this).val(), 'desa');
+        })
+    });
+
+    //Buat Get Sub Jenis Layanann
+    $('.pilihJenis').on('click',function(){
         var inps = $('input[name="id_service_type[]"]:checked');
         var data = [];
         for (var i = 0; i <inps.length; i++) {
-        var inp=inps[i];
-
+            var inp=inps[i];
             data.push(parseInt(inp.value))
         }
+
         $.ajax({
-             headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    },
-               type:'POST',
-                 url:"{{ route('subJenisLayanan.post') }}",
-                data: {
-                    id: data
-                },
-                success: function(data) {
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            type:'POST',
+            url:"{{ route('subJenisLayanan.post') }}",
+            data: {
+                id: data
+            },
+            success: function(data) {
 
-									 $('#subLayanan').empty();
+                $('#subLayanan').empty();
 
+                $.each(data.data, function(key, value) {
 
-									  $.each(data.data, function(key, value) {
+                    let subLayanan = ``
+                    $.each(value.sub_services,function(subKey,subValue){
 
-											let subLayanan = ``
-											$.each(value.sub_services,function(subKey,subValue){
+                        subLayanan += `<label class="container_radio version_2">
+                        ${subValue.sub_service_name}
+                        <input class="pilihJenis" type="checkbox" required autofocus name="id_sub_service_type[]"
+                        value="${ value.id_service_type + '|' + subValue.id_sub_service_type}">
+                        <span class="checkmark"></span>
+                        </label>
+                        `
+                    });
 
-												subLayanan += `<label class="container_radio version_2">
-										${subValue.sub_service_name}
-													  <input class="pilihJenis" type="checkbox" required autofocus name="id_sub_service_type[]"
-    											value="${ value.id_service_type + '|' + subValue.id_sub_service_type}">
-												<span class="checkmark"></span>
-            				</label>
-										`
-										});
-
-              		  $('#subLayanan').append(`
-										 <label class="container_radio version_2">
-											<b>
-										${value.service_name}</b>
-            				</label>
-										${subLayanan}
-
-										`);
-
-            		});
-
-
-                }
-            });
-        })
-    </script>
+                    $('#subLayanan').append(`<label class="container_radio version_2"> <b>${value.service_name}</b> </label>
+                        ${subLayanan} `);
+                });
+            }
+        });
+    })
+</script>
 @endpush
