@@ -590,8 +590,6 @@
 <script>
     //Buat Get Sub Jenis Layanann
     $('.pilihJenisskm').on('click',function(){
-        console.log("Hello World!");
-        alert("Hello World!");
         var inps = $('input[name="id_service_type[]"]:checked');
         var data = [];
         for (var i = 0; i <inps.length; i++) {
