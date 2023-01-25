@@ -32,15 +32,15 @@
         </div><!-- /loader_form -->
 
         <!-- <nav>
-        <ul class="cd-primary-nav">
-        <li><a href="index.html" class="animated_link">Home</a></li>
-        <li><a href="quotation-wizard-version.html" class="animated_link">Quote Version</a></li>
-        <li><a href="review-wizard-version.html" class="animated_link">Review Version</a></li>
-        <li><a href="registration-wizard-version.html" class="animated_link">Registration Version</a></li>
-        <li><a href="about.html" class="animated_link">About Us</a></li>
-        <li><a href="contacts.html" class="animated_link">Contact Us</a></li>
-        </ul>
-        </nav> -->
+            <ul class="cd-primary-nav">
+            <li><a href="index.html" class="animated_link">Home</a></li>
+            <li><a href="quotation-wizard-version.html" class="animated_link">Quote Version</a></li>
+            <li><a href="review-wizard-version.html" class="animated_link">Review Version</a></li>
+            <li><a href="registration-wizard-version.html" class="animated_link">Registration Version</a></li>
+            <li><a href="about.html" class="animated_link">About Us</a></li>
+            <li><a href="contacts.html" class="animated_link">Contact Us</a></li>
+            </ul>
+            </nav> -->
         <!-- /menu -->
 
         <div class="container-fluid full-height">
@@ -52,13 +52,13 @@
                                 width="70" height="50">Pemerintah Kabupaten Ciamis</a>
 
                         <!-- <div id="social">
-                        <ul>
-                        <li><a href="#0"><i class="icon-facebook"></i></a></li>
-                        <li><a href="#0"><i class="icon-twitter"></i></a></li>
-                        <li><a href="#0"><i class="icon-google"></i></a></li>
-                        <li><a href="#0"><i class="icon-linkedin"></i></a></li>
-                        </ul>
-                        </div> -->
+                            <ul>
+                            <li><a href="#0"><i class="icon-facebook"></i></a></li>
+                            <li><a href="#0"><i class="icon-twitter"></i></a></li>
+                            <li><a href="#0"><i class="icon-google"></i></a></li>
+                            <li><a href="#0"><i class="icon-linkedin"></i></a></li>
+                            </ul>
+                            </div> -->
                         <!-- /social -->
 
                         <div>
@@ -123,7 +123,7 @@
                                 </div>
                             </div>
 
-                            <div class="step">
+                                <div class="step">
 
                                 <div class="row mb-3">
                                     <div class="col-md-6">
@@ -229,13 +229,19 @@
                             </div>
 
                                 <div class="step">
+																<label class="container_radio">Ciamis
+                                        <input type="radio" id="thisCiamis" 	value=""
+                                            class="required">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <label class="container_radio">Luar Ciamis
+                                        <input type="radio"id="nonCiamis"    value=""
+                                            class="required">
+                                        <span class="checkmark"></span>
+                                    </label>
 
                                     <div id="JuduldaerahCiamis" class="row mb-3" style="align-items: end !important;">
                                         <div class="col-md-6">
-																					 <h3>Alamat</h3>
-                                            <h5>Berada Di luar Kabupaten Ciamis ?</h5>
-                                            <p id="nonCiamis" style="cursor:pointer;"><u>Klik disini!</u></p>
-
                                         </div>
                                     </div>
 
@@ -250,7 +256,6 @@
                                                         id="kecamatan">
                                                         <option value="">== Select Kecamatan ==</option>
                                                         @foreach ($kecamatan as $id => $name)
-
                                                             <option value="{{ $id }}">{{ $name }}
                                                             </option>
                                                         @endforeach
@@ -261,8 +266,7 @@
                                             <div class="form-group">
                                                 <label>Desa</label>
                                                 <div class="styled-select clearfix">
-                                                    <select class="form-control" name="visitor_village" id="desa"
-                                                        >
+                                                    <select class="form-control" name="visitor_village" id="desa">
 
                                                     </select>
                                                 </div>
@@ -272,31 +276,37 @@
                                                 <div class="col-md-6">
                                                     <label>RT</label>
                                                     <div class="form-group">
-                                                        <input id="rt" type="text" class="form-control" placeholder="RT"
-                                                            name="visitor_neighborhood_association" id="">
+                                                        <input id="rt" type="text" class="form-control"
+                                                            placeholder="RT" name="visitor_neighborhood_association"
+                                                            id="">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <label>RW</label>
                                                     <div class="form-group">
-                                                        <input id="rw" type="text" placeholder="Rw" class="form-control"
-                                                            name="visitor_citizen_association" id="">
+                                                        <input id="rw" type="text" placeholder="Rw"
+                                                            class="form-control" name="visitor_citizen_association"
+                                                            id="">
                                                     </div>
                                                 </div>
                                             </div>
 
 
                                         </div>
+                                        <div class="col-md-6" >
+																					 <label>Alamat</label>
+                                            <div class="form-group add_top_30">
+                                                <textarea id="alamat" name="visitor_address_detail" aria-describedby="visitor_address_detail"
+                                                    class="form-control review_message" placeholder="jln"></textarea>
+                                            </div>
+                                        </div>
                                     </div>
-									<div id="luarCiamis">
-										<h3 class="main_question">Alamat Lengkap</h3>
-										<h5>Berasal Dari Kabupaten Ciamis ?</h5>
-                                        <p id="thisCiamis" style="cursor:pointer;"><u>Klik disini!</u></p>
+                                    <div id="luarCiamis">
                                         <div class="form-group add_top_30">
                                             <textarea id="alamat" name="visitor_address" aria-describedby="visitor_address"
                                                 class="form-control review_message" placeholder="Alamat Lengkap"></textarea>
                                         </div>
-								    </div>
+                                    </div>
 
                                 </div>
 
@@ -383,56 +393,59 @@
     </div>
 @endsection
 @push('scripts')
-
     <script>
         //Buat Animasi
-        	$(document).ready(function(){
-        	$("html,body").animate({scrollTop:0},"slow");
-				$('#luarCiamis').hide();
+        $(document).ready(function() {
+            $("html,body").animate({
+                scrollTop: 0
+            }, "slow");
+            $('#luarCiamis').hide();
 
-        $('#nonCiamis').on('click', function() {
-           $('#daerahCiamis').hide();
-					 $('#JuduldaerahCiamis').hide();
-					 $('#luarCiamis').show();
-        });
-				 $('#thisCiamis').on('click', function() {
-           $('#daerahCiamis').show();
-					 $('#JuduldaerahCiamis').show();
-					 $('#luarCiamis').hide();
-        });
+            $('#nonCiamis').on('click', function() {
+                $('#daerahCiamis').hide();
+								$('#thisCiamis').prop('checked',false)
+                $('#JuduldaerahCiamis').hide();
+                $('#luarCiamis').show();
+            });
+            $('#thisCiamis').on('click', function() {
+                $('#daerahCiamis').show();
+                $('#JuduldaerahCiamis').show();
+								$('#nonCiamis').prop('checked',false)
+                $('#luarCiamis').hide();
+            });
         });
 
         //Buat Redirect
 
 
-   $('.swal2-confirm').on('click', function() {
-    window.location.href = "/skm";
-})
+        $('.swal2-confirm').on('click', function() {
+            window.location.href = "/skm";
+        })
 
-   $('.swal2-cancel').on('click', function() {
-    window.location.href = "/remove";
-})
+        $('.swal2-cancel').on('click', function() {
+            window.location.href = "/remove";
+        })
 
         //Buat Get Wilayah
         function onChangeSelect(url, id, name) {
             // send ajax request to get the cities of the selected province and append to the select tag
-    $.ajax({
-        url: url,
-        type: 'GET',
-        data: {
-            id: id
-        },
-        success: function(data) {
-            $('#' + name).empty();
-            $('#' + name).append(`<option>==Pilih Salah Satu==</option>`);
+            $.ajax({
+                url: url,
+                type: 'GET',
+                data: {
+                    id: id
+                },
+                success: function(data) {
+                    $('#' + name).empty();
+                    $('#' + name).append(`<option>==Pilih Salah Satu==</option>`);
 
-            $.each(data, function(key, value) {
+                    $.each(data, function(key, value) {
 
-                $('#' + name).append(`<option value="${key}">${value} ${key}</option>`);
+                        $('#' + name).append(`<option value="${key}">${value} ${key}</option>`);
+                    });
+                }
             });
         }
-    });
-}
 
 
 
@@ -451,45 +464,45 @@
 
         //Buat Get SUb Jenis Layanann
 
-        $('.pilihJenis').on('click',function(){
+        $('.pilihJenis').on('click', function() {
 
 
-        var inps = $('input[name="id_service_type[]"]:checked');
-        var data = [];
-        for (var i = 0; i <inps.length; i++) {
-        var inp=inps[i];
+            var inps = $('input[name="id_service_type[]"]:checked');
+            var data = [];
+            for (var i = 0; i < inps.length; i++) {
+                var inp = inps[i];
 
-            data.push(parseInt(inp.value))
-        }
-        $.ajax({
-             headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    },
-               type:'POST',
-                 url:"{{ route('subJenisLayanan.post') }}",
+                data.push(parseInt(inp.value))
+            }
+            $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                type: 'POST',
+                url: "{{ route('subJenisLayanan.post') }}",
                 data: {
                     id: data
                 },
                 success: function(data) {
 
-									 $('#subLayanan').empty();
+                    $('#subLayanan').empty();
 
 
-									  $.each(data.data, function(key, value) {
+                    $.each(data.data, function(key, value) {
 
-											let subLayanan = ``
-											$.each(value.sub_services,function(subKey,subValue){
+                        let subLayanan = ``
+                        $.each(value.sub_services, function(subKey, subValue) {
 
-												subLayanan += `<label class="container_radio version_2">
+                            subLayanan += `<label class="container_radio version_2">
 										${subValue.sub_service_name}
 													  <input class="pilihJenis" type="checkbox" required autofocus name="id_sub_service_type[]"
     											value="${ value.id_service_type + '|' + subValue.id_sub_service_type}">
 												<span class="checkmark"></span>
             				</label>
 										`
-										});
+                        });
 
-              		  $('#subLayanan').append(`
+                        $('#subLayanan').append(`
 										 <label class="container_radio version_2">
 											<b>
 										${value.service_name}</b>
@@ -498,7 +511,7 @@
 
 										`);
 
-            		});
+                    });
 
 
                 }

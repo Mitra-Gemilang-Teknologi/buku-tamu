@@ -79,14 +79,6 @@ class BukuTamuController extends Controller
 	public function store(Request $request)
 	{
 
-
-		// dd($request->all());
-		// $datac = substr($request->id_sub_service_type, 2);
-
-
-
-
-
 		try {
 			$validateData = $request->validate([
 				'id_service_type' => 'required',
@@ -103,6 +95,10 @@ class BukuTamuController extends Controller
 				'visit_purpose' => 'required',
 				'visitor_description' => '',
 			]);
+
+			if ($request->visitor_address === null) {
+				$validateData['visitor_address'] = $request->visitor_address_detail;
+			}
 
 
 
