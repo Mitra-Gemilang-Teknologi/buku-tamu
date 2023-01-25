@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class VisitorHasService extends Model
 {
-	use HasFactory;
+	use HasFactory, SoftDeletes;
 
 	public $table = 'visitor_has_services'; // dilakukan seperti ini agar tidak menjadi plural
 

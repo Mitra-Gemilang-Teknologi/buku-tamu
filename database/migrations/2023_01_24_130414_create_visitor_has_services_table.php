@@ -18,6 +18,7 @@ class CreateVisitorHasServicesTable extends Migration
 			$table->integer('visitor_id');
 			$table->integer('service_id');
 			$table->integer('sub_service_id');
+			$table->softDeletes();
 			$table->timestamps();
 		});
 	}

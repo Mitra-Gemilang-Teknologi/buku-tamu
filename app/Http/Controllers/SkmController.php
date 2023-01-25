@@ -53,7 +53,6 @@ class SkmController extends Controller
 			$validateData = $request->validate([
 				'id_service_type' => 'required',
 				'surveyor_name' => 'required',
-				'surveyor_phone' => 'required',
 				'surveyor_education' => 'required',
 				'surveyor_gender' => 'required',
 				'surveyor_description'  => 'required',

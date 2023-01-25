@@ -16,7 +16,6 @@ class CreateSurveyorTable extends Migration
 		Schema::create('surveyor', function (Blueprint $table) {
 			$table->id('id_surveyor');
 			$table->string('surveyor_name');
-			$table->string('surveyor_phone');
 			$table->string('surveyor_education');
 			$table->string('surveyor_gender');
 			$table->longText('surveyor_description');
