@@ -6,11 +6,10 @@
             <div class=" justify-content-center">
                 <figure><img src="{{ asset('assets/templateskm/assets/form/img/banner2.png') }}" alt="" width="350"
                         height="350" class="img-fluid"></figure>
-                <h1 class="fw-light text-white m-0">Selamat Okelah Datang, Di <br> Dinas Penanaman Modal dan Pelayanan
+                <h1 class="fw-light text-white m-0">Selamat Datang, Di <br> Dinas Penanaman Modal dan Pelayanan
                     Terpadu Satu Pintu</h1>
                 <br>
             </div>
-
 
             <a href="#tamu">
                 <button type="button" class="btn btn-outline-light btn-lg">Mulai</button>
@@ -51,18 +50,18 @@
                             <img src="{{ asset('/assets/templateskm/assets/form/img/logoKab.png') }}" alt=""
                                 width="70" height="50">Pemerintah Kabupaten Ciamis</a>
 
-                        <!-- <div id="social">
-                            <ul>
-                            <li><a href="#0"><i class="icon-facebook"></i></a></li>
-                            <li><a href="#0"><i class="icon-twitter"></i></a></li>
-                            <li><a href="#0"><i class="icon-google"></i></a></li>
-                            <li><a href="#0"><i class="icon-linkedin"></i></a></li>
-                            </ul>
-                            </div> -->
+                                <div id="social">
+                                    <ul>
+                                        <li><a href="#0"><i class="icon-facebook"></i></a></li>
+                                        <li><a href="#0"><i class="icon-twitter"></i></a></li>
+                                        <li><a href="#0"><i class="icon-google"></i></a></li>
+                                        <li><a href="#0"><i class="icon-linkedin"></i></a></li>
+                                    </ul>
+                                </div>
                         <!-- /social -->
 
                         <div>
-                            <a href="#beranda" class="btn_1 rounded"> Beranda</a>
+                            <a href="#beranda" class="btn_1 rounded"> BERANDA</a>
                             @if (Session::has('visitor_name'))
                                 <a href="/skm" class="btn_1 rounded">SKM</a>
                             @endif

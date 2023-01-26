@@ -8,6 +8,8 @@ use App\Models\AnswerOption;
 use App\Models\ServiceType;
 use App\Models\SurveyResult;
 use Illuminate\Http\Request;
+use App\Models\SurveyorHasService;
+use Illuminate\Support\Facades\DB;
 
 class SkmController extends Controller
 {
@@ -45,6 +47,7 @@ class SkmController extends Controller
 	 */
 	public function store(Request $request)
 	{
+		
 
 
 		$Question = Question::all();
@@ -61,6 +64,9 @@ class SkmController extends Controller
 
 			$validateData['id_answer_option'] = implode(",", $request->id_answer_option);
 
+			var_dump($validateData);
+			die();
+
 			try {
 				$last = Surveyor::create($validateData);
 
@@ -72,6 +78,19 @@ class SkmController extends Controller
 					]);
 				}
 
+				$arr = [];
+				foreach ($request->id_sub_service_type as $value) {
+					$temp = explode('|', $value);
+
+					$arr[] =  [
+						'surveyor_id' => $last->id,
+						'service_id' => 	$temp[0],
+						'sub_service_id' => 	$temp[1]
+					];
+				}
+
+				DB::table('surveyor_has_services')->insert($arr);
+
 				session()->invalidate();
 				session()->regenerateToken();
 
@@ -82,7 +101,7 @@ class SkmController extends Controller
 			//code...
 		} catch (\Throwable $th) {
 			//throw $th;
-			return redirect('/')->with('error', 'Error during the creation!');
+			return redirect('/')->with('error', 'Error during the creation! validate gone wrong');
 		}
 	}
 

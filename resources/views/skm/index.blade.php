@@ -65,11 +65,11 @@
                     <!-- Leave for security protection, read docs for details -->
                     <!-- //hitung jumlah $pertanyaan -->
 
-                    <div id="middle-wizard" style="margin-top: 300px;">
+                    <div id="middle-wizard">
                         <div class="step">
                             <div class="row mb-3" style="align-items: end !important;">
                                 <div class="col-md-6">
-                                    <h3 class="main_question">Pilih Jenis Layanan</h3>
+                                    <h3 class="main_question">SKM - Pilih Jenis Layanan</h3>
                                 </div>
                                 <div class="col-md-6 text-right">
                                     <img src="{{ asset('assets/templateskm/survey/img_pertanyaan/0.jpg') }}" alt=""
