@@ -2,6 +2,9 @@
 
 @section('container')
     <div id="beranda" class="d-flex flex-column justify-content-center w-100 h-100">
+			<Center>
+			<p class="text-white h1">Masukan Pendapat Anda</p>
+			</Center>
         <div class="d-flex flex-column justify-content-center align-items-center mylinks">
             <div class="d-flex justify-content-between">
 
