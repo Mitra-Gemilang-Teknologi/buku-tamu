@@ -281,15 +281,15 @@
                                                     </div>
                                                 </div>
                                             </div>
-
-
-                                        </div>
-                                        <div class="col-md-6" >
-																					 <label>Alamat</label>
+																						<label>Alamat</label>
                                             <div class="form-group add_top_30">
                                                 <textarea id="alamat" name="visitor_address_detail" aria-describedby="visitor_address_detail"
                                                     class="form-control review_message" placeholder="jln"></textarea>
                                             </div>
+
+                                        </div>
+                                        <div class="col-md-6" >
+
                                         </div>
                                     </div>
                                     <div id="luarCiamis">
