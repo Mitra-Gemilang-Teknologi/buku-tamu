@@ -47,14 +47,10 @@ class SkmController extends Controller
 	 */
 	public function store(Request $request)
 	{
-		
-
-
 		$Question = Question::all();
 
 		try {
 			$validateData = $request->validate([
-				'id_service_type' => 'required',
 				'surveyor_name' => 'required',
 				'surveyor_education' => 'required',
 				'surveyor_gender' => 'required',
@@ -64,8 +60,7 @@ class SkmController extends Controller
 
 			$validateData['id_answer_option'] = implode(",", $request->id_answer_option);
 
-			var_dump($validateData);
-			die();
+			
 
 			try {
 				$last = Surveyor::create($validateData);

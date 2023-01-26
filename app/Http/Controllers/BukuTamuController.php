@@ -100,8 +100,6 @@ class BukuTamuController extends Controller
 				$validateData['visitor_address'] = $request->visitor_address_detail;
 			}
 
-
-
 			try {
 				$last = Visit::create($validateData);
 				$arr = [];
@@ -115,9 +113,6 @@ class BukuTamuController extends Controller
 					];
 				}
 
-
-
-
 				DB::table('visitor_has_services')->insert($arr);
 				session($validateData);
 				return redirect('/')->with('QuestionAlert', 'Created successfully!');
@@ -125,16 +120,13 @@ class BukuTamuController extends Controller
 				dd($th);
 				return redirect('/')->with('error', 'Error during the creation!');
 			}
-			//code...
 		} catch (\Throwable $th) {
-			//throw $th;
 			return redirect('/')->with('error', 'Error during the creation!');
 		}
 	}
 
 	public function remove()
 	{
-
 		session()->invalidate();
 		session()->regenerateToken();
 		return redirect('/');
@@ -189,9 +181,7 @@ class BukuTamuController extends Controller
 
 		$input = $request->all();
 
-
 		$data =  ServiceType::with('subServices')->whereIn('id_service_type', $input['id'])->get();
-
 
 		return response()->json([
 			"data" => $data

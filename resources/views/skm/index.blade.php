@@ -102,18 +102,18 @@
                         </div>
 
 
-                        <input type="hidden" name="id_buku_tamu" value="">
+                        <!-- <input type="hidden" name="id_buku_tamu" value=""> -->
 
                         <div class="form-group">
                             <input type="hidden" id="input_nama" name="surveyor_name" value="{{Session::get('visitor_name')}}">
                         </div>
 
                         <div class="form-group">
-                            <input type="hidden" name="surveyor_name" value="{{Session::get('visitor_education')}}">
+                            <input type="hidden" name="surveyor_education" value="{{Session::get('visitor_education')}}">
                         </div>
 
                         <div class="form-group radio_input">
-                            <input type="hidden" name="surveyor_name" value="{{Session::get('visitor_gender')}}">
+                            <input type="hidden" name="surveyor_gender" value="{{Session::get('visitor_gender')}}">
                         </div>
 
                         @foreach ($Question as $Question)
