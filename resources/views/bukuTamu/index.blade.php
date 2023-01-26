@@ -239,13 +239,13 @@
                                     <div class="row" id="daerahCiamis" style="align-items: end !important;">
 
 
-                                        <div class="col-md-6">
+                                        <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Kecamatan</label>
                                                 <div class="styled-select clearfix">
                                                     <select class="wide form-control " name="visitor_disctrict"
                                                         id="kecamatan">
-                                                        <option value="">== Select Kecamatan ==</option>
+                                                        <option value="">== Pilih Kecamatan ==</option>
                                                         @foreach ($kecamatan as $id => $name)
                                                             <option value="{{ $id }}">{{ $name }}
                                                             </option>
@@ -430,7 +430,7 @@
                 },
                 success: function(data) {
                     $('#' + name).empty();
-                    $('#' + name).append(`<option>==Pilih Salah Satu==</option>`);
+                    $('#' + name).append(`<option>==Pilih Desa==</option>`);
 
                     $.each(data, function(key, value) {
 
