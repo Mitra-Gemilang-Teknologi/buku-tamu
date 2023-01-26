@@ -54,8 +54,8 @@
         </div>
         <!-- /content-left -->
 
-        <div class="col-lg-6 content-right" id="start" style="background: #F7F7F7 !important;">
-            <div id="wizard_container">
+        <div class="col-lg-6 content-right d-md-block" id="start" style="background: #F7F7F7 !important;">
+            <div id="wizard_container"style="margin-left: -30px; !important;">
                 <!-- /top-wizard -->
                 <form class="" method="post" action="/simpan_survey">
                     @csrf
@@ -105,6 +105,7 @@
                         <!-- <input type="hidden" name="id_buku_tamu" value=""> -->
 
                         <div class="form-group">
+													<input type="hidden" value="{{now()->format('Y-m-d')}}" name="surveyor_time" id="">
                             <input type="hidden" id="input_nama" name="surveyor_name" value="{{Session::get('visitor_name')}}">
                         </div>
 

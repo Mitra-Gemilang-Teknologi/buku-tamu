@@ -54,6 +54,7 @@ class SkmController extends Controller
 				'surveyor_name' => 'required',
 				'surveyor_education' => 'required',
 				'surveyor_gender' => 'required',
+				'surveyor_time' => 'required',
 				'surveyor_description'  => 'required',
 			]);
 
