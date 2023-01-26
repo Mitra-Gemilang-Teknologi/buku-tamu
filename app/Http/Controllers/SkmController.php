@@ -60,7 +60,7 @@ class SkmController extends Controller
 
 			$validateData['id_answer_option'] = implode(",", $request->id_answer_option);
 
-			
+
 
 			try {
 				$last = Surveyor::create($validateData);
@@ -69,7 +69,7 @@ class SkmController extends Controller
 					SurveyResult::create([
 						'id_surveyor' => $last->id,
 						'id_question' => $Question->id_question,
-						'id_answer_option' => $request->id_answer_option[$Question->id_question]			
+						'id_answer_option' => $request->id_answer_option[$Question->id_question]
 					]);
 				}
 
@@ -86,17 +86,20 @@ class SkmController extends Controller
 
 				DB::table('surveyor_has_services')->insert($arr);
 
-				session()->invalidate();
-				session()->regenerateToken();
+				// session()->invalidate();
+				// session()->regenerateToken();
 
-				return redirect('/')->with('success', 'Created successfully!');
+				session([
+					'visitor_id' =>	$last->id,
+				]);
+				return redirect('/kepuasan');
 			} catch (\Throwable $th) {
-				return redirect('/')->with('error', 'Error during the creation!');
+				return redirect('/skm')->with('error', 'Error during the creation!');
 			}
 			//code...
 		} catch (\Throwable $th) {
 			//throw $th;
-			return redirect('/')->with('error', 'Error during the creation! validate gone wrong');
+			return redirect('/skm')->with('error', 'Error during the creation! validate gone wrong');
 		}
 	}
 

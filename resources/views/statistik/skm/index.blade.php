@@ -87,7 +87,7 @@
             <div class="card-header">
                 <h3 class="card-title">
                     <i class="fas fa-chart-pie mr-1"></i>
-                    JUMLAH RESPONDEN BERDASARKAN JENIS KELAMIN
+                    JUMLAH RESPONDEN SKM BERDASARKAN JENIS KELAMIN
                 </h3>
                 <div class="card-tools">
                     <ul class="nav nav-pills ml-auto"></ul>
@@ -116,7 +116,7 @@
             <div class="card-header">
                 <h3 class="card-title">
                     <i class="fas fa-chart-bar mr-1"></i>
-                    JUMLAH RESPONDEN  BERDASARKAN TIGKAT PENDIDIKAN
+                    JUMLAH RESPONDEN SKM BERDASARKAN TIGKAT PENDIDIKAN
                 </h3>
             </div><!-- /.card-header -->
 

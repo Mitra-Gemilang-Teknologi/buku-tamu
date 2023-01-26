@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BukuTamuController;
+use App\Http\Controllers\SatisfactionController;
 use App\Http\Controllers\DashboardCategory;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DashboardPostController;
@@ -8,6 +9,7 @@ use App\Http\Controllers\DashboardSurveyController;
 use App\Http\Controllers\DashboardTamuController;
 use App\Http\Controllers\SkmController;
 use App\Http\Controllers\StatistikTamuController;
+use App\Http\Controllers\StatistikSKMController;
 use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
@@ -35,6 +37,7 @@ Route::get('/posts', [PostController::class, 'index']);
 Route::get('/skm', [SkmController::class, 'index']);
 Route::get('/buku-tamu', [BukuTamuController::class, 'index']);
 Route::get('/remove', [BukuTamuController::class, 'remove']);
+Route::get('/kepuasan', [SatisfactionController::class, 'index']);
 Route::resource('/kunjungan', BukuTamuController::class);
 Route::resource('/simpan_survey', SkmController::class);
 
@@ -53,8 +56,9 @@ Route::get('/posts/{post:slug}', [PostController::class, 'show']); //slug untuk 
 // 	]);
 // });
 
+//Statistik
 Route::get('/statistik/buku-tamu', [StatistikTamuController::class, 'index']);
-
+Route::get('/statistik/skm', [StatistikSKMController::class, 'index']);
 
 // Login
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
@@ -80,9 +84,7 @@ Route::get('/home', function () {
 // })->middleware('guest');
 
 Route::GET('/dashboard/posts/checkSlug', [DashboardPostController::class, 'checkSlug'])->middleware('auth');
-
 Route::resource('/dashboard/posts', DashboardPostController::class)->middleware('auth');
-
 Route::GET('/dashboard/categories/checkSlug', [DashboardCategory::class, 'checkSlug'])->middleware('auth');
 Route::resource('/dashboard/categories', DashboardCategory::class)->middleware('admin');
 Route::resource('/dashboard/profile', User::class)->middleware('auth');
@@ -98,3 +100,7 @@ Route::get('provinces', 'DependentDropdownController@provinces')->name('province
 Route::get('cities', [DependentDropdownController::class, 'cities'])->name('cities');
 Route::get('districts', [DependentDropdownController::class, 'districts'])->name('districts');
 Route::get('villages', [DependentDropdownController::class, 'villages'])->name('villages');
+
+
+//Kepuasan
+Route::resource('/addPoint', SatisfactionController::class);
