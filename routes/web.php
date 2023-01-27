@@ -72,9 +72,14 @@ Route::post('/register', [RegisterController::class, 'store']);
 
 // Dashboard
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
-Route::get('/data/jenis-kelamin', [DashboardController::class, 'get_jenis_kelamin'])->name('data.jk');
+Route::get('/dashboard/skm', [DashboardController::class, 'skm'])->middleware('auth');
+Route::get('/data/jenis-kelamin/', [DashboardController::class, 'get_jenis_kelamin'])->name('data.jk');
+Route::get('/data/jenis-kelamin/skm', [DashboardController::class, 'get_jenis_kelamin_skm'])->name('data.jk');
+Route::get('/data/kepuasan/skm', [DashboardController::class, 'get_kepuasan_skm'])->name('data.jk');
 Route::get('/data/pendidikan', [DashboardController::class, 'get_data_pendidikan'])->name('data.pendidikan');
+Route::get('/data/pendidikan/skm', [DashboardController::class, 'get_data_pendidikan_skm'])->name('data.pendidikan.skm');
 Route::get('/data/kunjungan', [DashboardController::class, 'get_data_kunjungan'])->name('data.kunjungan');
+Route::get('/data/kunjungan/skm', [DashboardController::class, 'get_data_kunjungan_skm'])->name('data.kunjungan.skm');
 Route::get('/home', function () {
 	return redirect('/dashboard');
 });

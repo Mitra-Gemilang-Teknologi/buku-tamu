@@ -16,7 +16,7 @@ class CreateSatisfactionsTable extends Migration
 		Schema::create('satisfactions', function (Blueprint $table) {
 			$table->id();
 			$table->integer('visitor_id');
-			$table->integer("point");
+			$table->integer("point_survey");
 			$table->timestamps();
 		});
 	}

@@ -7,7 +7,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">SUMMARY DASHBOARD BUKU TAMU</h1>
+                    <h1 class="m-0">SUMMARY DASHBOARD SKM</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -118,7 +118,7 @@
                                     <canvas id="revenue-chart-canvas" height="300" style="height: 300px;"></canvas>
                                 </div>
                                 <div class="chart tab-pane active" id="sales-chart" style="position: relative; height: 300px;">
-                                    <canvas id="sales-chart-canvas" height="300" style="height: 300px;"></canvas>
+                                    <canvas id="sales-chart-canvas-skm" height="300" style="height: 300px;"></canvas>
                                 </div>
                             </div>
                         </div><!-- /.card-body -->
@@ -149,13 +149,11 @@
                 <!-- /.Left col -->
                 <!-- right col (We are only adding the ID to make the widgets sortable)-->
                 <section class="col-lg-6 connectedSortable">
-
-                    <!-- /.card -->
-                    <div class="card">
+									 <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">
-                                <i class="fas fa-table mr-1"></i>
-                                KETERANGAN REPONDEN
+                                <i class="fas fa-chart-pie mr-1"></i>
+                                JUMLAH KEPUASAN RESPONDEN
 
                             </h3>
                             <div class="card-tools">
@@ -166,52 +164,17 @@
                         </div><!-- /.card-header -->
                         <div class="card-body">
                             <div class="tab-content p-0">
-                                <div class="container-fluid">
-
-
-                                    <div div class="row">
-                                        <div class="col-12">
-
-
-                                            <div class="card">
-                                                <div class="card-header">
-                                                </div>
-                                                <!-- /.card-header -->
-                                                <div class="card-body">
-                                                    <table id="example2" class="table table-bordered table-striped">
-                                                        <thead>
-                                                            <tr>
-                                                                <th>No Urut</th>
-                                                                <th>Unsur Pelayanan</th>
-                                                                <th>Rata-Rata</th>
-                                                                <th>Keterangan</th>
-                                                                <th>Interpretasi</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-
-                                                            <tr>
-                                                                <td>1</td>
-                                                                <td>Pelayanan</td>
-                                                                <td>3.95</td>
-                                                                <td>SANGAT BAIK</td>
-                                                                <td>Persyaratan Sangat Sesuai dengan Jenis Pelayanan yang Diberikan</td>
-                                                            </tr>
-                                                        </tbody>
-
-                                                    </table>
-                                                </div>
-                                                <!-- /.card-body -->
-                                            </div>
-                                            <!-- /.card -->
-                                        </div>
-                                        <!-- /.col -->
-                                    </div>
-                                    <!-- /.row -->
+                                <!-- Morris chart - Sales -->
+                                <div class="chart tab-pane" id="revenue-chart" style="position: relative; height: 300px;">
+                                    <canvas id="revenue-chart-canvas-skm-kepuasan" height="300" style="height: 300px;"></canvas>
+                                </div>
+                                <div class="chart tab-pane active" id="sales-chart" style="position: relative; height: 300px;">
+                                    <canvas id="sales-chart-canvas-skm-kepuasan" height="300" style="height: 300px;"></canvas>
                                 </div>
                             </div>
                         </div><!-- /.card-body -->
                     </div>
+
 
                 </section>
                 <!-- right col -->

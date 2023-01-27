@@ -173,9 +173,9 @@ $(function () {
   })
 
   // Donut Chart
-  var pieChartCanvas = $('#sales-chart-canvas').get(0).getContext('2d')
+  var pieChartCanvas = $('#sales-chart-canvas-skm').get(0).getContext('2d')
   $.ajax({
-    url: '/data/jenis-kelamin',
+    url: '/data/jenis-kelamin/skm',
     dataType: 'json',
     method: 'get'
   }).done(function (response) {
@@ -205,6 +205,47 @@ $(function () {
     maintainAspectRatio: false,
     responsive: true
   }
+
+  // Donut Chart
+  var pieChartCanvasKepuasan = $('#sales-chart-canvas-skm-kepuasan').get(0).getContext('2d')
+
+  $.ajax({
+    url: '/data/kepuasan/skm',
+    dataType: 'json',
+    method: 'get'
+  }).done(function (response) {
+    console.log('res', response);
+    var sangatPuas = response.sangatPuas[0].total;
+    var Puas = response.Puas[0].total;
+    var TidakPuas = response.TidakPuas[0].total;
+    var pieChart = new Chart(pieChartCanvasKepuasan, { // lgtm[js/unused-local-variable]
+      type: 'doughnut',
+      data: {
+        labels: [
+          'Sangat Puas',
+          'Puas',
+          'Tidak Puas'
+        ],
+        datasets: [
+          {
+            data: [sangatPuas, Puas, TidakPuas],
+            backgroundColor: ['#00a65a', '#f39c12', '#FF0000']
+          }
+        ]
+      },
+      options: pieOptions
+    })
+  })
+  var pieOptions = {
+    legend: {
+      display: false
+    },
+    maintainAspectRatio: false,
+    responsive: true
+  }
+
+
+
   // Create pie or douhnut chart
   // You can switch between pie and douhnut using the method below.
   // eslint-disable-next-line no-unused-vars
@@ -276,7 +317,7 @@ $(function () {
 //Bar chart 1
 
 $.ajax({
-  url: '/data/pendidikan',
+  url: '/data/pendidikan/skm',
   dataType: 'json',
   method: 'get'
 }).done(function (response) {
@@ -326,7 +367,7 @@ $.ajax({
 
 //bar chat 2
 $.ajax({
-  url: '/data/kunjungan',
+  url: '/data/kunjungan/skm',
   dataType: 'json',
   method: 'get'
 }).done(function (response) {

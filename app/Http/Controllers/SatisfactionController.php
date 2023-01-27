@@ -21,7 +21,7 @@ class SatisfactionController extends Controller
 		try {
 			$data = [
 				'visitor_id' => $request->visitor_id,
-				'point' => $request->point
+				'point_survey' => $request->point
 			];
 			Satisfaction::create($data);
 			session()->invalidate();

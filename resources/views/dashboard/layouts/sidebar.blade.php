@@ -30,6 +30,14 @@
                         </p>
                     </a>
                 </li>
+								 <li class="nav-item">
+                    <a href="/dashboard/skm" class="nav-link">
+                        <i class="nav-icon fas fa-home"></i>
+                        <p>
+                            Statistik SKM
+                        </p>
+                    </a>
+                </li>
 								<li class="nav-item">
                     <a href="/dashboard/bukutamu" class="nav-link">
                         <i class="nav-icon fas fa-table"></i>
