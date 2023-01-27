@@ -208,5 +208,85 @@ class SubServiceTypeSeeder extends Seeder
             'id_service_type' => 2,
             'sub_service_name' => 'Izin Praktik Tabib Akupuntur'
         ]);
+
+        SubServiceType::create([
+            'id_service_type' => 2,
+            'sub_service_name' => 'Izin Praktik elektromedis'
+        ]);
+
+        SubServiceType::create([
+            'id_service_type' => 2,
+            'sub_service_name' => 'Izin Klinik Radiografer'
+        ]);
+
+        SubServiceType::create([
+            'id_service_type' => 2,
+            'sub_service_name' => 'Izin Klinik Radiografis'
+        ]);
+
+        SubServiceType::create([
+            'id_service_type' => 2,
+            'sub_service_name' => 'Izin Praktik Penata Anestesi'
+        ]);
+
+        SubServiceType::create([
+            'id_service_type' => 2,
+            'sub_service_name' => 'Izin Praktik Tekhnik Kardiovaskuler'
+        ]);
+
+        SubServiceType::create([
+            'id_service_type' => 2,
+            'sub_service_name' => 'Izin Praktik Perekam Medis dan Informasi Kesehatan'
+        ]);
+
+        SubServiceType::create([
+            'id_service_type' => 2,
+            'sub_service_name' => 'Izin Praktik Tenaga Administrasi dan Kebijakan Kesehatan'
+        ]);
+
+        SubServiceType::create([
+            'id_service_type' => 6,
+            'sub_service_name' => 'Izin Lembaga Pelatihan Kerja'
+        ]);
+
+        SubServiceType::create([
+            'id_service_type' => 6,
+            'sub_service_name' => 'Izin Usaha Lembaga Penempatan Tenaga Kerja Swasta (SIU-LPTKS)'
+        ]);
+
+        SubServiceType::create([
+            'id_service_type' => 6,
+            'sub_service_name' => 'Izin Balai Latihan Kerja Komunitas (BLKK)'
+        ]);
+
+        SubServiceType::create([
+            'id_service_type' => 7,
+            'sub_service_name' => 'Izin Operasional Pendirian PKBM'
+        ]);
+
+        SubServiceType::create([
+            'id_service_type' => 7,
+            'sub_service_name' => 'Izin Operasional Pendirian Kursus'
+        ]);
+
+        SubServiceType::create([
+            'id_service_type' => 7,
+            'sub_service_name' => 'Izin Operasional Pendirian PAUD (TPA, SPS, Kober, dan TK)'
+        ]);
+
+        SubServiceType::create([
+            'id_service_type' => 7,
+            'sub_service_name' => 'Izin Operasional Pendirian Sekolah Dasar Swasta'
+        ]);
+
+        SubServiceType::create([
+            'id_service_type' => 7,
+            'sub_service_name' => 'Izin Operasional Pendirian SMP Swasta'
+        ]);
+
+        SubServiceType::create([
+            'id_service_type' => 15,
+            'sub_service_name' => 'Surat Keterangan Penelitian'
+        ]);
     }
 }
