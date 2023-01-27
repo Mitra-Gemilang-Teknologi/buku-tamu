@@ -37,9 +37,9 @@
                     <th>Tanggal</th>
                     <th>Nama</th>
                     <th>Umur</th>
-                    <th>Nomor Telepon</th>
+                    {{-- <th>Nomor Telepon</th> --}}
                     <th>Jenis Kelamin</th>
-                    <th>Jenis Pelayanan</th>
+                    {{-- <th>Jenis Pelayanan</th> --}}
                     <th>Alamat</th>
                     <th>Keterangan</th>
                 </tr>
@@ -51,9 +51,9 @@
                 <td>{{ $Surveyor->surveyor_name }}</td>
                 <td>32 Tahun
                 </td>
-                <td>{{ $Surveyor->surveyor_phone }}</td>
+                {{-- <td>{{ $Surveyor->surveyor_phone }}</td> --}}
                 <td>{{ $Surveyor->surveyor_gender }}</td>
-                <td>{{ $Surveyor->layanan->service_name }}</td>
+                {{-- <td>{{ $Surveyor }}</td> --}}
 
                 <td>Kujang-Cikoneng</td>
                 <td>Laki</td>

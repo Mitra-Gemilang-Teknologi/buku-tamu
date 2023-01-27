@@ -17,8 +17,8 @@ class DashboardSurveyController extends Controller
 		if (auth()->guest()) {
 			abort(403);
 		}
-		return view('dashboard.surveytamu.index',[
-			'Surveyor' => Surveyor::all()
+		return view('dashboard.surveytamu.index', [
+			'Surveyor' => Surveyor::with('layanan')->get()
 		]);
 	}
 
