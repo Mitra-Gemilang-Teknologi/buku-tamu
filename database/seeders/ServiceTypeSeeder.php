@@ -68,5 +68,9 @@ class ServiceTypeSeeder extends Seeder
 		ServiceType::create([
 			'service_name' => 'Pekerjaan Umum dan Penataan Ruang'
 		]);
+
+		ServiceType::create([
+			'service_name' => 'Penelitian dan Pengembangan'
+		]);
 	}
 }
