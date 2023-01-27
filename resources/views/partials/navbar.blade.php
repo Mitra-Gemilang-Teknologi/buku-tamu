@@ -15,9 +15,7 @@
                     <li class="nav-item ">
                         <a class="nav-link fw-bold {{ ($active === 'Buku Tamu')? 'active' : '' }}" href="/">BUKU TAMU</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link  fw-bold {{ ($active === 'SKM')? 'active' : '' }}" href="/skm">SKM</a>
-                    </li>
+
                     <!-- <li class="nav-item">
                         <a class="nav-link fw-bold {{ ($active === 'posts')? 'active' : '' }}" href="/posts">Blog</a>
                     </li> -->
