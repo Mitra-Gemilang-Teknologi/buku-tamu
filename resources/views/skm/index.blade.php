@@ -104,18 +104,24 @@
 
                         <!-- <input type="hidden" name="id_buku_tamu" value=""> -->
 
-                        <div class="form-group">
-													<input type="hidden" value="{{now()->format('Y-m-d')}}" name="surveyor_time" id="">
-                            <input type="hidden" id="input_nama" name="surveyor_name" value="{{Session::get('visitor_name')}}">
-                        </div>
+						<input type="hidden" value="{{now()->format('Y-m-d')}}" name="surveyor_time" id="">
+                        <input type="hidden" id="input_nama" name="surveyor_name" value="{{Session::get('visitor_name')}}">
 
-                        <div class="form-group">
-                            <input type="hidden" name="surveyor_education" value="{{Session::get('visitor_education')}}">
-                        </div>
+                        <input type="hidden" name="surveyor_education" value="{{Session::get('visitor_education')}}">
 
-                        <div class="form-group radio_input">
-                            <input type="hidden" name="surveyor_gender" value="{{Session::get('visitor_gender')}}">
-                        </div>
+                        <input type="hidden" name="surveyor_gender" value="{{Session::get('visitor_gender')}}">
+
+                        <input type="hidden" name="surveyor_village" value="{{Session::get('visitor_village')}}">
+
+                        <input type="hidden" name="surveyor_disctrict" value="{{Session::get('visitor_disctrict')}}">
+
+                        <input type="hidden" name="surveyor_address" value="{{Session::get('visitor_address')}}">
+
+                        <input type="hidden" name="surveyor_neighborhood_association" value="{{Session::get('visitor_neighborhood_association')}}">
+
+                        <input type="hidden" name="surveyor_citizen_association" value="{{Session::get('visitor_citizen_association')}}">
+
+                        <input type="hidden" name="surveyor_age" value="{{Session::get('visitor_age')}}">
 
                         @foreach ($Question as $Question)
                         <div class="step">

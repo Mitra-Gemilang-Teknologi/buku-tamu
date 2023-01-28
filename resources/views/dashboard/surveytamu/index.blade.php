@@ -38,15 +38,21 @@
                                             <th>Tanggal</th>
                                             <th>Jenis Layanan</th>
                                             <th>Nama</th>
+                                            <th>Umur</th>
                                             <th>Pendidikan</th>
                                             <th>Jenis Kelamin</th>
+                                            <th>Kecamatan</th>
+                                            <th>Desa</th>
+                                            <th>RT</th>
+                                            <th>RW</th>
+                                            <th>Alamat(Luar Ciamis)</th>
 
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach ($Surveyor as $Surveyor)
                                             <tr>
-                                                <td>{{ date('d-m-Y', strtotime($Surveyor->created_at)) }}</td>
+                                                <td>{{ date('d-m-Y', strtotime($Surveyor->surveyor_time )) }}</td>
                                                 <td>
                                                     @foreach ($Surveyor->subServices as $subServices)
                                                         <li> {{ $subServices->subLayanan->sub_service_name }}</li>
@@ -54,8 +60,16 @@
 
                                                 </td>
                                                 <td>{{ $Surveyor->surveyor_name }}</td>
+                                                <td>{{ $Surveyor->surveyor_age }} Tahun</td>
                                                 <td>{{ $Surveyor->surveyor_education }}</td>
                                                 <td>{{ $Surveyor->surveyor_gender }}</td>
+                                                <td>{{ $Surveyor->surveyor_disctrict !== null ? $Surveyor->district->name : '' }}
+                                                </td>
+                                                <td>{{ $Surveyor->surveyor_village !== null ? $Surveyor->village->name : '' }}
+                                                </td>
+                                                <td>{{ $Surveyor->surveyor_neighborhood_association }}</td>
+                                                <td>{{ $Surveyor->surveyor_citizen_association }}</td>
+                                                <td>{{ $Surveyor->visitor_address }}</td>
 
 
 

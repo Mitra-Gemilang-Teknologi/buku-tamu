@@ -19,7 +19,7 @@ class DashboardSurveyController extends Controller
 			abort(403);
 		}
 		return view('dashboard.surveytamu.index', [
-			'Surveyor' => Surveyor::with('subServices')->get()
+			'Surveyor' => Surveyor::with('subServices')->with('village')->with('district')->get()
 		]);
 	}
 	public function export_excel(Request $request)
