@@ -285,7 +285,7 @@ class SubServiceTypeSeeder extends Seeder
         ]);
 
         SubServiceType::create([
-            'id_service_type' => 15,
+            'id_service_type' => 14,
             'sub_service_name' => 'Surat Keterangan Penelitian'
         ]);
     }

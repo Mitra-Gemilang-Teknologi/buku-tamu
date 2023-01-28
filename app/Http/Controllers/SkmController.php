@@ -56,11 +56,16 @@ class SkmController extends Controller
 				'surveyor_gender' => 'required',
 				'surveyor_time' => 'required',
 				'surveyor_description'  => 'required',
+				'surveyor_village' => '',
+				'surveyor_disctrict'  =>   '',
+				'surveyor_address' => '',
+				'surveyor_neighborhood_association' => '',
+				'surveyor_citizen_association' =>   '',
+				'surveyor_age' => 'required',
 			]);
 
 
 			$validateData['id_answer_option'] = implode(",", $request->id_answer_option);
-
 
 
 			try {

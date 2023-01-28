@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\ServiceType;
 use App\Models\SubServiceType;
 use App\Models\VisitorHasService;
 use App\Models\IndonesiaVillage;

@@ -16,10 +16,16 @@ class CreateSurveyorTable extends Migration
 		Schema::create('surveyor', function (Blueprint $table) {
 			$table->id('id');
 			$table->string('surveyor_name');
-			$table->string('surveyor_time');
+			$table->integer('surveyor_age');
 			$table->string('surveyor_education');
 			$table->string('surveyor_gender');
+			$table->string('surveyor_disctrict')->nullable();
+			$table->string('surveyor_village')->nullable();
+			$table->string('surveyor_citizen_association')->nullable();
+			$table->string('surveyor_neighborhood_association')->nullable();
+			$table->longText('surveyor_address')->nullable();
 			$table->longText('surveyor_description');
+			$table->string('surveyor_time');
 			$table->softDeletes();
 			$table->timestamps();
 		});
