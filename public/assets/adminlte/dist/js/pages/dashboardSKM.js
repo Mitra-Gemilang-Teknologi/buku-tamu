@@ -321,7 +321,7 @@ $.ajax({
   dataType: 'json',
   method: 'get'
 }).done(function (response) {
-  var ctx = document.getElementById("myChart").getContext('2d');
+  var ctx = document.getElementById("myChart-skm").getContext('2d');
   new Chart(ctx, {
     type: 'bar',
     data: {
@@ -378,7 +378,7 @@ $.ajax({
       totalKunjungan.push(value.total_kunjungan)
   })
   console.log(tanggalKunjungan)
-  var ctxHarian = document.getElementById("myChartHarian").getContext('2d');
+  var ctxHarian = document.getElementById("myChartHarian-skm").getContext('2d');
   var myChartHarian = new Chart(ctxHarian, {
     type: "bar",
     data: {
@@ -431,7 +431,7 @@ $.ajax({
 // Mingguan
 
 //bar chat 2
-var ctxMingguan = document.getElementById("myChartMingguan").getContext('2d');
+var ctxMingguan = document.getElementById("myChartMingguan-skm").getContext('2d');
 var myChartMingguan = new Chart(ctxMingguan, {
   type: "bar",
   data: {
@@ -481,7 +481,7 @@ var myChartMingguan = new Chart(ctxMingguan, {
 // Mingguan
 
 //bar chat 2
-var ctxBulanan = document.getElementById("myChartBulanan").getContext('2d');
+var ctxBulanan = document.getElementById("myChartBulanan-skm").getContext('2d');
 var myChartBulanan = new Chart(ctxBulanan, {
   type: "bar",
   data: {
@@ -527,7 +527,7 @@ var myChartBulanan = new Chart(ctxBulanan, {
 // Layananan
 
 //bar chat 2
-var ctxLayanan = document.getElementById("myChartLayanan").getContext('2d');
+var ctxLayanan = document.getElementById("myChartLayanan-skm`").getContext('2d');
 var myChartLayanan = new Chart(ctxLayanan, {
   type: "bar",
   data: {

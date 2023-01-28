@@ -66,7 +66,8 @@
                                 <a href="/skm" class="btn_1 rounded">SKM</a>
                             @endif
 
-                            <a href="/statistik/buku-tamu" class="btn_1 rounded">STATISTIK BUKU TAMU</a>
+                            <a href="/statistik/buku-tamu" class="btn_1 rounded">DATA BUKU TAMU</a>
+														<a href="/statistik/skm" class="btn_1 rounded">DATA SURVEY</a>
                             <a href="/login" class="btn_1 rounded">LOGIN</a>
 
                             <h3 style="color: white !important;">Selamat Datang di Buku Tamu </h3>

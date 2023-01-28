@@ -136,7 +136,7 @@
                             <div class="tab-content p-0">
                                 <!-- Morris chart - Sales -->
                                 <div class="col-md-12">
-                                    <canvas id="myChart" width="200" height="100"></canvas>
+                                    <canvas id="myChart-skm" width="200" height="100"></canvas>
 
                                 </div>
 
@@ -212,17 +212,17 @@
                                 <div class="tab-content p-0">
                                     <!-- Morris chart - Sales -->
                                     <div class="col-md-12 chart tab-pane active" id="Harian">
-                                        <canvas id="myChartHarian" width="200" height="100"></canvas>
+                                        <canvas id="myChartHarian-skm" width="200" height="100"></canvas>
 
                                     </div>
                                     <div class="col-md-12 chart tab-pane " id="Mingguan">
-                                        <canvas id="myChartMingguan" width="200" height="100"></canvas>
+                                        <canvas id="myChartMingguan-skm" width="200" height="100"></canvas>
                                     </div>
                                     <div class="col-md-12 chart tab-pane " id="Bulanan">
-                                        <canvas id="myChartBulanan" width="200" height="100"></canvas>
+                                        <canvas id="myChartBulanan-skm" width="200" height="100"></canvas>
                                     </div>
                                     <div class="col-md-12 chart tab-pane " id="Layanan">
-                                        <canvas id="myChartLayanan" width="200" height="100"></canvas>
+                                        <canvas id="myChartLayanan-skm" width="200" height="100"></canvas>
                                     </div>
 
                                 </div>

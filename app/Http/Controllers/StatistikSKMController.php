@@ -34,7 +34,7 @@ class StatistikSKMController extends Controller
 			'countMonth' => $countMonth,
 			'countYear' => $countYear,
 			'title' => 'Statistik Buku Tamu',
-			"active" => "STATISTIKTAMU",
+			"active" => "STATISTIK SURVEY",
 		]);
 	}
 }

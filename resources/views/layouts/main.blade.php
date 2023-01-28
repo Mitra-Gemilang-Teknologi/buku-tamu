@@ -119,7 +119,7 @@
 
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{asset('assets/adminlte/dist/js/pages/dashboard.js')}}"></script>
-
+<script src="{{asset("assets/adminlte/dist/js/pages/dashboardSKM.js")}}"></script>
 <!-- DataTables  & Plugins -->
 <script src="{{asset('assets/adminlte/plugins/datatables/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('assets/adminlte/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js')}}"></script>

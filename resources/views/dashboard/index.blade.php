@@ -124,7 +124,14 @@
                         </div><!-- /.card-body -->
                     </div>
                     <!-- /.card -->
-                    <div class="card">
+
+
+                </section>
+                <!-- /.Left col -->
+                <!-- right col (We are only adding the ID to make the widgets sortable)-->
+                <section class="col-lg-6 connectedSortable">
+
+									 <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">
                                 <i class="fas fa-chart-bar mr-1"></i>
@@ -144,74 +151,6 @@
                         </div><!-- /.card-body -->
                     </div>
                     <!-- /.card -->
-
-                </section>
-                <!-- /.Left col -->
-                <!-- right col (We are only adding the ID to make the widgets sortable)-->
-                <section class="col-lg-6 connectedSortable">
-
-                    <!-- /.card -->
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">
-                                <i class="fas fa-table mr-1"></i>
-                                KETERANGAN REPONDEN
-
-                            </h3>
-                            <div class="card-tools">
-                                <ul class="nav nav-pills ml-auto">
-
-                                </ul>
-                            </div>
-                        </div><!-- /.card-header -->
-                        <div class="card-body">
-                            <div class="tab-content p-0">
-                                <div class="container-fluid">
-
-
-                                    <div div class="row">
-                                        <div class="col-12">
-
-
-                                            <div class="card">
-                                                <div class="card-header">
-                                                </div>
-                                                <!-- /.card-header -->
-                                                <div class="card-body">
-                                                    <table id="example2" class="table table-bordered table-striped">
-                                                        <thead>
-                                                            <tr>
-                                                                <th>No Urut</th>
-                                                                <th>Unsur Pelayanan</th>
-                                                                <th>Rata-Rata</th>
-                                                                <th>Keterangan</th>
-                                                                <th>Interpretasi</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-
-                                                            <tr>
-                                                                <td>1</td>
-                                                                <td>Pelayanan</td>
-                                                                <td>3.95</td>
-                                                                <td>SANGAT BAIK</td>
-                                                                <td>Persyaratan Sangat Sesuai dengan Jenis Pelayanan yang Diberikan</td>
-                                                            </tr>
-                                                        </tbody>
-
-                                                    </table>
-                                                </div>
-                                                <!-- /.card-body -->
-                                            </div>
-                                            <!-- /.card -->
-                                        </div>
-                                        <!-- /.col -->
-                                    </div>
-                                    <!-- /.row -->
-                                </div>
-                            </div>
-                        </div><!-- /.card-body -->
-                    </div>
 
                 </section>
                 <!-- right col -->

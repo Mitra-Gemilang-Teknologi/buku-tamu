@@ -390,168 +390,201 @@ $.ajax({
 // Mingguan
 
 //bar chat 2
-var ctxMingguan = document.getElementById("myChartMingguan").getContext('2d');
-var myChartMingguan = new Chart(ctxMingguan, {
-  type: "bar",
-  data: {
-    labels: [
-      "Minggu Ke 1",
-      "Minggu Ke 2",
-      "Minggu Ke 3",
-      "Minggu Ke 4",
-    ],
-    datasets: [
-      {
-        label: "# of Votes",
-        data: [12, 19, 13, 15],
-        backgroundColor: [
-          "rgba(54, 162, 235)",
-          "rgba(54, 162, 235)",
-          "rgba(54, 162, 235)",
-          "rgba(54, 162, 235)",
 
-        ],
-        borderColor: [
-          "rgba(54, 162, 235)",
-          "rgba(54, 162, 235)",
-          "rgba(54, 162, 235)",
-          "rgba(54, 162, 235)",
-
-        ],
-        borderWidth: 1,
-      },
-    ],
-  },
-  options: {
-    scales: {
-      yAxes: [
+$.ajax({
+  url: '/data/kunjungan/mingguan',
+  dataType: 'json',
+  method: 'get'
+}).done(function (response) {
+  console.log('res', response);
+  var tanggalKunjungan = []
+  var totalKunjungan = []
+  $.each(response.data, function (index, value) {
+    tanggalKunjungan.push(value.tanggal_kunjungan)
+    totalKunjungan.push(value.total_kunjungan)
+  })
+  console.log(tanggalKunjungan)
+  var ctxMingguan = document.getElementById("myChartMingguan").getContext('2d');
+  var myChartMingguan = new Chart(ctxMingguan, {
+    type: "bar",
+    data: {
+      labels: tanggalKunjungan,
+      datasets: [
         {
-          ticks: {
-            beginAtZero: true,
-          },
+          label: "Total Kunjungan",
+          data: totalKunjungan,
+          backgroundColor: [
+            "rgba(54, 162, 235)",
+            "rgba(54, 162, 235)",
+            "rgba(54, 162, 235)",
+            "rgba(54, 162, 235)",
+            "rgba(54, 162, 235)",
+            "rgba(54, 162, 235)",
+            "rgba(54, 162, 235)",
+            "rgba(54, 162, 235)",
+            "rgba(54, 162, 235)",
+          ],
+          borderColor: [
+            "rgba(54, 162, 235)",
+            "rgba(54, 162, 235, 1)",
+            "rgba(54, 162, 235)",
+            "rgba(54, 162, 235)",
+            "rgba(54, 162, 235)",
+            "rgba(54, 162, 235)",
+            "rgba(54, 162, 235)",
+            "rgba(54, 162, 235)",
+            "rgba(54, 162, 235)",
+          ],
+          borderWidth: 1,
         },
       ],
     },
-  },
-});
+    options: {
+      scales: {
+        yAxes: [
+          {
+            ticks: {
+              beginAtZero: true,
+            },
+          },
+        ],
+      },
+    },
+  });
+})
 
 
 
 // Mingguan
 
 //bar chat 2
-var ctxBulanan = document.getElementById("myChartBulanan").getContext('2d');
-var myChartBulanan = new Chart(ctxBulanan, {
-  type: "bar",
-  data: {
-    labels: [
-      "January",
-      "Februari",
-      "Maret",
+$.ajax({
+  url: '/data/kunjungan/bulanan',
+  dataType: 'json',
+  method: 'get'
+}).done(function (response) {
+  console.log('resBulanan', response);
+  let Namalayanan = []
+  let totalLayanan = []
+  $.each(response.data, function (index, value) {
 
-    ],
-    datasets: [
-      {
-        label: "# of Votes",
-        data: [12, 19, 13],
-        backgroundColor: [
-          "rgba(54, 162, 235)",
-          "rgba(54, 162, 235)",
-          "rgba(54, 162, 235)",
 
-        ],
-        borderColor: [
-          "rgba(54, 162, 235)",
-          "rgba(54, 162, 235)",
-          "rgba(54, 162, 235)",
-
-        ],
-        borderWidth: 1,
-      },
-    ],
-  },
-  options: {
-    scales: {
-      yAxes: [
+    Namalayanan.push(value.layanan)
+    totalLayanan.push(value.total_kunjungan)
+  })
+  console.log(totalLayanan)
+  var ctxBulanan = document.getElementById("myChartBulanan").getContext('2d');
+  var myChartLayanan = new Chart(ctxBulanan, {
+    type: "bar",
+    data: {
+      labels: ["January", "February", "Maret", "April", "Mei", "Juni", "July", "Agustus", "September", "Oktober", "November", "Desember"],
+      datasets: [
         {
-          ticks: {
-            beginAtZero: true,
-          },
+          label: "Total Kunjungan",
+          data: totalLayanan,
+          backgroundColor: [
+            "rgba(54, 162, 235)",
+            "rgba(54, 162, 235)",
+            "rgba(54, 162, 235)",
+            "rgba(54, 162, 235)",
+            "rgba(54, 162, 235)",
+            "rgba(54, 162, 235)",
+            "rgba(54, 162, 235)",
+            "rgba(54, 162, 235)",
+            "rgba(54, 162, 235)",
+          ],
+          borderColor: [
+            "rgba(54, 162, 235)",
+            "rgba(54, 162, 235, 1)",
+            "rgba(54, 162, 235)",
+            "rgba(54, 162, 235)",
+            "rgba(54, 162, 235)",
+            "rgba(54, 162, 235)",
+            "rgba(54, 162, 235)",
+            "rgba(54, 162, 235)",
+            "rgba(54, 162, 235)",
+          ],
+          borderWidth: 1,
         },
       ],
     },
-  },
+    options: {
+      scales: {
+        yAxes: [
+          {
+            ticks: {
+              beginAtZero: true,
+            },
+          },
+        ],
+      },
+    },
+  });
 });
-
 // Layananan
 
 //bar chat 2
-var ctxLayanan = document.getElementById("myChartLayanan").getContext('2d');
-var myChartLayanan = new Chart(ctxLayanan, {
-  type: "bar",
-  data: {
-    labels: [
-      "Pendidikan",
-      "Prosedur",
-      "Kesehatan",
-      "Perdagangan",
-      "Energi dan Sumber Daya Mineral",
-      "Kehutanan",
-      "Pertanian",
-      "Kelautan & Perikanan",
-      "Perhubungan",
-      "Lingkungan Hidup",
-      "Tenaga Kerja",
-      "Sosial",
-      "Pekerjaan Umum dan Penataan Ruang",
-    ],
-    datasets: [
-      {
-        label: "# of Votes",
-        data: [12, 19, 13, 15, 2, 3, 12, 3, 21, 12, 12, 12],
-        backgroundColor: [
-          "rgba(54, 162, 235)",
-          "rgba(54, 162, 235)",
-          "rgba(54, 162, 235)",
-          "rgba(54, 162, 235)",
-          "rgba(54, 162, 235)",
-          "rgba(54, 162, 235)",
-          "rgba(54, 162, 235)",
-          "rgba(54, 162, 235)",
-          "rgba(54, 162, 235)",
-          "rgba(54, 162, 235)",
-          "rgba(54, 162, 235)",
-          "rgba(54, 162, 235)",
-          "rgba(54, 162, 235)",
-        ],
-        borderColor: [
-          "rgba(54, 162, 235)",
-          "rgba(54, 162, 235)",
-          "rgba(54, 162, 235)",
-          "rgba(54, 162, 235)",
-          "rgba(54, 162, 235)",
-          "rgba(54, 162, 235)",
-          "rgba(54, 162, 235)",
-          "rgba(54, 162, 235)",
-          "rgba(54, 162, 235)",
-          "rgba(54, 162, 235)",
-          "rgba(54, 162, 235)",
-          "rgba(54, 162, 235)",
-          "rgba(54, 162, 235)",
-        ],
-        borderWidth: 1,
-      },
-    ],
-  },
-  options: {
-    scales: {
-      yAxes: [
+$.ajax({
+  url: '/data/kunjungan/layanan',
+  dataType: 'json',
+  method: 'get'
+}).done(function (response) {
+  console.log('res', response);
+  let Namalayanan = []
+  let totalLayanan = []
+  $.each(response.data, function (index, value) {
+
+
+    Namalayanan.push(value.layanan)
+    totalLayanan.push(value.total)
+  })
+  console.log(totalLayanan)
+  var ctxLayanan = document.getElementById("myChartLayanan").getContext('2d');
+  var myChartLayanan = new Chart(ctxLayanan, {
+    type: "bar",
+    data: {
+      labels: Namalayanan,
+      datasets: [
         {
-          ticks: {
-            beginAtZero: true,
-          },
+          label: "Total Kunjungan",
+          data: totalLayanan,
+          backgroundColor: [
+            "rgba(54, 162, 235)",
+            "rgba(54, 162, 235)",
+            "rgba(54, 162, 235)",
+            "rgba(54, 162, 235)",
+            "rgba(54, 162, 235)",
+            "rgba(54, 162, 235)",
+            "rgba(54, 162, 235)",
+            "rgba(54, 162, 235)",
+            "rgba(54, 162, 235)",
+          ],
+          borderColor: [
+            "rgba(54, 162, 235)",
+            "rgba(54, 162, 235, 1)",
+            "rgba(54, 162, 235)",
+            "rgba(54, 162, 235)",
+            "rgba(54, 162, 235)",
+            "rgba(54, 162, 235)",
+            "rgba(54, 162, 235)",
+            "rgba(54, 162, 235)",
+            "rgba(54, 162, 235)",
+          ],
+          borderWidth: 1,
         },
       ],
     },
-  },
+    options: {
+      scales: {
+        yAxes: [
+          {
+            ticks: {
+              beginAtZero: true,
+            },
+          },
+        ],
+      },
+    },
+  });
 });
+

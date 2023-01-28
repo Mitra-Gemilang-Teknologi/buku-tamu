@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ServiceType;
+use App\Models\SubServiceType;
+use App\Models\Surveyor;
 use Carbon\Carbon;
 use App\Models\Visit;
 use Illuminate\Http\Request;
@@ -144,6 +147,57 @@ class DashboardController extends Controller
 			$arrx["total_kunjungan"] = \App\Models\Visit::where('visit_time', $val->visit_time)->count();
 			$arr[] = $arrx;
 		}
+		return response()->json([
+			'data' => $arr,
+		]);
+	}
+	function get_data_kunjungan_layanan(Request $request)
+	{
+		$layanan = ServiceType::all();
+
+		$Datalayanan = [];
+		$no = 1;
+		foreach ($layanan as $layanan) {
+			$datax['layanan'] = $layanan->service_name;
+			$datax['total'] = \App\Models\VisitorHasService::where('service_id', $layanan->id_service_type)->count();
+			$Datalayanan[] = $datax;
+		};
+
+		return response()->json([
+			'data' => $Datalayanan,
+		]);
+	}
+	function get_data_kunjungan_mingguan(Request $request)
+	{
+		$minggu1 = DB::select('SELECT COUNT(*) as total FROM surveyor where surveyor_education="SD"');
+		$minggu2 = DB::select('SELECT COUNT(*) as total FROM surveyor where surveyor_education="SD"');
+		$minggu3 = DB::select('SELECT COUNT(*) as total FROM surveyor where surveyor_education="SD"');
+		$minggu4 = DB::select('SELECT COUNT(*) as total FROM surveyor where surveyor_education="SD"');
+		return response()->json([
+			"Minggua1" => $minggu1,
+			"Minggu2" => $minggu2,
+			"Minggu3" => $minggu3,
+			"Minggu4" => $minggu3,
+
+		]);
+	}
+	function get_data_kunjungan_bulanan(Request $request)
+	{
+		$data = DB::table('visits')
+			->groupBy('visit_time')
+			->get();
+		$arr = [];
+		$bulan = 1;
+		$no = 1;
+		$Databulan = ["January", "February", "Maret", "April", "Mei", "Juni", "July", "Agustus", "September", "Oktober", "November", "Desember"];
+		foreach ($data as $val) {
+			$arrx["bulan"] = $Databulan[0];
+			$arrx["total_kunjungan"] = \App\Models\Visit::whereMonth('visit_time', $bulan)->count();
+			$arr[] = $arrx;
+		}
+
+
+
 		return response()->json([
 			'data' => $arr,
 		]);
