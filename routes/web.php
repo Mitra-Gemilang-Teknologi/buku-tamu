@@ -99,7 +99,7 @@ Route::resource('/inbox', InboxController::class);
 
 // Laporan
 Route::post('/dashboard/kunjungan/export_excel', [DashboardTamuController::class, 'export_excel']);
-
+Route::post('/dashboard/survey/export_excel', [DashboardSurveyController::class, 'export_excel']);
 // Kebutuhan untuk Alamat
 Route::get('provinces', 'DependentDropdownController@provinces')->name('provinces');
 Route::get('cities', [DependentDropdownController::class, 'cities'])->name('cities');

@@ -8,14 +8,14 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class SurveyorHasService extends Model
 {
-    use HasFactory, SoftDeletes;
+	use HasFactory, SoftDeletes;
 
-    public $table = 'surveyor_has_services'; // dilakukan seperti ini agar tidak menjadi plural
+	public $table = 'surveyor_has_services'; // dilakukan seperti ini agar tidak menjadi plural
 
-    protected $guarded  = ['id']; //yang tidak  boleh di isi
+	protected $guarded  = ['id']; //yang tidak  boleh di isi
 
-    public function subLayanan()
-    {
-        return $this->belongsTo(SubServiceType::class, 'sub_service_id', 'id_sub_service_type');
-    }
+	public function subLayanan()
+	{
+		return $this->belongsTo(SubServiceType::class, 'sub_service_id', 'id_sub_service_type');
+	}
 }

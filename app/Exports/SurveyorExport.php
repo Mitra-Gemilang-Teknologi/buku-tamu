@@ -2,17 +2,16 @@
 
 namespace App\Exports;
 
-use App\Models\Visit;
-use Maatwebsite\Excel\Concerns\Exportable;
+use App\Models\Surveyor;
 use Illuminate\Contracts\View\View;
 use Maatwebsite\Excel\Concerns\FromView;
+use Maatwebsite\Excel\Concerns\Exportable;
 
-class KunjunganExport implements FromView
+class SurveyorExport implements FromView
 {
 	/**
 	 * @return \Illuminate\Support\Collection
 	 */
-
 	use Exportable;
 
 
@@ -27,10 +26,10 @@ class KunjunganExport implements FromView
 	public function view(): View
 	{
 
-		return view('dashboard.bukutamu.exports', [
+		return view('dashboard.surveytamu.exports', [
 			'start' => $this->start,
 			'end' => $this->end,
-			'visits' => Visit::whereBetween('visit_time', [$this->start, $this->end])->with('subServices')->get()
+			'Surveyor' => Surveyor::whereBetween('surveyor_time', [$this->start, $this->end])->with('subServices')->get()
 		]);
 	}
 }

@@ -31,7 +31,7 @@
                             <!-- /.card-header -->
                             <div class="card-body">
 
-                                <a href="#" data-toggle="modal" data-target="#exampleModal" class="btn btn-primary"><i
+                                <a href="#" data-toggle="modal" data-target="#modalKunjungan" class="btn btn-primary"><i
                                         class="fa fa-excel">Export</i></a>
 
                                 <table id="example2" class="table table-bordered table-hover">
@@ -104,12 +104,12 @@
 
 @push('modal')
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    <div class="modal fade" id="modalKunjungan" tabindex="-1" role="dialog" aria-labelledby="modalKunjunganLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Laporan </h5>
+                    <h5 class="modal-title" id="modalKunjunganLabel">Laporan </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>

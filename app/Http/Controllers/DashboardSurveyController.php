@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\SurveyorExport;
 use Illuminate\Http\Request;
 use App\Models\Surveyor;
 
@@ -18,10 +19,17 @@ class DashboardSurveyController extends Controller
 			abort(403);
 		}
 		return view('dashboard.surveytamu.index', [
-			'Surveyor' => Surveyor::with('layanan')->get()
+			'Surveyor' => Surveyor::with('subServices')->get()
 		]);
 	}
+	public function export_excel(Request $request)
+	{
 
+		$start = $request->awal;
+		$end = $request->akhir;
+
+		return (new SurveyorExport)->forDate($start, $end)->download('Laporan Survey Dari ' . $start . ' Sampai ' . $end . '.xlsx');
+	}
 	/**
 	 * Show the form for creating a new resource.
 	 *

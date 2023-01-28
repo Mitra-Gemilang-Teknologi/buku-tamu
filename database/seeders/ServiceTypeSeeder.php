@@ -41,9 +41,6 @@ class ServiceTypeSeeder extends Seeder
 			'service_name' => 'Pendidikan'
 		]);
 
-		ServiceType::create([
-			'service_name' => 'Kesehatan'
-		]);
 
 		ServiceType::create([
 			'service_name' => 'Perhubungan'
