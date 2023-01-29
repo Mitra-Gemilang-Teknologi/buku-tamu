@@ -163,6 +163,7 @@ return [
 		Illuminate\View\ViewServiceProvider::class,
 		RealRashid\SweetAlert\SweetAlertServiceProvider::class,
 		Maatwebsite\Excel\ExcelServiceProvider::class,
+		Spatie\Permission\PermissionServiceProvider::class,
 
 		/*
          * Package Service Providers...
