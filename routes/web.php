@@ -85,6 +85,7 @@ Route::get('/data/kunjungan/layanan', [DashboardController::class, 'get_data_kun
 Route::get('/data/kunjungan/mingguan', [DashboardController::class, 'get_data_kunjungan_mingguan'])->name('data.kunjungan.mingguan');
 Route::get('/data/kunjungan/bulanan', [DashboardController::class, 'get_data_kunjungan_bulanan'])->name('data.kunjungan.bulanan');
 Route::get('/data/kunjungan/skm', [DashboardController::class, 'get_data_kunjungan_skm'])->name('data.kunjungan.skm');
+Route::get('/data/survey/layanan', [DashboardController::class, 'get_survey_unsur_pelayanan'])->name('data.survey.layanan');
 Route::get('/home', function () {
 	return redirect('/dashboard');
 });
@@ -115,3 +116,4 @@ Route::get('villages', [DependentDropdownController::class, 'villages'])->name('
 
 //Kepuasan
 Route::resource('/addPoint', SatisfactionController::class);
+

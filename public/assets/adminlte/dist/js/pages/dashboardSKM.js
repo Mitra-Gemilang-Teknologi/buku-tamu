@@ -359,6 +359,50 @@ $.ajax({
     }
   });
 })
+$.ajax({
+  url: '/data/survey/layanan',
+  dataType: 'json',
+  method: 'get'
+}).done(function (response) {
+  console.log(response.answer_1[0].answer_1)
+  var ctx = document.getElementById("myChart-skm-layanan").getContext('2d');
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ["Persyaratan", "Prosedur", "Waktu Pelayanan", "Biaya Tarif", "Produk Layanan", "Kompetensi Pelayanan","Perilaku Pelaksana","Pungutan Tidak Resmi","Penanganan Pengaduan"],
+      datasets: [{
+        label: 'Jumlah Responden',
+        data: [response.answer_1[0].answer_1, response.answer_2[0].answer_2, response.answer_3[0].answer_3, response.answer_4[0].answer_4, response.answer_5[0].answer_5, response.answer_6[0].answer_6, response.answer_7[0].answer_7, response.answer_8[0].answer_8, response.answer_9[0].answer_9],
+        backgroundColor: [
+          'rgba(255, 99, 132)',
+          'rgba(54, 162, 235)',
+          'rgba(255, 206, 86)',
+          'rgba(75, 192, 192)',
+          'rgba(153, 102, 255)',
+          'rgba(255, 159, 64)'
+        ],
+        borderColor: [
+          'rgba(255,99,132,1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)'
+        ],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
+  });
+})
 
 
 

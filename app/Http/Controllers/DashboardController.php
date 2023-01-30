@@ -238,4 +238,28 @@ class DashboardController extends Controller
 			'data' => $arr,
 		]);
 	}
+
+	public function get_survey_unsur_pelayanan(Request $request)
+	{
+		$answer1 = DB::select('SELECT (SUM(id_answer_option)/COUNT(*)) as answer_1 FROM survey_result WHERE id_question="1"');
+		$answer2 = DB::select('SELECT (SUM(id_answer_option)/COUNT(*)) as answer_2 FROM survey_result WHERE id_question="2"');
+		$answer3 = DB::select('SELECT (SUM(id_answer_option)/COUNT(*)) as answer_3 FROM survey_result WHERE id_question="3"');
+		$answer4 = DB::select('SELECT (SUM(id_answer_option)/COUNT(*)) as answer_4 FROM survey_result WHERE id_question="4"');
+		$answer5 = DB::select('SELECT (SUM(id_answer_option)/COUNT(*)) as answer_5 FROM survey_result WHERE id_question="5"');
+		$answer6 = DB::select('SELECT (SUM(id_answer_option)/COUNT(*)) as answer_6 FROM survey_result WHERE id_question="6"');
+		$answer7 = DB::select('SELECT (SUM(id_answer_option)/COUNT(*)) as answer_7 FROM survey_result WHERE id_question="7"');
+		$answer8 = DB::select('SELECT (SUM(id_answer_option)/COUNT(*)) as answer_8 FROM survey_result WHERE id_question="8"');
+		$answer9 = DB::select('SELECT (SUM(id_answer_option)/COUNT(*)) as answer_9 FROM survey_result WHERE id_question="9"');
+		return response()->json([
+			'answer_1' => $answer1,
+			'answer_2' => $answer2,
+			'answer_3' => $answer3,
+			'answer_4' => $answer4,
+			'answer_5' => $answer5,
+			'answer_6' => $answer6,
+			'answer_7' => $answer7,
+			'answer_8' =>  $answer8,
+			'answer_9' => $answer9,
+		]);
+	}
 }
