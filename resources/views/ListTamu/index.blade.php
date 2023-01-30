@@ -46,7 +46,7 @@
                                 <tr>
                                     <td>
 																			@if ($kunjungan->status == 1)
-																				<form action="/isi-survey" method="POST" class="d-inline">
+																				<form action="/form/isi-survey" class="d-inline"method="post">
                                             @csrf
 																						<input type="hidden" name="id_visitor" value="{{$kunjungan->id}}" id="">
                                             <button class="btn btn-primary"

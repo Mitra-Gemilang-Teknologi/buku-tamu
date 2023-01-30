@@ -41,7 +41,7 @@ Route::get('/kepuasan', [SatisfactionController::class, 'index']);
 Route::get('/list/buku-tamu', [BukuTamuController::class, 'list']);
 Route::resource('/kunjungan', BukuTamuController::class);
 Route::resource('/simpan_survey', SkmController::class);
-Route::POST('/isi-survey', [BukuTamuController::class, 'isi_survey'])->name('isiSurvey');
+Route::post('/form/isi-survey', [BukuTamuController::class, 'isi_survey'])->name('isiSurvey');
 //get SUb Jenis Layanan
 Route::post('/data/subJenisLayanan', [BukuTamuController::class, 'subJenisLayanan'])->name('subJenisLayanan.post');
 Route::post('/data/subJenisLayananskm', [SkmController::class, 'subJenisLayananskm'])->name('subJenisLayananskm.post');
