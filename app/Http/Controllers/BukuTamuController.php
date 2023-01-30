@@ -79,7 +79,7 @@ class BukuTamuController extends Controller
 			$id = $request->id_visitor;
 			$visitor = Visit::where('id', $id)->first();
 			$datax = [
-
+				'visitor_id' => $visitor->id,
 				'visitor_name' => $visitor->visitor_name,
 				'visitor_education' => $visitor->visitor_education,
 				'visit_time' => $visitor->visit_time,
@@ -94,6 +94,8 @@ class BukuTamuController extends Controller
 				'visitor_description' => $visitor->visitor_description,
 				'status' => $visitor->status
 			];
+
+
 			session($datax);
 			return redirect('/skm');
 		} catch (\Throwable $th) {

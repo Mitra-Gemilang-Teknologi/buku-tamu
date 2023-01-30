@@ -53,6 +53,8 @@
                                                 onclick="return confirm('Apakah Yakin Ingin Mengisi Survey?')">Masuk Survey<span
                                                     data-feather="x-circle"></span></button>
                                         </form>
+																				@elseif ($kunjungan->status == 2)
+																				<span class="badge badge-pill badge-success">Sudah Dilayani</span>
 																				@else
 																					<span class="badge badge-pill badge-danger">Belum Dilayani</span>
 																			@endif

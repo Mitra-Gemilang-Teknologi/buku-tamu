@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Surveyor;
 use App\Models\Question;
+use App\Models\Visit;
 use App\Models\AnswerOption;
 use App\Models\ServiceType;
 use App\Models\SurveyResult;
@@ -47,6 +48,7 @@ class SkmController extends Controller
 	 */
 	public function store(Request $request)
 	{
+
 		$Question = Question::all();
 
 		try {
@@ -69,8 +71,14 @@ class SkmController extends Controller
 
 
 			try {
-				$last = Surveyor::create($validateData);
 
+
+
+				$last = Surveyor::create($validateData);
+				Visit::where('id', $request->visitor_id)
+					->update([
+						'status' => 2
+					]);
 				foreach ($Question as $Question) {
 					SurveyResult::create([
 						'id_surveyor' => $last->id,

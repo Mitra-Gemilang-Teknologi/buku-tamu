@@ -60,6 +60,7 @@
                     <!-- <input type="hidden" name="_token" value="Lrw2bgy8E1N4CpByfF2DYDm56fEwgMeYgSIXZn1X"> -->
                     <!-- <input type="hidden" name="id_instansi" value="628"> -->
                     <input id="website" name="website" type="text" value="">
+										<input type="text" name="visitor_id" value="{{Session::get('visitor_id')}}">
                     <!-- Leave for security protection, read docs for details -->
                     <!-- //hitung jumlah $pertanyaan -->
 
