@@ -45,13 +45,18 @@
                             @foreach ($Visit as $kunjungan)
                                 <tr>
                                     <td>
-                                        <form action="/isi-survey/" method="POST" class="d-inline">
+																			@if ($kunjungan->status == 1)
+																				<form action="/isi-survey/" method="POST" class="d-inline">
                                             @csrf
 																						<input type="hidden" name="id_visitor" value="{{$kunjungan->id}}" id="">
                                             <button class="btn btn-primary"
                                                 onclick="return confirm('Apakah Yakin Ingin Mengisi Survey?')">Masuk Survey<span
                                                     data-feather="x-circle"></span></button>
                                         </form>
+																				@else
+																					<span class="badge badge-pill badge-danger">Belum Dilayani</span>
+																			@endif
+
                                     </td>
                                     <td>{{ $kunjungan->visit_time }}</td>
 
