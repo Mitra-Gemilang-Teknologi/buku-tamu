@@ -37,9 +37,7 @@
                 </div> --><!-- /social -->
                 <div>
                     <a href="/" class="btn_1 rounded">BUKU TAMU</a>
-                    <a href="/skm" class="btn_1 rounded">SKM</a>
-                    <a href="/statistik" class="btn_1 rounded">STATISTIK</a>
-                    <a href="/login" class="btn_1 rounded">Login</a>
+
                     <figure><img src="{{ asset('assets/templateskm/assets/form/img/banner.png') }}" alt=""width="250" height="250" class="img-fluid"></figure>
                     <h3 style="color: white !important;">Survey Kepuasan Masyarakat</h3>
                     <h2 style="margin: 0 0 20px 0;">Dinas Penanaman Modal dan Pelayanan Terpadu Satu Pintu</h2>

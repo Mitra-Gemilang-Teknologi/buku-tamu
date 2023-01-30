@@ -30,6 +30,7 @@
                         </p>
                     </a>
                 </li>
+								 @can('admin')
 								 <li class="nav-item">
                     <a href="/dashboard/skm" class="nav-link">
                         <i class="nav-icon fas fa-home"></i>
@@ -38,6 +39,7 @@
                         </p>
                     </a>
                 </li>
+								  @endcan()
 								<li class="nav-item">
                     <a href="/dashboard/bukutamu" class="nav-link">
                         <i class="nav-icon fas fa-table"></i>
@@ -46,6 +48,7 @@
                         </p>
                     </a>
                 </li>
+								 @can('admin')
 								<li class="nav-item">
                     <a href="/dashboard/surveytamu" class="nav-link">
                         <i class="nav-icon fas fa-table"></i>
@@ -54,6 +57,7 @@
                         </p>
                     </a>
                 </li>
+								    @endcan()
                  <li class="nav-item">
                     <form action="/dashboard/logout" method="POST">
           @csrf
