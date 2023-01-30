@@ -107,7 +107,7 @@ class DashboardTamuController extends Controller
 	{
 
 		try {
-			$data =	Visit::where('id', $request->visitor_id)
+			Visit::where('id', $request->visitor_id)
 				->update([
 					'status' => 1
 				]);
