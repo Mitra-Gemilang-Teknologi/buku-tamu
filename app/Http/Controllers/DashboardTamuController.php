@@ -6,9 +6,25 @@ use App\Models\Visit;
 use Illuminate\Http\Request;
 use App\Exports\KunjunganExport;
 use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\DB;
 
 class DashboardTamuController extends Controller
 {
+
+	public function __construct()
+	{
+		$this->middleware(function ($request, $next) {
+
+			if (session('success')) {
+				toast('Data Berhasil di Ubah!', 'success');
+			}
+			if (session('error')) {
+				toast('Terjadi kesalahan', 'error');
+			}
+
+			return $next($request);
+		});
+	}
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -87,9 +103,19 @@ class DashboardTamuController extends Controller
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
 	 */
-	public function update(Request $request, $id)
+	public function updateTamu(Request $request)
 	{
-		//
+
+		try {
+			$data =	Visit::where('id', $request->visitor_id)
+				->update([
+					'status' => 1
+				]);
+
+			return  redirect('/dashboard/bukutamu')->with('success', 'Data Berhasil di Ubah!');
+		} catch (\Throwable $th) {
+			dd($th);
+		}
 	}
 
 	/**

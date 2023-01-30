@@ -61,13 +61,9 @@
                         <!-- /social -->
 
                         <div>
-                            <a href="#beranda" class="btn_1 rounded"> BERANDA</a>
-                            @if (Session::has('visitor_name'))
-                                <a href="/skm" class="btn_1 rounded">SKM</a>
-                            @endif
-
-                            <a href="/statistik/buku-tamu" class="btn_1 rounded">DATA BUKU TAMU</a>
-														<a href="/statistik/skm" class="btn_1 rounded">DATA SURVEY</a>
+                            <a href="/" class="btn_1 rounded"> BERANDA</a>
+														<a href="/list/buku-tamu" class="btn_1 rounded">DAFTAR TAMU</a>
+															<a href="/statistik/buku-tamu" class="btn_1 rounded">STATISTIK BUKU TAMU</a>
                             <a href="/login" class="btn_1 rounded">LOGIN</a>
 
                             <h3 style="color: white !important;">Selamat Datang di Buku Tamu </h3>
@@ -94,7 +90,7 @@
                             <!-- Leave for security protection, read docs for details -->
                             <!-- //hitung jumlah $pertanyaan -->
                             <input id="website" name="website" type="text" value="">
-
+														<input type="hidden" name="status" value="0" id="">
                             <div id="middle-wizard">
 
                                 <div class="step">
@@ -412,13 +408,13 @@
         //Buat Redirect
 
 
-        $('.swal2-confirm').on('click', function() {
-            window.location.href = "/skm";
-        })
+        // $('.swal2-confirm').on('click', function() {
+        //     window.location.href = "/skm";
+        // })
 
-        $('.swal2-cancel').on('click', function() {
-            window.location.href = "/remove";
-        })
+        // $('.swal2-cancel').on('click', function() {
+        //     window.location.href = "/remove";
+        // })
 
         //Buat Get Wilayah
         function onChangeSelect(url, id, name) {

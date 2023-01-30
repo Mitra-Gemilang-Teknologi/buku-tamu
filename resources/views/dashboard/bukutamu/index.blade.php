@@ -31,14 +31,15 @@
                             <!-- /.card-header -->
                             <div class="card-body">
 
-                                <a href="#" data-toggle="modal" data-target="#modalKunjungan" class="btn btn-primary"><i
-                                        class="fa fa-excel">Export</i></a>
+                                <a href="#" data-toggle="modal" data-target="#modalKunjungan"
+                                    class="btn btn-primary"><i class="fa fa-excel">Export</i></a>
 
                                 <table id="example2" class="table table-bordered table-hover">
                                     <thead>
                                         <tr>
 
                                             <th>Tanggal</th>
+                                            <th>Status</th>
                                             <th>Jenis Pelayanan</th>
                                             <th>Nama</th>
                                             <th>Umur</th>
@@ -58,7 +59,23 @@
                                         @foreach ($Visit as $kunjungan)
                                             <tr>
                                                 <td>{{ $kunjungan->visit_time }}</td>
+                                                <td>
+                                                    @if ($kunjungan->status == 0)
+                                                        <form method="POST" action="/bukutamu/update" class="mb-5"
+                                                            enctype="multipart/form-data">
+                                                            @csrf
+                                                            <input type="hidden" name="visitor_id"
+                                                                value="{{ $kunjungan->id }}" id="">
+                                                            <button class="btn btn-primary"
+                                                                onclick="return confirm('Apakah Yakin Ingin Mengisi Survey?')">Selesaikan<span
+                                                                    data-feather="x-circle"></span></button>
+                                                        </form>
+                                                    @else
+                                                        <span class="badge badge-pill badge-success">Sudah Dilayani</span>
+                                                    @endif
 
+                                                </td>
+                                                </td>
                                                 <td>
                                                     @foreach ($kunjungan->subServices as $subServices)
                                                         <li> {{ $subServices->subLayanan->sub_service_name }}</li>
@@ -115,8 +132,8 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form  method="POST" action="/dashboard/kunjungan/export_excel">
-											@csrf
+                    <form method="POST" action="/dashboard/kunjungan/export_excel">
+                        @csrf
                         <div class="form-group row d-flex justify-content-center">
 
                             <div class="col-xs-3 mr-5">
@@ -135,7 +152,7 @@
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
-							</form>
+                </form>
 
             </div>
         </div>

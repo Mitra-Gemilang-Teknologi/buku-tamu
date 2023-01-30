@@ -27,6 +27,7 @@ class CreateVisitTable extends Migration
 			$table->longText('visitor_description')->nullable();
 			$table->date('visit_time');
 			$table->string('visit_purpose');
+			$table->string('status');
 			$table->softDeletes();
 			$table->timestamps();
 		});

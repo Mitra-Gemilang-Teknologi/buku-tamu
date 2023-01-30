@@ -25,7 +25,7 @@ class BukuTamuController extends Controller
 	{
 		$this->middleware(function ($request, $next) {
 			if (session('QuestionAlert')) {
-				// Alert::success(session('success'));
+				Alert::success(session('success'));
 				Alert::question('Terimakasih', 'Apakah Ingin Mengisi Survey?');
 				// Alert::info('Terimakasih', 'Data anda berhasil disimpan!');
 			}
@@ -36,7 +36,7 @@ class BukuTamuController extends Controller
 
 			if (session('SurveyAlert')) {
 				// Alert::success(session('success'));
-				Alert::info('Terimakasih', 'Data survey anda berhasil disimpan!');
+				Alert::info('Terimakasih', 'Data  anda berhasil disimpan!');
 			}
 
 
@@ -59,6 +59,48 @@ class BukuTamuController extends Controller
 			'kecamatan' => $kecamatan
 		]);
 	}
+
+	public function list()
+	{
+
+
+		return view('ListTamu.index', [
+			'Visit' => Visit::with('village')->with('district')->get(),
+			"title" => "List Buku Tamu",
+			"active" => "List Buku Tamu",
+		]);
+	}
+
+
+	function isi_survey(Request $request)
+	{
+
+		try {
+			$id = $request->id_visitor;
+			$visitor = Visit::where('id', $id)->first();
+			$datax = [
+
+				'visitor_name' => $visitor->visitor_name,
+				'visitor_education' => $visitor->visitor_education,
+				'visit_time' => $visitor->visit_time,
+				'visitor_village' => $visitor->visitor_village,
+				'visitor_disctrict'  =>   $visitor->visitor_disctrict,
+				'visitor_address' => $visitor->visitor_village,
+				'visitor_neighborhood_association' => $visitor->visitor_neighborhood_association,
+				'visitor_citizen_association' =>   $visitor->visitor_citizen_association,
+				'visitor_age' => $visitor->visitor_age,
+				'visitor_gender' => $visitor->visitor_gender,
+				'visit_purpose' => $visitor->visit_purpose,
+				'visitor_description' => $visitor->visitor_description,
+				'status' => $visitor->status
+			];
+			session($datax);
+			return redirect('/skm');
+		} catch (\Throwable $th) {
+			return redirect('/list/buku-tamu')->with('error', 'Error during the creation!');
+		}
+	}
+
 
 	/**
 	 * Show the form for creating a new resource.
@@ -94,6 +136,7 @@ class BukuTamuController extends Controller
 				'visitor_gender' => 'required',
 				'visit_purpose' => 'required',
 				'visitor_description' => '',
+				'status' => ''
 			]);
 
 			if ($request->visitor_address === null) {
@@ -114,10 +157,10 @@ class BukuTamuController extends Controller
 				}
 
 				DB::table('visitor_has_services')->insert($arr);
-				session($validateData);
-				return redirect('/')->with('QuestionAlert', 'Created successfully!');
+				// session($validateData);
+				return redirect('/')->with('SurveyAlert', 'Created successfully!');
 			} catch (\Throwable $th) {
-				dd($th);
+
 				return redirect('/')->with('error', 'Error during the creation!');
 			}
 		} catch (\Throwable $th) {

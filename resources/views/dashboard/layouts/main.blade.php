@@ -6,6 +6,7 @@
  @include('dashboard.layouts.sidebar')
 
   <!-- Content Wrapper. Contains page content -->
+	 @include('sweetalert::alert')
     @yield('container')
   <!-- /.content-wrapper -->
  {{-- @include('dashboard.layouts.footer') --}}

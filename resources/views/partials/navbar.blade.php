@@ -16,15 +16,7 @@
                         <a class="nav-link fw-bold {{ ($active === 'Buku Tamu')? 'active' : '' }}" href="/">BUKU TAMU</a>
                     </li>
 
-                    <!-- <li class="nav-item">
-                        <a class="nav-link fw-bold {{ ($active === 'posts')? 'active' : '' }}" href="/posts">Blog</a>
-                    </li> -->
-                    <li class="nav-item">
-                        <a class="nav-link  fw-bold{{ ($active === 'STSATISTIKTAMU')? 'active' : '' }}" href="/statistik/buku-tamu">STATISTIK BUKU TAMU</a>
-                    </li>
-										  <li class="nav-item">
-                        <a class="nav-link  fw-bold{{ ($active === 'STSATISTIKSKM')? 'active' : '' }}" href="/statistik/skm">STATISTIK SKM</a>
-                    </li>
+
 
                 </ul>
                 <!-- <ul class="navbar-nav ms-auto">

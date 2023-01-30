@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
 use Illuminate\Database\Seeder;
 use Laravolt\Indonesia\Seeds\CitiesSeeder;
 use Laravolt\Indonesia\Seeds\VillagesSeeder;
@@ -28,11 +29,11 @@ class DatabaseSeeder extends Seeder
 			DistrictsSeeder::class,
 			VillagesSeeder::class,
 			IndoRegionSeeder::class,
-			RoleSeeder::class,
-			UserSeeder::class
+			// RoleSeeder::class,
+			// UserSeeder::class
 		]);
 
-		// User::factory(1)->create();
+		User::factory(1)->create();
 
 		// User::create([
 		//     'name' => 'Dani Hidayat',

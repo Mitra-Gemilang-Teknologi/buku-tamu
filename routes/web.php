@@ -38,9 +38,10 @@ Route::get('/skm', [SkmController::class, 'index']);
 Route::get('/buku-tamu', [BukuTamuController::class, 'index']);
 Route::get('/remove', [BukuTamuController::class, 'remove']);
 Route::get('/kepuasan', [SatisfactionController::class, 'index']);
+Route::get('/list/buku-tamu', [BukuTamuController::class, 'list']);
 Route::resource('/kunjungan', BukuTamuController::class);
 Route::resource('/simpan_survey', SkmController::class);
-
+Route::POST('/isi-survey', [BukuTamuController::class, 'isi_survey']);
 //get SUb Jenis Layanan
 Route::post('/data/subJenisLayanan', [BukuTamuController::class, 'subJenisLayanan'])->name('subJenisLayanan.post');
 Route::post('/data/subJenisLayananskm', [SkmController::class, 'subJenisLayananskm'])->name('subJenisLayananskm.post');
@@ -73,6 +74,7 @@ Route::post('/register', [RegisterController::class, 'store']);
 // Dashboard
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
 Route::get('/dashboard/skm', [DashboardController::class, 'skm'])->middleware('auth');
+
 Route::get('/data/jenis-kelamin/', [DashboardController::class, 'get_jenis_kelamin'])->name('data.jk');
 Route::get('/data/jenis-kelamin/skm', [DashboardController::class, 'get_jenis_kelamin_skm'])->name('data.jk');
 Route::get('/data/kepuasan/skm', [DashboardController::class, 'get_kepuasan_skm'])->name('data.jk');
@@ -97,6 +99,7 @@ Route::GET('/dashboard/categories/checkSlug', [DashboardCategory::class, 'checkS
 Route::resource('/dashboard/categories', DashboardCategory::class)->middleware('admin');
 Route::resource('/dashboard/profile', User::class)->middleware('auth');
 Route::resource('/dashboard/bukutamu', DashboardTamuController::class)->middleware('auth');
+Route::post('/bukutamu/update', [DashboardTamuController::class, 'updateTamu'])->middleware('auth');
 Route::resource('/dashboard/surveytamu', DashboardSurveyController::class)->middleware('auth');
 Route::resource('/inbox', InboxController::class);
 
