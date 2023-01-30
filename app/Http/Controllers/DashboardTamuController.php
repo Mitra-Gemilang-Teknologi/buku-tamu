@@ -35,9 +35,17 @@ class DashboardTamuController extends Controller
 		if (auth()->guest()) {
 			abort(403);
 		}
-
+		$countNotif = DB::table('visits')
+			->where('status', '=', '0')
+			->count();
+		$dataNotif = DB::table('visits')
+			->where('status', '=', '0')
+			->limit(3)
+			->get();
 
 		return view('dashboard.bukutamu.index', [
+			'countNotif' => $countNotif,
+			'dataNotif' => $dataNotif,
 			'Visit' => Visit::with('village')->with('district')->get(),
 
 		]);

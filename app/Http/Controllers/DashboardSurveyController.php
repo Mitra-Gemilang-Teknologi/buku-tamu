@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Exports\SurveyorExport;
 use Illuminate\Http\Request;
 use App\Models\Surveyor;
+use Illuminate\Support\Facades\DB;
 
 class DashboardSurveyController extends Controller
 {
@@ -18,7 +19,16 @@ class DashboardSurveyController extends Controller
 		if (auth()->guest()) {
 			abort(403);
 		}
+		$countNotif = DB::table('visits')
+			->where('status', '=', '0')
+			->count();
+		$dataNotif = DB::table('visits')
+			->where('status', '=', '0')
+			->limit(3)
+			->get();
 		return view('dashboard.surveytamu.index', [
+			'countNotif' => $countNotif,
+			'dataNotif' => $dataNotif,
 			'Surveyor' => Surveyor::with('subServices')->with('village')->with('district')->get()
 		]);
 	}

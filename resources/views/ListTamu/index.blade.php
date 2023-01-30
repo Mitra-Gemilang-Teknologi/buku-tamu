@@ -23,20 +23,14 @@
                     <table id="example2" class="table table-bordered table-hover">
                         <thead>
                             <tr>
-                                <th>Form Survey</th>
-                                <th>Tanggal</th>
+
+																 <th>Nama</th>
                                 <th>Jenis Pelayanan</th>
-                                <th>Nama</th>
-                                <th>Umur</th>
-                                <th>Pendidikan</th>
-                                <th>Jenis Kelamin</th>
-                                <th>Kecamatan</th>
-                                <th>Desa</th>
-                                <th>RT</th>
-                                <th>RW</th>
-                                <th>Tujuan</th>
-                                <th>Alamat(Luar Ciamis)</th>
-                                <th>Keterangan</th>
+                               <th>Tanggal</th>
+															 <th>Alamat</th>
+															 <th>Status</th>
+															 <th>Aksi</th>
+
 
                             </tr>
                         </thead>
@@ -44,23 +38,8 @@
 
                             @foreach ($Visit as $kunjungan)
                                 <tr>
-                                    <td>
-																			@if ($kunjungan->status == 1)
-																				<form action="/form/isi-survey" class="d-inline"method="post">
-                                            @csrf
-																						<input type="hidden" name="id_visitor" value="{{$kunjungan->id}}" id="">
-                                            <button class="btn btn-primary"
-                                                onclick="return confirm('Apakah Yakin Ingin Mengisi Survey?')">Masuk Survey<span
-                                                    data-feather="x-circle"></span></button>
-                                        </form>
-																				@elseif ($kunjungan->status == 2)
-																				<span class="badge badge-pill badge-success">Sudah Dilayani</span>
-																				@else
-																					<span class="badge badge-pill badge-danger">Belum Dilayani</span>
-																			@endif
+																	<td>{{ $kunjungan->visitor_name }}</td>
 
-                                    </td>
-                                    <td>{{ $kunjungan->visit_time }}</td>
 
                                     <td>
                                         @foreach ($kunjungan->subServices as $subServices)
@@ -68,19 +47,35 @@
                                         @endforeach
 
                                     </td>
-                                    <td>{{ $kunjungan->visitor_name }}</td>
-                                    <td>{{ $kunjungan->visitor_age }}</td>
-                                    <td>{{ $kunjungan->visitor_education }}</td>
-                                    <td>{{ $kunjungan->visitor_gender }}</td>
-                                    <td>{{ $kunjungan->visitor_disctrict !== null ? $kunjungan->district->name : '' }}
+                                  	<td>{{ $kunjungan->visit_time }}</td>
+																		<td>@if ($kunjungan->district != null)
+																			Rt {{$kunjungan->visitor_neighborhood_association}} /Rw {{$kunjungan->visitor_citizen_association}} Desa {{$kunjungan->village->name}} Kec. {{$kunjungan->district->name}}
+
+																		@endif</td>
+																		<td>@if ($kunjungan->status == 0)
+																			   <span class="badge badge-pill badge-danger">Belum Dilayani</span>
+																				 @else
+																				  <span class="badge badge-pill badge-success">Sudah Dilayani</span>
+																		@endif</td>
+                                    <td>
+                                        @if ($kunjungan->status == 1)
+                                            <form action="/form/isi-survey" class="d-inline"method="post">
+                                                @csrf
+                                                <input type="hidden" name="id_visitor" value="{{ $kunjungan->id }}"
+                                                    id="">
+                                                <button class="btn btn-primary"
+                                                    onclick="return confirm('Apakah Yakin Ingin Mengisi Survey?')">Masuk
+                                                    Survey<span data-feather="x-circle"></span></button>
+                                            </form>
+                                        @elseif ($kunjungan->status == 2)
+                                            <span class="badge badge-pill badge-success">Sudah Dilayani</span>
+                                        @else
+                                            <span class="badge badge-pill badge-danger">Belum Dilayani</span>
+                                        @endif
+
                                     </td>
-                                    <td>{{ $kunjungan->visitor_village !== null ? $kunjungan->village->name : '' }}
-                                    </td>
-                                    <td>{{ $kunjungan->visitor_neighborhood_association }}</td>
-                                    <td>{{ $kunjungan->visitor_citizen_association }}</td>
-                                    <td>{{ $kunjungan->visit_purpose }}</td>
-                                    <td>{{ $kunjungan->visitor_address }}</td>
-                                    <td>{{ $kunjungan->visitor_description }}</td>
+
+
 
 
                                 </tr>

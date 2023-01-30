@@ -31,7 +31,19 @@ class DashboardController extends Controller
 			->whereMonth('visit_time', Carbon::now()->month)
 			->get()
 			->count();
+		$countNotif = DB::table('visits')
+			->where('status', '=', '0')
+			->count();
+		$dataNotif = DB::table('visits')
+			->where('status', '=', '0')
+			->limit(3)
+			->get();
+
+
 		return view('dashboard.index', [
+
+			'countNotif' => $countNotif,
+			'dataNotif' => $dataNotif,
 			'countDay' => $countDay,
 			'countWeek' => $countWeek[0]->total,
 			'countMonth' => $countMonth,
@@ -58,7 +70,16 @@ class DashboardController extends Controller
 			->whereMonth('visit_time', Carbon::now()->month)
 			->get()
 			->count();
+		$countNotif = DB::table('visits')
+			->where('status', '=', '0')
+			->count();
+		$dataNotif = DB::table('visits')
+			->where('status', '=', '0')
+			->limit(3)
+			->get();
 		return view('dashboard.skm.index', [
+			'countNotif' => $countNotif,
+			'dataNotif' => $dataNotif,
 			'countDay' => $countDay,
 			'countWeek' => $countWeek[0]->total,
 			'countMonth' => $countMonth,
