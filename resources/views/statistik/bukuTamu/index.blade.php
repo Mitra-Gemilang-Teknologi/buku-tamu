@@ -123,7 +123,7 @@
             <div class="card-body">
                 <div class="tab-content p-0">
                     <!-- Morris chart - Sales -->
-                    <div class="col-md-12" style="background:rgb(170, 141, 208)">
+                    <div class="col-md-12">
                         <canvas id="myChart" width="200" height="100"></canvas>
                     </div>
                 </div>
