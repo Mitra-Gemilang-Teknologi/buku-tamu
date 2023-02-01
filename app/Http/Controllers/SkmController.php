@@ -71,9 +71,6 @@ class SkmController extends Controller
 
 
 			try {
-
-
-
 				$last = Surveyor::create($validateData);
 				Visit::where('id', $request->visitor_id)
 					->update([
@@ -108,11 +105,13 @@ class SkmController extends Controller
 				]);
 				return redirect('/kepuasan');
 			} catch (\Throwable $th) {
+
+				dd($th);
 				return redirect('/skm')->with('error', 'Error during the creation!');
 			}
 			//code...
 		} catch (\Throwable $th) {
-			//throw $th;
+
 			return redirect('/skm')->with('error', 'Error during the creation! validate gone wrong');
 		}
 	}
