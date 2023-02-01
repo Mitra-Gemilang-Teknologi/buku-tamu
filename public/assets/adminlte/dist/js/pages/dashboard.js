@@ -332,11 +332,10 @@ $.ajax({
 }).done(function (response) {
   var tanggalKunjungan = []
   var totalKunjungan = []
-  $.each(response.data, function(index, value){
-      tanggalKunjungan.push(value.tanggal_kunjungan)
-      totalKunjungan.push(value.total_kunjungan)
+  $.each(response.data, function (index, value) {
+    tanggalKunjungan.push(value.tanggal_kunjungan)
+    totalKunjungan.push(value.total_kunjungan)
   })
-  console.log(tanggalKunjungan)
   var ctxHarian = document.getElementById("myChartHarian").getContext('2d');
   var myChartHarian = new Chart(ctxHarian, {
     type: "bar",
@@ -396,23 +395,15 @@ $.ajax({
   dataType: 'json',
   method: 'get'
 }).done(function (response) {
-  console.log('res', response);
-  var tanggalKunjungan = []
-  var totalKunjungan = []
-  $.each(response.data, function (index, value) {
-    tanggalKunjungan.push(value.tanggal_kunjungan)
-    totalKunjungan.push(value.total_kunjungan)
-  })
-  console.log(tanggalKunjungan)
   var ctxMingguan = document.getElementById("myChartMingguan").getContext('2d');
   var myChartMingguan = new Chart(ctxMingguan, {
     type: "bar",
     data: {
-      labels: tanggalKunjungan,
+      labels: ["Minggu ke 1", "Minggu ke 2", "Minggu ke 3", "Minggu ke 4", "Minggu ke 5"],
       datasets: [
         {
           label: "Total Kunjungan",
-          data: totalKunjungan,
+          data: [response.minggu1[0].total, response.minggu2[0].total, response.minggu3[0].total, response.minggu4[0].total, response.minggu5[0].total],
           backgroundColor: [
             "rgba(54, 162, 235)",
             "rgba(54, 162, 235)",
@@ -463,16 +454,6 @@ $.ajax({
   dataType: 'json',
   method: 'get'
 }).done(function (response) {
-  console.log('resBulanan', response);
-  let Namalayanan = []
-  let totalLayanan = []
-  $.each(response.data, function (index, value) {
-
-
-    Namalayanan.push(value.layanan)
-    totalLayanan.push(value.total_kunjungan)
-  })
-  console.log(totalLayanan)
   var ctxBulanan = document.getElementById("myChartBulanan").getContext('2d');
   var myChartLayanan = new Chart(ctxBulanan, {
     type: "bar",
@@ -481,7 +462,9 @@ $.ajax({
       datasets: [
         {
           label: "Total Kunjungan",
-          data: totalLayanan,
+          data: [response.data[0].total_kunjungan[0].total, response.data[1].total_kunjungan[0].total, response.data[2].total_kunjungan[0].total, response.data[3].total_kunjungan[0].total, response.data[4].total_kunjungan[0].total,
+          response.data[5].total_kunjungan[0].total, response.data[6].total_kunjungan[0].total, response.data[7].total_kunjungan[0].total, response.data[8].total_kunjungan[0].total, response.data[9].total_kunjungan[0].total, response.data[10].total_kunjungan[0].total,
+          response.data[11].total_kunjungan[0].total],
           backgroundColor: [
             "rgba(54, 162, 235)",
             "rgba(54, 162, 235)",
@@ -529,16 +512,12 @@ $.ajax({
   dataType: 'json',
   method: 'get'
 }).done(function (response) {
-  console.log('res', response);
   let Namalayanan = []
   let totalLayanan = []
   $.each(response.data, function (index, value) {
-
-
     Namalayanan.push(value.layanan)
     totalLayanan.push(value.total)
   })
-  console.log(totalLayanan)
   var ctxLayanan = document.getElementById("myChartLayanan").getContext('2d');
   var myChartLayanan = new Chart(ctxLayanan, {
     type: "bar",

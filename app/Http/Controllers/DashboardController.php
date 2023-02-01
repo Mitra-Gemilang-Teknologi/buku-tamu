@@ -175,7 +175,6 @@ class DashboardController extends Controller
 	function get_data_kunjungan_layanan(Request $request)
 	{
 		$layanan = ServiceType::all();
-
 		$Datalayanan = [];
 		$no = 1;
 		foreach ($layanan as $layanan) {
@@ -188,41 +187,65 @@ class DashboardController extends Controller
 			'data' => $Datalayanan,
 		]);
 	}
+
+	
 	function get_data_kunjungan_mingguan(Request $request)
 	{
-		$minggu1 = DB::select('SELECT COUNT(*) as total FROM surveyor where surveyor_education="SD"');
-		$minggu2 = DB::select('SELECT COUNT(*) as total FROM surveyor where surveyor_education="SD"');
-		$minggu3 = DB::select('SELECT COUNT(*) as total FROM surveyor where surveyor_education="SD"');
-		$minggu4 = DB::select('SELECT COUNT(*) as total FROM surveyor where surveyor_education="SD"');
+		$minggu1 = DB::select('SELECT COUNT(WEEK(visit_time)) as total FROM `visits` WHERE WEEK(visit_time)="1"');
+		$minggu2 = DB::select('SELECT COUNT(WEEK(visit_time)) as total FROM `visits` WHERE WEEK(visit_time)="2"');
+		$minggu3 = DB::select('SELECT COUNT(WEEK(visit_time)) as total FROM `visits` WHERE WEEK(visit_time)="3"');
+		$minggu4 = DB::select('SELECT COUNT(WEEK(visit_time)) as total FROM `visits` WHERE WEEK(visit_time)="4"');
+		$minggu5 = DB::select('SELECT COUNT(WEEK(visit_time)) as total FROM `visits` WHERE WEEK(visit_time)="5"');
 		return response()->json([
-			"Minggua1" => $minggu1,
-			"Minggu2" => $minggu2,
-			"Minggu3" => $minggu3,
-			"Minggu4" => $minggu3,
-
+			"minggu1" => $minggu1,
+			"minggu2" => $minggu2,
+			"minggu3" => $minggu3,
+			"minggu4" => $minggu4,
+			"minggu5" => $minggu5,
 		]);
 	}
 	function get_data_kunjungan_bulanan(Request $request)
 	{
-		$data = DB::table('visits')
-			->groupBy('visit_time')
-			->get();
-		$arr = [];
-		$bulan = 1;
-		$no = 1;
-		$Databulan = ["January", "February", "Maret", "April", "Mei", "Juni", "July", "Agustus", "September", "Oktober", "November", "Desember"];
-		foreach ($data as $val) {
-			$arrx["bulan"] = $Databulan[0];
-			$arrx["total_kunjungan"] = \App\Models\Visit::whereMonth('visit_time', $bulan)->count();
+		$Databulan = [1 => "January", 2 => "February", 3 => "Maret", 4 => "April", 5 => "Mei", 6 => "Juni", 7 => "July", 8 => "Agustus", 9 => "September", 10 => "Oktober", 11 => "November", 12 => "Desember"];
+		foreach ($Databulan as $key => $val) {
+			$arrx["bulan"] = $val;
+			$arrx["total_kunjungan"] = DB::select('SELECT COUNT(*) as total FROM visits WHERE MONTH(visit_time)=' . $key . '');
 			$arr[] = $arrx;
 		}
-
-
-
 		return response()->json([
 			'data' => $arr,
 		]);
 	}
+
+
+	function get_data_kunjungan_mingguan_skm(Request $request)
+	{
+		$minggu1 = DB::select('SELECT COUNT(WEEK(surveyor_time)) as total FROM `surveyor` WHERE WEEK(surveyor_time)="1"');
+		$minggu2 = DB::select('SELECT COUNT(WEEK(surveyor_time)) as total FROM `surveyor` WHERE WEEK(surveyor_time)="2"');
+		$minggu3 = DB::select('SELECT COUNT(WEEK(surveyor_time)) as total FROM `surveyor` WHERE WEEK(surveyor_time)="3"');
+		$minggu4 = DB::select('SELECT COUNT(WEEK(surveyor_time)) as total FROM `surveyor` WHERE WEEK(surveyor_time)="4"');
+		$minggu5 = DB::select('SELECT COUNT(WEEK(surveyor_time)) as total FROM `surveyor` WHERE WEEK(surveyor_time)="5"');
+		return response()->json([
+			"minggu1" => $minggu1,
+			"minggu2" => $minggu2,
+			"minggu3" => $minggu3,
+			"minggu4" => $minggu4,
+			"minggu5" => $minggu5,
+		]);
+	}
+	function get_data_kunjungan_bulanan_skm(Request $request)
+	{
+		$Databulan = [1 => "January", 2 => "February", 3 => "Maret", 4 => "April", 5 => "Mei", 6 => "Juni", 7 => "July", 8 => "Agustus", 9 => "September", 10 => "Oktober", 11 => "November", 12 => "Desember"];
+		foreach ($Databulan as $key => $val) {
+			$arrx["bulan"] = $val;
+			$arrx["total_kunjungan"] = DB::select('SELECT COUNT(*) as total FROM surveyor WHERE MONTH(surveyor_time)=' . $key . '');
+			$arr[] = $arrx;
+		}
+		return response()->json([
+			'data' => $arr,
+		]);
+	}
+
 	function get_data_kunjungan_skm(Request $request)
 	{
 		$data = DB::table('surveyor')

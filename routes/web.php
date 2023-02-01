@@ -76,8 +76,8 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('aut
 Route::get('/dashboard/skm', [DashboardController::class, 'skm'])->middleware('auth');
 
 Route::get('/data/jenis-kelamin/', [DashboardController::class, 'get_jenis_kelamin'])->name('data.jk');
-Route::get('/data/jenis-kelamin/skm', [DashboardController::class, 'get_jenis_kelamin_skm'])->name('data.jk');
-Route::get('/data/kepuasan/skm', [DashboardController::class, 'get_kepuasan_skm'])->name('data.jk');
+Route::get('/data/jenis-kelamin/skm', [DashboardController::class, 'get_jenis_kelamin_skm']);
+Route::get('/data/kepuasan/skm', [DashboardController::class, 'get_kepuasan_skm']);
 Route::get('/data/pendidikan', [DashboardController::class, 'get_data_pendidikan'])->name('data.pendidikan');
 Route::get('/data/pendidikan/skm', [DashboardController::class, 'get_data_pendidikan_skm'])->name('data.pendidikan.skm');
 Route::get('/data/kunjungan', [DashboardController::class, 'get_data_kunjungan'])->name('data.kunjungan');
@@ -86,6 +86,8 @@ Route::get('/data/kunjungan/mingguan', [DashboardController::class, 'get_data_ku
 Route::get('/data/kunjungan/bulanan', [DashboardController::class, 'get_data_kunjungan_bulanan'])->name('data.kunjungan.bulanan');
 Route::get('/data/kunjungan/skm', [DashboardController::class, 'get_data_kunjungan_skm'])->name('data.kunjungan.skm');
 Route::get('/data/survey/layanan', [DashboardController::class, 'get_survey_unsur_pelayanan'])->name('data.survey.layanan');
+Route::get('/data/kunjungan/mingguan/skm', [DashboardController::class, 'get_data_kunjungan_mingguan_skm']);
+Route::get('/data/kunjungan/bulanan/skm', [DashboardController::class, 'get_data_kunjungan_bulanan_skm']);
 Route::get('/home', function () {
 	return redirect('/dashboard');
 });
