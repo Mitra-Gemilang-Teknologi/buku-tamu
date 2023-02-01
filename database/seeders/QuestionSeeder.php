@@ -30,7 +30,7 @@ class QuestionSeeder extends Seeder
         ]);
 
         Question::create([
-            'question_description' => 'Bagimana pendapat Saudara tentang kesesuaian produk pelayanan antara yang tercantum dalam standard pelayanan dengan hasil yang diberikan?',
+            'question_description' => 'Bagaimana pendapat Saudara tentang kesesuaian produk pelayanan antara yang tercantum dalam standard pelayanan dengan hasil yang diberikan?',
             'question_image' => '6.jpg',
         ]);
 

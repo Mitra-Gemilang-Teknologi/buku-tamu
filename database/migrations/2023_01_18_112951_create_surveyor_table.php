@@ -25,7 +25,7 @@ class CreateSurveyorTable extends Migration
 			$table->string('surveyor_neighborhood_association')->nullable();
 			$table->longText('surveyor_address')->nullable();
 			$table->longText('surveyor_description')->nullable();
-			$table->string('surveyor_time');
+			$table->date('surveyor_time');
 			$table->softDeletes();
 			$table->timestamps();
 		});

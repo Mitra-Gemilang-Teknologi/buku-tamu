@@ -171,7 +171,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <input type="text" class="form-control  @error('visitor_age') is-invalid @enderror"
+                                    <input type="number" class="form-control  @error('visitor_age') is-invalid @enderror"
                                         id="visitor_age" name="visitor_age" required autofocus
                                         value="{{ old('visitor_age') }}" placeholder="Usia">
                                     @error('visitor_age')
@@ -238,7 +238,7 @@
 
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>Kecamatan</label>
+                                                <label>Kecamatan / Kota</label>
                                                 <div class="styled-select clearfix">
                                                     <select class="wide form-control " name="visitor_disctrict"
                                                         id="kecamatan">
@@ -252,7 +252,7 @@
                                             </div>
 
                                             <div class="form-group">
-                                                <label>Desa</label>
+                                                <label>Desa / Kelurahan</label>
                                                 <div class="styled-select clearfix">
                                                     <select class="form-control" name="visitor_village" id="desa">
 
@@ -278,10 +278,10 @@
                                                     </div>
                                                 </div>
                                             </div>
-																						<label>Alamat</label>
+											<label>Alamat</label>
                                             <div class="form-group add_top_30">
                                                 <textarea id="alamat" name="visitor_address_detail" aria-describedby="visitor_address_detail"
-                                                    class="form-control review_message" placeholder="jln"></textarea>
+                                                    class="form-control review_message" placeholder="Alamat Pelengkap"></textarea>
                                             </div>
 
                                         </div>

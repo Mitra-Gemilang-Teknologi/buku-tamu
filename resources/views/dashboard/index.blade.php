@@ -82,7 +82,7 @@
                     <div class="small-box bg-danger">
                         <div class="inner">
                             <h3>{{ $countYear }}</h3>
-                            <p>Kunjungan Pertahun</p>
+                            <p>Kunjungan Pertahun ini</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-pie-graph"></i>
@@ -135,7 +135,7 @@
                         <div class="card-header">
                             <h3 class="card-title">
                                 <i class="fas fa-chart-bar mr-1"></i>
-                                JUMLAH RESPONDEN SKM BERDASARKAN TIGKAT PENDIDIKAN
+                                JUMLAH RESPONDEN SKM BERDASARKAN TINGKAT PENDIDIKAN
                             </h3>
 
                         </div><!-- /.card-header -->

@@ -39,13 +39,10 @@
                             @foreach ($Visit as $kunjungan)
                                 <tr>
                                     <td>{{ $kunjungan->visitor_name }}</td>
-
-
                                     <td>
                                         @foreach ($kunjungan->subServices as $subServices)
                                             <li> {{ $subServices->subLayanan->sub_service_name }}</li>
                                         @endforeach
-
                                     </td>
                                     <td>{{ $kunjungan->visit_time }}</td>
                                     <td>

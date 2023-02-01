@@ -85,7 +85,7 @@ class BukuTamuController extends Controller
 				'visit_time' => $visitor->visit_time,
 				'visitor_village' => $visitor->visitor_village,
 				'visitor_disctrict'  =>   $visitor->visitor_disctrict,
-				'visitor_address' => $visitor->visitor_village,
+				'visitor_address' => $visitor->visitor_address,
 				'visitor_neighborhood_association' => $visitor->visitor_neighborhood_association,
 				'visitor_citizen_association' =>   $visitor->visitor_citizen_association,
 				'visitor_age' => $visitor->visitor_age,
