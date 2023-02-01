@@ -24,12 +24,12 @@
                         <thead>
                             <tr>
 
-																 <th>Nama</th>
+                                <th>Nama</th>
                                 <th>Jenis Pelayanan</th>
-                               <th>Tanggal</th>
-															 <th>Alamat</th>
-															 <th>Status</th>
-															 <th>Aksi</th>
+                                <th>Tanggal</th>
+                                <th>Alamat</th>
+                                <th>Status</th>
+                                <th>Aksi</th>
 
 
                             </tr>
@@ -38,7 +38,7 @@
 
                             @foreach ($Visit as $kunjungan)
                                 <tr>
-																	<td>{{ $kunjungan->visitor_name }}</td>
+                                    <td>{{ $kunjungan->visitor_name }}</td>
 
 
                                     <td>
@@ -47,16 +47,21 @@
                                         @endforeach
 
                                     </td>
-                                  	<td>{{ $kunjungan->visit_time }}</td>
-																		<td>@if ($kunjungan->district != null)
-																			Rt {{$kunjungan->visitor_neighborhood_association}} /Rw {{$kunjungan->visitor_citizen_association}} Desa {{$kunjungan->village->name}} Kec. {{$kunjungan->district->name}}
-
-																		@endif</td>
-																		<td>@if ($kunjungan->status == 0)
-																			   <span class="badge badge-pill badge-danger">Belum Dilayani</span>
-																				 @else
-																				  <span class="badge badge-pill badge-success">Sudah Dilayani</span>
-																		@endif</td>
+                                    <td>{{ $kunjungan->visit_time }}</td>
+                                    <td>
+                                        @if ($kunjungan->district != null)
+                                            Rt {{ $kunjungan->visitor_neighborhood_association }} /Rw
+                                            {{ $kunjungan->visitor_citizen_association }} Desa
+                                            {{ $kunjungan->village->name }} Kec. {{ $kunjungan->district->name }}
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if ($kunjungan->status == 0)
+                                            <span class="badge badge-pill badge-danger">Belum Dilayani</span>
+                                        @else
+                                            <span class="badge badge-pill badge-success">Sudah Dilayani</span>
+                                        @endif
+                                    </td>
                                     <td>
                                         @if ($kunjungan->status == 1)
                                             <form action="/form/isi-survey" class="d-inline"method="post">

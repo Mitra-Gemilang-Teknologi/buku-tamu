@@ -53,17 +53,17 @@ class SkmController extends Controller
 
 		try {
 			$validateData = $request->validate([
-				'surveyor_name' => 'required',
-				'surveyor_education' => 'required',
-				'surveyor_gender' => 'required',
-				'surveyor_time' => 'required',
-				'surveyor_description'  => 'required',
+				'surveyor_name' => '',
+				'surveyor_education' => '',
+				'surveyor_gender' => '',
+				'surveyor_time' => '',
+				'surveyor_description'  => '',
 				'surveyor_village' => '',
 				'surveyor_disctrict'  =>   '',
 				'surveyor_address' => '',
 				'surveyor_neighborhood_association' => '',
 				'surveyor_citizen_association' =>   '',
-				'surveyor_age' => 'required',
+				'surveyor_age' => '',
 			]);
 
 

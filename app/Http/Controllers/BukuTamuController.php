@@ -125,18 +125,18 @@ class BukuTamuController extends Controller
 
 		try {
 			$validateData = $request->validate([
-				'id_service_type' => 'required',
-				'visitor_name' => 'required',
-				'visitor_education' => 'required',
-				'visit_time' => 'required',
+				'id_service_type' => '',
+				'visitor_name' => '',
+				'visitor_education' => '',
+				'visit_time' => '',
 				'visitor_village' => '',
 				'visitor_disctrict'  =>   '',
 				'visitor_address' => '',
 				'visitor_neighborhood_association' => '',
 				'visitor_citizen_association' =>   '',
-				'visitor_age' => 'required',
-				'visitor_gender' => 'required',
-				'visit_purpose' => 'required',
+				'visitor_age' => '',
+				'visitor_gender' => '',
+				'visit_purpose' => '',
 				'visitor_description' => '',
 				'status' => ''
 			]);
