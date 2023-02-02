@@ -130,21 +130,21 @@
                                 </div>
 
                                 <div class="col-md-6">
-                                    <label class="container_radio version_2"><img src="{{asset('assets/templateskm/survey/smiley/d.png')}}" alt="" width="10%"> Tidak Sesuai
-                                       <input type="radio" id="opsi_3_15" name="id_answer_option[{{ $Question->id_question }}]" value="1" class="required">
-                                       <span class="checkmark"></span>
-                                    </label>
-                                    <label class="container_radio version_2"><img src="{{asset('assets/templateskm/survey/smiley/c.png')}}" alt="" width="10%"> Kurang Sesuai
-                                        <input type="radio" id="opsi_3_16" name="id_answer_option[{{ $Question->id_question }}]" value="2" class="required">
+                                    <label class="container_radio version_2"><img src="{{asset('assets/templateskm/survey/smiley/a.png')}}" alt="" width="10%"> Sangat Sesuai
+                                        <input type="radio" id="opsi_3_18" name="id_answer_option[{{ $Question->id_question }}]" value="4" class="required">
                                         <span class="checkmark"></span>
                                     </label>
                                     <label class="container_radio version_2"><img src="{{asset('assets/templateskm/survey/smiley/b.png')}}" alt="" width="10%"> Sesuai
                                         <input type="radio" id="opsi_3_17" name="id_answer_option[{{ $Question->id_question }}]" value="3" class="required">
                                         <span class="checkmark"></span>
                                     </label>
-                                    <label class="container_radio version_2"><img src="{{asset('assets/templateskm/survey/smiley/a.png')}}" alt="" width="10%"> Sangat Sesuai
-                                        <input type="radio" id="opsi_3_18" name="id_answer_option[{{ $Question->id_question }}]" value="4" class="required">
+                                    <label class="container_radio version_2"><img src="{{asset('assets/templateskm/survey/smiley/c.png')}}" alt="" width="10%"> Kurang Sesuai
+                                        <input type="radio" id="opsi_3_16" name="id_answer_option[{{ $Question->id_question }}]" value="2" class="required">
                                         <span class="checkmark"></span>
+                                    </label>
+                                    <label class="container_radio version_2"><img src="{{asset('assets/templateskm/survey/smiley/d.png')}}" alt="" width="10%"> Tidak Sesuai
+                                       <input type="radio" id="opsi_3_15" name="id_answer_option[{{ $Question->id_question }}]" value="1" class="required">
+                                       <span class="checkmark"></span>
                                     </label>
                                 </div>
 

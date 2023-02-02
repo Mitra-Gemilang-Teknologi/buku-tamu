@@ -40,7 +40,7 @@
 
                                             <th>Tanggal</th>
                                             <th>Status</th>
-                                            <th>Jenis Pelayanan</th>
+                                            <th width="50%">Jenis Pelayanan</th>
                                             <th>Nama</th>
                                             <th>Umur</th>
                                             <th>Pendidikan</th>
@@ -58,7 +58,7 @@
 
                                         @foreach ($Visit as $kunjungan)
                                             <tr>
-                                                <td>{{ $kunjungan->visit_time }}</td>
+                                                <td>{{ date("d-m-Y", strtotime($kunjungan->visit_time));  }}</td>
                                                 <td>
                                                     @if ($kunjungan->status == 0)
                                                         <form method="POST" action="/bukutamu/update" class="mb-5"
@@ -67,8 +67,7 @@
                                                             <input type="hidden" name="visitor_id"
                                                                 value="{{ $kunjungan->id }}" id="">
                                                             <button class="btn btn-primary"
-                                                                onclick="return confirm('Apakah Yakin Ingin Mengisi Survey?')">Selesaikan<span
-                                                                    data-feather="x-circle"></span></button>
+                                                                onclick="return confirm('Apakah Yakin Ingin Mengisi Survey?')">Selesaikan<span data-feather="x-circle"></span></button>
                                                         </form>
                                                     @else
                                                         <span class="badge badge-pill badge-success">Sudah Dilayani</span>
@@ -86,17 +85,13 @@
                                                 <td>{{ $kunjungan->visitor_age }}</td>
                                                 <td>{{ $kunjungan->visitor_education }}</td>
                                                 <td>{{ $kunjungan->visitor_gender }}</td>
-                                                <td>{{ $kunjungan->visitor_disctrict !== null ? $kunjungan->district->name : '' }}
-                                                </td>
-                                                <td>{{ $kunjungan->visitor_village !== null ? $kunjungan->village->name : '' }}
-                                                </td>
+                                                <td>{{ $kunjungan->visitor_disctrict !== null ? $kunjungan->district->name : '' }}</td>
+                                                <td>{{ $kunjungan->visitor_village !== null ? $kunjungan->village->name : '' }}</td>
                                                 <td>{{ $kunjungan->visitor_neighborhood_association }}</td>
                                                 <td>{{ $kunjungan->visitor_citizen_association }}</td>
                                                 <td>{{ $kunjungan->visit_purpose }}</td>
                                                 <td>{{ $kunjungan->visitor_address }}</td>
                                                 <td>{{ $kunjungan->visitor_description }}</td>
-
-
                                             </tr>
                                         @endforeach
                                     </tbody>
