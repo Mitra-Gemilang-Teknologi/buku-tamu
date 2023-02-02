@@ -83,19 +83,29 @@ class SkmController extends Controller
 						'id_answer_option' => $request->id_answer_option[$Question->id_question]
 					]);
 				}
+				if ($request->id_sub_service_type != null) {
+					$arr = [];
+					foreach ($request->id_sub_service_type as $value) {
+						$temp = explode('|', $value);
 
-				$arr = [];
-				foreach ($request->id_sub_service_type as $value) {
-					$temp = explode('|', $value);
+						$arr[] =  [
+							'surveyor_id' => $last->id,
+							'service_id' => 	$temp[0],
+							'sub_service_id' => 	$temp[1]
+						];
+					}
 
-					$arr[] =  [
-						'surveyor_id' => $last->id,
-						'service_id' => 	$temp[0],
-						'sub_service_id' => 	$temp[1]
-					];
+					DB::table('surveyor_has_services')->insert($arr);
+				} else {
+					$arr = [];
+					foreach ($request->id_service_type as $data) {
+						$arr[] = [
+							'visitor_id' => $last->id,
+							'service_id' => 	$data
+						];
+					}
+					DB::table('surveyor_has_services')->insert($arr);
 				}
-
-				DB::table('surveyor_has_services')->insert($arr);
 
 				// session()->invalidate();
 				// session()->regenerateToken();

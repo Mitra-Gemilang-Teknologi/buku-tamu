@@ -123,6 +123,9 @@ class BukuTamuController extends Controller
 	public function store(Request $request)
 	{
 
+
+
+
 		try {
 			$validateData = $request->validate([
 				'id_service_type' => '',
@@ -147,25 +150,38 @@ class BukuTamuController extends Controller
 
 			try {
 				$last = Visit::create($validateData);
-				$arr = [];
-				foreach ($request->id_sub_service_type as $value) {
-					$temp = explode('|', $value);
+				if ($request->id_sub_service_type != null) {
+					$arr = [];
+					foreach ($request->id_sub_service_type as $value) {
+						$temp = explode('|', $value);
 
-					$arr[] =  [
-						'visitor_id' => $last->id,
-						'service_id' => 	$temp[0],
-						'sub_service_id' => 	$temp[1]
-					];
+						$arr[] =  [
+							'visitor_id' => $last->id,
+							'service_id' => 	$temp[0],
+							'sub_service_id' => 	$temp[1]
+						];
+					}
+
+					DB::table('visitor_has_services')->insert($arr);
+				} else {
+					$arr = [];
+					foreach ($request->id_service_type as $data) {
+						$arr[] = [
+							'visitor_id' => $last->id,
+							'service_id' => 	$data
+						];
+					}
+					DB::table('visitor_has_services')->insert($arr);
 				}
 
-				DB::table('visitor_has_services')->insert($arr);
 				// session($validateData);
 				return redirect('/')->with('SurveyAlert', 'Created successfully!');
 			} catch (\Throwable $th) {
-
+				dd($th);
 				return redirect('/')->with('error', 'Error during the creation!');
 			}
 		} catch (\Throwable $th) {
+			dd($th);
 			return redirect('/')->with('error', 'Error during the creation!');
 		}
 	}
