@@ -14,10 +14,7 @@ class ServiceTypeSeeder extends Seeder
 	 */
 	public function run()
 	{
-		ServiceType::create([
-			'id_service_type' => 999,
-			'service_name' => 'All'
-		]);
+
 		ServiceType::create([
 			'service_name' => 'Pekerjaan Umum dan Perumahan Rakyat'
 		]);
@@ -71,6 +68,10 @@ class ServiceTypeSeeder extends Seeder
 
 		ServiceType::create([
 			'service_name' => 'Penelitian dan Pengembangan'
+		]);
+		ServiceType::create([
+			'id_service_type' => 999,
+			'service_name' => 'All'
 		]);
 	}
 }

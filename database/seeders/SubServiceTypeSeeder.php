@@ -14,10 +14,7 @@ class SubServiceTypeSeeder extends Seeder
 	 */
 	public function run()
 	{
-		SubServiceType::create([
-			'id_service_type' => 999,
-			'sub_service_name' => 'All'
-		]);
+
 		SubServiceType::create([
 			'id_service_type' => 1,
 			'sub_service_name' => 'Persetujuan bangunan Gedung (PBG)'
@@ -291,6 +288,10 @@ class SubServiceTypeSeeder extends Seeder
 		SubServiceType::create([
 			'id_service_type' => 14,
 			'sub_service_name' => 'Surat Keterangan Penelitian'
+		]);
+		SubServiceType::create([
+			'id_service_type' => 999,
+			'sub_service_name' => 'All'
 		]);
 	}
 }
