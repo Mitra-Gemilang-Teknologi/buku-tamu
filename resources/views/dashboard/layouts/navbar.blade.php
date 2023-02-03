@@ -30,7 +30,7 @@
                         </a> -->
 
                         <input type="hidden" name="visitor_id" value="{{ $item->id }}" id="">
-                        <button class="btn btn-default" onclick="return confirm('Apakah Yakin Ingin Mengisi Survey?')"> <i class="fas fa-user mr-2"></i> {{$item->visitor_name}} - {{$item->created_at}}<span data-feather="x-circle"></span></button>
+                        <button class="btn btn-default" onclick="return confirm('Apakah sudah dilayani?')"> <i class="fas fa-user mr-2"></i> {{$item->visitor_name}} - {{$item->created_at}}<span data-feather="x-circle"></span></button>
                     </form>
                 @endforeach
 
