@@ -20,7 +20,7 @@ class CreateSubServiceTypeTable extends Migration
             $table->softDeletes();
             $table->timestamps();
             
-            $table->foreign('id_service_type')->references('id_service_type')->on('service_type');
+            // $table->foreign('id_service_type')->references('id_service_type')->on('service_type');
         });
     }
 
