@@ -55,7 +55,7 @@ class BukuTamuController extends Controller
 		return view('bukuTamu.index', [
 			"title" => "Buku Tamu",
 			"active" => "Buku Tamu",
-			'serviceType' => ServiceType::all(),
+			'serviceType' => ServiceType::whereNotIn('id_service_type', [999])->get(),
 			'kecamatan' => $kecamatan
 		]);
 	}
