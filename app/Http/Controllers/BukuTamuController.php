@@ -168,7 +168,8 @@ class BukuTamuController extends Controller
 					foreach ($request->id_service_type as $data) {
 						$arr[] = [
 							'visitor_id' => $last->id,
-							'service_id' => 	$data
+							'service_id' => 	$data,
+							'sub_service_id' => 	999
 						];
 					}
 					DB::table('visitor_has_services')->insert($arr);

@@ -32,4 +32,8 @@ class Visit extends Model
 	{
 		return $this->hasMany(VisitorHasService::class, 'visitor_id', 'id')->with('subLayanan');
 	}
+	public function service()
+	{
+		return $this->hasMany(VisitorHasService::class, 'visitor_id', 'id')->with('layanan');
+	}
 }

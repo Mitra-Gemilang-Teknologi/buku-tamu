@@ -53,10 +53,21 @@
                                         @foreach ($Surveyor as $Surveyor)
                                             <tr>
                                                 <td>{{ date('d-m-Y', strtotime($Surveyor->surveyor_time )) }}</td>
+
                                                 <td>
-                                                    @foreach ($Surveyor->subServices as $subServices)
+																										@if (count($Surveyor->subServices) > 1)
+
+																										@foreach ($Surveyor->subServices as $subServices)
                                                         <li> {{ $subServices->subLayanan->sub_service_name }}</li>
                                                     @endforeach
+																										@else
+																											@foreach ($Surveyor->service as $service)
+                                                        <li> {{ $service->layanan->service_name }}</li>
+                                                    @endforeach
+
+																									@endif
+
+
 
                                                 </td>
                                                 <td>{{ $Surveyor->surveyor_name }}</td>

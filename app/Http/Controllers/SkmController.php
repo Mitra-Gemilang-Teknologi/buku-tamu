@@ -100,7 +100,8 @@ class SkmController extends Controller
 					$arr = [];
 					foreach ($request->id_service_type as $data) {
 						$arr[] = [
-							'visitor_id' => $last->id,
+							'surveyor_id' => $last->id,
+							'sub_service_id' => 	999,
 							'service_id' => 	$data
 						];
 					}

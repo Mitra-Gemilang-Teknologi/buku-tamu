@@ -40,9 +40,17 @@
                                 <tr>
                                     <td>{{ $kunjungan->visitor_name }}</td>
                                     <td>
-                                        @foreach ($kunjungan->subServices as $subServices)
-                                            <li> {{ $subServices->subLayanan->sub_service_name }}</li>
-                                        @endforeach
+                                       	@if (count($kunjungan->subServices) > 1)
+
+																										@foreach ($kunjungan->subServices as $subServices)
+                                                        <li> {{ $subServices->subLayanan->sub_service_name }}</li>
+                                                    @endforeach
+																										@else
+																											@foreach ($kunjungan->service as $service)
+                                                        <li> {{ $service->layanan->service_name }}</li>
+                                                    @endforeach
+
+																									@endif
                                     </td>
                                     <td>{{ $kunjungan->visit_time }}</td>
                                     <td>

@@ -16,7 +16,7 @@ class Surveyor extends Model
 	use HasFactory, SoftDeletes;
 
 	public $table = 'surveyor'; // dilakukan seperti ini agar tidak menjadi plural
-	
+
 	protected $guarded  = ['id']; //yang tidak  boleh di isi
 
 	function village()
@@ -31,5 +31,9 @@ class Surveyor extends Model
 	public function subServices()
 	{
 		return $this->hasMany(SurveyorHasService::class, 'surveyor_id', 'id')->with('subLayanan');
+	}
+	public function service()
+	{
+		return $this->hasMany(SurveyorHasService::class, 'surveyor_id', 'id')->with('layanan');
 	}
 }

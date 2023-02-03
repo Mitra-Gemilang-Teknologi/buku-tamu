@@ -18,4 +18,8 @@ class VisitorHasService extends Model
 	{
 		return $this->belongsTo(SubServiceType::class, 'sub_service_id', 'id_sub_service_type');
 	}
+	public function layanan()
+	{
+		return $this->belongsTo(ServiceType::class, 'service_id', 'id_service_type');
+	}
 }
