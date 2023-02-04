@@ -29,7 +29,9 @@ class DashboardSurveyController extends Controller
 		return view('dashboard.surveytamu.index', [
 			'countNotif' => $countNotif,
 			'dataNotif' => $dataNotif,
-			'Surveyor' => Surveyor::with('subServices')->with('village')->with('district')->get()
+			'Surveyor' => Surveyor::with('subServices')->orderBy('id', 'DESC')
+				->with('village')->with('district')
+				->get()
 		]);
 	}
 	public function export_excel(Request $request)

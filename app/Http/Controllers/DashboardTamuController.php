@@ -46,8 +46,7 @@ class DashboardTamuController extends Controller
 		return view('dashboard.bukutamu.index', [
 			'countNotif' => $countNotif,
 			'dataNotif' => $dataNotif,
-			'Visit' => Visit::with('village')->with('district')->get(),
-
+			'Visit' => Visit::with('village')->with('district')->orderBy('id','DESC')->get(),
 		]);
 	}
 	public function export_excel(Request $request)

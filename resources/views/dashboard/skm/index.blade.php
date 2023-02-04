@@ -25,6 +25,48 @@
         <div class="container-fluid">
             <!-- Small boxes (Stat box) -->
             <div class="row">
+                <div class="col-md-6">
+                    <select class="select-period form-control">
+                        <option value="">Pilih Triwulan</option>
+                        <option value="1">Triwulan 1</option>
+                        <option value="2">Triwulan 2</option>
+                        <option value="3">Triwulan 3</option>
+                        <option value="4">Triwulan 4</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-lg-6 col-6">
+                    <!-- small box -->
+                    <div class="small-box bg-default" style="height: 8em;">
+                        <div class="inner">
+                            <h5>Hasil Survey Kepuasan Masyarakat (SKM)</h5>
+                            <div id="loading-triwulan"></div>
+                            <h3 id="total-triwulan"></h3>
+                            <p id="info-periode"> </p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-pie-graph"></i>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-lg-6 col-6">
+                    <!-- small box -->
+                    <div class="small-box bg-default" style="height: 8em;">
+                        <div class="inner">
+                            <div id="loading-responden"></div>
+                            <h3 id="total-responden"></h3>
+                            <p>Jumlah Responden </p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-pie-graph"></i>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
                 <div class="col-lg-3 col-6">
                     <!-- small box -->
                     <div class="small-box bg-info">
@@ -258,7 +300,50 @@
             </section>
             <!-- /.content -->
         </div>
-        @endsection
-        @push('scripts')
+    </section>
+</div>
+@endsection
+@push('scripts')
+<script>
+    $(document).ready(function() {
+        $.ajax({
+            url: '/data/hasil/triwulan',
+            dataType: 'json',
+            method: 'get',
+            beforeSend: function() {
+                $("#loading-triwulan").html('Loading ...')
+                $("#loading-responden").html('Loading ...')
+            },
+        }).done(function(response) {
+            console.log(response)
+            $("#loading-triwulan").html(' ')
+            $("#loading-responden").html(' ')
+            $("#total-triwulan").html(response.answer.toFixed(2))
+            $("#total-responden").html(response.total_responden[0].total)
+            $("#info-periode").html(response.label_survey)
+        })
 
-        @endpush
+        // FUNCTION OPTION TRIWULAN
+        $('body').on('change', '.select-period', function() {
+            $.ajax({
+                url: '/data/hasil/triwulan',
+                dataType: 'json',
+                method: 'get',
+                data: {
+                    param: $(this).val()
+                },
+                beforeSend: function() {
+                    $("#loading-triwulan").html('Loading ...')
+                    $("#loading-responden").html('Loading ...')
+                },
+            }).done(function(response) {
+                $("#loading-triwulan").html(' ')
+                $("#loading-responden").html(' ')
+                $("#total-triwulan").html(response.answer.toFixed(2))
+                $("#total-responden").html(response.total_responden[0].total)
+                $("#info-periode").html(response.label_survey)
+            })
+        })
+    })
+</script>
+@endpush

@@ -38,10 +38,7 @@ class DashboardController extends Controller
 			->where('status', '=', '0')
 			->limit(3)
 			->get();
-
-
 		return view('dashboard.index', [
-
 			'countNotif' => $countNotif,
 			'dataNotif' => $dataNotif,
 			'countDay' => $countDay,
@@ -188,7 +185,7 @@ class DashboardController extends Controller
 		]);
 	}
 
-	
+
 	function get_data_kunjungan_mingguan(Request $request)
 	{
 		$minggu1 = DB::select('SELECT COUNT(WEEK(visit_time)) as total FROM `visits` WHERE WEEK(visit_time)="1"');
@@ -283,6 +280,72 @@ class DashboardController extends Controller
 			'answer_7' => $answer7,
 			'answer_8' =>  $answer8,
 			'answer_9' => $answer9,
+		]);
+	}
+
+
+	function get_data_kunjungan_layanan_skm(Request $request)
+	{
+		$layanan = ServiceType::all();
+		$Datalayanan = [];
+		$no = 1;
+		foreach ($layanan as $layanan) {
+			$datax['layanan'] = $layanan->service_name;
+			$datax['total'] = \App\Models\SurveyorHasService::where('service_id', $layanan->id_service_type)->count();
+			$Datalayanan[] = $datax;
+		};
+
+		return response()->json([
+			'data' => $Datalayanan,
+		]);
+	}
+
+	public function get_hasil_triwulan(Request $request)
+	{
+		switch ($request["param"]) {
+			case "1":
+				$where = 'MONTH(created_at) BETWEEN 1 AND 3';
+				$info = 'Periode Survey Bulan Januari - Maret';
+				break;
+			case "2":
+				$where = 'MONTH(created_at) BETWEEN 4 AND 6';
+				$info = 'Periode Survey Bulan April - Juni';
+				break;
+			case "3":
+				$where = 'MONTH(created_at) BETWEEN 7 AND 9';
+				$info = 'Periode Survey Bulan Juli - September';
+				break;
+			case "4":
+				$where = 'MONTH(created_at) BETWEEN 9 AND 12';
+				$info = 'Periode Survey Bulan Oktober - Desember';
+				break;
+			default:
+				$where = 'MONTH(created_at) BETWEEN 1 AND 3';
+				$info = 'Periode Survey Bulan Januari - Maret';
+		}
+		$answer1 = DB::select('SELECT (SUM(id_answer_option)/COUNT(*)) * 0.1 as answer FROM survey_result WHERE id_question="1"
+		AND ' . $where . '');
+		$answer2 = DB::select('SELECT (SUM(id_answer_option)/COUNT(*)) * 0.1 as answer FROM survey_result WHERE id_question="2"
+		AND ' . $where . '');
+		$answer3 = DB::select('SELECT (SUM(id_answer_option)/COUNT(*)) * 0.1 as answer FROM survey_result WHERE id_question="3"
+		AND ' . $where . '');
+		$answer4 = DB::select('SELECT (SUM(id_answer_option)/COUNT(*)) * 0.1 as answer FROM survey_result WHERE id_question="4"
+		AND ' . $where . '');
+		$answer5 = DB::select('SELECT (SUM(id_answer_option)/COUNT(*)) * 0.1 as answer FROM survey_result WHERE id_question="5"
+		AND ' . $where . '');
+		$answer6 = DB::select('SELECT (SUM(id_answer_option)/COUNT(*)) * 0.1 as answer FROM survey_result WHERE id_question="6"
+		AND ' . $where . '');
+		$answer7 = DB::select('SELECT (SUM(id_answer_option)/COUNT(*)) * 0.1 as answer FROM survey_result WHERE id_question="7"
+		AND ' . $where . '');
+		$answer8 = DB::select('SELECT (SUM(id_answer_option)/COUNT(*)) * 0.1 as answer FROM survey_result WHERE id_question="8"
+		AND ' . $where . '');
+		$answer9 = DB::select('SELECT (SUM(id_answer_option)/COUNT(*)) * 0.1 as answer FROM survey_result WHERE id_question="9"
+		AND ' . $where . '');
+		$totalResponden = DB::select('SELECT COUNT(*) as total FROM surveyor WHERE ' . $where . '');
+		return response()->json([
+			'answer' => ($answer1[0]->answer + $answer2[0]->answer + $answer3[0]->answer +  $answer4[0]->answer + $answer5[0]->answer + $answer6[0]->answer + $answer7[0]->answer + $answer8[0]->answer + $answer9[0]->answer) * 25,
+			'total_responden' => $totalResponden,
+			'label_survey' => $info
 		]);
 	}
 }

@@ -88,6 +88,8 @@ Route::get('/data/kunjungan/skm', [DashboardController::class, 'get_data_kunjung
 Route::get('/data/survey/layanan', [DashboardController::class, 'get_survey_unsur_pelayanan'])->name('data.survey.layanan');
 Route::get('/data/kunjungan/mingguan/skm', [DashboardController::class, 'get_data_kunjungan_mingguan_skm']);
 Route::get('/data/kunjungan/bulanan/skm', [DashboardController::class, 'get_data_kunjungan_bulanan_skm']);
+Route::get('/data/kunjungan/layanan/skm', [DashboardController::class, 'get_data_kunjungan_layanan_skm']);
+Route::get('/data/hasil/triwulan', [DashboardController::class, 'get_hasil_triwulan']);
 Route::get('/home', function () {
 	return redirect('/dashboard');
 });

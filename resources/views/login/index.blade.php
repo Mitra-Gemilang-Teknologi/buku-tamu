@@ -31,12 +31,12 @@
         @endif
 
         <main class="form-signin">
-            <h1 class="h3 mb-3 fw-normal text-center"> Login</h1>
+            <h1 class="h3 mb-3 fw-normal text-left"> Silahkan Masuk</h1>
             <form action="/login" method="POST">
                 @csrf
                 <div class="form-floating">
                     <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="name@example.com" value="{{ old('email') }}" autofocus required>
-                    <label for="floatingInput">Email address</label>
+                    <label for="floatingInput">Mohon isi alamat email</label>
                     @error('email')
 
                     <div class="invalide-feedback">
@@ -46,9 +46,9 @@
                     @enderror
                 </div>
 
-                <div class="form-floating">
+                <div class="form-floating mt-3">
                     <input type="password" name="password" class="form-control" id="password" placeholder="Password"required>
-                    <label for="floatingPassword">Password</label>
+                    <label for="floatingPassword">Mohon isi password</label>
                 </div>
 
                 <button class="w-100 btn btn-lg submit" type="submit">Login</button>
