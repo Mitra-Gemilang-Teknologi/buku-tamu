@@ -4,7 +4,7 @@ Theme URI: http://www.ansonika.com/wilio/
 Author: Ansonika
 Author URI: http://themeforest.net/user/Ansonika/
 
-[Table of contents] 
+[Table of contents]
 
 1. SITE STRUCTURE and TYPOGRAPHY
 - 1.1 Typography
@@ -52,6 +52,9 @@ body {
   font-family: "Work Sans", Arial, sans-serif;
   color: #555555;
 }
+
+
+
 
 h1,
 h2,
@@ -208,6 +211,15 @@ a.btn_1.medium,
 }
 a.btn_1.rounded,
 .btn_1.rounded {
+  -webkit-border-radius: 25px !important;
+  -moz-border-radius: 25px !important;
+  -ms-border-radius: 25px !important;
+  border-radius: 25px !important;
+  -webkit-box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.2);
+}
+.roundedv2 {
   -webkit-border-radius: 25px !important;
   -moz-border-radius: 25px !important;
   -ms-border-radius: 25px !important;

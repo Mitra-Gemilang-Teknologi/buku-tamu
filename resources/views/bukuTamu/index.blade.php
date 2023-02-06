@@ -13,6 +13,7 @@
 
             <a href="#tamu">
                 <button type="button" class="btn btn-outline-light btn-lg">Mulai</button>
+
             </a>
 
             <a href="#" class="text-decoration-none">
@@ -29,50 +30,77 @@
         <div id="loader_form">
             <div data-loader="circle-side-2"></div>
         </div><!-- /loader_form -->
-
-        <!-- <nav>
-            <ul class="cd-primary-nav">
-            <li><a href="index.html" class="animated_link">Home</a></li>
-            <li><a href="quotation-wizard-version.html" class="animated_link">Quote Version</a></li>
-            <li><a href="review-wizard-version.html" class="animated_link">Review Version</a></li>
-            <li><a href="registration-wizard-version.html" class="animated_link">Registration Version</a></li>
-            <li><a href="about.html" class="animated_link">About Us</a></li>
-            <li><a href="contacts.html" class="animated_link">Contact Us</a></li>
-            </ul>
-            </nav> -->
-        <!-- /menu -->
-
         <div class="container-fluid full-height">
             <div class="row row-height">
-                <div class="col-lg-6 content-left d-none d-md-block">
+
+                <div class="col-lg-6 content-left d-md-block">
                     <div class="content-left-wrapper">
                         <a href="/" id="logo" style="color: white !important;">
                             <img src="{{ asset('/assets/templateskm/assets/form/img/logoKab.png') }}" alt=""
                                 width="70" height="50">Pemerintah Kabupaten Ciamis</a>
 
-                                <div id="social">
-                                    <ul>
-                                        <li><a href="#0"><i class="icon-facebook"></i></a></li>
-                                        <li><a href="#0"><i class="icon-twitter"></i></a></li>
-                                        <li><a href="#0"><i class="icon-google"></i></a></li>
-                                        <li><a href="#0"><i class="icon-linkedin"></i></a></li>
-                                    </ul>
-                                </div>
+																	{{-- <div id="social">
+																			<ul>
+																					<li><a href="#0"><i class="icon-facebook"></i></a></li>
+																					<li><a href="#0"><i class="icon-twitter"></i></a></li>
+																					<li><a href="#0"><i class="icon-google"></i></a></li>
+																					<li><a href="#0"><i class="icon-linkedin"></i></a></li>
+																			</ul>
+																	</div> --}}
                         <!-- /social -->
 
                         <div>
-                            <a href="/" class="btn_1 rounded"> BERANDA</a>
-														<a href="/list/buku-tamu" class="btn_1 rounded">DAFTAR TAMU</a>
-															<a href="/statistik/buku-tamu" class="btn_1 rounded">STATISTIK BUKU TAMU</a>
-                            <a href="/login" class="btn_1 rounded">LOGIN</a>
+                            <div class="container-fluid">
+                                <div class="row d-flex justify-content-between">
+                                  <div class="col-sm-4 mt-2">
+                                    <a href="/"style="background-color: #5C007A !important; color:#F7F7F7; " class="btn btn-default roundedv2"> BERANDA</a>
+                                  </div>
+                                  <div class="col-sm-4 mt-2">
+                                    <a href="/list/buku-tamu"style="background-color: #5C007A !important; color:#F7F7F7 " class="btn btn-default roundedv2">DAFTAR TAMU</a>
+                                  </div>
+                                  <div class="col-sm-4 mt-2">
+                                    <a href="/statistik/buku-tamu"style="background-color: #5C007A !important; color:#F7F7F7 " class="btn btn-default roundedv2">STATISTIK</a>
+                                  </div>
 
+                                </div>
+                                <div class="row d-flex justify-content-between mt-2">
+                                    <div class="col-sm-4">
+
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <a href="/login" style="background-color: #5C007A !important; color:#F7F7F7 " class="btn btn-default roundedv2">LOGIN</a>
+                                      </div>
+                                    <div class="col-sm-4">
+
+                                    </div>
+
+                                  </div>
+
+                              </div>
+
+													{{-- <div class="container">
+														<div class="row">
+															<div class="col-sm">
+																<a href="/" class="btn_1 rounded"> BERANDA</a>
+															</div>
+															<div class="col-sm">
+																<a href="/list/buku-tamu" class="btn_1 rounded">DAFTAR TAMU</a>
+															</div>
+															<div class="col-sm">
+																<a href="/statistik/buku-tamu" class="btn_1 rounded">STATISTIK</a>
+															</div>
+															<div class="col-sm">
+																<a href="/login" class="btn_1 rounded">LOGIN</a>
+															</div>
+														</div>
+													</div> --}}
                             <h3 style="color: white !important;">Selamat Datang di Buku Tamu </h3>
                             <figure><img src="{{ asset('assets/templateskm/assets/form/img/banner.png') }}" alt=""
                                     width="250" height="250" class="img-fluid"></figure>
                             <h2 style="margin: 0 0 20px 0;">Dinas Penanaman Modal Dan Pelayanan Terpadu Satu Pintu</h2>
                             <p>Partisipasi masyarakat sebagai pengguna layanan dalam menilai kinerja penyelenggaraan
                                 pelayanan publik di pemerintah kabupaten ciamis.</p>
-                            <a href="#start" class="btn_1 rounded mobile_btn">Mulai!</a>
+
                         </div>
 
                         <div class="copy">© {{ date('Y') }} Pemerintah Kabupaten Ciamis</div>

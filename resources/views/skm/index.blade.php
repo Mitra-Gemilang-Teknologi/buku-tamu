@@ -36,7 +36,7 @@
                     </ul>
                 </div> --><!-- /social -->
                 <div>
-                    <a href="/" class="btn_1 rounded">BUKU TAMU</a>
+                    {{-- <a href="/" class="btn_1 rounded">BUKU TAMU</a> --}}
 
                     <figure><img src="{{ asset('assets/templateskm/assets/form/img/banner.png') }}" alt=""width="250" height="250" class="img-fluid"></figure>
                     <h3 style="color: white !important;">Survey Kepuasan Masyarakat</h3>
