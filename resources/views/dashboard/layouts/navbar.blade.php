@@ -21,16 +21,13 @@
                 <span class="dropdown-item dropdown-header">{{ $countNotif }} Notifications</span>
                 <div class="dropdown-divider"></div>
                 @foreach ($dataNotif as $item)
-                <form method="POST" action="/bukutamu/update" class="mb-5" enctype="multipart/form-data">
+                <form id="GFG" method="POST" action="/bukutamu/update" class="mb-5" enctype="multipart/form-data">
                     @csrf
-                    <!-- <a href="#" class="dropdown-item" onclick="return confirm('Apakah Yakin Ingin Mengisi Survey?')">
-                            <i class="fas fa-user mr-2"></i>
-    							{{$item->visitor_name}}
-                            <span class="float-right text-muted text-sm">{{$item->created_at}}</span>
-                        </a> -->
-
-                    <input type="hidden" name="visitor_id" value="{{ $item->id }}" id="">
-                    <button class="btn btn-default" onclick="return confirm('Apakah sudah dilayani?')"> <i class="fas fa-user mr-2"></i> {{$item->visitor_name}} - {{$item->created_at}}<span data-feather="x-circle"></span></button>
+                    <a href="javascript:$('#GFG').submit();" class="dropdown-item" onclick="return confirm('Apakah Yakin Ingin Mengisi Survey?')">
+                        <i class="fas fa-user mr-2"></i>
+							{{$item->visitor_name}}
+                        <span class="float-right text-muted text-sm">{{$item->created_at}}</span>
+                    </a>
                 </form>
                 @endforeach
                 <div class="dropdown-divider"></div>
