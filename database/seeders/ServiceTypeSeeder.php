@@ -16,6 +16,14 @@ class ServiceTypeSeeder extends Seeder
 	{
 
 		ServiceType::create([
+			'service_name' => 'Konsultasi'
+		]);
+
+		ServiceType::create([
+			'service_name' => 'Online Single Submission (OSS)'
+		]);
+
+		ServiceType::create([
 			'service_name' => 'Pekerjaan Umum dan Perumahan Rakyat'
 		]);
 
