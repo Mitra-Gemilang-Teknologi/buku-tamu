@@ -24,7 +24,7 @@ class SkmController extends Controller
 		return view('skm.index', [
 			"title" => "SKM",
 			"active" => "SKM",
-			'serviceType' => ServiceType::all(),
+			'serviceType' => ServiceType::whereNotIn('id_service_type', [999])->get(),
 			'Question' => Question::all(),
 			'AnswerOption' => AnswerOption::all()
 		]);

@@ -79,7 +79,7 @@ class ServiceTypeSeeder extends Seeder
 		]);
 		ServiceType::create([
 			'id_service_type' => 999,
-			'service_name' => 'All'
+			'service_name' => 'Lainnya'
 		]);
 	}
 }
