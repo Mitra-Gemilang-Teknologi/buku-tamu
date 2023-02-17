@@ -6,8 +6,7 @@
             <div class=" justify-content-center">
                 <figure><img src="{{ asset('assets/templateskm/assets/form/img/banner2.png') }}" alt="" width="350"
                         height="350" class="img-fluid"></figure>
-                <h1 class="fw-light text-white m-0">Selamat Datang, Di <br> Dinas Penanaman Modal dan Pelayanan
-                    Terpadu Satu Pintu</h1>
+                <h1 class="fw-light text-white m-0">Selamat Datang, Di <br>Aplikasi SUKMA,Survey Kepuasan Masyarakat</h1>
                 <br>
             </div>
 
