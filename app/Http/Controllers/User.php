@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\DB;
 class User extends Controller
 {
 	/**
@@ -16,7 +16,17 @@ class User extends Controller
 		if (auth()->guest()) {
 			abort(403);
 		}
-		return view('dashboard.profile.index');
+		$countNotif = DB::table('visits')
+		->where('status', '=', '0')
+		->count();
+		$dataNotif = DB::table('visits')
+		->where('status', '=', '0')
+		->limit(3)
+		->get();
+		return view('dashboard.profile.index',
+		['countNotif'=>$countNotif,
+			'dataNotif' => $dataNotif
+			]);
 	}
 
 	/**
