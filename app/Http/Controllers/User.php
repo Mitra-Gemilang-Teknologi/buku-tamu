@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+
 class User extends Controller
 {
 	/**
@@ -79,10 +81,33 @@ class User extends Controller
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
 	 */
-	public function update(Request $request, $id)
-	{
-		//
-	}
+    public function update(Request $Request)
+    {
+		var_dump($Request->id); 
+		var_dump($Request->name); 
+		var_dump($Request->email); 
+		var_dump($Request->id); 
+		die();
+        try {
+            $Data = User::where('id', $Request->name);
+            if(!empty($Request->password)){
+                $Data->update([
+                    'name' => $Request->name,
+                    'email' => $Request->email,
+                    'password' => Hash::make($Request->password),
+                ]);
+            }
+            else{
+                $Data->update([
+                    'name' => $Request->name,
+                    'email' => $Request->email,
+                ]);
+            }
+			return  redirect('/dashboard/profil')->with('success', 'Data Berhasil di Ubah!');
+        } catch (QueryException $e) {
+			return  redirect('/dashboard/profil')->with('success', $e->getMessage());
+        }
+    }
 
 	/**
 	 * Remove the specified resource from storage.

@@ -271,7 +271,7 @@
                                                 <label>Kecamatan / Kota</label>
                                                 <div class="styled-select clearfix">
                                                     <select class="wide form-control " name="visitor_disctrict"
-                                                        id="kecamatan">
+                                                        id="kecamatan" required>
                                                         <option value="">== Pilih Kecamatan ==</option>
                                                         @foreach ($kecamatan as $id => $name)
                                                             <option value="{{ $id }}">{{ $name }}
@@ -284,7 +284,7 @@
                                             <div class="form-group">
                                                 <label>Desa / Kelurahan</label>
                                                 <div class="styled-select clearfix">
-                                                    <select class="form-control" name="visitor_village" id="desa">
+                                                    <select class="form-control" name="visitor_village" id="desa" required>
 
                                                     </select>
                                                 </div>
