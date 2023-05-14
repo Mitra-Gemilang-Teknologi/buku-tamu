@@ -49,33 +49,36 @@
                         <!-- /social -->
 
                         <div>
-                            <div class="container-fluid">
-                                <div class="row d-flex justify-content-between">
-                                  <div class="col-sm-4 mt-2">
+                            <!-- <div class="container-fluid"> -->
+                                <div class="row d-flex justify-content-between" style="margin-bottom: 1em;">
+                                  <div class="col-md-2 mt-2 mb-3">
                                     <a href="/"style="background-color: #5C007A !important; color:#F7F7F7; " class="btn btn-default roundedv2"> BERANDA</a>
                                   </div>
-                                  <div class="col-sm-4 mt-2">
-                                    <a href="/list/buku-tamu"style="background-color: #5C007A !important; color:#F7F7F7 " class="btn btn-default roundedv2">DAFTAR TAMU</a>
+                                  <div class="col-sm-3 mt-2 mb-3">
+                                    <a href="/list/buku-tamu" style="background-color: #5C007A !important; color:#F7F7F7 " class="btn btn-default roundedv2">DAFTAR TAMU</a>
                                   </div>
-                                  <div class="col-sm-4 mt-2">
-                                    <a href="/statistik/buku-tamu"style="background-color: #5C007A !important; color:#F7F7F7 " class="btn btn-default roundedv2">STATISTIK</a>
+                                  <div class="col-sm-2 mt-2 mb-3">
+                                    <a href="/statistik/buku-tamu" style="background-color: #5C007A !important; color:#F7F7F7 " class="btn btn-default roundedv2">STATISTIK</a>
+                                  </div>
+                                  <div class="col-sm-2 mt-2 mb-3">
+                                  <a href="/login" style="background-color: #5C007A !important; color:#F7F7F7 " class="btn btn-default roundedv2">LOGIN</a>
                                   </div>
 
                                 </div>
-                                <div class="row d-flex justify-content-between mt-2">
+                                <!-- <div class="row d-flex justify-content-between mt-2">
                                     <div class="col-sm-4">
 
                                     </div>
                                     <div class="col-sm-3">
-                                        <a href="/login" style="background-color: #5C007A !important; color:#F7F7F7 " class="btn btn-default roundedv2">LOGIN</a>
+                                        
                                       </div>
                                     <div class="col-sm-4">
 
                                     </div>
 
-                                  </div>
+                                  </div> -->
 
-                              </div>
+                              <!-- </div> -->
 
 													{{-- <div class="container">
 														<div class="row">

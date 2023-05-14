@@ -304,44 +304,77 @@ class DashboardController extends Controller
 	{
 		switch ($request["param"]) {
 			case "1":
-				$where = 'MONTH(created_at) BETWEEN 1 AND 3';
+				$where = 'MONTH(c.visit_time) BETWEEN 1 AND 3';
+				$whereSurveyor = 'MONTH(a.visit_time) BETWEEN 1 AND 3';
 				$info = 'Periode Survey Bulan Januari - Maret';
 				break;
 			case "2":
-				$where = 'MONTH(created_at) BETWEEN 4 AND 6';
+				$where = 'MONTH(c.visit_time) BETWEEN 4 AND 6';
+				$whereSurveyor = 'MONTH(a.visit_time) BETWEEN 4 AND 6';
 				$info = 'Periode Survey Bulan April - Juni';
 				break;
 			case "3":
-				$where = 'MONTH(created_at) BETWEEN 7 AND 9';
+				$where = 'MONTH(c.visit_time) BETWEEN 7 AND 9';
+				$whereSurveyor = 'MONTH(a.visit_time) BETWEEN 7 AND 9';
 				$info = 'Periode Survey Bulan Juli - September';
 				break;
 			case "4":
-				$where = 'MONTH(created_at) BETWEEN 9 AND 12';
+				$where = 'MONTH(c.visit_time) BETWEEN 9 AND 12';
+				$whereSurveyor = 'MONTH(a.visit_time) BETWEEN 9 AND 12';
 				$info = 'Periode Survey Bulan Oktober - Desember';
 				break;
 			default:
-				$where = 'MONTH(created_at) BETWEEN 1 AND 3';
+				$where = 'MONTH(c.visit_time) BETWEEN 1 AND 3';
+				$whereSurveyor = 'MONTH(a.visit_time) BETWEEN 1 AND 3';
 				$info = 'Periode Survey Bulan Januari - Maret';
 		}
-		$answer1 = DB::select('SELECT (SUM(id_answer_option)/COUNT(*)) * 0.1 as answer FROM survey_result WHERE id_question="1"
+		$answer1 = DB::select('SELECT (SUM(a.id_answer_option)/COUNT(*)) * 0.1 as answer 
+		FROM survey_result as a 
+		LEFT JOIN surveyor as b on a.id_surveyor=b.id
+		LEFT JOIN visits as c on b.surveyor_name=c.visitor_name WHERE id_question="1"
 		AND ' . $where . '');
-		$answer2 = DB::select('SELECT (SUM(id_answer_option)/COUNT(*)) * 0.1 as answer FROM survey_result WHERE id_question="2"
+		$answer2 = DB::select('SELECT (SUM(a.id_answer_option)/COUNT(*)) * 0.1 as answer 
+		FROM survey_result as a 
+		LEFT JOIN surveyor as b on a.id_surveyor=b.id
+		LEFT JOIN visits as c on b.surveyor_name=c.visitor_name WHERE id_question="2"
 		AND ' . $where . '');
-		$answer3 = DB::select('SELECT (SUM(id_answer_option)/COUNT(*)) * 0.1 as answer FROM survey_result WHERE id_question="3"
+		$answer3 = DB::select('SELECT (SUM(a.id_answer_option)/COUNT(*)) * 0.1 as answer 
+		FROM survey_result as a 
+		LEFT JOIN surveyor as b on a.id_surveyor=b.id
+		LEFT JOIN visits as c on b.surveyor_name=c.visitor_name WHERE id_question="3"
 		AND ' . $where . '');
-		$answer4 = DB::select('SELECT (SUM(id_answer_option)/COUNT(*)) * 0.1 as answer FROM survey_result WHERE id_question="4"
+		$answer4 = DB::select('SELECT (SUM(a.id_answer_option)/COUNT(*)) * 0.1 as answer 
+		FROM survey_result as a 
+		LEFT JOIN surveyor as b on a.id_surveyor=b.id
+		LEFT JOIN visits as c on b.surveyor_name=c.visitor_name WHERE id_question="4"
 		AND ' . $where . '');
-		$answer5 = DB::select('SELECT (SUM(id_answer_option)/COUNT(*)) * 0.1 as answer FROM survey_result WHERE id_question="5"
+		$answer5 = DB::select('SELECT (SUM(a.id_answer_option)/COUNT(*)) * 0.1 as answer 
+		FROM survey_result as a 
+		LEFT JOIN surveyor as b on a.id_surveyor=b.id
+		LEFT JOIN visits as c on b.surveyor_name=c.visitor_name WHERE id_question="5"
 		AND ' . $where . '');
-		$answer6 = DB::select('SELECT (SUM(id_answer_option)/COUNT(*)) * 0.1 as answer FROM survey_result WHERE id_question="6"
+		$answer6 = DB::select('SELECT (SUM(a.id_answer_option)/COUNT(*)) * 0.1 as answer 
+		FROM survey_result as a 
+		LEFT JOIN surveyor as b on a.id_surveyor=b.id
+		LEFT JOIN visits as c on b.surveyor_name=c.visitor_name WHERE id_question="6"
 		AND ' . $where . '');
-		$answer7 = DB::select('SELECT (SUM(id_answer_option)/COUNT(*)) * 0.1 as answer FROM survey_result WHERE id_question="7"
+		$answer7 = DB::select('SELECT (SUM(a.id_answer_option)/COUNT(*)) * 0.1 as answer 
+		FROM survey_result as a 
+		LEFT JOIN surveyor as b on a.id_surveyor=b.id
+		LEFT JOIN visits as c on b.surveyor_name=c.visitor_name WHERE id_question="7"
 		AND ' . $where . '');
-		$answer8 = DB::select('SELECT (SUM(id_answer_option)/COUNT(*)) * 0.1 as answer FROM survey_result WHERE id_question="8"
+		$answer8 = DB::select('SELECT (SUM(a.id_answer_option)/COUNT(*)) * 0.1 as answer 
+		FROM survey_result as a 
+		LEFT JOIN surveyor as b on a.id_surveyor=b.id
+		LEFT JOIN visits as c on b.surveyor_name=c.visitor_name WHERE id_question="8"
 		AND ' . $where . '');
-		$answer9 = DB::select('SELECT (SUM(id_answer_option)/COUNT(*)) * 0.1 as answer FROM survey_result WHERE id_question="9"
+		$answer9 = DB::select('SELECT (SUM(a.id_answer_option)/COUNT(*)) * 0.1 as answer 
+		FROM survey_result as a 
+		LEFT JOIN surveyor as b on a.id_surveyor=b.id
+		LEFT JOIN visits as c on b.surveyor_name=c.visitor_name WHERE id_question="9"
 		AND ' . $where . '');
-		$totalResponden = DB::select('SELECT COUNT(*) as total FROM surveyor WHERE ' . $where . '');
+		$totalResponden = DB::select('SELECT COUNT(*) as total FROM visits as a 
+		LEFT JOIN surveyor as b on a.visitor_name=b.surveyor_name WHERE ' . $whereSurveyor . '');
 		return response()->json([
 			'answer' => ($answer1[0]->answer + $answer2[0]->answer + $answer3[0]->answer +  $answer4[0]->answer + $answer5[0]->answer + $answer6[0]->answer + $answer7[0]->answer + $answer8[0]->answer + $answer9[0]->answer) * 25,
 			'total_responden' => $totalResponden,
