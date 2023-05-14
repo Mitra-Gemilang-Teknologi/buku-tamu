@@ -124,7 +124,7 @@
 
                         @foreach ($Question as $Question)
                         <div class="step">
-                            <div class="row" style="align-items: end !important;">
+                            <div class="row" style="align-items: end !important;margin-left:20px;">
                                 <div class="col-md-12 mb-3">
                                     <h3>{{$Question->question_description}}</h3>
                                 </div>
@@ -177,7 +177,7 @@
 
                     <div id="bottom-wizard">
                         <div class="row">
-                            <div class="col-4" style="text-align: left !important;">9 Steps</div>
+                            <div class="col-4" style="text-align: left !important;margin-left:20px">9 Steps</div>
                             <div class="col-8">
                                 <button type="button" name="backward" class="backward mb-2">Kembali</button>
                                 <button type="button" name="forward" class="forward mb-2">Lanjut</button>

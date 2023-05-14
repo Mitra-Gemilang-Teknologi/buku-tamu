@@ -266,7 +266,7 @@
                                     <div class="row" id="daerahCiamis" style="align-items: end !important;">
 
 
-                                        <div class="col-md-12">
+                                        <div class="col-md-12"style="margin-left:20px">
                                             <div class="form-group">
                                                 <label>Kecamatan / Kota</label>
                                                 <div class="styled-select clearfix">
@@ -346,7 +346,7 @@
 
                             <div id="bottom-wizard">
                                 <div class="row">
-                                    <div class="col-4" style="text-align: left !important;">3 Steps</div>
+                                    <div class="col-4" style="margin-left:30px!important;text-align: left !important;">3 Steps</div>
                                     <div class="col-8">
                                         <button type="button" name="backward" class="backward mb-2">Kembali</button>
                                         <button type="button" name="forward" class="forward mb-2">Lanjut</button>
