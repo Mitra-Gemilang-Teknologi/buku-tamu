@@ -562,6 +562,7 @@ input#website {
 
 h3.main_question {
   margin: 0 0 20px 0;
+	margin-left: 50px;
   padding: 0;
   font-weight: 500;
   font-size: 18px;
@@ -1197,6 +1198,7 @@ span.error:after {
   border-radius: 3px;
   font-size: 14px;
   font-size: 0.875rem;
+	margin-left: 30px;
   height: calc(2.55rem + 2px);
 }
 .form-control:focus {
@@ -1363,7 +1365,9 @@ span.error:after {
   font-size: 14px;
   font-size: 1.2rem;
   padding-left: 30px;
+	margin-left: 30px!important;
   line-height: 1.3;
+	margin-left: 50px;
   margin-bottom: 10px;
   cursor: pointer;
   -webkit-user-select: none;

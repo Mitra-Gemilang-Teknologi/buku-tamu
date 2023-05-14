@@ -123,9 +123,6 @@ class BukuTamuController extends Controller
 	public function store(Request $request)
 	{
 
-
-
-
 		try {
 			$validateData = $request->validate([
 				'id_service_type' => '',
@@ -178,11 +175,11 @@ class BukuTamuController extends Controller
 				// session($validateData);
 				return redirect('/')->with('SurveyAlert', 'Created successfully!');
 			} catch (\Throwable $th) {
-				dd($th);
+
 				return redirect('/')->with('error', 'Error during the creation!');
 			}
 		} catch (\Throwable $th) {
-			dd($th);
+
 			return redirect('/')->with('error', 'Error during the creation!');
 		}
 	}

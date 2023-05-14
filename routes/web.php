@@ -63,13 +63,15 @@ Route::get('/statistik/skm', [StatistikSKMController::class, 'index']);
 
 // Login
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
-
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/dashboard/logout', [LoginController::class, 'logout']);
 
 // Register
 Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store']);
+
+// User
+Route::post('/user/update', [User::class, 'update']);
 
 // Dashboard
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
