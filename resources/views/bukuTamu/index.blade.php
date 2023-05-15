@@ -182,7 +182,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <input type="date" readonly value="{{now()->format('Y-m-d')}}" class="form-control  @error('visit_time') is-invalid @enderror"
+                                    <input type="date"  value="{{now()->format('Y-m-d')}}" class="form-control  @error('visit_time') is-invalid @enderror"
                                         id="visit_time" name="visit_time" required autofocus
                                         value="{{ old('visit_time') }}">
                                     @error('visit_time')
