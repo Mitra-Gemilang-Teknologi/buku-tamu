@@ -36,6 +36,7 @@
                                 <thead>
                                     <tr>
                                         <th></th>
+                                        <th>Action</th>
                                         <th>Status</th>
                                         <th>Tanggal</th>
                                         <th width="50%">Jenis Pelayanan</th>
@@ -56,6 +57,9 @@
                                     @foreach ($Visit as $kunjungan)
                                     <tr>
                                         <td></td>
+                                        <td>
+                                            <a class="hapus" class="btn btn-danger" href="/dashboard/bukutamu/delete/{{ $kunjungan->id }}"><button type="button" class="btn btn-sm btn-danger" onclick="return confirm('Apakah Yakin Ingin Menghapus Data?')">Hapus</button></a>
+                                        </td>
                                         <td>
                                             @if ($kunjungan->status == 0)
                                             <form method="POST" action="/bukutamu/update" class="mb-5" enctype="multipart/form-data">

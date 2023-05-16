@@ -83,6 +83,7 @@ Route::get('/data/kepuasan/skm', [DashboardController::class, 'get_kepuasan_skm'
 Route::get('/data/pendidikan', [DashboardController::class, 'get_data_pendidikan'])->name('data.pendidikan');
 Route::get('/data/pendidikan/skm', [DashboardController::class, 'get_data_pendidikan_skm'])->name('data.pendidikan.skm');
 Route::get('/data/kunjungan', [DashboardController::class, 'get_data_kunjungan'])->name('data.kunjungan');
+Route::get('/dashboard/bukutamu/delete/{id}', [DashboardTamuController::class, 'delete'])->middleware('auth'); // TEST
 Route::get('/data/kunjungan/layanan', [DashboardController::class, 'get_data_kunjungan_layanan'])->name('data.kunjungan.layanan');
 Route::get('/data/kunjungan/mingguan', [DashboardController::class, 'get_data_kunjungan_mingguan'])->name('data.kunjungan.mingguan');
 Route::get('/data/kunjungan/bulanan', [DashboardController::class, 'get_data_kunjungan_bulanan'])->name('data.kunjungan.bulanan');
@@ -122,4 +123,5 @@ Route::get('villages', [DependentDropdownController::class, 'villages'])->name('
 
 //Kepuasan
 Route::resource('/addPoint', SatisfactionController::class);
+
 

@@ -135,4 +135,11 @@ class DashboardTamuController extends Controller
 	{
 		//
 	}
+
+	public function delete($id){
+        DB::table('visits')->where('id', $id)->delete();
+        DB::table('visitor_has_services')->where('visitor_id', $id)->delete();
+        
+        return  redirect('/dashboard/bukutamu')->with('success', 'Data Berhasil di Hapus!');	
+	}
 }
