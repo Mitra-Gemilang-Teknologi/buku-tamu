@@ -405,6 +405,8 @@
 								$('#thisCiamis').prop('checked',false)
                 $('#JuduldaerahCiamis').hide();
                 $('#luarCiamis').show();
+                $('#kecamatan').prop('required',false)
+                $('#desa').prop('required',false)
             });
             $('#thisCiamis').on('click', function() {
                 $('#daerahCiamis').show();

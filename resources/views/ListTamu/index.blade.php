@@ -58,6 +58,8 @@
                                             Rt {{ $kunjungan->visitor_neighborhood_association }} /Rw
                                             {{ $kunjungan->visitor_citizen_association }} Desa
                                             {{ $kunjungan->village->name }} Kec. {{ $kunjungan->district->name }}
+                                        @else
+                                            {{ $kunjungan->visitor_address }}
                                         @endif
                                     </td>
                                     <td>
