@@ -74,21 +74,22 @@
                                         </td>
                                         <td>{{ date("d-m-Y", strtotime($kunjungan->visit_time));  }}</td>
                                         </td>
-                                        <td>
-                                            @if(count($kunjungan->subServices) > 1)
-                                            @foreach ($kunjungan->subServices as $subServices)
-                                            <li class="ml-2"> {{ $subServices->subLayanan->sub_service_name }}</li>
-                                            @endforeach
-                                            @else
-																						@if(count($kunjungan->service) == 0)
-																						{{ $kunjungan->jenis_pelayanan }}
-																						@else
-                                            @foreach ($kunjungan->service as $service)
-                                            <li class="ml-2"> {{ $service->layanan->service_name }}</li>
-                                            @endforeach
+																				<td>
+																					@if(count($kunjungan->subServices) > 1)
+																							@foreach ($kunjungan->subServices as $subServices)
+																									<li class="ml-2">{{ $subServices->subLayanan->sub_service_name }}</li>
+																							@endforeach
+																					@else
+																							@if(count($kunjungan->service) == 0)
+																									{{ $kunjungan->jenis_pelayanan }}
+																							@else
+																									@foreach ($kunjungan->service as $service)
+																											<li class="ml-2">{{ $service->layanan->service_name }}</li>
+																									@endforeach
+																							@endif
+																					@endif
+																			</td>
 
-                                            @endif
-                                        </td>
                                         <td>{{ $kunjungan->visitor_name }}</td>
                                         <td>{{ $kunjungan->visitor_age }}</td>
                                         <td>{{ $kunjungan->visitor_education }}</td>
