@@ -80,9 +80,10 @@
                                             <li class="ml-2"> {{ $subServices->subLayanan->sub_service_name }}</li>
                                             @endforeach
                                             @else
-                                            @foreach ($kunjungan->service as $service)
+																						{{count($kunjungan->service)}}
+                                            {{-- @foreach ($kunjungan->service as $service)
                                             <li class="ml-2"> {{ $service->layanan->service_name }}</li>
-                                            @endforeach
+                                            @endforeach --}}
 
                                             @endif
                                         </td>
