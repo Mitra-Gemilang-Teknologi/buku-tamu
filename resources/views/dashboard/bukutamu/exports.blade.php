@@ -64,9 +64,11 @@
                 <td>{{ $visit->visitor_age }}</td>
                 <td>{{ $visit->visitor_education }}</td>
                 <td>{{ $visit->visitor_gender }}</td>
-                <td>{{ $visit->visitor_disctrict !== null ? $visit->district->name : '' }}
+                {{-- <td>{{ $visit->visitor_disctrict !== null ? $visit->district->name : '' }}
                 </td>
-                <td>{{ $visit->visitor_village !== null ? $visit->village->name : '' }}
+                <td>{{ $visit->visitor_village !== null ? $visit->village->name : '' }} --}}
+									<td>{{ $kunjungan->visitor_disctrict !== null ? $kunjungan->district->name : $kunjungan->kecamatan}}</td>
+																				<td>{{ $kunjungan->visitor_village !== null ? $kunjungan->village->name :  $kunjungan->desa}}</td>
                 </td>
                 <td>{{ $visit->visitor_neighborhood_association }}</td>
                 <td>{{ $visit->visitor_citizen_association }}</td>
