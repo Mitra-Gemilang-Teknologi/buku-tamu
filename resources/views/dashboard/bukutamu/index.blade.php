@@ -75,21 +75,21 @@
                                         <td>{{ date("d-m-Y", strtotime($kunjungan->visit_time));  }}</td>
                                         </td>
                                         <td>
-                                            @if(count($visit->subServices) > 1)
-																							@foreach ($visit->subServices as $subServices)
+                                            @if(count($Visit->subServices) > 1)
+																							@foreach ($Visit->subServices as $subServices)
 																							<li class="ml-2"> {{ $subServices->subLayanan->sub_service_name }}</li>
 																							@endforeach
 																							@else
-																							@if (count($visit->service) > 1)
-																							@foreach ($visit->service as $service)
+																							@if (count($Visit->service) > 1)
+																							@foreach ($Visit->service as $service)
 																							<li class="ml-2"> {{ $service->layanan->service_name }}</li>
 																							@endforeach
 																							@else
-																							{{ $visit->jenis_pelayanan }}
+																							{{ $Visit->jenis_pelayanan}}
 																							@endif
 																							@endif
                                         </td>
-                                        <td>{{ $kunjungan->visitor_name }}</td>
+                                        <td>{{ $kunjungan->visitor_name }}p</td>
                                         <td>{{ $kunjungan->visitor_age }}</td>
                                         <td>{{ $kunjungan->visitor_education }}</td>
                                         <td>{{ $kunjungan->visitor_gender }}</td>
