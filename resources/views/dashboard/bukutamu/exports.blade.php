@@ -49,18 +49,18 @@
 
 								<td>
 									@if(count($visit->subServices) == 0)
-											{{ $visit->jenis_layanan }}
+									{{ $visit->jenis_layanan }}
 									@elseif(count($visit->subServices) > 1)
-											@foreach ($visit->subServices as $subService)
-													<li class="ml-2">{{ $subService->subLayanan->sub_service_name }}</li>
-											@endforeach
+									@foreach ($visit->subServices as $subServices)
+									<li class="ml-2"> {{ $subServices->subLayanan->sub_service_name }}</li>
+									@endforeach
 									@else
-											@foreach ($visit->service as $service)
-													<li class="ml-2">{{ $service->layanan->service_name }}</li>
-											@endforeach
-									@endif
-							</td>
+									@foreach ($visit->service as $service)
+									<li class="ml-2"> {{ $service->layanan->service_name }}</li>
+									@endforeach
 
+									@endif
+								</td>
 
                 <td>{{ $visit->visitor_name }}</td>
                 <td>{{ $visit->visitor_age }}</td>
