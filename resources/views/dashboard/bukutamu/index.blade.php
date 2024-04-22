@@ -90,8 +90,10 @@
                                         <td>{{ $kunjungan->visitor_age }}</td>
                                         <td>{{ $kunjungan->visitor_education }}</td>
                                         <td>{{ $kunjungan->visitor_gender }}</td>
-                                        <td>{{ $kunjungan->visitor_disctrict !== null ? $kunjungan->district->name : '' }}</td>
-                                        <td>{{ $kunjungan->visitor_village !== null ? $kunjungan->village->name : '' }}</td>
+                                        {{-- <td>{{ $kunjungan->visitor_disctrict !== null ? $kunjungan->district->name : '' }}</td>
+                                        <td>{{ $kunjungan->visitor_village !== null ? $kunjungan->village->name : '' }}</td> --}}
+																				<td>{{ $kunjungan->visitor_disctrict !== null ? $kunjungan->district->name : $kunjungan->kecamatan}}</td>
+																				<td>{{ $kunjungan->visitor_village !== null ? $kunjungan->village->name :  $kunjungan->desa}}</td>
                                         <td>{{ $kunjungan->visitor_neighborhood_association }}</td>
                                         <td>{{ $kunjungan->visitor_citizen_association }}</td>
                                         <td>{{ $kunjungan->visit_purpose }}</td>
