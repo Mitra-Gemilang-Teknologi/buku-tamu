@@ -1,6 +1,7 @@
 @extends('dashboard.layouts.main')
 
 @section('container')
+@dd($Visit);
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
