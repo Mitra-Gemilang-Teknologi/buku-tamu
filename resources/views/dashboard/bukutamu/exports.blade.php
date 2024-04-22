@@ -48,9 +48,7 @@
                 <td>{{ $visit->visit_time }}</td>
 
 								<td>
-									@if(count($visit->subServices) == 0)
-									{{ $visit->jenis_layanan }}
-									@elseif(count($visit->subServices) > 1)
+									@if(count($visit->subServices) > 1)
 									@foreach ($visit->subServices as $subServices)
 									<li class="ml-2"> {{ $subServices->subLayanan->sub_service_name }}</li>
 									@endforeach
@@ -70,7 +68,7 @@
                 </td>
                 <td>{{ $visit->visitor_village !== null ? $visit->village->name : '' }} --}}
 									<td>{{ $kunjungan->visitor_disctrict !== null ? $kunjungan->district->name : $kunjungan->kecamatan}}</td>
-																				<td>{{ $kunjungan->visitor_village !== null ? $kunjungan->village->name :  $kunjungan->desa}}</td>
+									<td>{{ $kunjungan->visitor_village !== null ? $kunjungan->village->name :  $kunjungan->desa}}</td>
                 </td>
                 <td>{{ $visit->visitor_neighborhood_association }}</td>
                 <td>{{ $visit->visitor_citizen_association }}</td>
