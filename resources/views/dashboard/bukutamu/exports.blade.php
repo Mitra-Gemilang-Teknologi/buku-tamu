@@ -53,13 +53,14 @@
 									<li class="ml-2"> {{ $subServices->subLayanan->sub_service_name }}</li>
 									@endforeach
 									@else
-									@if (count($visit->service) > 1)
+									{{-- @if (count($visit->service) > 1)
 									@foreach ($visit->service as $service)
 									<li class="ml-2"> {{ $service->layanan->service_name }}</li>
 									@endforeach
 									@else
 									{{ $visit->jenis_pelayanan }}
-									@endif
+									@endif --}}
+									{{'dani'}}
 
 
 									@endif
