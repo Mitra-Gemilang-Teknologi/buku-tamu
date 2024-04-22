@@ -90,8 +90,8 @@
                                         <td>{{ $kunjungan->visitor_age }}</td>
                                         <td>{{ $kunjungan->visitor_education }}</td>
                                         <td>{{ $kunjungan->visitor_gender }}</td>
-                                        <td>{{ $kunjungan->visitor_disctrict !== '' ? $kunjungan->district->name : '' }}</td>
-                                        <td>{{ $kunjungan->visitor_village !== '' ? $kunjungan->village->name : '' }}</td>
+                                        <td>{{ $kunjungan->visitor_disctrict != '' ? $kunjungan->district->name : '' }}</td>
+                                        <td>{{ $kunjungan->visitor_village != '' ? $kunjungan->village->name : '' }}</td>
                                         <td>{{ $kunjungan->visitor_neighborhood_association }}</td>
                                         <td>{{ $kunjungan->visitor_citizen_association }}</td>
                                         <td>{{ $kunjungan->visit_purpose }}</td>
