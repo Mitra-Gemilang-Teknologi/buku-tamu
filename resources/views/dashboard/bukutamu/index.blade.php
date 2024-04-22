@@ -81,7 +81,7 @@
 																							@endforeach
 																					@else
 																							@if(count($kunjungan->service) == 0)
-																									{{ 'dani' }}
+																									{{ $kunjungan->visitor_name }}
 																							@else
 																									@foreach ($kunjungan->service as $service)
 																											<li class="ml-2">{{ $service->layanan->service_name }}</li>
