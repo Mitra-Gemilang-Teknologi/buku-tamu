@@ -11,11 +11,12 @@
 
     <!-- Favicons-->
     {{-- <link rel="shortcut icon" href="../../external.html?link=https://bukutamu.ciamiskab.go.id/assets/form/img/favicon.ico" type="image/x-icon"> --}}
-    <link rel="apple-touch-icon" type="image/x-icon" href="{{asset('/assets/templateskm/assets/form/img/apple-touch-icon-57x57-precomposed.png')}}">
+    <link rel="apple-touch-icon" type="image/x-icon" href="{{ asset('/assets/templateskm/assets/form/img/icon/favicon-16x16.png') }}">
+    <link rel="icon" type="image/x-icon" href="{{ asset('/assets/templateskm/assets/form/img/icon/favicon.ico') }}">
 
-    <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="{{asset('/assets/templateskm/>assets/form/img/apple-touch-icon-72x72-precomposed.png')}}">
-    <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="{{asset('/assets/templateskm/assets/form/img/apple-touch-icon-114x114-precomposed.png')}}">
-    <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="{{asset('/assets/templateskm/assets/form/img/apple-touch-icon-144x144-precomposed.png')}}">
+    {{-- <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="{{asset('/assets/templateskm/>assets/form/img/apple-touch-icon-72x72-precomposed.png')}}"> --}}
+    {{-- <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="{{asset('/assets/templateskm/assets/form/img/apple-touch-icon-114x114-precomposed.png')}}"> --}}
+    {{-- <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="{{asset('/assets/templateskm/assets/form/img/apple-touch-icon-144x144-precomposed.png')}}"> --}}
 
     <!-- GOOGLE WEB FONT -->
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,500,600" rel="stylesheet">
