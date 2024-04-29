@@ -51,7 +51,6 @@ class DashboardTamuController extends Controller
 	}
 	public function export_excel(Request $request)
 	{
-
 		$start = $request->awal;
 		$end = $request->akhir;
 

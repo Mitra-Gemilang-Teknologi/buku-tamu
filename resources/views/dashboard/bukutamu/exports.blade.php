@@ -43,42 +43,41 @@
         </tr>
     </thead>
     <tbody>
-        @foreach ($visits as $visit)
-            <tr>
-                <td>{{ $visit->visit_time }}</td>
+      @foreach ($visits as $visit)
+          <tr>
+              <td>{{ $visit->visit_time }}</td>
 
-								<td>
-									@if(count($kunjungan->subServices) > 1)
-											@foreach ($kunjungan->subServices as $subServices)
-													<li class="ml-2">{{ $subServices->subLayanan->sub_service_name }}</li>
-											@endforeach
-									@else
-											@if(count($kunjungan->service) == 0)
-													{{ $kunjungan->jenis_pelayanan }}
-											@else
-													@foreach ($kunjungan->service as $service)
-															<li class="ml-2">{{ $service->layanan->service_name }}</li>
-													@endforeach
-											@endif
-									@endif
-							</td>
+              <td>
+                @if(count($visit->subServices) > 1)
+                    @foreach ($visit->subServices as $subServices)
+                        <li class="ml-2">{{ $subServices->subLayanan->sub_service_name }}</li>
+                    @endforeach
+                @else
+                    @if(count($visit->service) == 0)
+                        {{ $visit->jenis_pelayanan }}
+                    @else
+                        @foreach ($visit->service as $service)
+                            <li class="ml-2">{{ $service->layanan->service_name }}</li>
+                        @endforeach
+                    @endif
+                @endif
+            </td>
 
-                <td>{{ $visit->visitor_name }}</td>
-                <td>{{ $visit->visitor_age }}</td>
-                <td>{{ $visit->visitor_education }}</td>
-                <td>{{ $visit->visitor_gender }}</td>
-                {{-- <td>{{ $visit->visitor_disctrict !== null ? $visit->district->name : '' }}
-                </td>
-                <td>{{ $visit->visitor_village !== null ? $visit->village->name : '' }} --}}
-									<td>{{ $kunjungan->visitor_disctrict !== null ? $kunjungan->district->name : $kunjungan->kecamatan}}</td>
-									<td>{{ $kunjungan->visitor_village !== null ? $kunjungan->village->name :  $kunjungan->desa}}</td>
-                </td>
-                <td>{{ $visit->visitor_neighborhood_association }}</td>
-                <td>{{ $visit->visitor_citizen_association }}</td>
-                <td>{{ $visit->visit_purpose }}</td>
-                <td>{{ $visit->visitor_address }}</td>
-                <td>{{ $visit->visitor_description }}</td>
-            </tr>
-        @endforeach
-    </tbody>
+              <td>{{ $visit->visitor_name }}</td>
+              <td>{{ $visit->visitor_age }}</td>
+              <td>{{ $visit->visitor_education }}</td>
+              <td>{{ $visit->visitor_gender }}</td>
+              <td>{{ $visit->visitor_disctrict !== null ? $visit->district->name : '' }}</td>
+              <td>{{ $visit->visitor_village !== null ? $visit->village->name : '' }}
+                {{-- <td>{{ $kunjungan->visitor_disctrict !== null ? $kunjungan->district->name : $kunjungan->kecamatan}}</td>
+                <td>{{ $kunjungan->visitor_village !== null ? $kunjungan->village->name :  $kunjungan->desa}}</td> --}}
+              </td>
+              <td>{{ $visit->visitor_neighborhood_association }}</td>
+              <td>{{ $visit->visitor_citizen_association }}</td>
+              <td>{{ $visit->visit_purpose }}</td>
+              <td>{{ $visit->visitor_address }}</td>
+              <td>{{ $visit->visitor_description }}</td>
+          </tr>
+      @endforeach
+  </tbody>
 </table>

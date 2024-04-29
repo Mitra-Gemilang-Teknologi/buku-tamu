@@ -26,7 +26,6 @@ class KunjunganExport implements FromView
 
 	public function view(): View
 	{
-
 		return view('dashboard.bukutamu.exports', [
 			'start' => $this->start,
 			'end' => $this->end,
