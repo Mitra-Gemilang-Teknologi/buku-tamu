@@ -104,3 +104,12 @@
         <!-- /.col -->
     </div>
 @endsection
+@push('scripts')
+<script>
+    $(document).ready(function() {
+        $('#example2').DataTable({
+            "order": [[2, "desc"]]
+        });
+    });
+</script>
+@endpush
