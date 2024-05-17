@@ -106,10 +106,15 @@
 @endsection
 @push('scripts')
 <script>
-    $(document).ready(function() {
-        $('#example2').DataTable({
-            "order": [[2, "desc"]]
-        });
-    });
+	$(document).ready(function() {
+			// Check if DataTable is already initialized and destroy it before reinitializing
+			if ($.fn.DataTable.isDataTable('#example2')) {
+					$('#example2').DataTable().destroy();
+			}
+
+			$('#example2').DataTable({
+					"order": [[2, "desc"]]
+			});
+	});
 </script>
 @endpush
