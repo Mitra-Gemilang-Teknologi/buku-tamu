@@ -65,7 +65,7 @@ class BukuTamuController extends Controller
 
 
 		return view('ListTamu.index', [
-			'Visit' => Visit::with('village')->with('district')->orderBy('id','DESC')->get(),
+			'Visit' => Visit::with('village')->with('district')->orderBy('id', 'DESC')->get(),
 			"title" => "List Buku Tamu",
 			"active" => "List Buku Tamu",
 		]);

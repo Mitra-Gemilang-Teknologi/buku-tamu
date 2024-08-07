@@ -18,6 +18,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\InboxController;
 use App\Http\Controllers\User;
 use App\Http\Controllers\DependentDropdownController;
+use App\Http\Controllers\MaintenceController;
 use Illuminate\Support\Facades\DB;
 
 /*
@@ -31,7 +32,8 @@ use Illuminate\Support\Facades\DB;
 |
 */
 
-Route::get('/', [BukuTamuController::class, 'index']);
+// Route::get('/', [BukuTamuController::class, 'index']);
+Route::get('/', [MaintenceController::class, 'index']);
 
 Route::get('/posts', [PostController::class, 'index']);
 Route::get('/skm', [SkmController::class, 'index']);
@@ -123,5 +125,3 @@ Route::get('villages', [DependentDropdownController::class, 'villages'])->name('
 
 //Kepuasan
 Route::resource('/addPoint', SatisfactionController::class);
-
-
