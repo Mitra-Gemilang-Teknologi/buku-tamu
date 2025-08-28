@@ -32,8 +32,8 @@ use Illuminate\Support\Facades\DB;
 |
 */
 
-// Route::get('/', [BukuTamuController::class, 'index']);
-Route::get('/', [MaintenceController::class, 'index']);
+Route::get('/', [BukuTamuController::class, 'index']);
+// Route::get('/', [MaintenceController::class, 'index']);
 
 Route::get('/posts', [PostController::class, 'index']);
 Route::get('/skm', [SkmController::class, 'index']);
