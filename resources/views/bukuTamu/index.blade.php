@@ -449,20 +449,20 @@
 
 
 
+	const routeCities = @json(route('cities'));
+	const routeDistricts = @json(route('districts'));
+	const routeVillages = @json(route('villages'));
+
 	$(function() {
 		$('#provinsi').on('change', function() {
-
-			onChangeSelect('{{ route('
-				cities ') }}', $(this).val(), 'kota');
+			onChangeSelect(routeCities, $(this).val(), 'kota');
 		});
 		$('#kota').on('change', function() {
-			onChangeSelect('{{ route('
-				districts ') }}', $(this).val(), 'kecamatan');
-		})
+			onChangeSelect(routeDistricts, $(this).val(), 'kecamatan');
+		});
 		$('#kecamatan').on('change', function() {
-			onChangeSelect('{{ route('
-				villages ') }}', $(this).val(), 'desa');
-		})
+			onChangeSelect(routeVillages, $(this).val(), 'desa');
+		});
 	});
 
 	//Buat Get SUb Jenis Layanann
