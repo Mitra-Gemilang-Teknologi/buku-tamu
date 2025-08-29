@@ -117,7 +117,6 @@ class SkmController extends Controller
 				return redirect('/kepuasan');
 			} catch (\Throwable $th) {
 
-				dd($th);
 				return redirect('/skm')->with('error', 'Error during the creation!');
 			}
 			//code...
